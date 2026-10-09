@@ -52,7 +52,7 @@ namespace NuclearOptionWiki
                 new ConfigDescription("Opacité du fond de la fiche.", new AcceptableValueRange<float>(0.5f, 1f)));
 
             ExportWeapons = config.Bind("Diagnostic", "Exporter la liste des armes", false,
-                "À l'ouverture du hangar, écrit la liste des armes chargées dans BepInEx/config/NuclearOptionWiki_armes.csv.");
+                "À l'ouverture du hangar, écrit la liste des armes chargées dans BepInEx/config/NuclearOptionWiki_armes_v<version>.csv.");
             DemoSheet = config.Bind("Diagnostic", "Fiche de démonstration", false,
                 "Affiche la fiche de l'AGM-48 dès l'ouverture du hangar (contrôle visuel).");
             VerboseLog = config.Bind("Diagnostic", "Journal détaillé", false,

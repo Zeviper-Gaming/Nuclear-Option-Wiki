@@ -55,7 +55,7 @@ Tu peux aussi éditer `BepInEx/config/zeviper.nuclearoption.wiki.cfg`, par exemp
 | Affichage | Note de portée | Logarithmique | Logarithmique (100 m = 1, 1 000 km = 10) ou Rang (comme la vitesse) |
 | Affichage | Échelle | 1,0 | Taille de la fiche (0,75 à 1,5) |
 | Affichage | Opacité du fond | 0,9 | 0,5 à 1 |
-| Diagnostic | Exporter la liste des armes | non | Écrit `BepInEx/config/NuclearOptionWiki_armes.csv` à l'ouverture du hangar |
+| Diagnostic | Exporter la liste des armes | non | Écrit `BepInEx/config/NuclearOptionWiki_armes_v<version>.csv` à l'ouverture du hangar |
 | Diagnostic | Fiche de démonstration | non | Affiche l'AGM-48 dès l'ouverture du hangar |
 | Diagnostic | Journal détaillé | non | Plus de détails dans le journal |
 

@@ -13,7 +13,7 @@ namespace NuclearOptionWiki
     {
         public const string Guid = "zeviper.nuclearoption.wiki";
         public const string DisplayName = "Nuclear Option Wiki";
-        public const string Version = "0.3.0";
+        public const string Version = "0.3.1";
         public const string DataFileName = "weapons.json";
 
         internal static ManualLogSource Log;
@@ -28,7 +28,7 @@ namespace NuclearOptionWiki
                 Settings = new WikiConfig(Config);
                 Database = LoadDatabase();
                 int applied = LoadoutHooks.ApplyAll(new Harmony(Guid));
-                Log.LogInfo($"[Wiki] chargé v{Version} : {Database?.Count ?? 0} armes, {applied} patch(s) appliqué(s).");
+                Log.LogInfo($"[Wiki] chargé v{Version} : {Database?.Count ?? 0} armes, {applied} patch(s) appliqué(s). DLL : {Info.Location}");
             }
             catch (Exception e)
             {

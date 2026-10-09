@@ -14,7 +14,8 @@ namespace NuclearOptionWiki.Diagnostics
     /// </summary>
     internal static class WeaponDump
     {
-        public const string FileName = "NuclearOptionWiki_armes.csv";
+        // Le nom contient la version du mod : impossible de confondre un export récent avec un ancien.
+        public static string FileName => $"NuclearOptionWiki_armes_v{Plugin.Version}.csv";
         private const string Header = "info_name;weapon_name;short_name;mount_jsonkey;mount_name;missile;bomb;gun;energy;cargo;troops;dans_encyclopedie;" +
                                       "autodirecteur;guidage_laser;vitesse_initiale;vitesse_max;penetration;explosif;cout_par_coup;masse_par_coup;portee_max;cadence_s";
 
@@ -59,7 +60,7 @@ namespace NuclearOptionWiki.Diagnostics
                 sb.Append(Header).Append('\n');
                 foreach (var row in Rows.Values) sb.Append(row).Append('\n');
                 File.WriteAllText(path, sb.ToString(), new UTF8Encoding(false));
-                Plugin.Log.LogInfo($"[Wiki] Liste des armes exportée ({Rows.Count} lignes) : {path}");
+                Plugin.Log.LogInfo($"[Wiki] v{Plugin.Version} : liste des armes exportée ({Rows.Count} lignes) : {path}");
             }
             catch (Exception e)
             {
@@ -86,8 +87,22 @@ namespace NuclearOptionWiki.Diagnostics
                 Flag(info != null && info.cargo),
                 Flag(info != null && info.troops),
                 Flag(inEncyclopedia),
-                Stats(info),
+                SafeStats(info),
             });
+        }
+
+        /// <summary>Une arme dont les stats sont illisibles ne doit pas faire échouer tout l'export.</summary>
+        private static string SafeStats(WeaponInfo info)
+        {
+            try
+            {
+                return Stats(info);
+            }
+            catch (Exception e)
+            {
+                Plugin.Log.LogWarning($"[Wiki] Stats illisibles pour {info?.name} : {e.GetBaseException().Message}");
+                return ";;;;;;;;;";
+            }
         }
 
         /// <summary>Stats de l'arme, pour départager les variantes de même nom (ex. « 57mm Cannon (variante n) »).</summary>
