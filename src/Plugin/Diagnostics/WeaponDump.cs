@@ -15,7 +15,12 @@ namespace NuclearOptionWiki.Diagnostics
     internal static class WeaponDump
     {
         public const string FileName = "NuclearOptionWiki_armes.csv";
-        private const string Header = "info_name;weapon_name;short_name;mount_jsonkey;mount_name;missile;bomb;gun;energy;cargo;troops;dans_encyclopedie";
+        private const string Header = "info_name;weapon_name;short_name;mount_jsonkey;mount_name;missile;bomb;gun;energy;cargo;troops;dans_encyclopedie;" +
+                                      "autodirecteur;guidage_laser;vitesse_initiale;vitesse_max;penetration;explosif;cout_par_coup;masse_par_coup;portee_max;cadence_s";
+
+        private static Type _missileType;
+        private static System.Reflection.MethodInfo _getPierce, _getYield;
+        private static bool _missileResolved;
 
         private static readonly SortedDictionary<string, string> Rows = new SortedDictionary<string, string>(StringComparer.Ordinal);
 
@@ -81,8 +86,55 @@ namespace NuclearOptionWiki.Diagnostics
                 Flag(info != null && info.cargo),
                 Flag(info != null && info.troops),
                 Flag(inEncyclopedia),
+                Stats(info),
             });
         }
+
+        /// <summary>Stats de l'arme, pour départager les variantes de même nom (ex. « 57mm Cannon (variante n) »).</summary>
+        private static string Stats(WeaponInfo info)
+        {
+            if (info == null) return ";;;;;;;;;";
+            string seeker = "", pierce = Num(info.pierceDamage), blast = Num(info.blastDamage), maxSpeed = "";
+            try
+            {
+                var prefab = info.weaponPrefab;
+                if (prefab != null)
+                {
+                    var s = prefab.GetComponent<MissileSeeker>();
+                    if (s != null) seeker = s.GetSeekerType();
+                    ResolveMissile();
+                    var missile = _missileType != null ? prefab.GetComponent(_missileType) : null;
+                    if (missile != null)
+                    {
+                        if (_getPierce != null) pierce = Num(Convert.ToSingle(_getPierce.Invoke(missile, null)));
+                        if (_getYield != null) blast = Num(Convert.ToSingle(_getYield.Invoke(missile, null)));
+                    }
+                }
+                maxSpeed = Num(info.GetMaxSpeed());
+            }
+            catch (Exception e)
+            {
+                Plugin.Log.LogDebug($"[Wiki] Stats incomplètes pour {info.name} : {e.GetBaseException().Message}");
+            }
+            return string.Join(";", new[]
+            {
+                Clean(seeker), Flag(info.laserGuided), Num(info.muzzleVelocity), maxSpeed, pierce, blast,
+                Num(info.costPerRound), Num(info.massPerRound), Num(info.targetRequirements.maxRange), Num(info.fireInterval),
+            });
+        }
+
+        private static void ResolveMissile()
+        {
+            if (_missileResolved) return;
+            _missileResolved = true;
+            _missileType = HarmonyLib.AccessTools.TypeByName("Missile");
+            if (_missileType == null) return;
+            _getPierce = HarmonyLib.AccessTools.Method(_missileType, "GetPierce");
+            _getYield = HarmonyLib.AccessTools.Method(_missileType, "GetYield");
+        }
+
+        private static string Num(float v) =>
+            float.IsNaN(v) || float.IsInfinity(v) ? "" : v.ToString("0.######", System.Globalization.CultureInfo.InvariantCulture);
 
         private static string Clean(string s) =>
             string.IsNullOrEmpty(s) ? "" : s.Replace(';', ',').Replace('\n', ' ').Replace('\r', ' ').Trim();

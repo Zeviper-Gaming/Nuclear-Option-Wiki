@@ -70,7 +70,10 @@ namespace NuclearOptionWiki.Tests
         private static void DatabaseTests(WeaponDatabase db)
         {
             Eq(133, db.Count, "133 armes dans weapons.json");
-            True(db.Find("AGM-48|Jeu de base", null, null) != null, "recherche par clé");
+            string agmKey = KeyOf(db, "AGM-48|Jeu de base");
+            True(agmKey != null && db.Find(agmKey, null, null) != null, "recherche par clé du jeu");
+            True(db.Find("kar_info_SAM_IR1", null, null)?.ExcelKey == "IRM-S1|Jeu de base", "recherche par alias d'asset (version KAR)");
+            True(db.Find("Aryx_Wep_ARM2_Info", null, "ARAD-45")?.ExcelKey == "ARAD-45|Aryx Weaponry Pack", "ARAD-45 Aryx distinguée du jeu de base");
             True(db.Find("inconnu", null, "AGM-48") != null, "recherche par nom unique");
             True(db.Find(null, null, "30mm Autocannon") == null, "nom ambigu (×5) non résolu par le nom");
             True(db.Find("inconnu", "inconnu", "inconnu") == null, "arme absente");
@@ -87,7 +90,7 @@ namespace NuclearOptionWiki.Tests
 
         private static void Agm48Tests(WeaponDatabase db)
         {
-            var record = db.Find("AGM-48|Jeu de base", null, null);
+            var record = db.Find(KeyOf(db, "AGM-48|Jeu de base"), null, null);
             var f = FicheModel.Build(record, "AGM-48", LiveStats.None, RangeNoteMode.Logarithmic);
             Eq("AGM-48", f.Title, "titre");
             Eq("Missile", f.Chip1, "puce type");
@@ -165,6 +168,10 @@ namespace NuclearOptionWiki.Tests
                 }
             }
         }
+
+        /// <summary>Clé (nom d'asset du jeu, ou clé provisoire) de la ligne Excel donnée.</summary>
+        private static string KeyOf(WeaponDatabase db, string excelKey) =>
+            db.All.Where(kv => kv.Value.ExcelKey == excelKey).Select(kv => kv.Key).FirstOrDefault();
 
         private static string Signature(FicheModel f) => string.Join("|", new[]
         {

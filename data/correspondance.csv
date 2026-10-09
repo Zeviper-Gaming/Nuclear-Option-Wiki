@@ -1,0 +1,279 @@
+excel_cle;info_name;mount_jsonkeys;statut;commentaire
+??? (variante 3)|Jeu de base;;;ambigu;"variante : à départager par les stats du jeu (export enrichi) ; candidats : info_bomb_ufo, info_gun_ufo, info_missile_ufo, info_ufo_shield"
+GS25|Jeu de base;Submunition1_info;;auto;
+??? (variante 1)|Jeu de base;;;ambigu;"variante : à départager par les stats du jeu (export enrichi) ; candidats : info_bomb_ufo, info_gun_ufo, info_missile_ufo, info_ufo_shield"
+CBO-400|Jeu de base;info_Bomb_cluster1;bomb_cluster1_dual_internal,bomb_cluster1_single,bomb_cluster1_single_internal;auto;levée par la source (jeu de base)
+Demolition Bomb|Jeu de base;info_bomb_demolition;bomb_demolition_internal,bomb_demolition_internalx1,bomb_demolition_internalx2;auto;
+GPO-2P Auger|Jeu de base;info_bomb_penetrator1;aryx_navex_bomb_penetrator1_internalx1,bomb_penetrator1_internalx2,bomb_penetrator1_internalx3,bomb_penetrator1_internalx4,bomb_penetrator1_mount;auto;
+GPO-500|Jeu de base;info_blastFrag500;bomb_500_double,bomb_500_internal,bomb_500_internalx12,bomb_500_internalx2,bomb_500_internalx4_flat,bomb_500_internalx4_stack,bomb_500_internalx6,bomb_500_internalx8,bomb_500_rotaryx6,bomb_500_single;auto;
+PAB-125|Jeu de base;info_bomb_125_1;bomb_125_double,bomb_125_double_line,bomb_125_internalx2,bomb_125_internalx2_line,bomb_125_internalx4,bomb_125_internalx6,bomb_125_quad,bomb_125_single,bomb_125_triple;auto;
+PAB-125HD|Jeu de base;info_bomb_125_HD;bomb_125HD_triple;auto;
+PAB-250|Jeu de base;info_bomb_250_1;Aryx_KingRaptor_StealthPod_Bomb250_x2,P_bomb_250_triple,bomb_250_internal,bomb_250_internalx18,bomb_250_internalx2,bomb_250_internalx3,bomb_250_internalx8,bomb_250_rotaryx10,bomb_250_rotaryx30,bomb_250_single,bomb_250_triple;auto;
+GPO-N (1.5kt)|Jeu de base;info_nuclearBomb1;kar_lcv_nuke,nuclearBomb1_external,nuclearBomb1_internal,nuclearBomb1_internalx2,nuclearBomb1_internalx4,nuclearBomb1_internalx4_stack;auto;
+GPO-N (250kt)|Jeu de base;info_nuclearBomb1_strategic;nuclearBomb1_strategic_external,nuclearBomb1_strategic_internal,nuclearBomb1_strategic_internalx2,nuclearBomb1_strategic_internalx4,nuclearBomb1_strategic_internalx4_stack;auto;
+GBM-500LR|Jeu de base;info_bomb_500_glide;P_bomb_500_glide_internalx3,bomb_500_glide_internalx1,bomb_500_glide_internalx4_flat,bomb_500_glide_internalx6,bomb_500_glide_single;auto;
+PAB-250LR|Jeu de base;info_bomb_250_glide;bomb_250_glide_double,bomb_250_glide_internal,bomb_250_glide_internalx18,bomb_250_glide_internalx2,bomb_250_glide_internalx3,bomb_250_glide_internalx8,bomb_250_glide_rotaryx10,bomb_250_glide_rotaryx30,bomb_250_glide_single;auto;
+PAB-80LR|Jeu de base;info_bomb_glide1;Aryx_KingRaptor_Bomb80Glide_8x_Internal,Aryx_KingRaptor_StealthPod_Bomb_Glide1_4x,P_bomb_glide1_triple,bomb_glide1_double,bomb_glide1_double_inernal,bomb_glide1_double_line,bomb_glide1_quad,bomb_glide1_quad_inernal,bomb_glide1_single,bomb_glide1_six_inernal,bomb_glide1_triple;auto;
+Radar Jamming Pod|Jeu de base;JammingPod1;Aryx_Interceptor1_JammingPod,JammingPod1,ShipJammer;auto;
+12.7mm Machine Gun|Jeu de base;Gun12.7mm;12.7mmRotaryTurret,12.7mm_internal,Gunpod12.7mm,PB_Infantry_50,Turret_12.7mm_door;auto;
+12.7mm Rotary Machine Gun|Jeu de base;Gun12.7mm_Rotary;PB_Turret_R_AA,lcv_aa;auto;même arme sur plusieurs plateformes
+12.7mm Rotary Machine Gun|Jeu de base;kar_turret_12.7mm_info;kar_turret_12.7mm,kar_turret_afv6AA;auto;même arme sur plusieurs plateformes
+127mm Cannon|Jeu de base;Gun127mm_Guided_Naval;127mm_Destroyer,127mm_Shard,frigate_127,frigate_127_aa;auto;même arme sur plusieurs plateformes
+127mm Cannon|Jeu de base;kar_spgturret127_info;kar_spgturret152;auto;même arme sur plusieurs plateformes
+130mm Cannon|Jeu de base;Gun130mm_Tank;;auto;même arme sur plusieurs plateformes
+130mm Cannon|Jeu de base;kar_mbt1_mainturret_info;kar_mbt1_mainturret;auto;même arme sur plusieurs plateformes
+130mm Cannon|Jeu de base;kar_mbt_mainturret_info;kar_mbt_mainturret;auto;même arme sur plusieurs plateformes
+155mm Cannon|Jeu de base;Gun155mm_Guided;;auto;
+155mm Railgun|Jeu de base;Railgun1;;auto;même arme sur plusieurs plateformes
+155mm Railgun|Jeu de base;Railgun1_Player;155mm_Destroyer;auto;même arme sur plusieurs plateformes
+155mm Railgun|Jeu de base;kar_mbt_railturret_info;kar_mbt_railturret;auto;même arme sur plusieurs plateformes
+20mm Autocannon|Jeu de base;Gun20mm_Pod;gunpod_20mm;auto;levée par la source (jeu de base)
+20mm Rotary Cannon (variante 1)|Jeu de base;;;ambigu;"variante : à départager par les stats du jeu (export enrichi) ; candidats : Gun20mm_CIWS, Gun20mm_Rotary, Gun20mm_Rotary_Turret, P_Trisurface1_Gun20mm_info, kar_lcv45_remote_turret_info, kar_lcv_AA_Turret_info, truk_cram_info"
+20mm Rotary Cannon (variante 2)|Jeu de base;;;ambigu;"variante : à départager par les stats du jeu (export enrichi) ; candidats : Gun20mm_CIWS, Gun20mm_Rotary, Gun20mm_Rotary_Turret, P_Trisurface1_Gun20mm_info, kar_lcv45_remote_turret_info, kar_lcv_AA_Turret_info, truk_cram_info"
+20mm Rotary Cannon (variante 3)|Jeu de base;;;ambigu;"variante : à départager par les stats du jeu (export enrichi) ; candidats : Gun20mm_CIWS, Gun20mm_Rotary, Gun20mm_Rotary_Turret, P_Trisurface1_Gun20mm_info, kar_lcv45_remote_turret_info, kar_lcv_AA_Turret_info, truk_cram_info"
+23mm Autocannon|Jeu de base;Gun23mm_Autocannon;Aryx_MiG15_Gun23mm;auto;même arme sur plusieurs plateformes
+23mm Autocannon|Jeu de base;kar_23mm_turret_info;kar_23mm_turret;auto;même arme sur plusieurs plateformes
+25mm Autocannon|Jeu de base;Gun25mm_Autocannon;Gunpod_25mm_flex,PB_Turret_R_AT,kar_lcv_IFV_Turret,kar_tonk3_IFV_turret,lkraft_ifv_aa;auto;même arme sur plusieurs plateformes
+25mm Autocannon|Jeu de base;kar_afv8_ifvturret_info;kar_afv8_ifvturret;auto;même arme sur plusieurs plateformes
+25mm Autocannon|Jeu de base;tonk3_IFV_turret_info;;auto;même arme sur plusieurs plateformes
+25mm Rotary Cannon|Jeu de base;Gun25mm_Rotary;gunpod_25mm_trainer,kar_afv8_lavitturret;auto;
+27mm Autocannon|Jeu de base;Gun27mm_Autocannon;autocannon_27mm_internal;auto;
+30mm Cannon|Jeu de base;Gun30mm_SPAAG;;auto;même arme sur plusieurs plateformes
+30mm Cannon|Jeu de base;Gun30mm_SPAAG_Player;PB_ciws_30mm,ciws_30mm;auto;même arme sur plusieurs plateformes
+30mm Cannon|Jeu de base;kar_mbt_spaagturret_info;kar_mbt1_spaagturret;auto;même arme sur plusieurs plateformes
+30mm Chaingun|Jeu de base;Gun30mm_Chaingun_Turret;turret_30mm_chaingun;auto;même arme sur plusieurs plateformes
+30mm Chaingun|Jeu de base;kar_lcv_AT_Turret_info;kar_lcv_ATTurret;auto;même arme sur plusieurs plateformes
+30mm Chaingun|Jeu de base;kar_turret_30mm_info;kar_turret_30mm;auto;même arme sur plusieurs plateformes
+30mm Rotary Cannon (variante 1)|Jeu de base;;;ambigu;"variante : à départager par les stats du jeu (export enrichi) ; candidats : Aryx_MC260_Chimera_Rotary_Turret_WI, Gun30mm_Rotary, Gun30mm_Rotary_Turret"
+30mm Rotary Cannon (variante 2)|Jeu de base;;;ambigu;"variante : à départager par les stats du jeu (export enrichi) ; candidats : Aryx_MC260_Chimera_Rotary_Turret_WI, Gun30mm_Rotary, Gun30mm_Rotary_Turret"
+35mm Autocannon|Jeu de base;Gun35mm_Autocannon;gun_ammo_35mm_720;auto;
+40mm Cannon|Jeu de base;Gun40mm_Bofors;PB_Turret_R_40mm;auto;même arme sur plusieurs plateformes
+40mm Cannon|Jeu de base;Gun40mm_Naval;;auto;même arme sur plusieurs plateformes
+40mm Cannon|Jeu de base;Gun40mm_Naval_Player;40mm_small,ciws_40mm,frigate_40;auto;même arme sur plusieurs plateformes
+40mm GMG|Jeu de base;Grenade_40mm;PB_Infantry_40mm,Turret_40mm_grenade,UGV1_grenade_launcher;auto;
+40mm Grenade|Jeu de base;Grenade_40mm_short;;auto;
+57mm Cannon (variante 1)|Jeu de base;;;ambigu;"variante : à départager par les stats du jeu (export enrichi) ; candidats : Gun57mm_Aerial, Gun57mm_Naval, Gun57mm_Pod, Gun57mm_SPAAG, Gun57mm_SPAAG_Player, Gun57mm_SPAAGx4_Player, kar_afv8_anvilturret_info"
+57mm Cannon (variante 2)|Jeu de base;;;ambigu;"variante : à départager par les stats du jeu (export enrichi) ; candidats : Gun57mm_Aerial, Gun57mm_Naval, Gun57mm_Pod, Gun57mm_SPAAG, Gun57mm_SPAAG_Player, Gun57mm_SPAAGx4_Player, kar_afv8_anvilturret_info"
+57mm Cannon (variante 3)|Jeu de base;;;ambigu;"variante : à départager par les stats du jeu (export enrichi) ; candidats : Gun57mm_Aerial, Gun57mm_Naval, Gun57mm_Pod, Gun57mm_SPAAG, Gun57mm_SPAAG_Player, Gun57mm_SPAAGx4_Player, kar_afv8_anvilturret_info"
+57mm Cannon (variante 4)|Jeu de base;;;ambigu;"variante : à départager par les stats du jeu (export enrichi) ; candidats : Gun57mm_Aerial, Gun57mm_Naval, Gun57mm_Pod, Gun57mm_SPAAG, Gun57mm_SPAAG_Player, Gun57mm_SPAAGx4_Player, kar_afv8_anvilturret_info"
+70mm Light AT|Jeu de base;Gun70mm_RCL;PB_Infantry_AT;auto;
+76mm Cannon (variante 1)|Jeu de base;;;ambigu;"variante : à départager par les stats du jeu (export enrichi) ; candidats : Gun76mm_Guided, Gun76mm_Guided_Naval, kar_afv8_spgturret_info"
+76mm Cannon (variante 2)|Jeu de base;;;ambigu;"variante : à départager par les stats du jeu (export enrichi) ; candidats : Gun76mm_Guided, Gun76mm_Guided_Naval, kar_afv8_spgturret_info"
+??? (variante 2)|Jeu de base;;;ambigu;"variante : à départager par les stats du jeu (export enrichi) ; candidats : info_bomb_ufo, info_gun_ufo, info_missile_ufo, info_ufo_shield"
+??? (variante 4)|Jeu de base;;;ambigu;"variante : à départager par les stats du jeu (export enrichi) ; candidats : info_bomb_ufo, info_gun_ufo, info_missile_ufo, info_ufo_shield"
+Light Machine Gun|Jeu de base;Gun7.5mm;;auto;
+AAM-29 Scythe|Jeu de base;AAM2_info;AAM2_double,AAM2_double_internal,AAM2_single,AAM2_single_internal,AAM2_triple,AAM2_triple_internal,AAM2x8,Aryx_Interceptor1_AAM2_Quad_Internal,Aryx_Interceptor1_AAM2_Triple_Compact,Aryx_Interceptor1_AAM2_Triple_Compact_Event,Aryx_KingRaptor_AAM2_x2_Internal_Compact,Aryx_KingRaptor_AAM2_x3_Internal_Compact,Aryx_KingRaptor_StealthPod_AAM2_2x,akarrier_sam_aam2,fkarrier_sam_aam2,frikate_sam_aam2,korvette_sam_a_aam2,korvette_sam_b_aam2,kynamo_sam_a_aam2,kynamo_sam_b_aam2,skarrier_sam_aam2;auto;même arme sur plusieurs plateformes
+AAM-29 Scythe|Jeu de base;kar_AAM2_info;kar_lcv_aam2x4;auto;même arme sur plusieurs plateformes
+AAM-36 Scimitar|Jeu de base;AAM4_info;AAM4_double,AAM4_double_internal,AAM4_double_internal_compact,AAM4_single,AAM4_single_internal,AAM4_triple_internal,AAM4x8,Aryx_KingRaptor_AAM4_x2_Internal_Compact,Aryx_KingRaptor_AAM4_x3_Internal_Compact,Aryx_KingRaptor_StealthPod_AAM4_x2,akarrier_sam_aam4,fkarrier_sam_aam4,kynamo_sam_a_aam4,kynamo_sam_b_aam4;auto;
+AGM-48|Jeu de base;info_AGM1;AGM1_double,AGM1_double_compact,AGM1_double_line,AGM1_floorLauncher_QuadVTOL1,AGM1_quad,AGM1_quad_internal,AGM1_rotaryLauncher_UtilityHelo1,AGM1_single,AGM1_triple,AGM1_x40,Aryx_LightHeli1_AGM1_double_internal,PB_VLS_AGM1,frikate_ssm_agm1,kar_lcv_agmx3,korvette_ssm_a_agm1,korvette_ssm_b_agm1,skarrier_ssm_a_agm1,skarrier_ssm_b_agm1,truk_agmbed;auto;même arme sur plusieurs plateformes
+AGM-48|Jeu de base;kar_info_agm1;kar_linebreaker_agm;auto;même arme sur plusieurs plateformes
+AGM-68|Jeu de base;info_AGM_heavy;AGM_heavy_internal,AGM_heavy_internalx2,AGM_heavy_internalx4,AGM_heavy_internalx6,AGM_heavy_internalx8,AGM_heavy_single,AGM_heavy_triple,AGM_heavyx2,P_AGM_heavy_internalx3,akarrier_ssm_agm_heavy,fkarrier_ssm_a_agm_heavy,fkarrier_ssm_b1_agm_heavy,fkarrier_ssm_b2_agm_heavy,frikate_ssm_agm_heavy,korvette_ssm_a_agm_heavy,korvette_ssm_b_agm_heavy,kynamo_ssm_a_agm_heavy,kynamo_ssm_b_agm_heavy,skarrier_ssm_a_agm_heavy,skarrier_ssm_b_agm_heavy;auto;même arme sur plusieurs plateformes
+AGM-68|Jeu de base;kar_info_AGM_Heavy;;auto;même arme sur plusieurs plateformes
+AGM-68|Jeu de base;truk_tbm_agm_info;truk_tbm_agm;auto;même arme sur plusieurs plateformes
+AGM-99|Jeu de base;AShM2_info;AShM2_double,AShM2_internal_single,AShM2_internalx2_stack,AShM2_internalx4,AShM2_internalx8,AShM2_single,AShM2_x8,Aryx_Interceptor1_AShM2_Triple_Internal,P_AShM2_internalx2,P_AShM2_internalx3,akarrier_ssm_ashm2,fkarrier_ssm_a_ashm2,fkarrier_ssm_b1_ashm2,fkarrier_ssm_b2_ashm2,frikate_ssm_ashm2,korvette_ssm_a_ashm2,korvette_ssm_b_ashm2,kynamo_ssm_a_ashm2,kynamo_ssm_b_ashm2,skarrier_ssm_a_ashm2,skarrier_ssm_b_ashm2;auto;
+ALM-C450|Jeu de base;info_CruiseMissile1;Aryx_KingRaptor_CruiseMissile1_External1x,CruiseMissile1_internal,CruiseMissile1_internalx2,CruiseMissile1_internalx3,CruiseMissile1_internalx4,CruiseMissile1_internalx6,akarrier_ssm_cruisemissile1,fkarrier_ssm_a_cruisemissile1,fkarrier_ssm_b1_cruisemissile1,fkarrier_ssm_b2_cruisemissile1,frikate_ssm_cruisemissile1,korvette_ssm_a_cruisemissile1,korvette_ssm_b_cruisemissile1,kynamo_ssm_a_cruisemissile1,kynamo_ssm_b_cruisemissile1,skarrier_ssm_a_cruisemissile1,skarrier_ssm_b_cruisemissile1;auto;
+ARAD-116|Jeu de base;ARM1_info;ARM1_double,ARM1_internalx2,ARM1_internalx4,ARM1_single,P_ARM1_internalx3;auto;
+ARAD-45|Jeu de base;ARM2_info;ARM2_single,ARM2_single_internal;auto;levée par la source (jeu de base)
+AShM-300|Jeu de base;info_AShM1;AShM1_internal,AShM1_internalx2,AShM1_internalx4_flat,AShM1_internalx4_stack,AShM1_internalx6,AShM1_single,AShM1x2,akarrier_ssm_ashm1,fkarrier_ssm_a_ashm1,fkarrier_ssm_b1_ashm1,fkarrier_ssm_b2_ashm1,frikate_ssm_ashm1,korvette_ssm_a_ashm1,korvette_ssm_b_ashm1,kynamo_ssm_a_ashm1,kynamo_ssm_b_ashm1,skarrier_ssm_a_ashm1,skarrier_ssm_b_ashm1;auto;
+AT-145|Jeu de base;GTG1_info;ATGM1_quad,Aryx_LightHeli1_ATGM1_Quad_Internal,Aryx_LightHeli1_ATGM1_oct,Aryx_PropAttacker1_ATGM1_Hex,frikate_ssm_gtg1,korvette_ssm_a_GTG1,korvette_ssm_b_gtg1,skarrier_ssm_a_gtg1,skarrier_ssm_b_gtg1;auto;
+ATP-1|Jeu de base;info_AGM2;AGM2_6Pod,AGM2_internalx4,frikate_ssm_agm2,korvette_ssm_a_agm2,korvette_ssm_b_agm2,skarrier_ssm_a_agm2,skarrier_ssm_b_agm2;auto;même arme sur plusieurs plateformes
+ATP-1|Jeu de base;kar_info_AGM2;kar_launcher_mbt1_atp;auto;même arme sur plusieurs plateformes
+ATP-1|Jeu de base;kar_launcher_mbt1_atp_info;;auto;même arme sur plusieurs plateformes
+ATP-1|Jeu de base;kar_launcher_mbt1_mixed_info;kar_launcher_mbt1_mixed;auto;même arme sur plusieurs plateformes
+Eyeball Mk.II|Jeu de base;info_AGM_scanner1;AGM_scanner1_double_compact,AGM_scanner1_double_line,Aryx_LightHeli1_AGMScanner1_Double_Internal;auto;
+IRM-S1|Jeu de base;info_SAM_IR1;IRMS1_double,IRMS1_internalx2,IRMS1_single,IRMS1_triple,PB_VLS_IRM1,frikate_sam_s1,kar_lcv_S1x3,korvette_sam_a_s1,korvette_sam_b_s1,skarrier_sam_s1;auto;même arme sur plusieurs plateformes
+IRM-S1|Jeu de base;info_SAM_IR1_Turret;irm_1,irm_1_small;auto;même arme sur plusieurs plateformes
+IRM-S1|Jeu de base;kar_info_SAM_IR1;kar_afv8_samturret;auto;même arme sur plusieurs plateformes
+IRM-S1|Jeu de base;kar_launcher_mbt1_s1_info;kar_launcher_mbt1_s1;auto;même arme sur plusieurs plateformes
+IRM-S2|Jeu de base;AAM3_info;AAM3_double,AAM3_double_internal,AAM3_quad_internal,AAM3_single,AAM3_single_internal,AAM3_triple_internal_compact,AAM3_triple_internal_flat,Aryx_AAM3_double_compact,Aryx_KingRaptor_AAM3_x4_Internal,Aryx_KingRaptor_StealthPod_AAM3_x3,akarrier_sam_s2,fkarrier_sam_s2,frikate_sam_s2,korvette_sam_a_s2,korvette_sam_b_s2,kynamo_sam_a_s2,kynamo_sam_b_s2;auto;même arme sur plusieurs plateformes
+IRM-S2|Jeu de base;AAM3_info_Turret;irm_2,irm_2_med,irm_2_small;auto;même arme sur plusieurs plateformes
+IRM-S2|Jeu de base;kar_AAM3_info;kar_linebreaker_samturret;auto;même arme sur plusieurs plateformes
+MMR-S3|Jeu de base;AAM1_info;AAM1_double,AAM1_double_internal,AAM1_internalx3,AAM1_single,AAM1_single_internal,AAM1_triple,Aryx_KingRaptor_StealthPod_AAM1_x2,akarrier_sam_s3,fkarrier_sam_s3,frikate_sam_s3,korvette_sam_a_s3,korvette_sam_b_s3,kynamo_sam_a_s3,kynamo_sam_b_s3,skarrier_sam_s2;auto;même arme sur plusieurs plateformes
+MMR-S3|Jeu de base;AAM1_info_Turret;irm_3;auto;même arme sur plusieurs plateformes
+MMR-S3|Jeu de base;kar_AAM1_info;kar_lcv_aam1x4;auto;même arme sur plusieurs plateformes
+NL-98|Jeu de base;ARH1_info;;auto;même arme sur plusieurs plateformes
+NL-98|Jeu de base;ARH1_info_Bote;akarrier_sam_arh1,fkarrier_sam_arh1,frikate_sam_arh1,korvette_sam_a_arh1,korvette_sam_b_arh1,kynamo_sam_a_arh1,kynamo_sam_b_arh1,skarrier_sam_arh1;auto;même arme sur plusieurs plateformes
+Piledriver TBM|Jeu de base;ballisticMissile1_info;BallisticMissile1_internalx2,BallisticMissile1_single,P_BallisticMissile1_single,P_BallisticMissile1_single2,P_BallisticMissile1_tacNuke_single,akarrier_ssm_ballisticmissile1,fkarrier_ssm_a_ballisticmissile1,fkarrier_ssm_b1_ballisticmissile1,kynamo_ssm_a_ballisticmissile1,kynamo_ssm_b_ballisticmissile1;auto;même arme sur plusieurs plateformes
+Piledriver TBM|Jeu de base;kar_ballisticMissile1_info;;auto;même arme sur plusieurs plateformes
+RAM-45|Jeu de base;info_SAM_Radar1;SAM_Radar1_VLS;auto;même arme sur plusieurs plateformes
+RAM-45|Jeu de base;info_SAM_Radar1_Bote;akarrier_sam_ram45,fkarrier_sam_ram45,frikate_sam_ram45,korvette_sam_a_ram45,korvette_sam_b_ram45,kynamo_sam_a_ram45,kynamo_sam_b_ram45,skarrier_sam_ram45;auto;même arme sur plusieurs plateformes
+RAM-45|Jeu de base;kar_info_SAM_Radar1;;auto;même arme sur plusieurs plateformes
+StratoLance R9|Jeu de base;info_SAM_Radar2;;auto;même arme sur plusieurs plateformes
+StratoLance R9|Jeu de base;info_SAM_Radar2_Bote;;auto;même arme sur plusieurs plateformes
+StratoLance R9|Jeu de base;kar_info_SAM_Radar2;;auto;même arme sur plusieurs plateformes
+Tusko-B (HE)|Jeu de base;AShM3_info;AShM3_internalx2,AShM3_internalx4_flat,AShM3_internalx4_stack,AShM3_single,AShM3_x4,AShM3_x6,akarrier_ssm_ashm3,fkarrier_ssm_a_ashm3,fkarrier_ssm_b1_ashm3,fkarrier_ssm_b2_ashm3,kynamo_ssm_a_ashm3,kynamo_ssm_b_ashm3;auto;
+AIR-2 Genie|Jeu de base;info_AIR-2_Genie;AIR-2_Genie_single;auto;
+ALND-4 (20kt)|Jeu de base;info_CruiseMissile20kt;Aryx_Interceptor1_ALND_Single,CruiseMissile20kt_internalx2,akarrier_ssm_cruisemissile20kt,fkarrier_ssm_a_cruisemissile20kt,fkarrier_ssm_b1_cruisemissile20kt,fkarrier_ssm_b2_cruisemissile20kt,kynamo_ssm_a_cruisemissile20kt,kynamo_ssm_b_cruisemissile20kt;auto;
+Piledriver TBM (20kt)|Jeu de base;ballisticMissile1_tacNuke_info;BallisticMissile1_tacNuke_internalx2,BallisticMissile1_tacNuke_single,P_BallisticMissile1_tacNuke_single2;auto;
+MLRS Rocket|Jeu de base;info_rocket_MLRS1;;auto;
+AGR-18 Lynchpin|Jeu de base;info_rocket1;Aryx_LightHeli1_RocketPod_Double,RocketPod1_single,RocketPod1_triple,kar_lcv_rocket1;auto;
+AGR-24 Kingpin|Jeu de base;info_rocket2;Rocket2_4Pod,Rocket2_4Podx3,kar_lcv_rocket2;auto;même arme sur plusieurs plateformes
+AGR-24 Kingpin|Jeu de base;kar_info_rocket2;;auto;même arme sur plusieurs plateformes
+120kw Laser|Jeu de base;Laser_EW1;laser_EW1;auto;
+20kw Laser|Jeu de base;Laser_APS1;20kw,Laser_large,PB_Top_Laser;auto;même arme sur plusieurs plateformes
+20kw Laser|Jeu de base;kar_turret_laser_info;kar_turret_laser;auto;même arme sur plusieurs plateformes
+80kw Laser|Jeu de base;Laser_APS2;80kw_frigate,laser_large2;auto;même arme sur plusieurs plateformes
+80kw Laser|Jeu de base;truk_laser_info;truk_laser;auto;même arme sur plusieurs plateformes
+Radome|Jeu de base;Radome;Radome1;auto;levée par la source (jeu de base)
+Special Flare|Jeu de base;SpecialFlarePod_info;SpecialFlarePod;auto;
+Special Smoke|Jeu de base;SpecialSmokePod_info;SpecialSmokePod;auto;
+20mm M61 Vulcan Cannon|Aryx F-16M;aryx_f16m_gun_20mm_internal_500_info;aryx_f16_gun_20mm_internal_511;auto;
+CBO-400|Aryx F-99 Shrike;Aryx_LightFighter1_ClusterBomb1_Info;aryx_lf1_bomb_cluster1_single;a_valider;nom de code supposé : Aryx_LightFighter1
+20mm Autocannon|Aryx F-99 Shrike;Aryx_LightFighter1_20mm_AC_Info;aryx_lf1_20mm_autocannon;a_valider;nom de code supposé : Aryx_LightFighter1
+20mm Rotary Cannon (Hi-RPM)|Aryx FS-41 Eclipse;Aryx_Interceptor1_Gun_20mm_1000rd_Internal_Info;Aryx_Interceptor1_Gun_20mm_1000rd_Internal;auto;
+20mm Rotary Cannon (LO-RPM)|Aryx FS-41 Eclipse;Aryx_Interceptor1_Gun_20mm_1000rd_Internal_LowRPM_Info;Aryx_Interceptor1_Gun_20mm_1000rd_Internal_LowRPM;auto;
+30mm Autocannon|Aryx FS-41 Eclipse;;;ambigu;candidats : Aryx_Gunboat1_30mmAC, Aryx_LightHeli1_30mmTurret_Info, Aryx_PropAttacker1_30mmGunpod_Info, Aryx_Supercarrier1_30mmAutocannon, Aryx_SwivelGunpod30_Info, Gun30mm_Autocannon
+AAM-45 Sabre|Aryx FS-41 Eclipse;Aryx_Missile_AAM45_Info;Aryx_Missile_AAM45_Double_Internal,Aryx_Missile_AAM45_Single;auto;
+SAM-85 Whirlwind|Aryx FS-41 Eclipse;Aryx_Supercarrier1_SAM_R85_Info;;auto;
+200kW Blue Laser|Aryx FS-41 Eclipse;Aryx_Supercarrier1_Laser_200kwBlue;;auto;
+105mm Cannon|Aryx MC-260 Chimera;Aryx_ADLT_Gun105mmTank;;auto;
+105mm Howitzer|Aryx MC-260 Chimera;Aryx_MC260_Chimera_Howitzer_WI;Aryx_MC260_Howitzer;auto;
+127mm Railgun|Aryx MC-260 Chimera;Aryx_MC260_Chimera_Railgun_WI;Aryx_MC260_Railgun;auto;
+152mm Cannon|Aryx MC-260 Chimera;Aryx_FRCV_Artillery_152_Guided_Info;;auto;même arme sur plusieurs plateformes
+152mm Cannon|Aryx MC-260 Chimera;kar_152mm_guided_info;;auto;même arme sur plusieurs plateformes
+30mm Rotary Cannon|Aryx MC-260 Chimera;Aryx_MC260_Chimera_Rotary_Turret_WI;Aryx_MC260_Rotary30;a_valider;nom de code supposé : Aryx_MC260 / MC260_
+35mm AA Autocannon|Aryx MC-260 Chimera;Aryx_MC260_35mmGun;;auto;
+57mm Chaingun|Aryx MC-260 Chimera;Aryx_MC260_Chimera_Autocannon_Turret_WI;Aryx_MC260_Autocannon57;auto;
+81mm Mortar|Aryx MC-260 Chimera;Aryx_Mortar_81mm_Info;;auto;
+Radome|Aryx MC-260 Chimera;Aryx_MC260_Radome_WI;Aryx_MC260_Radome;a_valider;nom de code supposé : Aryx_MC260 / MC260_
+37mm Autocannon|Aryx MiG-15;Aryx_MiG-15_WeaponInfo_37mm;Aryx_MiG15_Gun27mm;auto;
+57mm Autocannon|Aryx MiG-15;Aryx_MiG-15_WeaponInfo_57mm;Aryx_MiG15_Gun57mm;auto;
+130mm Railgun|Aryx NAVEX;Aryx_Railgun_130;;auto;
+2000kg HE Warhead|Aryx NAVEX;Aryx_USV1_Warhead_Info;;auto;
+203mm Deck Gun|Aryx NAVEX;Aryx_NavalGun_203mm;;auto;
+23mm CIWS|Aryx NAVEX;Aryx_MissileFrigate_S_23mmCIWS;;auto;
+30mm Autocannon|Aryx NAVEX;Aryx_Gunboat1_30mmAC;;a_valider;nom de code supposé : Aryx_Gunboat / Aryx_Supercarrier / Aryx_Destroyer / Aryx_Frigate
+30mm Autocannon|Aryx NAVEX;Aryx_Supercarrier1_30mmAutocannon;;a_valider;nom de code supposé : Aryx_Gunboat / Aryx_Supercarrier / Aryx_Destroyer / Aryx_Frigate
+SLND-9 (20kt)|Aryx NAVEX;Aryx_Navex_SLND_Info;;auto;
+14.5mm Machine Gun|Aryx OA-27 Cavalier;Aryx_PropAttacker1_14.5mm_info;Aryx_PropAttacker1_14.5mm_internal;auto;
+20mm Autocannon|Aryx OA-27 Cavalier;Aryx_PropAttacker1_20mm_AC;Aryx_PropAttacker1_20mm_Internal;a_valider;nom de code supposé : Aryx_PropAttacker1
+30mm Autocannon|Aryx OA-27 Cavalier;Aryx_PropAttacker1_30mmGunpod_Info;Aryx_PropAttacker1_SwivelGunpod;a_valider;nom de code supposé : Aryx_PropAttacker1
+30mm Autocannon|Aryx RAH-72;Aryx_LightHeli1_30mmTurret_Info;Aryx_LightHeli1_30mmTurret;a_valider;nom de code supposé : Aryx_LightHeli1
+PAB-3000LR|Aryx Weaponry Pack;Aryx_Wep_GlideBomb_3000_info;aryx_wep_glidebomb_3000_double_internal,aryx_wep_glidebomb_3000_double_internal_side,aryx_wep_glidebomb_3000_single_internal;auto;
+PGM-400LR|Aryx Weaponry Pack;Aryx_GlideBomb400_Info;aryx_glidebomb400_double,aryx_glidebomb400_double_internal,aryx_glidebomb400_internal_8x,aryx_glidebomb400_single,aryx_glidebomb400_single_internal;auto;
+30mm Autocannon|Aryx Weaponry Pack;Aryx_SwivelGunpod30_Info;Aryx_Gunpod_Swivel30mm,Aryx_Gunpod_Swivel30mm_TA30;auto;levée par la source (Aryx Weaponry Pack)
+ASD-16 Submunition Dispenser|Aryx Weaponry Pack;Aryx_Wep_BombletDispenser_Info;aryx_wep_bombletdispenser_single;auto;
+AGM-111 Nemesis|Aryx Weaponry Pack;Aryx_FastAShM1_Info;Aryx_FastAShM1_Single,Aryx_FastAShM1_double_internal;auto;
+AGM-27 Pyre|Aryx Weaponry Pack;Aryx_FastAGM1_Info;Aryx_FastAGM1_Internal_x2,Aryx_FastAGM1_Internal_x4,Aryx_FastAGM1_Internal_x6,Aryx_FastAGM1_x1,Aryx_FastAGM1_x2,Aryx_FastAGM1_x3;auto;
+AGM-76 Atlatl|Aryx Weaponry Pack;Aryx_SmallCruiseMissile1_info;Aryx_SmallCruiseMissile1_Double,Aryx_SmallCruiseMissile1_Double_Internal,Aryx_SmallCruiseMissile1_Double_Line_Internal,Aryx_SmallCruiseMissile1_Octo_Internal,Aryx_SmallCruiseMissile1_Quad,Aryx_SmallCruiseMissile1_Quad_Internal,Aryx_SmallCruiseMissile1_Single,Aryx_SmallCruiseMissile1_Triple,Aryx_SmallCruiseMissile_Rotary20x;auto;
+ARAD-45|Aryx Weaponry Pack;Aryx_Wep_ARM2_Info;Aryx_Wep_ARM2_double,Aryx_Wep_ARM2_single,Aryx_Wep_ARM2_single_internal;auto;levée par la source (Aryx Weaponry Pack)
+HSM-750 Starfall|Aryx Weaponry Pack;Aryx_Hypersonic1_Info;Aryx_Hypersonic1_Single,Aryx_Hypersonic1_Single_Internal;auto;
+IRM-S5 Gladius|Aryx Weaponry Pack;Aryx_SRIRM1_info;Aryx_SRIRM1_Double,Aryx_SRIRM1_Single,Aryx_SRIRM1_Single_Internal;auto;
+MRM-S4 Broadsword|Aryx Weaponry Pack;Aryx_LRIRM1_info;Aryx_LRIRM1_Double,Aryx_LRIRM1_Single,Aryx_LRIRM1_Triple,Aryx_LRIRM1_Triple_Internal;auto;
+R-100N Zenith|Aryx Weaponry Pack;Aryx_HASAM1_info;;auto;
+HSM-N Sunfall|Aryx Weaponry Pack;Aryx_Hypersonic1_Nuke_Info;;auto;
+Tusko-N (1.5kt)|Aryx Weaponry Pack;Aryx_Wep_TuskoN_info;Aryx_Wep_TuskoN_Tactical,Aryx_Wep_TuskoN_Tactical_Internal;auto;
+ETS-15 Targeting Pod|Aryx Weaponry Pack;Aryx_ExternalTargetingPod_Info;Aryx_ExternalTargetingPod,Aryx_ExternalTargetingPod_Trainer;auto;
+ECS-16 Countermeasure Dispenser|Aryx Weaponry Pack;Aryx_ExternalFlareLauncher16_Info;Aryx_ExternalFlareLauncher16;auto;
+ECS-32 Countermeasure Dispenser|Aryx Weaponry Pack;Aryx_ExternalFlareLauncher32_Info;Aryx_ExternalFlareLauncher32;auto;
+AGR-37 Jester|Aryx Weaponry Pack;Aryx_HeavyRocket1_info;Aryx_HeavyRocket1_x1,Aryx_HeavyRocket1_x2,Aryx_HeavyRocket1_x3,Aryx_HeavyRocket1_x4;auto;
+1200kg Drop Tank|Aryx Weaponry Pack;Aryx_DropTank1200_Info;Aryx_DropTank1200;auto;
+2000kg Drop Tank|Aryx Weaponry Pack;Aryx_DropTank2000_Info;Aryx_DropTank2000;auto;
+450kg Drop Tank|Aryx Weaponry Pack;Aryx_DropTank450_Info;Aryx_DropTank450;auto;
+20mm Rotary Cannon|FS-3 Ternion;P_Trisurface1_Gun20mm_info;P_Trisurface1_Gun20mm;a_valider;nom de code supposé : P_Trisurface1
+5MW Laser|FS-3 Ternion;Trisurface1_laser_info;Trisurface1_laser_pod_ventral;auto;
+;6x6_1_AAx1_info;6x6_1_AAx1;absent_excel;AFV6 AA (cargaison)
+;6x6_1_APCx1_info;6x6_1_APCx1;absent_excel;AFV6 APC (cargaison)
+;6x6_1_ATx1_info;6x6_1_ATx1;absent_excel;AFV6 AT (cargaison)
+;6x6_1_IFVx1_info;6x6_1_IFVx1;absent_excel;AFV6 IFV (cargaison)
+;Aryx_ADLT_01_x1_WeaponInfo;Aryx_ADLT_01x1;absent_excel;FRCV-105 LT (cargaison)
+;Aryx_CRVL_1_Mortar_Info;Aryx_CRVL_1_Mortar_x1;absent_excel;CVR-L Serval Mortar (cargaison)
+;Aryx_CRVL_1_Recon_Info;Aryx_CRVL_1_Recon_x1;absent_excel;CVR-L Serval Recon (cargaison)
+;Aryx_ClusterBomb1_Info;Aryx_ClusterBomb1_Double,Aryx_ClusterBomb1_Single,Aryx_ClusterBomb1_Single_Internal;absent_excel;CBO-400
+;Aryx_FRCV_Artillery_x1_Info;Aryx_FRCV_Artillery_x1;absent_excel;FRCV-SPG (cargaison)
+;Aryx_HeavyCEV_info;Aryx_HeavyCEV_x1;absent_excel;Type-12 CEV (cargaison)
+;Aryx_MC260_AAGunContainerx1_Info;Aryx_MC260_AAGunContainerx1;absent_excel;35mm AA Gun Container (cargaison)
+;Aryx_MC260_Airpad_WI;Aryx_MC260_Airpad_x1;absent_excel;Forward Deployable Airpad (cargaison)
+;Aryx_MC260_Cargo_Type12_x1WI;Aryx_MC260_Type12_x1;absent_excel;Type-12 MBT (cargaison)
+;Aryx_MC260_Chimera_UGVDozer1x2_info;Aryx_MC260_UGVDozer_2x;absent_excel;M12 Jackknife (cargaison)
+;Aryx_MC260_FireControl_Info_x1;Aryx_MC260_FireControl;absent_excel;Fire Control Cabin (cargaison)
+;Aryx_MC260_HLT-M_Info;Aryx_MC260_HLT-M;absent_excel;HLT Light Munitions (cargaison)
+;Aryx_MC260_IRSAM_Turret_Info;Aryx_IRSAM_Turret_x1;absent_excel;SLMMR-A3 SAM Turret (cargaison)
+;Aryx_MC260_MunitionsContainer_50T_x1_Info;Aryx_MC260_MunitionsContainer_50T_x1;absent_excel;Large Munitions Container (cargaison)
+;Aryx_MC260_R9SAMx1_Info;Aryx_MC260_R9SAMLauncherx1;absent_excel;R9 StratoLance SAM Launcher (cargaison)
+;Aryx_SmallJammingPod_Info;Aryx_SmallJammingPod;absent_excel;AEC-124 Offensive Jammer
+;CargoHook_info;CargoHook;absent_excel;Cargo Hook
+;DestroyerDefensive_info;DestroyerDefensive;absent_excel;Mk.I Defensive Systems Addon
+;FuelContainer1_info;FuelContainer1x1,FuelContainer1x2,FuelContainer1x4;absent_excel;Fuel Container 1500L (cargaison)
+;FuelContainer2_info;FuelContainer2x1;absent_excel;Fuel Container 6000L (cargaison)
+;FuelContainer3_info;FuelContainer3x1;absent_excel;Fuel Container 10,000L (cargaison)
+;Gun127mm_Guided_Naval_AA;;hors_hangar;127mm Cannon (AA)
+;Gun20mm_CIWS;20mm_large,PB_Turret_F_20mm,ciws_20mm,lkraft_6x6_aa;absent_excel;20mm Rotary Cannon
+;Gun20mm_Rotary;gun_20mm_VTOLTrainer1_pod,gun_20mm_internal,gun_20mm_internal_500;absent_excel;20mm Rotary Cannon
+;Gun20mm_Rotary_Turret;turret_20mm_rotary;absent_excel;20mm Rotary Cannon
+;Gun210mm;210mm_Destroyer;absent_excel;210mm Cannon
+;Gun30mm_Autocannon;PB_Turret_F_30mm;absent_excel;30mm Autocannon
+;Gun30mm_Rotary;gun_30mm_rotary_pod;absent_excel;30mm Rotary Cannon
+;Gun30mm_Rotary_Turret;lkraft_ifv_at,turret_30mmHE_750,turret_30mm_rotary;absent_excel;30mm Rotary Cannon
+;Gun57mm_Aerial;57mmSideMount;absent_excel;57mm Cannon
+;Gun57mm_Aerial_2;;hors_hangar;57mm Cannon2
+;Gun57mm_Naval;57mm_Shard;absent_excel;57mm Cannon
+;Gun57mm_Pod;gun_57mm_pod;absent_excel;57mm Cannon
+;Gun57mm_SPAAG;;hors_hangar;57mm Cannon
+;Gun57mm_SPAAG_Player;57mm_small,PB_Turret_F_57mm,ciws_57mm;absent_excel;57mm Cannon
+;Gun57mm_SPAAGx4_Player;57mm_Destroyer,frigate_57;absent_excel;57mm Cannon
+;Gun76mm_Guided;76mmSideMount;absent_excel;76mm Cannon
+;Gun76mm_Guided_Naval;76mm,76mm_Destroyer,76mm_Shard,76mm_rear;absent_excel;76mm Cannon
+;HLT-R_info;HLT-Rx1;absent_excel;HLT Radar Truck (cargaison)
+;KorvetteDefensive_info;KorvetteDefensive;absent_excel;Mk.III Defensive Systems Addon
+;Laser_40kw;;hors_hangar;40kw Laser
+;LightTruck1_ATx1_info;LightTruck1_ATx1;absent_excel;LCV25 AT (cargaison)
+;LightTruck1_SAMx1_info;LightTruck1_SAMx1;absent_excel;LCV25 SAM (cargaison)
+;MC260_RadarContainerx1_info;MC260_RadarContainerx1;absent_excel;Radar Container (cargaison)
+;MC260_SAMTurretx1_info_PLACEHOLDER;MC260_SAMTurret1x1;absent_excel;RAM-45 SAM Turret (cargaison)
+;MunitionsContainerx1_info;MunitionsContainerx1,truk_munitions;absent_excel;Munitions Container (cargaison)
+;MunitionsPallet_info;MunitionsPallet1x1;absent_excel;Munitions Pallet (cargaison)
+;MunitionsSmallPallet_info;MunitionsSmallPallet2x1,MunitionsSmallPallet2x2,MunitionsSmallPallet2x4;absent_excel;Small Munitions Pallet (cargaison)
+;NavalMunitionsPallet2x1_info;NavalMunitionsPallet2x1;absent_excel;Small Naval Supply Pallet (cargaison)
+;NavalPallet_info;NavalPallet1x1;absent_excel;Naval Supply Pallet (cargaison)
+;NavalSupplyContainerx1_info;NavalSupplyContainerx1;absent_excel;Naval Supply Container (cargaison)
+;PB_Rocket_INS_info;PB_Side_Rocket_INS;absent_excel;AGR-28
+;PB_Rocket_Laser_info;PB_Side_Rocket_Laser;absent_excel;AGR-32
+;PB_Top_Designator_info;PB_Top_Designator;absent_excel;EO-12 Spyglass
+;PB_Top_Radar_info;PB_Top_Radar;absent_excel;AN/SPS-34 Picket
+;RadarContainerx1_info;RadarContainerx1,truk_radar;absent_excel;Radar Container (cargaison)
+;SAMTurretx1_info;SAMTurret1x1;absent_excel;RAM45 Launcher (cargaison)
+;SSM114P_info;KorvetteShipbreaker,PB_Side_Shipbreaker;absent_excel;SSM-114P Shipbreaker
+;SSM26X_info;KorvetteSledgehammer;absent_excel;SSM-26X Sledgehammer
+;Submunition2_info;;hors_hangar;ADMI-1
+;Torpedo20kt_info;Torpedo20kt_internalx2;absent_excel;NT-2 'Megalodon' (20kt)
+;TorpedoBig_info;TorpedoBig_internal,TorpedoBig_internalx2,TorpedoBig_internalx3,TorpedoBig_internalx4,TorpedoBig_internalx6;absent_excel;HT-200 'Hammerhead'
+;TorpedoFast_info;TorpedoFast_internal,TorpedoFast_internalx2,TorpedoFast_internalx4_flat,TorpedoFast_internalx4_stack,TorpedoFast_internalx6,TorpedoFast_single;absent_excel;SCT-350 'Mako'
+;TorpedoLight_info;TorpedoLight_double,TorpedoLight_internal_single,TorpedoLight_internalx2_stack,TorpedoLight_internalx4,TorpedoLight_internalx6,TorpedoLight_single;absent_excel;Type-88 'Lemon'
+;Troopsx8_info;Troopsx8_UtilityHelo1_F,Troopsx8_UtilityHelo1_R;absent_excel;Infantry Squad (troupes)
+;UGV1_SAM_launcher_info;UGV1_SAM_launcher;absent_excel;4xS1 Turret
+;UGV1_grenade_launcher_info;;hors_hangar;40mm Grenade Machine Gun
+;UGV1_grenadex1_info;UGV1_grenadex1;absent_excel;Hexhound GMG (cargaison)
+;UGV1_samx1_info;UGV1_SAMx1;absent_excel;Hexhound SAM (cargaison)
+;UGVDozer1x1_info;UGVDozer1x1;absent_excel;M12 Jackknife (cargaison)
+;fkarrier_defensive_info;fkarrier_defensive;absent_excel;Mk.X Defensive Systems Addon
+;info_ADMI;PB_VLS_ADMI;absent_excel;ADMI-44
+;info_bomb_ufo;bomb_ufo_internal;absent_excel;???
+;info_gun_ufo;turret_ufo;absent_excel;???
+;info_missile_ufo;missile_ufo_internal;absent_excel;???
+;info_ufo_shield;ufo_shield;absent_excel;???
+;kar_GTG1_info;;hors_hangar;Ground-to-Ground Missile (troupes)
+;kar_SAM_ARH_info;kar_lcv_ram45ax4;absent_excel;RAM-45-A (troupes)
+;kar_afv8_anvilturret_info;kar_afv8_anvilturret;absent_excel;57mm Cannon
+;kar_afv8_spgturret_info;kar_afv8_spgturret;absent_excel;76mm Cannon
+;kar_ammoboxx1_info;kar_ammoboxx1;absent_excel;Ammo box (cargaison)
+;kar_aps_info;kar_aps;absent_excel;Active Protection System
+;kar_coax_20mm_info;kar_coax_20mm;absent_excel;20mm Coaxial
+;kar_lcv45_remote_turret_info;;hors_hangar;20mm Rotary Cannon
+;kar_lcv_AA_Turret_info;kar_lcv_AATurret;absent_excel;20mm Rotary Cannon
+;kar_mbt_losat_info;kar_mbt_losat;absent_excel;LOSAT (troupes)
+;kar_missile_at56_info;;hors_hangar;AT56 Queenpin (troupes)
+;kar_turret_20mm_info;kar_lcv45_remote_turret,kar_turret_20mm,kar_turret_afv6AT;absent_excel;20mm Cannon
+;kar_turret_afv6AA_info;;hors_hangar;12.7mm + S1
+;kar_turret_afv6AT_info;;hors_hangar;20mm + GTG
+;kar_turret_laserhp_info;kar_turret_laserhp;absent_excel;70kw Laser
+;kar_turret_s1_info;kar_turret_s1;absent_excel;4xS1 Turret (troupes)
+;kar_ugv_90mm_info;kar_ugv_90mm;absent_excel;90mm Autocannon
+;kar_ugv_nuke1_info;kar_ugv_nukex1;absent_excel;GPO-N (0.5kt)
+;lcv_aa_info;;hors_hangar;AA Turret
+;pilotdriver_info;pilotdriver_x1;absent_excel;Eyeball Mk.I (troupes)
+;truk_MobileBase_info;truk_mobileBase;absent_excel;Mobile support Module (cargaison)
+;truk_cram_info;truk_cram;absent_excel;20mm Rotary Cannon
+;truk_fob_x1_info;truk_fob_x1;absent_excel;FOB (cargaison)
+;truk_helipad_x1_info;truk_helipad_x1;absent_excel;Helipad (cargaison)
+;truk_radar_info;;hors_hangar;Radar Container (cargaison)

@@ -5,7 +5,7 @@ Slug : wiki-armes-en-jeu · Mis à jour : 2026-10-09 · Statut : en cours
 ## Reprise
 - Phase en cours : 3 Exécution (plan v1 validé le 2026-10-09)
 - Modèle conseillé : Opus 5.5, effort medium
-- Prochaine action exacte : attendre le retour de Florian sur la v0.2 (CSV d'export + `LogOutput.log` + captures des 3 thèmes + recette R1–R8, R7b). Ensuite : E4 (correspondance à partir du CSV, cas ambigus à Florian, régénérer `weapons.json`), corriger d'après la recette, puis E9 (paquet final).
+- Prochaine action exacte : (1) Florian valide les 10 rattachements « a_valider » de `data/correspondance.csv` (noms de code des avions Aryx) et lance la v0.3.0 avec l'export activé ; (2) avec l'export enrichi (stats), départager les 15 variantes et le 30mm du FS-41 dans `tools/correspondance.py`, puis régénérer `weapons.json` ; (3) rédiger le plan v1.1 (issue n° 1) et l'exécuter.
 - Pour reprendre : nouvelle conversation sur le bon modèle → `/planification` → joindre ce fichier (+ le plan). Dans une session cloud neuve : `apt-get install -y dotnet-sdk-8.0`, redéposer les DLL dans `lib/` (liste dans le README), télécharger BepInEx 5.4.23.2 pour `BepInEx.dll` et `0Harmony.dll`.
 
 ## Récapitulatif de cadrage (validé le 2026-10-09)
@@ -65,11 +65,11 @@ Maquette de référence : `docs/maquettes/fiche-arme-mfd.html` (en ligne : https
 - [x] E0 — Environnement : SDK .NET 8, DLL du jeu et BepInEx 5.4.23.2 dans `lib/` (ignoré par git).
 - [x] E1 — Squelette, csproj, Plugin, configuration F1 complète. Build sans avertissement.
 - [x] E2 — `tools/xlsx_vers_json.py` → `data/weapons.json` : 133 armes, contrôle AGM-48 OK, sortie identique sur deux exécutions.
-- [ ] E3 — Export diagnostic codé et livré (v0.1, puis inclus dans la v0.2) ; **en attente du CSV de Florian**.
-- [ ] E4 — Correspondance (bloquée par E3).
+- [x] E3 — Export reçu de Florian (v0.2.2, 681 lignes) → `data/dump/2026-10-09_v0.2.2.csv`. v0.3.0 : export enrichi (autodirecteur, guidage laser, vitesses, pénétration, explosif, coût, masse, portée, cadence).
+- [ ] E4 — `tools/correspondance.py` : 117 armes à clé définitive (147 rattachements auto, dont 24 armes sur plusieurs plateformes), 520 alias, 10 « a_valider » (noms de code Aryx), **16 ambiguës** (15 variantes + 30mm du FS-41) en attente de l'export enrichi.
 - [x] E5 — Core + `tests/Core.Tests` : 65 vérifications OK, 267 fiches de structure identique.
-- [ ] E6 — Interface uGUI + 3 thèmes : codée et compilée, **en attente des captures de Florian**.
-- [ ] E7 — Intégration (4 patchs, survol d'emplacement, touche modifiable à chaud) : codée, **en attente de la recette R1–R8, R7b**.
+- [x] E6 — Interface uGUI + 3 thèmes : fonctionne en jeu (retour de Florian, v0.2.2).
+- [x] E7 — Intégration : fonctionne en jeu (v0.2.2 : 4 patchs, F6, journal sans erreur).
 - [ ] E8 — Valeurs lues en jeu (RCS, IR, agilité) : codées, **à vérifier en jeu**.
 - [ ] E9 — `tools/package.sh` et README faits ; paquet final après la recette.
 
@@ -84,7 +84,9 @@ Maquette de référence : `docs/maquettes/fiche-arme-mfd.html` (en ligne : https
 | `tools/xlsx_vers_json.py`, `tools/package.sh` | Données, empaquetage | OK |
 | `data/weapons.json` | Données générées (clés provisoires « Arme\|Source ») | en attente de E4 |
 | `README.md` | Installation et usage (FR) | v0.2 |
-| `dist/NuclearOptionWiki.dll` + `dist/NuclearOptionWiki-0.2.2.zip` | Paquet livré à Florian (non commité) | à tester |
+| `release/NuclearOptionWiki.dll` | DLL de la dernière version (commitée) | v0.3.0 |
+| `data/correspondance.csv`, `data/dump/*` | Correspondance Excel ↔ jeu, exports du jeu | E4 en cours |
+| `tools/correspondance.py` | Proposition de correspondance | OK |
 | `tests/Config.Smoke/*` | Test des réglages avec le vrai BepInEx | OK |
 
 ## Écarts au plan et remontées
@@ -99,6 +101,11 @@ Maquette de référence : `docs/maquettes/fiche-arme-mfd.html` (en ligne : https
 
 ## Écarts de modèle assumés
 - (aucun)
+
+## Retours de Florian (issue GitHub n° 1, 2026-10-09)
+- Couleurs d'interception : inchangées (seules les signatures sont inversées). Décidé.
+- Pour le plan v1.1 : note d'agilité calculée en jeu (Excel prioritaire) ; profil d'attaque en pastilles ; icônes de catégories reprises du jeu (en dernier) ; autodirecteur IR (oui/non), F&F et laser requis remplis depuis le jeu ; barres /10 au rang pour dégâts (explosif), pénétration, explosif / M$.
+- Convention : chaque version terminée → DLL compilée et commitée dans `release/`.
 
 ## Questions ouvertes
 - Validation du plan v1 (dont : portée logarithmique par défaut, absence de note globale, touche F6 par défaut, GUID `zeviper.nuclearoption.wiki`).

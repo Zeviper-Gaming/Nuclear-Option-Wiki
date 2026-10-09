@@ -57,6 +57,9 @@ namespace NuclearOptionWiki.Core
         {
             if (!string.IsNullOrEmpty(infoName) && _byKey.TryGetValue(infoName, out var byInfo))
                 return byInfo;
+            // Alias : autre asset de la même arme (version tourelle, mod KAR/BOTE…) ou jsonKey d'emport.
+            if (!string.IsNullOrEmpty(infoName) && _aliases.TryGetValue(infoName, out var infoKey) && _byKey.TryGetValue(infoKey, out var byInfoAlias))
+                return byInfoAlias;
             if (!string.IsNullOrEmpty(mountJsonKey) && _aliases.TryGetValue(mountJsonKey, out var key) && _byKey.TryGetValue(key, out var byAlias))
                 return byAlias;
             if (!string.IsNullOrWhiteSpace(weaponName) && _byUniqueName.TryGetValue(weaponName.Trim(), out var byName))

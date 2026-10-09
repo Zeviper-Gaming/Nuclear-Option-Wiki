@@ -2,6 +2,7 @@
 # Compile le mod et produit dans dist/ :
 #  - NuclearOptionWiki.dll : le mod seul (weapons.json est intégré), à importer dans NOMM ;
 #  - NuclearOptionWiki-<version>.zip : BepInEx/plugins/NuclearOptionWiki/NuclearOptionWiki.dll, à extraire dans le dossier du jeu.
+# et copie la DLL dans release/ (suivi par git) : chaque version terminée y est commitée.
 set -euo pipefail
 RACINE="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$RACINE"
@@ -12,9 +13,10 @@ dotnet build src/Plugin/NuclearOptionWiki.csproj -c Release -nologo -v q
 STAGE="$(mktemp -d)"
 trap 'rm -rf "$STAGE"' EXIT
 DEST="$STAGE/BepInEx/plugins/NuclearOptionWiki"
-mkdir -p "$DEST" dist
+mkdir -p "$DEST" dist release
 cp src/Plugin/bin/Release/net472/NuclearOptionWiki.dll "$DEST/"
 cp src/Plugin/bin/Release/net472/NuclearOptionWiki.dll dist/NuclearOptionWiki.dll
+cp src/Plugin/bin/Release/net472/NuclearOptionWiki.dll release/NuclearOptionWiki.dll
 
 ZIP="$RACINE/dist/NuclearOptionWiki-$VERSION.zip"
 rm -f "$ZIP"
@@ -25,4 +27,4 @@ with zipfile.ZipFile(sys.argv[1], 'w', zipfile.ZIP_DEFLATED) as z:
         for f in sorted(files):
             z.write(os.path.join(base, f))
 " "$ZIP")
-echo "Paquet : dist/NuclearOptionWiki-$VERSION.zip et dist/NuclearOptionWiki.dll"
+echo "Paquet v$VERSION : dist/NuclearOptionWiki-$VERSION.zip, dist/NuclearOptionWiki.dll et release/NuclearOptionWiki.dll"

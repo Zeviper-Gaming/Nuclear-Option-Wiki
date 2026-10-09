@@ -39,7 +39,7 @@ COL_AGILITE, COL_RCS, COL_IR, COL_LASER, COL_DIFF = 26, 27, 28, 29, 30
 EN_TETES_ATTENDUS = {0: "Arme", 1: "Source", 9: "Portée max (m)", 11: "Vitesse indicielle (/10)",
                      15: "Véhicules légers", 23: "Petit avion", 27: "Signature radar (RCS wiki, valeur brute)",
                      30: "Difficulté à toucher (site AA complet)"}
-STATUTS_MAPPES = {"auto", "manuel"}
+STATUTS_MAPPES = {"auto", "manuel", "a_valider"}
 
 
 def arrondi(x, decimales=0):
@@ -93,7 +93,11 @@ def note_rcs(rcs):
 
 
 def lire_correspondance(chemin):
-    """Renvoie {cle_excel: (info_name, [mount_jsonkeys])} pour les lignes mappées."""
+    """
+    Renvoie {cle_excel: (info_principale, [alias])} pour les lignes mappées. Une ligne Excel peut avoir
+    plusieurs assets du jeu (même arme sur plusieurs plateformes) : le premier donne la clé, les autres
+    noms d'assets et tous les jsonKey d'emport deviennent des alias.
+    """
     resultat = {}
     if not os.path.exists(chemin):
         return resultat
@@ -102,10 +106,14 @@ def lire_correspondance(chemin):
             if (ligne.get("statut") or "").strip() not in STATUTS_MAPPES:
                 continue
             info = (ligne.get("info_name") or "").strip()
-            if not info:
+            cle_excel = (ligne.get("excel_cle") or "").strip()
+            if not info or not cle_excel:
                 continue
             mounts = [m.strip() for m in (ligne.get("mount_jsonkeys") or "").split(",") if m.strip()]
-            resultat[ligne["excel_cle"].strip()] = (info, mounts)
+            if cle_excel not in resultat:
+                resultat[cle_excel] = (info, list(mounts))
+            else:
+                resultat[cle_excel][1].extend([info] + mounts)
     return resultat
 
 
@@ -170,9 +178,10 @@ def main():
             },
         }
         if cle_excel in correspondance:
-            cle, mounts = correspondance[cle_excel]
-            for m in mounts:
-                alias[m] = cle
+            cle, autres = correspondance[cle_excel]
+            for a in autres:
+                if a != cle:
+                    alias[a] = cle
         else:
             cle = cle_excel
             arme["cle_provisoire"] = True

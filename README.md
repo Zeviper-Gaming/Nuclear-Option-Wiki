@@ -12,7 +12,7 @@ La mise en page est identique pour toutes les armes. Une valeur absente s'affich
 
 ## Installation
 
-Le mod tient en **un seul fichier**, `NuclearOptionWiki.dll`, qui contient déjà les données des armes. Il faut BepInEx 5, déjà installé si tu utilises NOMM.
+Le mod tient en **un seul fichier**, `NuclearOptionWiki.dll`, qui contient déjà les données des armes. La dernière version se trouve dans [`release/`](release/). Il faut BepInEx 5, déjà installé si tu utilises NOMM.
 
 - **Avec NOMM** : utilise l'ajout de mod depuis un fichier et choisis `NuclearOptionWiki.dll`. Si NOMM demande une archive, donne-lui `NuclearOptionWiki-<version>.zip`.
 - **À la main** : extrais `NuclearOptionWiki-<version>.zip` dans le dossier du jeu, ou copie la DLL dans `BepInEx/plugins/`.
@@ -79,7 +79,7 @@ python3 tools/xlsx_vers_json.py      # régénère data/weapons.json (nécessite
 
 Copie ensuite `data/weapons.json` **dans le même dossier que la DLL**. Ce fichier est prioritaire sur les données intégrées, donc il n'y a rien à recompiler. Le journal indique alors `Données lues depuis …`.
 
-`data/correspondance.csv` relie chaque ligne de l'Excel (« Arme|Source ») au nom interne de l'arme dans le jeu. Il est établi à partir de l'export de diagnostic.
+`data/correspondance.csv` relie chaque ligne de l'Excel (« Arme|Source ») aux noms internes de l'arme dans le jeu. Il est proposé par `python3 tools/correspondance.py data/dump/<export>.csv`, à partir de l'export de diagnostic. Les lignes de statut `manuel` sont conservées d'une exécution à l'autre.
 
 ## Développement
 
@@ -97,4 +97,4 @@ docs/          plan, état du projet, maquette (docs/maquettes/fiche-arme-mfd.ht
    - `BepInEx.dll` et `0Harmony.dll` de BepInEx 5.4.23.2.
 
    Ces DLL ne sont **jamais commitées**.
-2. Lance `tools/package.sh`, qui produit `dist/NuclearOptionWiki-<version>.zip`.
+2. Lance `tools/package.sh`, qui produit `dist/NuclearOptionWiki-<version>.zip` et copie la DLL dans `release/`. Chaque version terminée y est commitée.

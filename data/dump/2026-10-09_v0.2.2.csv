@@ -1,0 +1,682 @@
+info_name;weapon_name;short_name;mount_jsonkey;mount_name;missile;bomb;gun;energy;cargo;troops;dans_encyclopedie
+;;;AShM1_x4;AShM-300;0;0;0;0;0;0;1
+;;;Aryx_Interceptor1_Tailhook;Tail Hook;0;0;0;0;0;0;1
+;;;Aryx_KingRaptor_TailHook;Tail Hook;0;0;0;0;0;0;1
+;;;Aryx_MC260_Tailhook;Tail Hook;0;0;0;0;0;0;1
+;;;ECMPod1;ECM Pod;0;0;0;0;0;0;1
+;;;TailHook_AryxF16M;Tail Hook;0;0;0;0;0;0;1
+;;;TailHook_AryxMiG15;Tail Hook;0;0;0;0;0;0;1
+;;;TailHook_Aryx_LightFighter1;Tail Hook;0;0;0;0;0;0;1
+;;;TailHook_Multirole1;Tail Hook;0;0;0;0;0;0;1
+;;;TailHook_Trainer;Tail Hook;0;0;0;0;0;0;1
+;;;akarrier_sam_r9;R9 Stratolance;0;0;0;0;0;0;1
+;;;fkarrier_sam_r9;R9 Stratolance;0;0;0;0;0;0;1
+;;;frikate_sam_r9;StratoLance R9;0;0;0;0;0;0;1
+;;;kar_boltstrike_turret;RAM-45 Boltstrike;0;0;0;0;0;0;1
+;;;kar_launcher_manpads;MANPADS S1 Launcher;0;0;0;0;0;0;1
+;;;korvette_sam_a_r9;StratoLance R9;0;0;0;0;0;0;1
+;;;korvette_sam_b_r9;StratoLance R9;0;0;0;0;0;0;1
+;;;kynamo_sam_a_r9;R9 Stratolance;0;0;0;0;0;0;1
+;;;kynamo_sam_b_r9;R9 Stratolance;0;0;0;0;0;0;1
+;;;skarrier_sam_r9;StratoLance R9;0;0;0;0;0;0;1
+;;;truk_mlrs_sam;R9 Stratolance (R);0;0;0;0;0;0;1
+6x6_1_AAx1_info;AFV6 AA;AFV6-AA;6x6_1_AAx1;AFV6 AA;0;0;0;0;1;0;1
+6x6_1_APCx1_info;AFV6 APC;AFV6-APC;6x6_1_APCx1;AFV6 APC;0;0;0;0;1;0;1
+6x6_1_ATx1_info;AFV6 AT;AFV6-AT;6x6_1_ATx1;AFV6 AT;0;0;0;0;1;0;1
+6x6_1_IFVx1_info;AFV6 IFV;AFV6-IFV;6x6_1_IFVx1;AFV6 IFV;0;0;0;0;1;0;1
+AAM1_info;MMR-S3;MMR-S3;AAM1_double;MMR-S3 x2;1;0;0;0;0;0;1
+AAM1_info;MMR-S3;MMR-S3;AAM1_double_internal;MMR-S3 x2;1;0;0;0;0;0;1
+AAM1_info;MMR-S3;MMR-S3;AAM1_internalx3;MMR-S3 x3;1;0;0;0;0;0;1
+AAM1_info;MMR-S3;MMR-S3;AAM1_single;MMR-S3;1;0;0;0;0;0;1
+AAM1_info;MMR-S3;MMR-S3;AAM1_single_internal;MMR-S3;1;0;0;0;0;0;1
+AAM1_info;MMR-S3;MMR-S3;AAM1_triple;MMR-S3 x3;1;0;0;0;0;0;1
+AAM1_info;MMR-S3;MMR-S3;Aryx_KingRaptor_StealthPod_AAM1_x2;Stealth Pod MMR-S3 x2;1;0;0;0;0;0;1
+AAM1_info;MMR-S3;MMR-S3;akarrier_sam_s3;MMR-S3;1;0;0;0;0;0;1
+AAM1_info;MMR-S3;MMR-S3;fkarrier_sam_s3;MMR-S3;1;0;0;0;0;0;1
+AAM1_info;MMR-S3;MMR-S3;frikate_sam_s3;MMR-S3;1;0;0;0;0;0;1
+AAM1_info;MMR-S3;MMR-S3;korvette_sam_a_s3;MMR-S3;1;0;0;0;0;0;1
+AAM1_info;MMR-S3;MMR-S3;korvette_sam_b_s3;MMR-S3;1;0;0;0;0;0;1
+AAM1_info;MMR-S3;MMR-S3;kynamo_sam_a_s3;MMR-S3;1;0;0;0;0;0;1
+AAM1_info;MMR-S3;MMR-S3;kynamo_sam_b_s3;MMR-S3;1;0;0;0;0;0;1
+AAM1_info;MMR-S3;MMR-S3;skarrier_sam_s2;MMR-S3;1;0;0;0;0;0;1
+AAM1_info_Turret;MMR-S3;MMR-S3;irm_3;MMR-S3;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;AAM2_double;AAM-29 Scythe x2;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;AAM2_double_internal;AAM-29 Scythe x2;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;AAM2_single;AAM-29 Scythe;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;AAM2_single_internal;AAM-29 Scythe;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;AAM2_triple;AAM-29 Scythe x3;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;AAM2_triple_internal;AAM-29 Scythe x3;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;AAM2x8;AAM-29 Scythe x8;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;Aryx_Interceptor1_AAM2_Quad_Internal;AAM-29 Scythe x4;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;Aryx_Interceptor1_AAM2_Triple_Compact;AAM-29 Scythe x3;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;Aryx_Interceptor1_AAM2_Triple_Compact_Event;AAM-29 Scythe x3;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;Aryx_KingRaptor_AAM2_x2_Internal_Compact;AAM-29 Scythe x2;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;Aryx_KingRaptor_AAM2_x3_Internal_Compact;AAM-29 Scythe x3;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;Aryx_KingRaptor_StealthPod_AAM2_2x;Stealth Pod AAM-29 x2;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;akarrier_sam_aam2;AAM-29 Scythe;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;fkarrier_sam_aam2;AAM-29 Scythe;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;frikate_sam_aam2;AAM-29 Scythe;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;korvette_sam_a_aam2;AAM-29 Scythe;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;korvette_sam_b_aam2;AAM-29 Scythe;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;kynamo_sam_a_aam2;AAM-29 Scythe;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;kynamo_sam_b_aam2;AAM-29 Scythe;1;0;0;0;0;0;1
+AAM2_info;AAM-29 Scythe;AAM-29;skarrier_sam_aam2;AAM-29 Scythe;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;AAM3_double;IRM-S2 x2;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;AAM3_double_internal;IRM-S2 x2;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;AAM3_quad_internal;IRM-S2 x4;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;AAM3_single;IRM-S2;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;AAM3_single_internal;IRM-S2;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;AAM3_triple_internal_compact;IRM-S2 x3;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;AAM3_triple_internal_flat;IRM-S2 x3;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;Aryx_AAM3_double_compact;IRM-S2 x2;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;Aryx_KingRaptor_AAM3_x4_Internal;IRM-S2 x4;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;Aryx_KingRaptor_StealthPod_AAM3_x3;Stealth Pod IRM-S2 x3;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;akarrier_sam_s2;IRM-S2;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;fkarrier_sam_s2;IRM-S2;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;frikate_sam_s2;IRM-S2;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;korvette_sam_a_s2;IRM-S2;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;korvette_sam_b_s2;IRM-S2;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;kynamo_sam_a_s2;IRM-S2;1;0;0;0;0;0;1
+AAM3_info;IRM-S2;IRM-S2;kynamo_sam_b_s2;IRM-S2;1;0;0;0;0;0;1
+AAM3_info_Turret;IRM-S2;IRM-S2;irm_2;IRM-S2;1;0;0;0;0;0;1
+AAM3_info_Turret;IRM-S2;IRM-S2;irm_2_med;IRM-S2;1;0;0;0;0;0;1
+AAM3_info_Turret;IRM-S2;IRM-S2;irm_2_small;IRM-S2 x4;1;0;0;0;0;0;1
+AAM4_info;AAM-36 Scimitar;AAM-36;AAM4_double;AAM-36 Scimitar x2;1;0;0;0;0;0;1
+AAM4_info;AAM-36 Scimitar;AAM-36;AAM4_double_internal;AAM-36 Scimitar x2;1;0;0;0;0;0;1
+AAM4_info;AAM-36 Scimitar;AAM-36;AAM4_double_internal_compact;AAM-36 Scimitar x2;1;0;0;0;0;0;1
+AAM4_info;AAM-36 Scimitar;AAM-36;AAM4_single;AAM-36 Scimitar;1;0;0;0;0;0;1
+AAM4_info;AAM-36 Scimitar;AAM-36;AAM4_single_internal;AAM-36 Scimitar;1;0;0;0;0;0;1
+AAM4_info;AAM-36 Scimitar;AAM-36;AAM4_triple_internal;AAM-36 Scimitar x3;1;0;0;0;0;0;1
+AAM4_info;AAM-36 Scimitar;AAM-36;AAM4x8;AAM-36 Scimitar x8;1;0;0;0;0;0;1
+AAM4_info;AAM-36 Scimitar;AAM-36;Aryx_KingRaptor_AAM4_x2_Internal_Compact;AAM-36 Scimitar x2;1;0;0;0;0;0;1
+AAM4_info;AAM-36 Scimitar;AAM-36;Aryx_KingRaptor_AAM4_x3_Internal_Compact;AAM-36 Scimitar x3;1;0;0;0;0;0;1
+AAM4_info;AAM-36 Scimitar;AAM-36;Aryx_KingRaptor_StealthPod_AAM4_x2;Stealth Pod AAM-36 x2;1;0;0;0;0;0;1
+AAM4_info;AAM-36 Scimitar;AAM-36;akarrier_sam_aam4;AAM-36 Scimitar;1;0;0;0;0;0;1
+AAM4_info;AAM-36 Scimitar;AAM-36;fkarrier_sam_aam4;AAM-36 Scimitar;1;0;0;0;0;0;1
+AAM4_info;AAM-36 Scimitar;AAM-36;kynamo_sam_a_aam4;AAM-36 Scimitar;1;0;0;0;0;0;1
+AAM4_info;AAM-36 Scimitar;AAM-36;kynamo_sam_b_aam4;AAM-36 Scimitar;1;0;0;0;0;0;1
+ARH1_info;NL-98;NL-98;;;1;0;0;0;0;0;0
+ARH1_info_Bote;NL-98;NL-98;akarrier_sam_arh1;NL-98;1;0;0;0;0;0;1
+ARH1_info_Bote;NL-98;NL-98;fkarrier_sam_arh1;NL-98;1;0;0;0;0;0;1
+ARH1_info_Bote;NL-98;NL-98;frikate_sam_arh1;NL-98;1;0;0;0;0;0;1
+ARH1_info_Bote;NL-98;NL-98;korvette_sam_a_arh1;NL-98;1;0;0;0;0;0;1
+ARH1_info_Bote;NL-98;NL-98;korvette_sam_b_arh1;NL-98;1;0;0;0;0;0;1
+ARH1_info_Bote;NL-98;NL-98;kynamo_sam_a_arh1;NL-98;1;0;0;0;0;0;1
+ARH1_info_Bote;NL-98;NL-98;kynamo_sam_b_arh1;NL-98;1;0;0;0;0;0;1
+ARH1_info_Bote;NL-98;NL-98;skarrier_sam_arh1;NL-98;1;0;0;0;0;0;1
+ARM1_info;ARAD-116;ARAD-116;ARM1_double;ARAD-116 x2;1;0;0;0;0;0;1
+ARM1_info;ARAD-116;ARAD-116;ARM1_internalx2;ARAD-116 x2;1;0;0;0;0;0;1
+ARM1_info;ARAD-116;ARAD-116;ARM1_internalx4;ARAD-116 x4;1;0;0;0;0;0;1
+ARM1_info;ARAD-116;ARAD-116;ARM1_single;ARAD-116;1;0;0;0;0;0;1
+ARM1_info;ARAD-116;ARAD-116;P_ARM1_internalx3;ARAD-116 x3;1;0;0;0;0;0;1
+ARM2_info;ARAD-45;ARAD-45;ARM2_single;ARAD-45;1;0;0;0;0;0;0
+ARM2_info;ARAD-45;ARAD-45;ARM2_single_internal;ARAD-45;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;AShM2_double;AGM-99 x2;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;AShM2_internal_single;AGM-99;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;AShM2_internalx2_stack;AGM-99 x2;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;AShM2_internalx4;AGM-99 x4;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;AShM2_internalx8;AGM-99 x6;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;AShM2_single;AGM-99;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;AShM2_x8;AGM-99 x2;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;Aryx_Interceptor1_AShM2_Triple_Internal;AGM-99 x3;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;P_AShM2_internalx2;AGM-99 x2;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;P_AShM2_internalx3;AGM-99 x3;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;akarrier_ssm_ashm2;AGM-99;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;fkarrier_ssm_a_ashm2;AGM-99;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;fkarrier_ssm_b1_ashm2;AGM-99;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;fkarrier_ssm_b2_ashm2;AGM-99;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;frikate_ssm_ashm2;AGM-99;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;korvette_ssm_a_ashm2;AGM-99;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;korvette_ssm_b_ashm2;AGM-99;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;kynamo_ssm_a_ashm2;AGM-99;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;kynamo_ssm_b_ashm2;AGM-99;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;skarrier_ssm_a_ashm2;AGM-99;1;0;0;0;0;0;1
+AShM2_info;AGM-99;AGM-99;skarrier_ssm_b_ashm2;AGM-99;1;0;0;0;0;0;1
+AShM3_info;Tusko-B (HE);Tusko-B;AShM3_internalx2;Tusko-B (HE) x2;1;0;0;0;0;0;1
+AShM3_info;Tusko-B (HE);Tusko-B;AShM3_internalx4_flat;Tusko-B (HE) x4;1;0;0;0;0;0;1
+AShM3_info;Tusko-B (HE);Tusko-B;AShM3_internalx4_stack;Tusko-B (HE) x4;1;0;0;0;0;0;1
+AShM3_info;Tusko-B (HE);Tusko-B;AShM3_single;Tusko-B (HE);1;0;0;0;0;0;1
+AShM3_info;Tusko-B (HE);Tusko-B;AShM3_x4;Tusko-B (HE) x4;1;0;0;0;0;0;1
+AShM3_info;Tusko-B (HE);Tusko-B;AShM3_x6;Tusko-B (HE) x2;1;0;0;0;0;0;1
+AShM3_info;Tusko-B (HE);Tusko-B;akarrier_ssm_ashm3;Tusko-B (HE);1;0;0;0;0;0;1
+AShM3_info;Tusko-B (HE);Tusko-B;fkarrier_ssm_a_ashm3;Tusko-B (HE);1;0;0;0;0;0;1
+AShM3_info;Tusko-B (HE);Tusko-B;fkarrier_ssm_b1_ashm3;Tusko-B (HE);1;0;0;0;0;0;1
+AShM3_info;Tusko-B (HE);Tusko-B;fkarrier_ssm_b2_ashm3;Tusko-B (HE);1;0;0;0;0;0;1
+AShM3_info;Tusko-B (HE);Tusko-B;kynamo_ssm_a_ashm3;Tusko-B (HE);1;0;0;0;0;0;1
+AShM3_info;Tusko-B (HE);Tusko-B;kynamo_ssm_b_ashm3;Tusko-B (HE);1;0;0;0;0;0;1
+Aryx_ADLT_01_x1_WeaponInfo;FRCV-105 LT;FRCV;Aryx_ADLT_01x1;FRCV-105 LT;0;0;0;0;1;0;1
+Aryx_ADLT_Gun105mmTank;105mm Cannon;;;;0;0;1;0;0;0;0
+Aryx_CRVL_1_Mortar_Info;CVR-L Serval Mortar;CVR-L M;Aryx_CRVL_1_Mortar_x1;CRV-L Serval Mortar;0;0;0;0;1;0;1
+Aryx_CRVL_1_Recon_Info;CVR-L Serval Recon;CVR-L R;Aryx_CRVL_1_Recon_x1;CRV-L Serval Recon;0;0;0;0;1;0;1
+Aryx_ClusterBomb1_Info;CBO-400;CBO-400;Aryx_ClusterBomb1_Double;CBO-400 x2;0;1;0;0;0;0;1
+Aryx_ClusterBomb1_Info;CBO-400;CBO-400;Aryx_ClusterBomb1_Single;CBO-400;0;1;0;0;0;0;1
+Aryx_ClusterBomb1_Info;CBO-400;CBO-400;Aryx_ClusterBomb1_Single_Internal;CBO-400;0;1;0;0;0;0;1
+Aryx_DropTank1200_Info;1200kg Drop Tank;TNK;Aryx_DropTank1200;1200kg Drop Tank;0;0;0;0;0;0;1
+Aryx_DropTank2000_Info;2000kg Drop Tank;TNK;Aryx_DropTank2000;2000kg Drop Tank;0;0;0;0;0;0;1
+Aryx_DropTank450_Info;450kg Drop Tank;TNK;Aryx_DropTank450;450kg Drop Tank;0;0;0;0;0;0;1
+Aryx_ExternalFlareLauncher16_Info;ECS-16 Countermeasure Dispenser;ECS-16;Aryx_ExternalFlareLauncher16;ECS-16 Flare Dispenser;0;0;0;0;0;0;1
+Aryx_ExternalFlareLauncher32_Info;ECS-32 Countermeasure Dispenser;ECS-32;Aryx_ExternalFlareLauncher32;ECS-32 Flare Dispenser;0;0;0;0;0;0;1
+Aryx_ExternalTargetingPod_Info;ETS-15 Targeting Pod;ETS-15;Aryx_ExternalTargetingPod;ETS-15 Targeting Pod;0;0;0;0;0;0;1
+Aryx_ExternalTargetingPod_Info;ETS-15 Targeting Pod;ETS-15;Aryx_ExternalTargetingPod_Trainer;ETS-15 Targeting Pod;0;0;0;0;0;0;1
+Aryx_FRCV_Artillery_152_Guided_Info;152mm Cannon;;;;0;0;1;0;0;0;0
+Aryx_FRCV_Artillery_x1_Info;FRCV-SPG;FRCV-SPG;Aryx_FRCV_Artillery_x1;FRCV SPG;0;0;0;0;1;0;1
+Aryx_FastAGM1_Info;AGM-27 Pyre;AGM-27;Aryx_FastAGM1_Internal_x2;AGM-27 Pyre x2;1;0;0;0;0;0;1
+Aryx_FastAGM1_Info;AGM-27 Pyre;AGM-27;Aryx_FastAGM1_Internal_x4;AGM-27 Pyre x4;1;0;0;0;0;0;1
+Aryx_FastAGM1_Info;AGM-27 Pyre;AGM-27;Aryx_FastAGM1_Internal_x6;AGM-27 Pyre x6;1;0;0;0;0;0;1
+Aryx_FastAGM1_Info;AGM-27 Pyre;AGM-27;Aryx_FastAGM1_x1;AGM-27 Pyre;1;0;0;0;0;0;1
+Aryx_FastAGM1_Info;AGM-27 Pyre;AGM-27;Aryx_FastAGM1_x2;AGM-27 Pyre x2;1;0;0;0;0;0;1
+Aryx_FastAGM1_Info;AGM-27 Pyre;AGM-27;Aryx_FastAGM1_x3;AGM-27 Pyre x3;1;0;0;0;0;0;1
+Aryx_FastAShM1_Info;AGM-111 Nemesis;AGM-111;Aryx_FastAShM1_Single;AGM-111 Nemesis;1;0;0;0;0;0;1
+Aryx_FastAShM1_Info;AGM-111 Nemesis;AGM-111;Aryx_FastAShM1_double_internal;AGM-111 Nemesis x2;1;0;0;0;0;0;1
+Aryx_GlideBomb400_Info;PGM-400LR;PGM-400LR;aryx_glidebomb400_double;PGM-400LR x2;0;0;0;0;0;0;1
+Aryx_GlideBomb400_Info;PGM-400LR;PGM-400LR;aryx_glidebomb400_double_internal;PGM-400LR x2;0;0;0;0;0;0;1
+Aryx_GlideBomb400_Info;PGM-400LR;PGM-400LR;aryx_glidebomb400_internal_8x;PGM-400LR x8;0;0;0;0;0;0;1
+Aryx_GlideBomb400_Info;PGM-400LR;PGM-400LR;aryx_glidebomb400_single;PGM-400LR;0;0;0;0;0;0;1
+Aryx_GlideBomb400_Info;PGM-400LR;PGM-400LR;aryx_glidebomb400_single_internal;PGM-400LR;0;0;0;0;0;0;1
+Aryx_Gunboat1_30mmAC;30mm Autocannon;GUN 30mm;;;0;0;1;0;0;0;0
+Aryx_HASAM1_info;R-100N Zenith;R-100N;;;1;0;0;0;0;0;0
+Aryx_HeavyCEV_info;Type-12 CEV;CEV;Aryx_HeavyCEV_x1;Type-12 CEV;0;0;0;0;1;0;1
+Aryx_HeavyRocket1_info;AGR-37 Jester;AGR-37;Aryx_HeavyRocket1_x1;AGR-37 Jester;0;0;0;0;0;0;1
+Aryx_HeavyRocket1_info;AGR-37 Jester;AGR-37;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;0;0;0;0;0;0;1
+Aryx_HeavyRocket1_info;AGR-37 Jester;AGR-37;Aryx_HeavyRocket1_x3;AGR-37 Jester x3;0;0;0;0;0;0;1
+Aryx_HeavyRocket1_info;AGR-37 Jester;AGR-37;Aryx_HeavyRocket1_x4;AGR-37 Jester x4;0;0;0;0;0;0;1
+Aryx_Hypersonic1_Info;HSM-750 Starfall;HSM-750;Aryx_Hypersonic1_Single;HSM-750 Starfall;1;0;0;0;0;0;1
+Aryx_Hypersonic1_Info;HSM-750 Starfall;HSM-750;Aryx_Hypersonic1_Single_Internal;HSM-750 Starfall;1;0;0;0;0;0;1
+Aryx_Hypersonic1_Nuke_Info;HSM-N Sunfall;HSM-N;;;1;0;0;0;0;0;0
+Aryx_Interceptor1_Gun_20mm_1000rd_Internal_Info;20mm Rotary Cannon (Hi-RPM);GUN 20MM ROT;Aryx_Interceptor1_Gun_20mm_1000rd_Internal;20mm Rotary Cannon (Hi-RPM) (1000 rounds);0;0;1;0;0;0;1
+Aryx_Interceptor1_Gun_20mm_1000rd_Internal_LowRPM_Info;20mm Rotary Cannon (LO-RPM);GUN 20MM ROT;Aryx_Interceptor1_Gun_20mm_1000rd_Internal_LowRPM;20mm Rotary Cannon (LO-RPM) (1000 rounds);0;0;1;0;0;0;1
+Aryx_LRIRM1_info;MRM-S4 Broadsword;MRM-S4;Aryx_LRIRM1_Double;MRM-S4 Broadsword x2;1;0;0;0;0;0;1
+Aryx_LRIRM1_info;MRM-S4 Broadsword;MRM-S4;Aryx_LRIRM1_Single;MRM-S4 Broadsword;1;0;0;0;0;0;1
+Aryx_LRIRM1_info;MRM-S4 Broadsword;MRM-S4;Aryx_LRIRM1_Triple;MRM-S4 Broadsword x3;1;0;0;0;0;0;1
+Aryx_LRIRM1_info;MRM-S4 Broadsword;MRM-S4;Aryx_LRIRM1_Triple_Internal;MRM-S4 Broadsword x3;1;0;0;0;0;0;1
+Aryx_LightFighter1_20mm_AC_Info;20mm Autocannon;GUN 20MM AC;aryx_lf1_20mm_autocannon;20mm Autocannon (500 rounds);0;0;1;0;0;0;1
+Aryx_LightFighter1_ClusterBomb1_Info;CBO-400;CBO-400;aryx_lf1_bomb_cluster1_single;CBO-400;0;1;0;0;0;0;1
+Aryx_LightHeli1_30mmTurret_Info;30mm Autocannon;GUN 30MM AC;Aryx_LightHeli1_30mmTurret;30mm Autocannon (400 rounds);0;0;1;0;0;0;1
+Aryx_MC260_35mmGun;35mm AA Autocannon;GUN 35MM;;;0;0;1;0;0;0;0
+Aryx_MC260_AAGunContainerx1_Info;35mm AA Gun Container;AA Gun;Aryx_MC260_AAGunContainerx1;AA Gun Container;0;0;0;0;1;0;1
+Aryx_MC260_Airpad_WI;Forward Deployable Airpad;Forward Deployable Airpad;Aryx_MC260_Airpad_x1;Forward Deployable Airpad;0;0;0;0;1;0;1
+Aryx_MC260_Cargo_Type12_x1WI;Type-12 MBT;MBT;Aryx_MC260_Type12_x1;Type-12 MBT;0;0;0;0;1;0;1
+Aryx_MC260_Chimera_Autocannon_Turret_WI;57mm Chaingun;AUTOCANNON 57MM;Aryx_MC260_Autocannon57;57mm Chaingun (300 rounds);0;0;1;0;0;0;1
+Aryx_MC260_Chimera_Howitzer_WI;105mm Howitzer;HOWITZER 105MM;Aryx_MC260_Howitzer;105mm Howitzer;0;0;1;0;0;0;1
+Aryx_MC260_Chimera_Railgun_WI;127mm Railgun;RAILGUN 127MM;Aryx_MC260_Railgun;127mm Railgun;0;0;1;0;0;0;1
+Aryx_MC260_Chimera_Rotary_Turret_WI;30mm Rotary Cannon;ROTARY 30MM;Aryx_MC260_Rotary30;30mm Rotary Cannon (2400 rounds);0;0;1;0;0;0;1
+Aryx_MC260_Chimera_UGVDozer1x2_info;M12 Jackknife;CEV;Aryx_MC260_UGVDozer_2x;M12 Jackknife x2;0;0;0;0;1;0;1
+Aryx_MC260_FireControl_Info_x1;Fire Control Cabin;FC Cabin;Aryx_MC260_FireControl;Fire Control Cabin;0;0;0;0;1;0;1
+Aryx_MC260_HLT-M_Info;HLT Light Munitions;HLT-ML;Aryx_MC260_HLT-M;HLT-ML;0;0;0;0;1;0;1
+Aryx_MC260_IRSAM_Turret_Info;SLMMR-A3 SAM Turret;SLMMR SAM;Aryx_IRSAM_Turret_x1;SLMMR-A3 SAM Launcher;0;0;0;0;1;0;1
+Aryx_MC260_MunitionsContainer_50T_x1_Info;Large Munitions Container;Ammo Container;Aryx_MC260_MunitionsContainer_50T_x1;Large Munitions Container;0;0;0;0;1;0;1
+Aryx_MC260_R9SAMx1_Info;R9 StratoLance SAM Launcher;R9 SAM;Aryx_MC260_R9SAMLauncherx1;R9 SAM Launcher;0;0;0;0;1;0;1
+Aryx_MC260_Radome_WI;Radome;RADAR;Aryx_MC260_Radome;Radome;0;0;0;1;0;0;1
+Aryx_MiG-15_WeaponInfo_37mm;37mm Autocannon;GUN 37mm;Aryx_MiG15_Gun27mm;37mm Autocannon (40 rounds);0;0;1;0;0;0;1
+Aryx_MiG-15_WeaponInfo_57mm;57mm Autocannon;GUN 57mm;Aryx_MiG15_Gun57mm;57mm Autocannon (6000 rounds);0;0;1;0;0;0;1
+Aryx_MissileFrigate_S_23mmCIWS;23mm CIWS;;;;0;0;1;0;0;0;0
+Aryx_Missile_AAM45_Info;AAM-45 Sabre;AAM-45;Aryx_Missile_AAM45_Double_Internal;AAM-45 Sabre x2;1;0;0;0;0;0;1
+Aryx_Missile_AAM45_Info;AAM-45 Sabre;AAM-45;Aryx_Missile_AAM45_Single;AAM-45 Sabre;1;0;0;0;0;0;1
+Aryx_Mortar_81mm_Info;81mm Mortar;;;;0;0;1;0;0;0;0
+Aryx_NavalGun_203mm;203mm Deck Gun;;;;0;0;1;0;0;0;0
+Aryx_Navex_SLND_Info;SLND-9 (20kt);SLND-9 (20kt);;;1;0;0;0;0;0;0
+Aryx_PropAttacker1_14.5mm_info;14.5mm Machine Gun;GUN 14.5mm;Aryx_PropAttacker1_14.5mm_internal;14.5mm Machine Gun (500 rounds);0;0;1;0;0;0;1
+Aryx_PropAttacker1_20mm_AC;20mm Autocannon;GUN 20MM AC;Aryx_PropAttacker1_20mm_Internal;20mm Autocannon (200 rounds);0;0;1;0;0;0;1
+Aryx_PropAttacker1_30mmGunpod_Info;30mm Autocannon;30MM AC;Aryx_PropAttacker1_SwivelGunpod;30mm Autocannon (300 rounds);0;0;1;0;0;0;1
+Aryx_Railgun_130;130mm Railgun;;;;0;0;1;0;0;0;0
+Aryx_SRIRM1_info;IRM-S5 Gladius;IRM-S5;Aryx_SRIRM1_Double;IRM-S5 Gladius x2;1;0;0;0;0;0;1
+Aryx_SRIRM1_info;IRM-S5 Gladius;IRM-S5;Aryx_SRIRM1_Single;IRM-S5 Gladius;1;0;0;0;0;0;1
+Aryx_SRIRM1_info;IRM-S5 Gladius;IRM-S5;Aryx_SRIRM1_Single_Internal;IRM-S5 Gladius;1;0;0;0;0;0;1
+Aryx_SmallCruiseMissile1_info;AGM-76 Atlatl;AGM-76;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;1;0;0;0;0;0;1
+Aryx_SmallCruiseMissile1_info;AGM-76 Atlatl;AGM-76;Aryx_SmallCruiseMissile1_Double_Internal;AGM-76 Atlatl x2;1;0;0;0;0;0;1
+Aryx_SmallCruiseMissile1_info;AGM-76 Atlatl;AGM-76;Aryx_SmallCruiseMissile1_Double_Line_Internal;AGM-76 Atlatl x2;1;0;0;0;0;0;1
+Aryx_SmallCruiseMissile1_info;AGM-76 Atlatl;AGM-76;Aryx_SmallCruiseMissile1_Octo_Internal;AGM-76 Atlatl x8;1;0;0;0;0;0;1
+Aryx_SmallCruiseMissile1_info;AGM-76 Atlatl;AGM-76;Aryx_SmallCruiseMissile1_Quad;AGM-76 Atlatl x4;1;0;0;0;0;0;1
+Aryx_SmallCruiseMissile1_info;AGM-76 Atlatl;AGM-76;Aryx_SmallCruiseMissile1_Quad_Internal;AGM-76 Atlatl x4;1;0;0;0;0;0;1
+Aryx_SmallCruiseMissile1_info;AGM-76 Atlatl;AGM-76;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;1;0;0;0;0;0;1
+Aryx_SmallCruiseMissile1_info;AGM-76 Atlatl;AGM-76;Aryx_SmallCruiseMissile1_Triple;AGM-76 Atlatl x3;1;0;0;0;0;0;1
+Aryx_SmallCruiseMissile1_info;AGM-76 Atlatl;AGM-76;Aryx_SmallCruiseMissile_Rotary20x;AGM-76 Atlatl x20;1;0;0;0;0;0;1
+Aryx_SmallJammingPod_Info;AEC-124 Offensive Jammer;JMMR;Aryx_SmallJammingPod;AEC-124 Offensive Jammer;0;0;0;1;0;0;1
+Aryx_Supercarrier1_30mmAutocannon;30mm Autocannon;GUN 30mm;;;0;0;1;0;0;0;0
+Aryx_Supercarrier1_Laser_200kwBlue;200kW Blue Laser;LASER 200KW;;;0;0;0;1;0;0;0
+Aryx_Supercarrier1_SAM_R85_Info;SAM-85 Whirlwind;SAM-85;;;1;0;0;0;0;0;0
+Aryx_SwivelGunpod30_Info;30mm Autocannon;30MM AC;Aryx_Gunpod_Swivel30mm;30mm Swivel Gunpod;0;0;1;0;0;0;1
+Aryx_SwivelGunpod30_Info;30mm Autocannon;30MM AC;Aryx_Gunpod_Swivel30mm_TA30;30mm Swivel Gunpod;0;0;1;0;0;0;1
+Aryx_USV1_Warhead_Info;2000kg HE Warhead;WARHEAD;;;0;0;1;0;0;0;0
+Aryx_Wep_ARM2_Info;ARAD-45;ARAD-45;Aryx_Wep_ARM2_double;ARAD-45 x2;1;0;0;0;0;0;1
+Aryx_Wep_ARM2_Info;ARAD-45;ARAD-45;Aryx_Wep_ARM2_single;ARAD-45;1;0;0;0;0;0;1
+Aryx_Wep_ARM2_Info;ARAD-45;ARAD-45;Aryx_Wep_ARM2_single_internal;ARAD-45;1;0;0;0;0;0;1
+Aryx_Wep_BombletDispenser_Info;ASD-16 Submunition Dispenser;ASD-16;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;0;0;0;0;0;0;1
+Aryx_Wep_GlideBomb_3000_info;PAB-3000LR;P3KLR;aryx_wep_glidebomb_3000_double_internal;PAB-3000LR x2;0;0;0;0;0;0;1
+Aryx_Wep_GlideBomb_3000_info;PAB-3000LR;P3KLR;aryx_wep_glidebomb_3000_double_internal_side;PAB-3000LR x2;0;0;0;0;0;0;1
+Aryx_Wep_GlideBomb_3000_info;PAB-3000LR;P3KLR;aryx_wep_glidebomb_3000_single_internal;PAB-3000LR;0;0;0;0;0;0;1
+Aryx_Wep_TuskoN_info;Tusko-N (1.5kt);Tusko_N;Aryx_Wep_TuskoN_Tactical;Tusko-N (1.5kt);1;0;0;0;0;0;1
+Aryx_Wep_TuskoN_info;Tusko-N (1.5kt);Tusko_N;Aryx_Wep_TuskoN_Tactical_Internal;Tusko-N (1.5kt);1;0;0;0;0;0;1
+CargoHook_info;Cargo Hook;SLING;CargoHook;Cargo Hook;0;0;0;0;0;0;1
+DestroyerDefensive_info;Mk.I Defensive Systems Addon;Mk.I;DestroyerDefensive;Mk.I Defensive Systems Addon;0;0;0;0;0;0;1
+FuelContainer1_info;Fuel Container 1500L;FUEL;FuelContainer1x1;Fuel Container 1500L x1;0;0;0;0;1;0;1
+FuelContainer1_info;Fuel Container 1500L;FUEL;FuelContainer1x2;Fuel Container 1500L x2;0;0;0;0;1;0;1
+FuelContainer1_info;Fuel Container 1500L;FUEL;FuelContainer1x4;Fuel Container 1500L x4;0;0;0;0;1;0;1
+FuelContainer2_info;Fuel Container 6000L;FUEL;FuelContainer2x1;Fuel Container 6,000L x1;0;0;0;0;1;0;1
+FuelContainer3_info;Fuel Container 10,000L;FUEL;FuelContainer3x1;Fuel Container 10,000L x1;0;0;0;0;1;0;1
+GTG1_info;AT-145;AT-145;ATGM1_quad;AT-145 x4;1;0;0;0;0;0;1
+GTG1_info;AT-145;AT-145;Aryx_LightHeli1_ATGM1_Quad_Internal;AT-145 x4;1;0;0;0;0;0;1
+GTG1_info;AT-145;AT-145;Aryx_LightHeli1_ATGM1_oct;AT-145 x8;1;0;0;0;0;0;1
+GTG1_info;AT-145;AT-145;Aryx_PropAttacker1_ATGM1_Hex;AT-145 x6;1;0;0;0;0;0;1
+GTG1_info;AT-145;AT-145;frikate_ssm_gtg1;AT-145;1;0;0;0;0;0;1
+GTG1_info;AT-145;AT-145;korvette_ssm_a_GTG1;AT-145;1;0;0;0;0;0;1
+GTG1_info;AT-145;AT-145;korvette_ssm_b_gtg1;AT-145;1;0;0;0;0;0;1
+GTG1_info;AT-145;AT-145;skarrier_ssm_a_gtg1;AT-145;1;0;0;0;0;0;1
+GTG1_info;AT-145;AT-145;skarrier_ssm_b_gtg1;AT-145;1;0;0;0;0;0;1
+Grenade_40mm;40mm GMG;;PB_Infantry_40mm;40mm GMG (32 rounds);0;0;1;0;0;0;1
+Grenade_40mm;40mm GMG;;Turret_40mm_grenade;40mm GMG (32 rounds);0;0;1;0;0;0;1
+Grenade_40mm;40mm GMG;;UGV1_grenade_launcher;40mm Grenade Machine Gun (32 rounds);0;0;1;0;0;0;1
+Grenade_40mm_short;40mm Grenade;;;;0;0;1;0;0;0;0
+Gun12.7mm;12.7mm Machine Gun;GUN 12.7MM;12.7mmRotaryTurret;12.7mm Rotary Machine Gun (1000 rounds);0;0;1;0;0;0;1
+Gun12.7mm;12.7mm Machine Gun;GUN 12.7MM;12.7mm_internal;12.7mm Machine Gun (500 rounds);0;0;1;0;0;0;1
+Gun12.7mm;12.7mm Machine Gun;GUN 12.7MM;Gunpod12.7mm;12.7mm Machine Gun (500 rounds);0;0;1;0;0;0;1
+Gun12.7mm;12.7mm Machine Gun;GUN 12.7MM;PB_Infantry_50;12.7mm Machine Gun (100 rounds);0;0;1;0;0;0;1
+Gun12.7mm;12.7mm Machine Gun;GUN 12.7MM;Turret_12.7mm_door;12.7mm Machine Gun (100 rounds);0;0;1;0;0;0;1
+Gun12.7mm_Rotary;12.7mm Rotary Machine Gun;GUN 12.7MM ROT;PB_Turret_R_AA;IRM-S1 x2;0;0;1;0;0;0;1
+Gun12.7mm_Rotary;12.7mm Rotary Machine Gun;GUN 12.7MM ROT;lcv_aa;AA Turret (200 rounds);0;0;1;0;0;0;1
+Gun127mm_Guided_Naval;127mm Cannon;;127mm_Destroyer;127mm Cannon (8 rounds);0;0;1;0;0;0;1
+Gun127mm_Guided_Naval;127mm Cannon;;127mm_Shard;127mm Cannon (5 rounds);0;0;1;0;0;0;1
+Gun127mm_Guided_Naval;127mm Cannon;;frigate_127;127mm Cannon (5 rounds);0;0;1;0;0;0;1
+Gun127mm_Guided_Naval;127mm Cannon;;frigate_127_aa;127mm Cannon (AA) (5 rounds);0;0;1;0;0;0;1
+Gun127mm_Guided_Naval_AA;127mm Cannon (AA);;;;0;0;1;0;0;0;0
+Gun130mm_Tank;130mm Cannon;;;;0;0;1;0;0;0;0
+Gun155mm_Guided;155mm Cannon;;;;0;0;1;0;0;0;0
+Gun20mm_CIWS;20mm Rotary Cannon;;20mm_large;20mm Rotary Cannon (1500 rounds);0;0;1;0;0;0;1
+Gun20mm_CIWS;20mm Rotary Cannon;;PB_Turret_F_20mm;20mm Rotary Cannon (1500 rounds);0;0;1;0;0;0;1
+Gun20mm_CIWS;20mm Rotary Cannon;;ciws_20mm;20mm Rotary Cannon (1500 rounds);0;0;1;0;0;0;1
+Gun20mm_CIWS;20mm Rotary Cannon;;lkraft_6x6_aa;20mm Rotary Cannon (1200 rounds);0;0;1;0;0;0;1
+Gun20mm_Pod;20mm Autocannon;GUN 20MM POD;gunpod_20mm;20mm Autocannon (250 rounds);0;0;1;0;0;0;1
+Gun20mm_Rotary;20mm Rotary Cannon;GUN 20MM ROT;gun_20mm_VTOLTrainer1_pod;20mm Rotary Cannon (680 rounds);0;0;1;0;0;0;1
+Gun20mm_Rotary;20mm Rotary Cannon;GUN 20MM ROT;gun_20mm_internal;20mm Rotary Cannon (750 rounds);0;0;1;0;0;0;1
+Gun20mm_Rotary;20mm Rotary Cannon;GUN 20MM ROT;gun_20mm_internal_500;20mm Rotary Cannon (500 rounds);0;0;1;0;0;0;1
+Gun20mm_Rotary_Turret;20mm Rotary Cannon;GUN 20MM ROT;turret_20mm_rotary;20mm Rotary Cannon (500 rounds);0;0;1;0;0;0;1
+Gun210mm;210mm Cannon;;210mm_Destroyer;210mm Cannon (3 rounds);0;0;1;0;0;0;1
+Gun23mm_Autocannon;23mm Autocannon;GUN 25MM POD;Aryx_MiG15_Gun23mm;23mm Autocannon (160 rounds);0;0;1;0;0;0;1
+Gun25mm_Autocannon;25mm Autocannon;GUN 25MM POD;Gunpod_25mm_flex;25mm Autocannon (250 rounds);0;0;1;0;0;0;1
+Gun25mm_Autocannon;25mm Autocannon;GUN 25MM POD;PB_Turret_R_AT;AT-145 x2;0;0;1;0;0;0;1
+Gun25mm_Autocannon;25mm Autocannon;GUN 25MM POD;kar_lcv_IFV_Turret;25mm Autocannon (30 rounds);0;0;1;0;0;0;1
+Gun25mm_Autocannon;25mm Autocannon;GUN 25MM POD;kar_tonk3_IFV_turret;25mm Autocannon (30 rounds);0;0;1;0;0;0;1
+Gun25mm_Autocannon;25mm Autocannon;GUN 25MM POD;lkraft_ifv_aa;25mm Autocannon (30 rounds);0;0;1;0;0;0;1
+Gun25mm_Rotary;25mm Rotary Cannon;GUN 25MM ROT;gunpod_25mm_trainer;25mm Rotary Cannon (960 rounds);0;0;1;0;0;0;1
+Gun25mm_Rotary;25mm Rotary Cannon;GUN 25MM ROT;kar_afv8_lavitturret;25mm Autocannon (300 rounds);0;0;1;0;0;0;1
+Gun27mm_Autocannon;27mm Autocannon;GUN 27MM;autocannon_27mm_internal;27mm Autocannon (540 rounds);0;0;1;0;0;0;1
+Gun30mm_Autocannon;30mm Autocannon;;PB_Turret_F_30mm;30mm Autocannon (900 rounds);0;0;1;0;0;0;1
+Gun30mm_Chaingun_Turret;30mm Chaingun;GUN 30MM;turret_30mm_chaingun;30mm Chaingun (575 rounds);0;0;1;0;0;0;1
+Gun30mm_Rotary;30mm Rotary Cannon;GUN 30MM ROT;gun_30mm_rotary_pod;30mm Rotary Cannon (1200 rounds);0;0;1;0;0;0;1
+Gun30mm_Rotary_Turret;30mm Rotary Cannon;GUN 30MM ROT;lkraft_ifv_at;30mm Rotary Cannon (750 rounds);0;0;1;0;0;0;1
+Gun30mm_Rotary_Turret;30mm Rotary Cannon;GUN 30MM ROT;turret_30mmHE_750;30mm HE x750;0;0;1;0;0;0;1
+Gun30mm_Rotary_Turret;30mm Rotary Cannon;GUN 30MM ROT;turret_30mm_rotary;30mm Rotary Cannon (750 rounds);0;0;1;0;0;0;1
+Gun30mm_SPAAG;30mm Cannon;;;;0;0;1;0;0;0;0
+Gun30mm_SPAAG_Player;30mm Cannon;;PB_ciws_30mm;30mm Cannon (600 rounds);0;0;1;0;0;0;1
+Gun30mm_SPAAG_Player;30mm Cannon;;ciws_30mm;30mm Cannon (1200 rounds);0;0;1;0;0;0;1
+Gun35mm_Autocannon;35mm Autocannon;GUN 35MM;gun_ammo_35mm_720;35mm AP x720;0;0;1;0;0;0;1
+Gun40mm_Bofors;40mm Cannon;;PB_Turret_R_40mm;40mm Cannon (10 rounds);0;0;1;0;0;0;1
+Gun40mm_Naval;40mm Cannon;;;;0;0;1;0;0;0;0
+Gun40mm_Naval_Player;40mm Cannon;;40mm_small;40mm Cannon (750 rounds);0;0;1;0;0;0;1
+Gun40mm_Naval_Player;40mm Cannon;;ciws_40mm;40mm Cannon (750 rounds);0;0;1;0;0;0;1
+Gun40mm_Naval_Player;40mm Cannon;;frigate_40;40mm Cannon (1000 rounds);0;0;1;0;0;0;1
+Gun57mm_Aerial;57mm Cannon;;57mmSideMount;57mm Cannon (10 rounds);0;0;1;0;0;0;1
+Gun57mm_Aerial_2;57mm Cannon2;;;;0;0;1;0;0;0;0
+Gun57mm_Naval;57mm Cannon;;57mm_Shard;57mm Cannon (6 rounds);0;0;1;0;0;0;1
+Gun57mm_Pod;57mm Cannon;;gun_57mm_pod;57mm Cannon (150 rounds);0;0;1;0;0;0;1
+Gun57mm_SPAAG;57mm Cannon;;;;0;0;1;0;0;0;0
+Gun57mm_SPAAG_Player;57mm Cannon;;57mm_small;57mm Cannon (250 rounds);0;0;1;0;0;0;1
+Gun57mm_SPAAG_Player;57mm Cannon;;PB_Turret_F_57mm;57mm Cannon (150 rounds);0;0;1;0;0;0;1
+Gun57mm_SPAAG_Player;57mm Cannon;;ciws_57mm;57mm Cannon (250 rounds);0;0;1;0;0;0;1
+Gun57mm_SPAAGx4_Player;57mm Cannon;;57mm_Destroyer;57mm Cannon (1000 rounds);0;0;1;0;0;0;1
+Gun57mm_SPAAGx4_Player;57mm Cannon;;frigate_57;57mm Cannon (1000 rounds);0;0;1;0;0;0;1
+Gun7.5mm;Light Machine Gun;7.5MM LMG;;;0;0;1;0;0;0;0
+Gun70mm_RCL;70mm Light AT;70mm AT;PB_Infantry_AT;70mm Light AT;0;0;1;0;0;0;1
+Gun76mm_Guided;76mm Cannon;GUN 76MM;76mmSideMount;76mm Cannon (500 rounds);0;0;1;0;0;0;1
+Gun76mm_Guided_Naval;76mm Cannon;;76mm;76mm Cannon (3 rounds);0;0;1;0;0;0;1
+Gun76mm_Guided_Naval;76mm Cannon;;76mm_Destroyer;76mm Cannon (6 rounds);0;0;1;0;0;0;1
+Gun76mm_Guided_Naval;76mm Cannon;;76mm_Shard;76mm Cannon (3 rounds);0;0;1;0;0;0;1
+Gun76mm_Guided_Naval;76mm Cannon;;76mm_rear;76mm Cannon (3 rounds);0;0;1;0;0;0;1
+HLT-R_info;HLT Radar Truck;HLT-R;HLT-Rx1;HLT-R;0;0;0;0;1;0;1
+JammingPod1;Radar Jamming Pod;JAMMER POD;Aryx_Interceptor1_JammingPod;Radar Jammer Pod (Event Content);0;0;0;1;0;0;1
+JammingPod1;Radar Jamming Pod;JAMMER POD;JammingPod1;Radar Jamming Pod;0;0;0;1;0;0;1
+JammingPod1;Radar Jamming Pod;JAMMER POD;ShipJammer;Jamming Antenna;0;0;0;1;0;0;1
+KorvetteDefensive_info;Mk.III Defensive Systems Addon;Mk.III;KorvetteDefensive;Mk.III Defensive Systems Addon;0;0;0;0;0;0;1
+Laser_40kw;40kw Laser;LASER 40KW;;;0;0;0;1;0;0;0
+Laser_APS1;20kw Laser;LASER 20KW;20kw;20kw Laser;0;0;0;1;0;0;1
+Laser_APS1;20kw Laser;LASER 20KW;Laser_large;20kw Laser;0;0;0;1;0;0;1
+Laser_APS1;20kw Laser;LASER 20KW;PB_Top_Laser;20kw Laser;0;0;0;1;0;0;1
+Laser_APS2;80kw Laser;LASER 80KW;80kw_frigate;80kw Laser;0;0;0;1;0;0;1
+Laser_APS2;80kw Laser;LASER 80KW;laser_large2;80kw Laser;0;0;0;1;0;0;1
+Laser_EW1;120kw Laser;LASER 120KW;laser_EW1;120kw High Energy Laser;0;0;0;1;0;0;1
+LightTruck1_ATx1_info;LCV25 AT;LCV25;LightTruck1_ATx1;LCV25 AT;0;0;0;0;1;0;1
+LightTruck1_SAMx1_info;LCV25 SAM;LCV25;LightTruck1_SAMx1;LCV25 SAM;0;0;0;0;1;0;1
+MC260_RadarContainerx1_info;Radar Container;Radar;MC260_RadarContainerx1;Radar Container;0;0;0;0;1;0;1
+MC260_SAMTurretx1_info_PLACEHOLDER;RAM-45 SAM Turret;R45 SAM;MC260_SAMTurret1x1;RAM45 SAM Launcher;0;0;0;0;1;0;1
+MunitionsContainerx1_info;Munitions Container;Ammo Container;MunitionsContainerx1;Munitions Container;0;0;0;0;1;0;1
+MunitionsContainerx1_info;Munitions Container;Ammo Container;truk_munitions;Munitions Container;0;0;0;0;1;0;1
+MunitionsPallet_info;Munitions Pallet;Ammo Pallet;MunitionsPallet1x1;Munitions Pallet;0;0;0;0;1;0;1
+MunitionsSmallPallet_info;Small Munitions Pallet;Ammo Pallet;MunitionsSmallPallet2x1;Small Munitions Pallet;0;0;0;0;1;0;1
+MunitionsSmallPallet_info;Small Munitions Pallet;Ammo Pallet;MunitionsSmallPallet2x2;Small Munitions Pallet x2;0;0;0;0;1;0;1
+MunitionsSmallPallet_info;Small Munitions Pallet;Ammo Pallet;MunitionsSmallPallet2x4;Small Munitions Pallet x4;0;0;0;0;1;0;1
+NavalMunitionsPallet2x1_info;Small Naval Supply Pallet;Naval Ammo;NavalMunitionsPallet2x1;Small Naval Supply Pallet;0;0;0;0;1;0;1
+NavalPallet_info;Naval Supply Pallet;Naval Ammo;NavalPallet1x1;Naval Supply Pallet;0;0;0;0;1;0;1
+NavalSupplyContainerx1_info;Naval Supply Container;Naval Ammo;NavalSupplyContainerx1;Naval Supply Container;0;0;0;0;1;0;1
+PB_Rocket_INS_info;AGR-28;AGR-28;PB_Side_Rocket_INS;AGR-28 x6;0;0;0;0;0;0;1
+PB_Rocket_Laser_info;AGR-32;AGR-32;PB_Side_Rocket_Laser;AGR-32 x6;1;0;0;0;0;0;1
+PB_Top_Designator_info;EO-12 Spyglass;EO-12;PB_Top_Designator;EO-12 Spyglass;0;0;0;0;0;0;1
+PB_Top_Radar_info;AN/SPS-34 Picket;AN/SPS-34;PB_Top_Radar;AN/SPS-34 Picket;0;0;0;0;0;0;1
+P_Trisurface1_Gun20mm_info;20mm Rotary Cannon;GUN 20MM ROT;P_Trisurface1_Gun20mm;20mm Rotary Cannon (1200 rounds);0;0;1;0;0;0;1
+RadarContainerx1_info;Radar Container;Radar;RadarContainerx1;Radar Container;0;0;0;0;1;0;1
+RadarContainerx1_info;Radar Container;Radar;truk_radar;Radar + EW Module;0;0;0;0;1;0;1
+Radome;Radome;RADAR;Radome1;Radome;0;0;0;1;0;0;1
+Railgun1;155mm Railgun;;;;0;0;1;0;0;0;0
+Railgun1_Player;155mm Railgun;;155mm_Destroyer;155mm Railgun (600 rounds);0;0;1;0;0;0;1
+SAMTurretx1_info;RAM45 Launcher;R45 Launcher;SAMTurret1x1;RAM45 Launcher;0;0;0;0;1;0;1
+SSM114P_info;SSM-114P Shipbreaker;SSM-114P;KorvetteShipbreaker;SSM-114P Shipbreaker;1;0;0;0;0;0;1
+SSM114P_info;SSM-114P Shipbreaker;SSM-114P;PB_Side_Shipbreaker;SSM-114P Shipbreaker;1;0;0;0;0;0;1
+SSM26X_info;SSM-26X Sledgehammer;SSM-26X;KorvetteSledgehammer;SSM-26X Sledgehammer;1;0;0;0;0;0;1
+SpecialFlarePod_info;Special Flare;;SpecialFlarePod;Special Flare Pod;0;0;0;1;0;0;0
+SpecialSmokePod_info;Special Smoke;;SpecialSmokePod;Special Smoke Pod;0;0;0;1;0;0;1
+Submunition1_info;GS25;GS25;;;0;0;0;0;0;0;0
+Submunition2_info;ADMI-1;ADMI-1;;;0;0;0;0;0;0;0
+Torpedo20kt_info;NT-2 'Megalodon' (20kt);TORP-20KT;Torpedo20kt_internalx2;NT-2 'Megalodon' (20kt) x2;1;0;0;0;0;0;1
+TorpedoBig_info;HT-200 'Hammerhead';TORP-BIG;TorpedoBig_internal;HT-200 'Hammerhead';1;0;0;0;0;0;1
+TorpedoBig_info;HT-200 'Hammerhead';TORP-BIG;TorpedoBig_internalx2;HT-200 'Hammerhead' x2;1;0;0;0;0;0;1
+TorpedoBig_info;HT-200 'Hammerhead';TORP-BIG;TorpedoBig_internalx3;HT-200 'Hammerhead' x3;1;0;0;0;0;0;1
+TorpedoBig_info;HT-200 'Hammerhead';TORP-BIG;TorpedoBig_internalx4;HT-200 'Hammerhead' x4;1;0;0;0;0;0;1
+TorpedoBig_info;HT-200 'Hammerhead';TORP-BIG;TorpedoBig_internalx6;HT-200 'Hammerhead' x6;1;0;0;0;0;0;1
+TorpedoFast_info;SCT-350 'Mako';TORP-FAST;TorpedoFast_internal;SCT-350 'Mako';1;0;0;0;0;0;1
+TorpedoFast_info;SCT-350 'Mako';TORP-FAST;TorpedoFast_internalx2;SCT-350 'Mako' x2;1;0;0;0;0;0;1
+TorpedoFast_info;SCT-350 'Mako';TORP-FAST;TorpedoFast_internalx4_flat;SCT-350 'Mako' x4;1;0;0;0;0;0;1
+TorpedoFast_info;SCT-350 'Mako';TORP-FAST;TorpedoFast_internalx4_stack;SCT-350 'Mako' x4;1;0;0;0;0;0;1
+TorpedoFast_info;SCT-350 'Mako';TORP-FAST;TorpedoFast_internalx6;SCT-350 'Mako' x6;1;0;0;0;0;0;1
+TorpedoFast_info;SCT-350 'Mako';TORP-FAST;TorpedoFast_single;SCT-350 'Mako';1;0;0;0;0;0;1
+TorpedoLight_info;Type-88 'Lemon';TORP-LIGHT;TorpedoLight_double;Type-88 'Lemon' x2;1;0;0;0;0;0;1
+TorpedoLight_info;Type-88 'Lemon';TORP-LIGHT;TorpedoLight_internal_single;Type-88 'Lemon';1;0;0;0;0;0;1
+TorpedoLight_info;Type-88 'Lemon';TORP-LIGHT;TorpedoLight_internalx2_stack;Type-88 'Lemon' x2;1;0;0;0;0;0;1
+TorpedoLight_info;Type-88 'Lemon';TORP-LIGHT;TorpedoLight_internalx4;Type-88 'Lemon' x4;1;0;0;0;0;0;1
+TorpedoLight_info;Type-88 'Lemon';TORP-LIGHT;TorpedoLight_internalx6;Type-88 'Lemon' x6;1;0;0;0;0;0;1
+TorpedoLight_info;Type-88 'Lemon';TORP-LIGHT;TorpedoLight_single;Type-88 'Lemon';1;0;0;0;0;0;1
+Trisurface1_laser_info;5MW Laser;LASER 5MW;Trisurface1_laser_pod_ventral;Strategic Airborne Heavy Laser;0;0;0;1;0;0;1
+Troopsx8_info;Infantry Squad;Infantry Squad;Troopsx8_UtilityHelo1_F;Infantry Squad;0;0;0;0;0;1;1
+Troopsx8_info;Infantry Squad;Infantry Squad;Troopsx8_UtilityHelo1_R;Infantry Squad;0;0;0;0;0;1;1
+UGV1_SAM_launcher_info;4xS1 Turret;S1;UGV1_SAM_launcher;4xS1 Turret;0;0;0;0;0;0;1
+UGV1_grenade_launcher_info;40mm Grenade Machine Gun;40mm GMG;;;0;0;1;0;0;0;0
+UGV1_grenadex1_info;Hexhound GMG;UGV;UGV1_grenadex1;Hexhound GMG;0;0;0;0;1;0;1
+UGV1_samx1_info;Hexhound SAM;UGV;UGV1_SAMx1;Hexhound SAM;0;0;0;0;1;0;1
+UGVDozer1x1_info;M12 Jackknife;CEV;UGVDozer1x1;M12 Jackknife;0;0;0;0;1;0;1
+aryx_f16m_gun_20mm_internal_500_info;20mm M61 Vulcan Cannon;GUN 20MM ROT;aryx_f16_gun_20mm_internal_511;20mm M61 Vulcan Cannon (512 rounds);0;0;1;0;0;0;1
+ballisticMissile1_info;Piledriver TBM;TBM HE;BallisticMissile1_internalx2;Piledriver TBM x2;1;0;0;0;0;0;1
+ballisticMissile1_info;Piledriver TBM;TBM HE;BallisticMissile1_single;Piledriver TBM;1;0;0;0;0;0;1
+ballisticMissile1_info;Piledriver TBM;TBM HE;P_BallisticMissile1_single;Piledriver TBM;1;0;0;0;0;0;1
+ballisticMissile1_info;Piledriver TBM;TBM HE;P_BallisticMissile1_single2;Piledriver TBM;1;0;0;0;0;0;1
+ballisticMissile1_info;Piledriver TBM;TBM HE;P_BallisticMissile1_tacNuke_single;Piledriver TBM (20kt);1;0;0;0;0;0;1
+ballisticMissile1_info;Piledriver TBM;TBM HE;akarrier_ssm_ballisticmissile1;Piledriver TBM;1;0;0;0;0;0;1
+ballisticMissile1_info;Piledriver TBM;TBM HE;fkarrier_ssm_a_ballisticmissile1;Piledriver TBM;1;0;0;0;0;0;1
+ballisticMissile1_info;Piledriver TBM;TBM HE;fkarrier_ssm_b1_ballisticmissile1;Piledriver TBM;1;0;0;0;0;0;1
+ballisticMissile1_info;Piledriver TBM;TBM HE;kynamo_ssm_a_ballisticmissile1;Piledriver TBM;1;0;0;0;0;0;1
+ballisticMissile1_info;Piledriver TBM;TBM HE;kynamo_ssm_b_ballisticmissile1;Piledriver TBM;1;0;0;0;0;0;1
+ballisticMissile1_tacNuke_info;Piledriver TBM (20kt);TBM 20kt;BallisticMissile1_tacNuke_internalx2;Piledriver TBM (20kt) x2;1;0;0;0;0;0;1
+ballisticMissile1_tacNuke_info;Piledriver TBM (20kt);TBM 20kt;BallisticMissile1_tacNuke_single;Piledriver TBM (20kt);1;0;0;0;0;0;1
+ballisticMissile1_tacNuke_info;Piledriver TBM (20kt);TBM 20kt;P_BallisticMissile1_tacNuke_single2;Piledriver TBM (20kt);1;0;0;0;0;0;1
+fkarrier_defensive_info;Mk.X Defensive Systems Addon;Mk.X;fkarrier_defensive;Mk.X Defensive Systems Addon;0;0;0;0;0;0;1
+info_ADMI;ADMI-44;ADMI-44;PB_VLS_ADMI;ADMI-44;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;AGM1_double;AGM-48 x2;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;AGM1_double_compact;AGM-48 x2;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;AGM1_double_line;AGM-48 x2;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;AGM1_floorLauncher_QuadVTOL1;AGM-48 x20;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;AGM1_quad;AGM-48 x4;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;AGM1_quad_internal;AGM-48 x4;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;AGM1_rotaryLauncher_UtilityHelo1;AGM-48 x12;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;AGM1_single;AGM-48;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;AGM1_triple;AGM-48 x3;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;AGM1_x40;AGM-48 x40;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;Aryx_LightHeli1_AGM1_double_internal;AGM-48 x2;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;PB_VLS_AGM1;AGM-48;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;frikate_ssm_agm1;AGM-48;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;kar_lcv_agmx3;AGM-48 x3;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;korvette_ssm_a_agm1;AGM-48;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;korvette_ssm_b_agm1;AGM-48;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;skarrier_ssm_a_agm1;AGM-48;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;skarrier_ssm_b_agm1;AGM-48;1;0;0;0;0;0;1
+info_AGM1;AGM-48;AGM-48;truk_agmbed;AGM-48 x180;1;0;0;0;0;0;1
+info_AGM2;ATP-1;ATP-1;AGM2_6Pod;ATP-1 x6;1;0;0;0;0;0;1
+info_AGM2;ATP-1;ATP-1;AGM2_internalx4;ATP-1 x4;1;0;0;0;0;0;1
+info_AGM2;ATP-1;ATP-1;frikate_ssm_agm2;ATP-1;1;0;0;0;0;0;1
+info_AGM2;ATP-1;ATP-1;korvette_ssm_a_agm2;ATP-1;1;0;0;0;0;0;1
+info_AGM2;ATP-1;ATP-1;korvette_ssm_b_agm2;ATP-1;1;0;0;0;0;0;1
+info_AGM2;ATP-1;ATP-1;skarrier_ssm_a_agm2;ATP-1;1;0;0;0;0;0;1
+info_AGM2;ATP-1;ATP-1;skarrier_ssm_b_agm2;ATP-1;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;AGM_heavy_internal;AGM-68;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;AGM_heavy_internalx2;AGM-68 x2;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;AGM_heavy_internalx4;AGM-68 x4;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;AGM_heavy_internalx6;AGM-68 x6;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;AGM_heavy_internalx8;AGM-68 x8;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;AGM_heavy_single;AGM-68;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;AGM_heavy_triple;AGM-68 x3;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;AGM_heavyx2;AGM-68 x2;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;P_AGM_heavy_internalx3;AGM-68 x3;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;akarrier_ssm_agm_heavy;AGM-68;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;fkarrier_ssm_a_agm_heavy;AGM-68;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;fkarrier_ssm_b1_agm_heavy;AGM-68;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;fkarrier_ssm_b2_agm_heavy;AGM-68;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;frikate_ssm_agm_heavy;AGM-68;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;korvette_ssm_a_agm_heavy;AGM-68;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;korvette_ssm_b_agm_heavy;AGM-68;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;kynamo_ssm_a_agm_heavy;AGM-68;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;kynamo_ssm_b_agm_heavy;AGM-68;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;skarrier_ssm_a_agm_heavy;AGM-68;1;0;0;0;0;0;1
+info_AGM_heavy;AGM-68;AGM-68;skarrier_ssm_b_agm_heavy;AGM-68;1;0;0;0;0;0;1
+info_AGM_scanner1;Eyeball Mk.II;Eyeball Mk.II;AGM_scanner1_double_compact;Eyeball Mk.II x2;1;0;0;0;0;0;1
+info_AGM_scanner1;Eyeball Mk.II;Eyeball Mk.II;AGM_scanner1_double_line;Eyeball Mk.II x2;1;0;0;0;0;0;1
+info_AGM_scanner1;Eyeball Mk.II;Eyeball Mk.II;Aryx_LightHeli1_AGMScanner1_Double_Internal;Eyeball Mk.II x2;1;0;0;0;0;0;1
+info_AIR-2_Genie;AIR-2 Genie;AIR-2;AIR-2_Genie_single;AIR-2 Genie;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;AShM1_internal;AShM-300;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;AShM1_internalx2;AShM-300 x2;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;AShM1_internalx4_flat;AShM-300 x4;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;AShM1_internalx4_stack;AShM-300 x4;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;AShM1_internalx6;AShM-300 x6;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;AShM1_single;AShM-300;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;AShM1x2;AShM-300 x2;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;akarrier_ssm_ashm1;AShM-300;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;fkarrier_ssm_a_ashm1;AShM-300;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;fkarrier_ssm_b1_ashm1;AShM-300;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;fkarrier_ssm_b2_ashm1;AShM-300;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;frikate_ssm_ashm1;AShM-300;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;korvette_ssm_a_ashm1;AShM-300;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;korvette_ssm_b_ashm1;AShM-300;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;kynamo_ssm_a_ashm1;AShM-300;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;kynamo_ssm_b_ashm1;AShM-300;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;skarrier_ssm_a_ashm1;AShM-300;1;0;0;0;0;0;1
+info_AShM1;AShM-300;ASHM-300;skarrier_ssm_b_ashm1;AShM-300;1;0;0;0;0;0;1
+info_Bomb_cluster1;CBO-400;CBO-400;bomb_cluster1_dual_internal;CBO-400 x2;0;1;0;0;0;0;1
+info_Bomb_cluster1;CBO-400;CBO-400;bomb_cluster1_single;CBO-400;0;1;0;0;0;0;1
+info_Bomb_cluster1;CBO-400;CBO-400;bomb_cluster1_single_internal;CBO-400;0;1;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;Aryx_KingRaptor_CruiseMissile1_External1x;ALM-C450;1;0;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;CruiseMissile1_internal;ALM-C450;1;0;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;CruiseMissile1_internalx2;ALM-C450 x2;1;0;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;CruiseMissile1_internalx3;ALM-C450 x3;1;0;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;CruiseMissile1_internalx4;ALM-C450 x4;1;0;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;CruiseMissile1_internalx6;ALM-C450 x6;1;0;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;akarrier_ssm_cruisemissile1;ALM-C450;1;0;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;fkarrier_ssm_a_cruisemissile1;ALM-C450;1;0;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;fkarrier_ssm_b1_cruisemissile1;ALM-C450;1;0;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;fkarrier_ssm_b2_cruisemissile1;ALM-C450;1;0;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;frikate_ssm_cruisemissile1;ALM-C450;1;0;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;korvette_ssm_a_cruisemissile1;ALM-C450;1;0;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;korvette_ssm_b_cruisemissile1;ALM-C450;1;0;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;kynamo_ssm_a_cruisemissile1;ALM-C450;1;0;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;kynamo_ssm_b_cruisemissile1;ALM-C450;1;0;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;skarrier_ssm_a_cruisemissile1;ALM-C450;1;0;0;0;0;0;1
+info_CruiseMissile1;ALM-C450;ALM-C450;skarrier_ssm_b_cruisemissile1;ALM-C450;1;0;0;0;0;0;1
+info_CruiseMissile20kt;ALND-4 (20kt);ALND-4 (20kt);Aryx_Interceptor1_ALND_Single;ALND-4 (20kt);1;0;0;0;0;0;1
+info_CruiseMissile20kt;ALND-4 (20kt);ALND-4 (20kt);CruiseMissile20kt_internalx2;ALND-4 (20kt) x2;1;0;0;0;0;0;1
+info_CruiseMissile20kt;ALND-4 (20kt);ALND-4 (20kt);akarrier_ssm_cruisemissile20kt;ALND-4 (20kt);1;0;0;0;0;0;1
+info_CruiseMissile20kt;ALND-4 (20kt);ALND-4 (20kt);fkarrier_ssm_a_cruisemissile20kt;ALND-4 (20kt);1;0;0;0;0;0;1
+info_CruiseMissile20kt;ALND-4 (20kt);ALND-4 (20kt);fkarrier_ssm_b1_cruisemissile20kt;ALND-4 (20kt);1;0;0;0;0;0;1
+info_CruiseMissile20kt;ALND-4 (20kt);ALND-4 (20kt);fkarrier_ssm_b2_cruisemissile20kt;ALND-4 (20kt);1;0;0;0;0;0;1
+info_CruiseMissile20kt;ALND-4 (20kt);ALND-4 (20kt);kynamo_ssm_a_cruisemissile20kt;ALND-4 (20kt);1;0;0;0;0;0;1
+info_CruiseMissile20kt;ALND-4 (20kt);ALND-4 (20kt);kynamo_ssm_b_cruisemissile20kt;ALND-4 (20kt);1;0;0;0;0;0;1
+info_SAM_IR1;IRM-S1;IRM-S1;IRMS1_double;IRM-S1 x2;1;0;0;0;0;0;1
+info_SAM_IR1;IRM-S1;IRM-S1;IRMS1_internalx2;IRM-S1 x2;1;0;0;0;0;0;1
+info_SAM_IR1;IRM-S1;IRM-S1;IRMS1_single;IRM-S1;1;0;0;0;0;0;1
+info_SAM_IR1;IRM-S1;IRM-S1;IRMS1_triple;IRM-S1 x3;1;0;0;0;0;0;1
+info_SAM_IR1;IRM-S1;IRM-S1;PB_VLS_IRM1;IRM-S1;1;0;0;0;0;0;1
+info_SAM_IR1;IRM-S1;IRM-S1;frikate_sam_s1;IRM-S1;1;0;0;0;0;0;1
+info_SAM_IR1;IRM-S1;IRM-S1;kar_lcv_S1x3;IRM-S1 x3;1;0;0;0;0;0;1
+info_SAM_IR1;IRM-S1;IRM-S1;korvette_sam_a_s1;IRM-S1;1;0;0;0;0;0;1
+info_SAM_IR1;IRM-S1;IRM-S1;korvette_sam_b_s1;IRM-S1;1;0;0;0;0;0;1
+info_SAM_IR1;IRM-S1;IRM-S1;skarrier_sam_s1;IRM-S1;1;0;0;0;0;0;1
+info_SAM_IR1_Turret;IRM-S1;IRM-S1;irm_1;IRM-S1;1;0;0;0;0;0;1
+info_SAM_IR1_Turret;IRM-S1;IRM-S1;irm_1_small;IRM-S1;1;0;0;0;0;0;1
+info_SAM_Radar1;RAM-45;RAM-45;SAM_Radar1_VLS;RAM-45;1;0;0;0;0;0;1
+info_SAM_Radar1_Bote;RAM-45;RAM-45;akarrier_sam_ram45;RAM-45;1;0;0;0;0;0;1
+info_SAM_Radar1_Bote;RAM-45;RAM-45;fkarrier_sam_ram45;RAM-45;1;0;0;0;0;0;1
+info_SAM_Radar1_Bote;RAM-45;RAM-45;frikate_sam_ram45;RAM-45;1;0;0;0;0;0;1
+info_SAM_Radar1_Bote;RAM-45;RAM-45;korvette_sam_a_ram45;RAM-45;1;0;0;0;0;0;1
+info_SAM_Radar1_Bote;RAM-45;RAM-45;korvette_sam_b_ram45;RAM-45;1;0;0;0;0;0;1
+info_SAM_Radar1_Bote;RAM-45;RAM-45;kynamo_sam_a_ram45;RAM-45;1;0;0;0;0;0;1
+info_SAM_Radar1_Bote;RAM-45;RAM-45;kynamo_sam_b_ram45;RAM-45;1;0;0;0;0;0;1
+info_SAM_Radar1_Bote;RAM-45;RAM-45;skarrier_sam_ram45;RAM-45;1;0;0;0;0;0;1
+info_SAM_Radar2;StratoLance R9;R9;;;1;0;0;0;0;0;0
+info_SAM_Radar2_Bote;StratoLance R9;R9;;;1;0;0;0;0;0;0
+info_blastFrag500;GPO-500;GPO-500;bomb_500_double;GPO-500 x2;0;1;0;0;0;0;1
+info_blastFrag500;GPO-500;GPO-500;bomb_500_internal;GPO-500;0;1;0;0;0;0;1
+info_blastFrag500;GPO-500;GPO-500;bomb_500_internalx12;GPO-500 x12;0;1;0;0;0;0;1
+info_blastFrag500;GPO-500;GPO-500;bomb_500_internalx2;GPO-500 x2;0;1;0;0;0;0;1
+info_blastFrag500;GPO-500;GPO-500;bomb_500_internalx4_flat;GPO-500 x4;0;1;0;0;0;0;1
+info_blastFrag500;GPO-500;GPO-500;bomb_500_internalx4_stack;GPO-500 x4;0;1;0;0;0;0;1
+info_blastFrag500;GPO-500;GPO-500;bomb_500_internalx6;GPO-500 x6;0;1;0;0;0;0;1
+info_blastFrag500;GPO-500;GPO-500;bomb_500_internalx8;GPO-500 x8;0;1;0;0;0;0;1
+info_blastFrag500;GPO-500;GPO-500;bomb_500_rotaryx6;GPO-500 x6;0;1;0;0;0;0;1
+info_blastFrag500;GPO-500;GPO-500;bomb_500_single;GPO-500;0;1;0;0;0;0;1
+info_bomb_125_1;PAB-125;PAB-125;bomb_125_double;PAB-125 x2;0;1;0;0;0;0;1
+info_bomb_125_1;PAB-125;PAB-125;bomb_125_double_line;PAB-125 x2;0;1;0;0;0;0;1
+info_bomb_125_1;PAB-125;PAB-125;bomb_125_internalx2;PAB-125 x2;0;1;0;0;0;0;1
+info_bomb_125_1;PAB-125;PAB-125;bomb_125_internalx2_line;PAB-125 x2;0;1;0;0;0;0;1
+info_bomb_125_1;PAB-125;PAB-125;bomb_125_internalx4;PAB-125 x4;0;1;0;0;0;0;1
+info_bomb_125_1;PAB-125;PAB-125;bomb_125_internalx6;PAB-125 x6;0;1;0;0;0;0;1
+info_bomb_125_1;PAB-125;PAB-125;bomb_125_quad;PAB-125 x4;0;1;0;0;0;0;1
+info_bomb_125_1;PAB-125;PAB-125;bomb_125_single;PAB-125;0;1;0;0;0;0;1
+info_bomb_125_1;PAB-125;PAB-125;bomb_125_triple;PAB-125 x3;0;1;0;0;0;0;1
+info_bomb_125_HD;PAB-125HD;PAB-125HD;bomb_125HD_triple;PAB-125HD x3;0;1;0;0;0;0;1
+info_bomb_250_1;PAB-250;PAB-250;Aryx_KingRaptor_StealthPod_Bomb250_x2;Stealth Pod PAB-250 x2;0;1;0;0;0;0;1
+info_bomb_250_1;PAB-250;PAB-250;P_bomb_250_triple;PAB-250 x3;0;1;0;0;0;0;1
+info_bomb_250_1;PAB-250;PAB-250;bomb_250_internal;PAB-250;0;1;0;0;0;0;1
+info_bomb_250_1;PAB-250;PAB-250;bomb_250_internalx18;PAB-250 x18;0;1;0;0;0;0;1
+info_bomb_250_1;PAB-250;PAB-250;bomb_250_internalx2;PAB-250 x2;0;1;0;0;0;0;1
+info_bomb_250_1;PAB-250;PAB-250;bomb_250_internalx3;PAB-250 x3;0;1;0;0;0;0;1
+info_bomb_250_1;PAB-250;PAB-250;bomb_250_internalx8;PAB-250 x8;0;1;0;0;0;0;1
+info_bomb_250_1;PAB-250;PAB-250;bomb_250_rotaryx10;PAB-250 x10;0;1;0;0;0;0;1
+info_bomb_250_1;PAB-250;PAB-250;bomb_250_rotaryx30;PAB-250 x30;0;1;0;0;0;0;1
+info_bomb_250_1;PAB-250;PAB-250;bomb_250_single;PAB-250;0;1;0;0;0;0;1
+info_bomb_250_1;PAB-250;PAB-250;bomb_250_triple;PAB-250 x3;0;1;0;0;0;0;1
+info_bomb_250_glide;PAB-250LR;PAB-250LR;bomb_250_glide_double;PAB-250LR x2;0;0;0;0;0;0;1
+info_bomb_250_glide;PAB-250LR;PAB-250LR;bomb_250_glide_internal;PAB-250LR;0;0;0;0;0;0;1
+info_bomb_250_glide;PAB-250LR;PAB-250LR;bomb_250_glide_internalx18;PAB-250LR x18;0;0;0;0;0;0;1
+info_bomb_250_glide;PAB-250LR;PAB-250LR;bomb_250_glide_internalx2;PAB-250LR x2;0;0;0;0;0;0;1
+info_bomb_250_glide;PAB-250LR;PAB-250LR;bomb_250_glide_internalx3;PAB-250LR x3;0;0;0;0;0;0;1
+info_bomb_250_glide;PAB-250LR;PAB-250LR;bomb_250_glide_internalx8;PAB-250LR x8;0;0;0;0;0;0;1
+info_bomb_250_glide;PAB-250LR;PAB-250LR;bomb_250_glide_rotaryx10;PAB-250LR x10;0;0;0;0;0;0;1
+info_bomb_250_glide;PAB-250LR;PAB-250LR;bomb_250_glide_rotaryx30;PAB-250LR x30;0;0;0;0;0;0;1
+info_bomb_250_glide;PAB-250LR;PAB-250LR;bomb_250_glide_single;PAB-250LR;0;0;0;0;0;0;1
+info_bomb_500_glide;GBM-500LR;GBM-500LR;P_bomb_500_glide_internalx3;GBM-500LR x3;0;0;0;0;0;0;1
+info_bomb_500_glide;GBM-500LR;GBM-500LR;bomb_500_glide_internalx1;GBM-500LR;0;0;0;0;0;0;1
+info_bomb_500_glide;GBM-500LR;GBM-500LR;bomb_500_glide_internalx4_flat;GBM-500LR x4;0;0;0;0;0;0;1
+info_bomb_500_glide;GBM-500LR;GBM-500LR;bomb_500_glide_internalx6;GBM-500LR x6;0;0;0;0;0;0;1
+info_bomb_500_glide;GBM-500LR;GBM-500LR;bomb_500_glide_single;GBM-500LR;0;0;0;0;0;0;1
+info_bomb_demolition;Demolition Bomb;DEMO BOMB;bomb_demolition_internal;Demolition Bomb;0;1;0;0;0;0;1
+info_bomb_demolition;Demolition Bomb;DEMO BOMB;bomb_demolition_internalx1;Demolition Bomb;0;1;0;0;0;0;1
+info_bomb_demolition;Demolition Bomb;DEMO BOMB;bomb_demolition_internalx2;Demolition Bomb x2;0;1;0;0;0;0;1
+info_bomb_glide1;PAB-80LR;PAB-80LR;Aryx_KingRaptor_Bomb80Glide_8x_Internal;PAB-80LR x8;0;0;0;0;0;0;1
+info_bomb_glide1;PAB-80LR;PAB-80LR;Aryx_KingRaptor_StealthPod_Bomb_Glide1_4x;Stealth Pod PAB-80LR x4;0;0;0;0;0;0;1
+info_bomb_glide1;PAB-80LR;PAB-80LR;P_bomb_glide1_triple;PAB-80LR x3;0;0;0;0;0;0;1
+info_bomb_glide1;PAB-80LR;PAB-80LR;bomb_glide1_double;PAB-80LR x2;0;0;0;0;0;0;1
+info_bomb_glide1;PAB-80LR;PAB-80LR;bomb_glide1_double_inernal;PAB-80LR x2;0;0;0;0;0;0;1
+info_bomb_glide1;PAB-80LR;PAB-80LR;bomb_glide1_double_line;PAB-80LR x2;0;0;0;0;0;0;1
+info_bomb_glide1;PAB-80LR;PAB-80LR;bomb_glide1_quad;PAB-80LR x4;0;0;0;0;0;0;1
+info_bomb_glide1;PAB-80LR;PAB-80LR;bomb_glide1_quad_inernal;PAB-80LR x4;0;0;0;0;0;0;1
+info_bomb_glide1;PAB-80LR;PAB-80LR;bomb_glide1_single;PAB-80LR;0;0;0;0;0;0;1
+info_bomb_glide1;PAB-80LR;PAB-80LR;bomb_glide1_six_inernal;PAB-80LR x6;0;0;0;0;0;0;1
+info_bomb_glide1;PAB-80LR;PAB-80LR;bomb_glide1_triple;PAB-80LR x3;0;0;0;0;0;0;1
+info_bomb_penetrator1;GPO-2P Auger;GPO-2P;aryx_navex_bomb_penetrator1_internalx1;GPO-2P Auger;0;1;0;0;0;0;1
+info_bomb_penetrator1;GPO-2P Auger;GPO-2P;bomb_penetrator1_internalx2;GPO-2P Auger x2;0;1;0;0;0;0;1
+info_bomb_penetrator1;GPO-2P Auger;GPO-2P;bomb_penetrator1_internalx3;GPO-2P Auger x3;0;1;0;0;0;0;1
+info_bomb_penetrator1;GPO-2P Auger;GPO-2P;bomb_penetrator1_internalx4;GPO-2P Auger x4;0;1;0;0;0;0;1
+info_bomb_penetrator1;GPO-2P Auger;GPO-2P;bomb_penetrator1_mount;GPO-2P Auger;0;1;0;0;0;0;1
+info_bomb_ufo;???;???;bomb_ufo_internal;??? x3;0;1;0;0;0;0;1
+info_gun_ufo;???;???;turret_ufo;??? (210 rounds);0;0;1;0;0;0;1
+info_missile_ufo;???;???;missile_ufo_internal;??? x19;0;0;0;0;0;0;1
+info_nuclearBomb1;GPO-N (1.5kt);GPO-N (1.5kt);kar_lcv_nuke;GPO-N (1.5kt);0;1;0;0;0;0;1
+info_nuclearBomb1;GPO-N (1.5kt);GPO-N (1.5kt);nuclearBomb1_external;GPO-N (1.5kt);0;1;0;0;0;0;1
+info_nuclearBomb1;GPO-N (1.5kt);GPO-N (1.5kt);nuclearBomb1_internal;GPO-N (1.5kt);0;1;0;0;0;0;1
+info_nuclearBomb1;GPO-N (1.5kt);GPO-N (1.5kt);nuclearBomb1_internalx2;GPO-N (1.5kt) x2;0;1;0;0;0;0;1
+info_nuclearBomb1;GPO-N (1.5kt);GPO-N (1.5kt);nuclearBomb1_internalx4;GPO-N (1.5kt) x4;0;1;0;0;0;0;1
+info_nuclearBomb1;GPO-N (1.5kt);GPO-N (1.5kt);nuclearBomb1_internalx4_stack;GPO-N (1.5kt) x4;0;1;0;0;0;0;1
+info_nuclearBomb1_strategic;GPO-N (250kt);GPO-N (250kt);nuclearBomb1_strategic_external;GPO-N (250kt);0;1;0;0;0;0;1
+info_nuclearBomb1_strategic;GPO-N (250kt);GPO-N (250kt);nuclearBomb1_strategic_internal;GPO-N (250kt);0;1;0;0;0;0;1
+info_nuclearBomb1_strategic;GPO-N (250kt);GPO-N (250kt);nuclearBomb1_strategic_internalx2;GPO-N (250kt) x2;0;1;0;0;0;0;1
+info_nuclearBomb1_strategic;GPO-N (250kt);GPO-N (250kt);nuclearBomb1_strategic_internalx4;GPO-N (250kt) x4;0;1;0;0;0;0;1
+info_nuclearBomb1_strategic;GPO-N (250kt);GPO-N (250kt);nuclearBomb1_strategic_internalx4_stack;GPO-N (250kt) x4;0;1;0;0;0;0;1
+info_rocket1;AGR-18 Lynchpin;AGR-18;Aryx_LightHeli1_RocketPod_Double;AGR-18 Lynchpin x14;0;0;0;0;0;0;1
+info_rocket1;AGR-18 Lynchpin;AGR-18;RocketPod1_single;AGR-18 Lynchpin x7;0;0;0;0;0;0;1
+info_rocket1;AGR-18 Lynchpin;AGR-18;RocketPod1_triple;AGR-18 Lynchpin x21;0;0;0;0;0;0;1
+info_rocket1;AGR-18 Lynchpin;AGR-18;kar_lcv_rocket1;AGR-18 Lynchpin x49;0;0;0;0;0;0;1
+info_rocket2;AGR-24 Kingpin;AGR-24;Rocket2_4Pod;AGR-24 Kingpin x4;0;0;0;0;0;0;1
+info_rocket2;AGR-24 Kingpin;AGR-24;Rocket2_4Podx3;AGR-24 Kingpin x12;0;0;0;0;0;0;1
+info_rocket2;AGR-24 Kingpin;AGR-24;kar_lcv_rocket2;AGR-24 Kingpin x56;0;0;0;0;0;0;1
+info_rocket_MLRS1;MLRS Rocket;MLRS R;;;0;0;0;0;0;0;0
+info_ufo_shield;???;???;ufo_shield;??? (42 rounds);0;0;1;0;0;0;1
+kar_152mm_guided_info;152mm Cannon;GUN 152MM;;;0;0;1;0;0;0;0
+kar_23mm_turret_info;23mm Autocannon;23mm Autocannon;kar_23mm_turret;23mm Autocannon (300 rounds);0;0;1;0;0;0;1
+kar_AAM1_info;MMR-S3;MMR-S3;kar_lcv_aam1x4;MMR-S3;0;0;0;0;0;1;1
+kar_AAM2_info;AAM-29 Scythe;AAM-29;kar_lcv_aam2x4;AAM-29 Scythe;0;0;0;0;0;1;1
+kar_AAM3_info;IRM-S2;IRM-S2;kar_linebreaker_samturret;IRM-S2;0;0;0;0;0;1;1
+kar_GTG1_info;Ground-to-Ground Missile;GTG-1;;;0;0;0;0;0;1;0
+kar_SAM_ARH_info;RAM-45-A;RAM-45-A;kar_lcv_ram45ax4;RAM-45-A;0;0;0;0;0;1;1
+kar_afv8_anvilturret_info;57mm Cannon;57mm Cannon;kar_afv8_anvilturret;57mm Cannon (50 rounds);0;0;1;0;0;0;1
+kar_afv8_ifvturret_info;25mm Autocannon;GUN 25MM POD;kar_afv8_ifvturret;25mm Autocannon (50 rounds);0;0;1;0;0;0;1
+kar_afv8_spgturret_info;76mm Cannon;GUN 76MM;kar_afv8_spgturret;76mm Cannon (3 rounds);0;0;1;0;0;0;1
+kar_ammoboxx1_info;Ammo box;Ammo Box;kar_ammoboxx1;Ammo box;0;0;0;0;1;0;1
+kar_aps_info;Active Protection System;APS;kar_aps;Active Protection System (8 rounds);0;0;1;0;0;0;1
+kar_ballisticMissile1_info;Piledriver TBM;TBM HE;;;0;0;0;0;0;1;0
+kar_coax_20mm_info;20mm Coaxial;GUN 20MM;kar_coax_20mm;20mm Coaxial (500 rounds);0;0;1;0;0;0;1
+kar_info_AGM2;ATP-1;ATP-1;kar_launcher_mbt1_atp;ATP-1;0;0;0;0;0;1;1
+kar_info_AGM_Heavy;AGM-68;AGM-68;;;0;0;0;0;0;1;0
+kar_info_SAM_IR1;IRM-S1;IRM-S1;kar_afv8_samturret;IRM-S1 x2;0;0;0;0;0;1;1
+kar_info_SAM_Radar1;RAM-45;RAM-45;;;0;0;0;0;0;1;0
+kar_info_SAM_Radar2;StratoLance R9;R9;;;0;0;0;0;0;1;0
+kar_info_agm1;AGM-48;AGM-48;kar_linebreaker_agm;AGM-48;0;0;0;0;0;1;1
+kar_info_rocket2;AGR-24 Kingpin;AGR-24;;;0;0;0;0;0;1;0
+kar_launcher_mbt1_atp_info;ATP-1;ATP-1;;;0;0;0;0;0;1;0
+kar_launcher_mbt1_mixed_info;ATP-1;ATP-1;kar_launcher_mbt1_mixed;Spearhead ATP+S1 Launcher;0;0;0;0;0;1;1
+kar_launcher_mbt1_s1_info;IRM-S1;IRM-S1;kar_launcher_mbt1_s1;Spearhead S1 Launcher;0;0;0;0;0;1;1
+kar_lcv45_remote_turret_info;20mm Rotary Cannon;GUN 20MM ROT;;;0;0;1;0;0;0;0
+kar_lcv_AA_Turret_info;20mm Rotary Cannon;GUN 20MM ROT;kar_lcv_AATurret;20mm Rotary Cannon (200 rounds);0;0;1;0;0;0;1
+kar_lcv_AT_Turret_info;30mm Chaingun;GUN 30MM;kar_lcv_ATTurret;30mm Chaingun (50 rounds);0;0;1;0;0;0;1
+kar_mbt1_mainturret_info;130mm Cannon;130mm;kar_mbt1_mainturret;130mm Cannon;0;0;1;0;0;0;1
+kar_mbt_losat_info;LOSAT;LOSAT;kar_mbt_losat;AT56 x12;0;0;0;0;0;1;1
+kar_mbt_mainturret_info;130mm Cannon;130mm;kar_mbt_mainturret;130mm Cannon (6 rounds);0;0;1;0;0;0;1
+kar_mbt_railturret_info;155mm Railgun;155mm;kar_mbt_railturret;155mm Railgun;0;0;1;0;0;0;1
+kar_mbt_spaagturret_info;30mm Cannon;30mm;kar_mbt1_spaagturret;30mm Cannon (200 rounds);0;0;1;0;0;0;1
+kar_missile_at56_info;AT56 Queenpin;AT56;;;0;0;0;0;0;1;0
+kar_spgturret127_info;127mm Cannon;127mm;kar_spgturret152;127mm Cannon;0;0;1;0;0;0;1
+kar_turret_12.7mm_info;12.7mm Rotary Machine Gun;GUN 12.7MM ROT;kar_turret_12.7mm;12.7mm Rotary Machine Gun (200 rounds);0;0;1;0;0;0;1
+kar_turret_12.7mm_info;12.7mm Rotary Machine Gun;GUN 12.7MM ROT;kar_turret_afv6AA;12.7mm + S1 (200 rounds);0;0;1;0;0;0;1
+kar_turret_20mm_info;20mm Cannon;GUN 20MM;kar_lcv45_remote_turret;12.7mm Machine Gun (100 rounds);0;0;1;0;0;0;1
+kar_turret_20mm_info;20mm Cannon;GUN 20MM;kar_turret_20mm;20mm Cannon (100 rounds);0;0;1;0;0;0;1
+kar_turret_20mm_info;20mm Cannon;GUN 20MM;kar_turret_afv6AT;20mm + GTG (100 rounds);0;0;1;0;0;0;1
+kar_turret_30mm_info;30mm Chaingun;GUN 30MM;kar_turret_30mm;30mm Chaingun (30 rounds);0;0;1;0;0;0;1
+kar_turret_afv6AA_info;12.7mm + S1;Turret AT;;;0;0;1;0;0;0;0
+kar_turret_afv6AT_info;20mm + GTG;Turret AA;;;0;0;1;0;0;0;0
+kar_turret_laser_info;20kw Laser;LASER 20KW;kar_turret_laser;20kw laser turret;0;0;0;1;0;0;1
+kar_turret_laserhp_info;70kw Laser;LASER 70KW;kar_turret_laserhp;70kw laser turret;0;0;0;1;0;0;1
+kar_turret_s1_info;4xS1 Turret;S1;kar_turret_s1;4xS1 Turret;0;0;0;0;0;1;1
+kar_ugv_90mm_info;90mm Autocannon;GUN 90MM;kar_ugv_90mm;90mm Autocannon;0;0;1;0;0;0;1
+kar_ugv_nuke1_info;GPO-N (0.5kt);GPO-N (0.5kt);kar_ugv_nukex1;GPO-N (0.5kt);0;1;0;0;0;0;1
+lcv_aa_info;AA Turret;AA;;;0;0;0;0;0;0;0
+pilotdriver_info;Eyeball Mk.I;Eyeball Mk.I;pilotdriver_x1;Eyeball Mk.I;0;0;0;0;0;1;1
+tonk3_IFV_turret_info;25mm Autocannon;GUN 25MM POD;;;0;0;1;0;0;0;0
+truk_MobileBase_info;Mobile support Module;CONTAINER;truk_mobileBase;Mobile support Module;0;0;0;0;1;0;1
+truk_cram_info;20mm Rotary Cannon;;truk_cram;20mm Rotary Cannon (500 rounds);0;0;1;0;0;0;1
+truk_fob_x1_info;FOB;CONTAINER;truk_fob_x1;FOB Container;0;0;0;0;1;0;1
+truk_helipad_x1_info;Helipad;CONTAINER;truk_helipad_x1;Helipad Container;0;0;0;0;1;0;1
+truk_laser_info;80kw Laser;LASER 80KW;truk_laser;LADS Module;0;0;0;1;0;0;1
+truk_radar_info;Radar Container;Radar;;;0;0;0;0;1;0;0
+truk_tbm_agm_info;AGM-68;AGM-68;truk_tbm_agm;AGM68 x8;0;0;0;0;0;0;1
