@@ -3,10 +3,10 @@
 Slug : wiki-armes-en-jeu · Mis à jour : 2026-10-09 · Statut : en cours
 
 ## Reprise
-- Phase en cours : 2 Plan (version 1 du plan rédigée, en attente de validation par Florian)
-- Modèle conseillé : Opus 5.5, effort high
-- Prochaine action exacte : recueillir la validation ou les corrections de Florian sur `plan-wiki-armes-en-jeu.md` v1 ; intégrer les retours ; passer le statut du plan à « validé » ; puis phase 3 sur Opus 5.5, effort medium, en commençant par l'étape E0 (Florian fournit les DLL du dossier `Managed`).
-- Pour reprendre : nouvelle conversation sur le bon modèle → `/planification` → joindre ce fichier (+ le plan s'il existe).
+- Phase en cours : 3 Exécution (plan v1 validé le 2026-10-09)
+- Modèle conseillé : Opus 5.5, effort medium
+- Prochaine action exacte : attendre le retour de Florian sur la v0.2 (CSV d'export + `LogOutput.log` + captures des 3 thèmes + recette R1–R8, R7b). Ensuite : E4 (correspondance à partir du CSV, cas ambigus à Florian, régénérer `weapons.json`), corriger d'après la recette, puis E9 (paquet final).
+- Pour reprendre : nouvelle conversation sur le bon modèle → `/planification` → joindre ce fichier (+ le plan). Dans une session cloud neuve : `apt-get install -y dotnet-sdk-8.0`, redéposer les DLL dans `lib/` (liste dans le README), télécharger BepInEx 5.4.23.2 pour `BepInEx.dll` et `0Harmony.dll`.
 
 ## Récapitulatif de cadrage (validé le 2026-10-09)
 
@@ -62,7 +62,16 @@ Slug : wiki-armes-en-jeu · Mis à jour : 2026-10-09 · Statut : en cours
 Maquette de référence : `docs/maquettes/fiche-arme-mfd.html` (en ligne : https://claude.ai/artifact/8JAaLwuogtTfQFgh2XWjGP, version 2).
 
 ## Avancement de l'exécution
-(phase 3 non commencée)
+- [x] E0 — Environnement : SDK .NET 8, DLL du jeu et BepInEx 5.4.23.2 dans `lib/` (ignoré par git).
+- [x] E1 — Squelette, csproj, Plugin, configuration F1 complète. Build sans avertissement.
+- [x] E2 — `tools/xlsx_vers_json.py` → `data/weapons.json` : 133 armes, contrôle AGM-48 OK, sortie identique sur deux exécutions.
+- [ ] E3 — Export diagnostic codé et livré (v0.1, puis inclus dans la v0.2) ; **en attente du CSV de Florian**.
+- [ ] E4 — Correspondance (bloquée par E3).
+- [x] E5 — Core + `tests/Core.Tests` : 65 vérifications OK, 267 fiches de structure identique.
+- [ ] E6 — Interface uGUI + 3 thèmes : codée et compilée, **en attente des captures de Florian**.
+- [ ] E7 — Intégration (4 patchs, survol d'emplacement, touche modifiable à chaud) : codée, **en attente de la recette R1–R8, R7b**.
+- [ ] E8 — Valeurs lues en jeu (RCS, IR, agilité) : codées, **à vérifier en jeu**.
+- [ ] E9 — `tools/package.sh` et README faits ; paquet final après la recette.
 
 ## Fichiers produits
 | Fichier | Rôle | Statut |
@@ -70,9 +79,19 @@ Maquette de référence : `docs/maquettes/fiche-arme-mfd.html` (en ligne : https
 | `docs/planification/etat-wiki-armes-en-jeu.md` | État du projet | à jour |
 | `docs/planification/plan-wiki-armes-en-jeu.md` | Plan / cahier des charges | v1 brouillon |
 | `docs/maquettes/fiche-arme-mfd.html` | Maquette interactive (3 thèmes, données réelles) | v2 |
+| `src/Core/*`, `src/Plugin/*` | Code du mod | v0.2.0, compilé |
+| `tests/Core.Tests/*` | Tests du Core | OK |
+| `tools/xlsx_vers_json.py`, `tools/package.sh` | Données, empaquetage | OK |
+| `data/weapons.json` | Données générées (clés provisoires « Arme\|Source ») | en attente de E4 |
+| `README.md` | Installation et usage (FR) | v0.2 |
+| `dist/NuclearOptionWiki-0.2.0.zip` | Paquet livré à Florian (non commité) | à tester |
 
 ## Écarts au plan et remontées
-- (aucun)
+- D1 : cible **net472** au lieu de netstandard2.1. Le repli était prévu au plan ; c'est le standard de BepInEx 5 et il élimine le risque lié à la version de Unity. Phase 3.
+- E2 : clé provisoire « Arme|Source » au lieu de `weaponName`, qui n'est pas unique (« 30mm Autocannon » ×5). Phase 3.
+- D14 : IR réelle = intensité du **premier moteur**, pas la somme : le jeu ne crée la signature IR qu'à l'activation du premier moteur (`Missile.Motor.Activate`, `if (!missile.HasIRSignature())`). Phase 3.
+- E6, E7 et E8 livrés ensemble (v0.2) pour une seule séance de test en jeu de Florian, au lieu de trois. Les critères d'acceptation sont inchangés.
+- Ajout hors plan, mineur : remplacement ASCII automatique des caractères absents de la police du jeu (·, —, ², °, accents), pour éviter les carrés.
 
 ## Écarts de modèle assumés
 - (aucun)

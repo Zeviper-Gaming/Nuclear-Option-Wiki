@@ -1,6 +1,9 @@
+using System;
+using System.IO;
 using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
+using NuclearOptionWiki.Core;
 using NuclearOptionWiki.Integration;
 
 namespace NuclearOptionWiki
@@ -10,17 +13,35 @@ namespace NuclearOptionWiki
     {
         public const string Guid = "zeviper.nuclearoption.wiki";
         public const string DisplayName = "Nuclear Option Wiki";
-        public const string Version = "0.1.0";
+        public const string Version = "0.2.0";
+        public const string DataFileName = "weapons.json";
 
         internal static ManualLogSource Log;
         internal static WikiConfig Settings;
+        internal static WeaponDatabase Database;
 
         private void Awake()
         {
             Log = Logger;
             Settings = new WikiConfig(Config);
+            Database = LoadDatabase();
             int applied = LoadoutHooks.ApplyAll(new Harmony(Guid));
-            Log.LogInfo($"[Wiki] chargé v{Version} ({applied} patch(s) appliqué(s))");
+            Log.LogInfo($"[Wiki] chargé v{Version} : {Database?.Count ?? 0} armes, {applied} patch(s) appliqué(s).");
+        }
+
+        /// <summary>Charge weapons.json placé à côté de la DLL. En cas d'échec : journal d'erreur, fiche désactivée, jeu intact.</summary>
+        private WeaponDatabase LoadDatabase()
+        {
+            string path = Path.Combine(Path.GetDirectoryName(Info.Location) ?? Paths.PluginPath, DataFileName);
+            try
+            {
+                return WeaponDatabase.FromJson(File.ReadAllText(path));
+            }
+            catch (Exception e)
+            {
+                Log.LogError($"[Wiki] Impossible de lire {path} : {e.Message}. La fiche est désactivée.");
+                return null;
+            }
         }
     }
 }
