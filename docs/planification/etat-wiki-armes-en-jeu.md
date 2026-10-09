@@ -5,7 +5,7 @@ Slug : wiki-armes-en-jeu · Mis à jour : 2026-10-09 · Statut : en cours
 ## Reprise
 - Phase en cours : 3 Exécution (plan v1 validé le 2026-10-09)
 - Modèle conseillé : Opus 5.5, effort medium
-- Prochaine action exacte : (1) Florian valide les 10 rattachements « a_valider » de `data/correspondance.csv` (noms de code des avions Aryx) et lance la v0.3.0 avec l'export activé ; (2) avec l'export enrichi (stats), départager les 15 variantes et le 30mm du FS-41 dans `tools/correspondance.py`, puis régénérer `weapons.json` ; (3) rédiger le plan v1.1 (issue n° 1) et l'exécuter.
+- Prochaine action exacte : (1) Florian lance la v0.3.0 avec l'export activé et renvoie le CSV enrichi (les noms de code Aryx sont validés) ; (2) avec l'export enrichi (stats), départager les 15 variantes et le 30mm du FS-41 dans `tools/correspondance.py`, puis régénérer `weapons.json` ; (3) rédiger le plan v1.1 (issue n° 1) et l'exécuter.
 - Pour reprendre : nouvelle conversation sur le bon modèle → `/planification` → joindre ce fichier (+ le plan). Dans une session cloud neuve : `apt-get install -y dotnet-sdk-8.0`, redéposer les DLL dans `lib/` (liste dans le README), télécharger BepInEx 5.4.23.2 pour `BepInEx.dll` et `0Harmony.dll`.
 
 ## Récapitulatif de cadrage (validé le 2026-10-09)
@@ -66,7 +66,7 @@ Maquette de référence : `docs/maquettes/fiche-arme-mfd.html` (en ligne : https
 - [x] E1 — Squelette, csproj, Plugin, configuration F1 complète. Build sans avertissement.
 - [x] E2 — `tools/xlsx_vers_json.py` → `data/weapons.json` : 133 armes, contrôle AGM-48 OK, sortie identique sur deux exécutions.
 - [x] E3 — Export reçu de Florian (v0.2.2, 681 lignes) → `data/dump/2026-10-09_v0.2.2.csv`. v0.3.0 : export enrichi (autodirecteur, guidage laser, vitesses, pénétration, explosif, coût, masse, portée, cadence).
-- [ ] E4 — `tools/correspondance.py` : 117 armes à clé définitive (147 rattachements auto, dont 24 armes sur plusieurs plateformes), 520 alias, 10 « a_valider » (noms de code Aryx), **16 ambiguës** (15 variantes + 30mm du FS-41) en attente de l'export enrichi.
+- [ ] E4 — `tools/correspondance.py` : 117 armes à clé définitive (147 rattachements auto, dont 24 armes sur plusieurs plateformes), 520 alias, noms de code Aryx validés par Florian (LightFighter1 = F-99, PropAttacker1 = OA-27, LightHeli1 = RAH-72, P_Trisurface1 = FS-3), **16 ambiguës** (15 variantes + 30mm du FS-41) en attente de l'export enrichi.
 - [x] E5 — Core + `tests/Core.Tests` : 65 vérifications OK, 267 fiches de structure identique.
 - [x] E6 — Interface uGUI + 3 thèmes : fonctionne en jeu (retour de Florian, v0.2.2).
 - [x] E7 — Intégration : fonctionne en jeu (v0.2.2 : 4 patchs, F6, journal sans erreur).

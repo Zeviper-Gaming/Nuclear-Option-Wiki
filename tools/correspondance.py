@@ -9,7 +9,7 @@ Sortie  : data/correspondance.csv (UTF-8, « ; »), colonnes
 
 Statuts :
   auto        nom identique et sans ambiguïté, ou ambiguïté levée par la source
-              (jeu de base ↔ asset sans préfixe de mod ; Aryx Weaponry Pack ↔ Aryx_Wep_*)
+              (jeu de base ↔ asset sans préfixe Aryx ; table SOURCES_SURES pour les sources de mods)
   a_valider   ambiguïté levée par le nom de code d'avion Aryx (table AVIONS_ARYX) : à confirmer par Florian
   manuel      décision de Florian (jamais écrasée : les lignes « manuel » du fichier existant sont conservées)
   ambigu      plusieurs candidats, aucune règle ne tranche (souvent des variantes : il faut les stats du jeu)
@@ -34,19 +34,20 @@ COLONNES = ["excel_cle", "info_name", "mount_jsonkeys", "statut", "commentaire"]
 
 PREFIXES_MODS = ("Aryx_", "kar_", "MC260_", "truk_", "HLT", "P_Trisurface", "PB_")
 
-# Source Excel → préfixes d'assets. Les noms de code des avions Aryx sont des hypothèses à valider.
+# Source Excel → préfixes d'assets. Noms de code d'avions validés par Florian le 2026-10-09.
 SOURCES_SURES = {
     "Aryx Weaponry Pack": ("Aryx_Wep_", "Aryx_ClusterBomb1", "Aryx_SwivelGunpod"),
-}
-AVIONS_ARYX = {
     "Aryx OA-27 Cavalier": ("Aryx_PropAttacker1",),
     "Aryx RAH-72": ("Aryx_LightHeli1",),
     "Aryx F-99 Shrike": ("Aryx_LightFighter1",),
     "Aryx MC-260 Chimera": ("Aryx_MC260", "MC260_"),
-    "Aryx FS-41 Eclipse": ("Aryx_Interceptor1",),
-    "Aryx F-16M": ("Aryx_KingRaptor",),
     "Aryx NAVEX": ("Aryx_Gunboat", "Aryx_Supercarrier", "Aryx_Destroyer", "Aryx_Frigate"),
     "FS-3 Ternion": ("P_Trisurface1",),
+}
+# Hypothèses non confirmées (aucun cas ne les utilise pour l'instant).
+AVIONS_ARYX = {
+    "Aryx FS-41 Eclipse": ("Aryx_Interceptor1",),
+    "Aryx F-16M": ("Aryx_KingRaptor",),
 }
 
 
@@ -135,7 +136,7 @@ def main():
             elif l["source"] in SOURCES_SURES:
                 f = filtrer(cands, SOURCES_SURES[l["source"]])
                 if len(f) >= 1:
-                    statut, choix, note = "auto", f, "levée par la source (Aryx Weaponry Pack)"
+                    statut, choix, note = "auto", f, f"levée par la source ({l['source']})"
             elif l["source"] in AVIONS_ARYX:
                 f = filtrer(cands, AVIONS_ARYX[l["source"]])
                 if f:

@@ -118,8 +118,8 @@ Radome|Jeu de base;Radome;Radome1;auto;levée par la source (jeu de base)
 Special Flare|Jeu de base;SpecialFlarePod_info;SpecialFlarePod;auto;
 Special Smoke|Jeu de base;SpecialSmokePod_info;SpecialSmokePod;auto;
 20mm M61 Vulcan Cannon|Aryx F-16M;aryx_f16m_gun_20mm_internal_500_info;aryx_f16_gun_20mm_internal_511;auto;
-CBO-400|Aryx F-99 Shrike;Aryx_LightFighter1_ClusterBomb1_Info;aryx_lf1_bomb_cluster1_single;a_valider;nom de code supposé : Aryx_LightFighter1
-20mm Autocannon|Aryx F-99 Shrike;Aryx_LightFighter1_20mm_AC_Info;aryx_lf1_20mm_autocannon;a_valider;nom de code supposé : Aryx_LightFighter1
+CBO-400|Aryx F-99 Shrike;Aryx_LightFighter1_ClusterBomb1_Info;aryx_lf1_bomb_cluster1_single;auto;levée par la source (Aryx F-99 Shrike)
+20mm Autocannon|Aryx F-99 Shrike;Aryx_LightFighter1_20mm_AC_Info;aryx_lf1_20mm_autocannon;auto;levée par la source (Aryx F-99 Shrike)
 20mm Rotary Cannon (Hi-RPM)|Aryx FS-41 Eclipse;Aryx_Interceptor1_Gun_20mm_1000rd_Internal_Info;Aryx_Interceptor1_Gun_20mm_1000rd_Internal;auto;
 20mm Rotary Cannon (LO-RPM)|Aryx FS-41 Eclipse;Aryx_Interceptor1_Gun_20mm_1000rd_Internal_LowRPM_Info;Aryx_Interceptor1_Gun_20mm_1000rd_Internal_LowRPM;auto;
 30mm Autocannon|Aryx FS-41 Eclipse;;;ambigu;candidats : Aryx_Gunboat1_30mmAC, Aryx_LightHeli1_30mmTurret_Info, Aryx_PropAttacker1_30mmGunpod_Info, Aryx_Supercarrier1_30mmAutocannon, Aryx_SwivelGunpod30_Info, Gun30mm_Autocannon
@@ -131,24 +131,24 @@ SAM-85 Whirlwind|Aryx FS-41 Eclipse;Aryx_Supercarrier1_SAM_R85_Info;;auto;
 127mm Railgun|Aryx MC-260 Chimera;Aryx_MC260_Chimera_Railgun_WI;Aryx_MC260_Railgun;auto;
 152mm Cannon|Aryx MC-260 Chimera;Aryx_FRCV_Artillery_152_Guided_Info;;auto;même arme sur plusieurs plateformes
 152mm Cannon|Aryx MC-260 Chimera;kar_152mm_guided_info;;auto;même arme sur plusieurs plateformes
-30mm Rotary Cannon|Aryx MC-260 Chimera;Aryx_MC260_Chimera_Rotary_Turret_WI;Aryx_MC260_Rotary30;a_valider;nom de code supposé : Aryx_MC260 / MC260_
+30mm Rotary Cannon|Aryx MC-260 Chimera;Aryx_MC260_Chimera_Rotary_Turret_WI;Aryx_MC260_Rotary30;auto;levée par la source (Aryx MC-260 Chimera)
 35mm AA Autocannon|Aryx MC-260 Chimera;Aryx_MC260_35mmGun;;auto;
 57mm Chaingun|Aryx MC-260 Chimera;Aryx_MC260_Chimera_Autocannon_Turret_WI;Aryx_MC260_Autocannon57;auto;
 81mm Mortar|Aryx MC-260 Chimera;Aryx_Mortar_81mm_Info;;auto;
-Radome|Aryx MC-260 Chimera;Aryx_MC260_Radome_WI;Aryx_MC260_Radome;a_valider;nom de code supposé : Aryx_MC260 / MC260_
+Radome|Aryx MC-260 Chimera;Aryx_MC260_Radome_WI;Aryx_MC260_Radome;auto;levée par la source (Aryx MC-260 Chimera)
 37mm Autocannon|Aryx MiG-15;Aryx_MiG-15_WeaponInfo_37mm;Aryx_MiG15_Gun27mm;auto;
 57mm Autocannon|Aryx MiG-15;Aryx_MiG-15_WeaponInfo_57mm;Aryx_MiG15_Gun57mm;auto;
 130mm Railgun|Aryx NAVEX;Aryx_Railgun_130;;auto;
 2000kg HE Warhead|Aryx NAVEX;Aryx_USV1_Warhead_Info;;auto;
 203mm Deck Gun|Aryx NAVEX;Aryx_NavalGun_203mm;;auto;
 23mm CIWS|Aryx NAVEX;Aryx_MissileFrigate_S_23mmCIWS;;auto;
-30mm Autocannon|Aryx NAVEX;Aryx_Gunboat1_30mmAC;;a_valider;nom de code supposé : Aryx_Gunboat / Aryx_Supercarrier / Aryx_Destroyer / Aryx_Frigate
-30mm Autocannon|Aryx NAVEX;Aryx_Supercarrier1_30mmAutocannon;;a_valider;nom de code supposé : Aryx_Gunboat / Aryx_Supercarrier / Aryx_Destroyer / Aryx_Frigate
+30mm Autocannon|Aryx NAVEX;Aryx_Gunboat1_30mmAC;;auto;levée par la source (Aryx NAVEX)
+30mm Autocannon|Aryx NAVEX;Aryx_Supercarrier1_30mmAutocannon;;auto;levée par la source (Aryx NAVEX)
 SLND-9 (20kt)|Aryx NAVEX;Aryx_Navex_SLND_Info;;auto;
 14.5mm Machine Gun|Aryx OA-27 Cavalier;Aryx_PropAttacker1_14.5mm_info;Aryx_PropAttacker1_14.5mm_internal;auto;
-20mm Autocannon|Aryx OA-27 Cavalier;Aryx_PropAttacker1_20mm_AC;Aryx_PropAttacker1_20mm_Internal;a_valider;nom de code supposé : Aryx_PropAttacker1
-30mm Autocannon|Aryx OA-27 Cavalier;Aryx_PropAttacker1_30mmGunpod_Info;Aryx_PropAttacker1_SwivelGunpod;a_valider;nom de code supposé : Aryx_PropAttacker1
-30mm Autocannon|Aryx RAH-72;Aryx_LightHeli1_30mmTurret_Info;Aryx_LightHeli1_30mmTurret;a_valider;nom de code supposé : Aryx_LightHeli1
+20mm Autocannon|Aryx OA-27 Cavalier;Aryx_PropAttacker1_20mm_AC;Aryx_PropAttacker1_20mm_Internal;auto;levée par la source (Aryx OA-27 Cavalier)
+30mm Autocannon|Aryx OA-27 Cavalier;Aryx_PropAttacker1_30mmGunpod_Info;Aryx_PropAttacker1_SwivelGunpod;auto;levée par la source (Aryx OA-27 Cavalier)
+30mm Autocannon|Aryx RAH-72;Aryx_LightHeli1_30mmTurret_Info;Aryx_LightHeli1_30mmTurret;auto;levée par la source (Aryx RAH-72)
 PAB-3000LR|Aryx Weaponry Pack;Aryx_Wep_GlideBomb_3000_info;aryx_wep_glidebomb_3000_double_internal,aryx_wep_glidebomb_3000_double_internal_side,aryx_wep_glidebomb_3000_single_internal;auto;
 PGM-400LR|Aryx Weaponry Pack;Aryx_GlideBomb400_Info;aryx_glidebomb400_double,aryx_glidebomb400_double_internal,aryx_glidebomb400_internal_8x,aryx_glidebomb400_single,aryx_glidebomb400_single_internal;auto;
 30mm Autocannon|Aryx Weaponry Pack;Aryx_SwivelGunpod30_Info;Aryx_Gunpod_Swivel30mm,Aryx_Gunpod_Swivel30mm_TA30;auto;levée par la source (Aryx Weaponry Pack)
@@ -170,7 +170,7 @@ AGR-37 Jester|Aryx Weaponry Pack;Aryx_HeavyRocket1_info;Aryx_HeavyRocket1_x1,Ary
 1200kg Drop Tank|Aryx Weaponry Pack;Aryx_DropTank1200_Info;Aryx_DropTank1200;auto;
 2000kg Drop Tank|Aryx Weaponry Pack;Aryx_DropTank2000_Info;Aryx_DropTank2000;auto;
 450kg Drop Tank|Aryx Weaponry Pack;Aryx_DropTank450_Info;Aryx_DropTank450;auto;
-20mm Rotary Cannon|FS-3 Ternion;P_Trisurface1_Gun20mm_info;P_Trisurface1_Gun20mm;a_valider;nom de code supposé : P_Trisurface1
+20mm Rotary Cannon|FS-3 Ternion;P_Trisurface1_Gun20mm_info;P_Trisurface1_Gun20mm;auto;levée par la source (FS-3 Ternion)
 5MW Laser|FS-3 Ternion;Trisurface1_laser_info;Trisurface1_laser_pod_ventral;auto;
 ;6x6_1_AAx1_info;6x6_1_AAx1;absent_excel;AFV6 AA (cargaison)
 ;6x6_1_APCx1_info;6x6_1_APCx1;absent_excel;AFV6 APC (cargaison)
