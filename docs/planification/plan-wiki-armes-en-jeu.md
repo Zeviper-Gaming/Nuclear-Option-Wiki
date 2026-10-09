@@ -1,6 +1,6 @@
 # Plan — Wiki d'armes en jeu (Nuclear Option)
 
-Version : 1 · Date : 2026-10-09 · Statut : brouillon
+Version : 1 · Date : 2026-10-09 · Statut : validé (2026-10-09)
 
 ## 1. Objectif et livrable
 

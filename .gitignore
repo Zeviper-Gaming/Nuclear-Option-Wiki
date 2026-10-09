@@ -1,0 +1,14 @@
+# DLL du jeu, de Unity et de BepInEx : jamais commitées (voir README)
+lib/
+
+# Build
+bin/
+obj/
+dist/
+*.user
+.vs/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
