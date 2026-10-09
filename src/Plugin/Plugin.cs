@@ -1,5 +1,7 @@
 using BepInEx;
 using BepInEx.Logging;
+using HarmonyLib;
+using NuclearOptionWiki.Integration;
 
 namespace NuclearOptionWiki
 {
@@ -17,7 +19,8 @@ namespace NuclearOptionWiki
         {
             Log = Logger;
             Settings = new WikiConfig(Config);
-            Log.LogInfo($"[Wiki] chargé v{Version}");
+            int applied = LoadoutHooks.ApplyAll(new Harmony(Guid));
+            Log.LogInfo($"[Wiki] chargé v{Version} ({applied} patch(s) appliqué(s))");
         }
     }
 }

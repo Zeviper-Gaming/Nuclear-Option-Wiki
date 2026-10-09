@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
     <AssemblyName>NuclearOptionWiki</AssemblyName>
     <RootNamespace>NuclearOptionWiki</RootNamespace>
     <Version>0.1.0</Version>
