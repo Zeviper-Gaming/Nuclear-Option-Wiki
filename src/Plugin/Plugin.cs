@@ -13,7 +13,7 @@ namespace NuclearOptionWiki
     {
         public const string Guid = "zeviper.nuclearoption.wiki";
         public const string DisplayName = "Nuclear Option Wiki";
-        public const string Version = "0.2.0";
+        public const string Version = "0.2.1";
         public const string DataFileName = "weapons.json";
 
         internal static ManualLogSource Log;
@@ -29,17 +29,42 @@ namespace NuclearOptionWiki
             Log.LogInfo($"[Wiki] chargé v{Version} : {Database?.Count ?? 0} armes, {applied} patch(s) appliqué(s).");
         }
 
-        /// <summary>Charge weapons.json placé à côté de la DLL. En cas d'échec : journal d'erreur, fiche désactivée, jeu intact.</summary>
+        /// <summary>
+        /// Charge les données : weapons.json posé à côté de la DLL s'il existe (mise à jour sans recompiler),
+        /// sinon la copie intégrée à la DLL. En cas d'échec : journal d'erreur, fiche désactivée, jeu intact.
+        /// </summary>
         private WeaponDatabase LoadDatabase()
         {
             string path = Path.Combine(Path.GetDirectoryName(Info.Location) ?? Paths.PluginPath, DataFileName);
+            if (File.Exists(path))
+            {
+                try
+                {
+                    var db = WeaponDatabase.FromJson(File.ReadAllText(path));
+                    Log.LogInfo($"[Wiki] Données lues depuis {path}.");
+                    return db;
+                }
+                catch (Exception e)
+                {
+                    Log.LogError($"[Wiki] {path} illisible ({e.Message}) : utilisation des données intégrées à la DLL.");
+                }
+            }
             try
             {
-                return WeaponDatabase.FromJson(File.ReadAllText(path));
+                using (var stream = typeof(Plugin).Assembly.GetManifestResourceStream("NuclearOptionWiki." + DataFileName))
+                {
+                    if (stream == null) throw new FileNotFoundException("ressource intégrée absente");
+                    using (var reader = new StreamReader(stream))
+                    {
+                        var db = WeaponDatabase.FromJson(reader.ReadToEnd());
+                        Log.LogInfo("[Wiki] Données intégrées à la DLL utilisées.");
+                        return db;
+                    }
+                }
             }
             catch (Exception e)
             {
-                Log.LogError($"[Wiki] Impossible de lire {path} : {e.Message}. La fiche est désactivée.");
+                Log.LogError($"[Wiki] Données des armes introuvables ({e.Message}). La fiche est désactivée.");
                 return null;
             }
         }

@@ -4,7 +4,7 @@
     <TargetFramework>net472</TargetFramework>
     <AssemblyName>NuclearOptionWiki</AssemblyName>
     <RootNamespace>NuclearOptionWiki</RootNamespace>
-    <Version>0.2.0</Version>
+    <Version>0.2.1</Version>
     <LangVersion>9.0</LangVersion>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
@@ -17,6 +17,11 @@
   <!-- Le code « Core » (sans Unity) est compilé dans la DLL du mod et testé à part (tests/Core.Tests). -->
   <ItemGroup>
     <Compile Include="..\Core\**\*.cs" Link="Core\%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <!-- weapons.json intégré à la DLL : le mod fonctionne avec ce seul fichier (import NOMM). Un weapons.json posé à côté reste prioritaire. -->
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\data\weapons.json" LogicalName="NuclearOptionWiki.weapons.json" />
   </ItemGroup>
 
   <!-- Références fournies par le jeu et BepInEx : déposées dans lib/ (ignoré par git), jamais copiées dans la sortie. -->

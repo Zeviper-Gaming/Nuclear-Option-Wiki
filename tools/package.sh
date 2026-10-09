@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Compile le mod et produit dist/NuclearOptionWiki-<version>.zip, à extraire dans le dossier du jeu.
-# Contenu : BepInEx/plugins/NuclearOptionWiki/{NuclearOptionWiki.dll, weapons.json}
+# Compile le mod et produit dans dist/ :
+#  - NuclearOptionWiki.dll : le mod seul (weapons.json est intégré), à importer dans NOMM ;
+#  - NuclearOptionWiki-<version>.zip : BepInEx/plugins/NuclearOptionWiki/NuclearOptionWiki.dll, à extraire dans le dossier du jeu.
 set -euo pipefail
 RACINE="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$RACINE"
@@ -13,7 +14,7 @@ trap 'rm -rf "$STAGE"' EXIT
 DEST="$STAGE/BepInEx/plugins/NuclearOptionWiki"
 mkdir -p "$DEST" dist
 cp src/Plugin/bin/Release/net472/NuclearOptionWiki.dll "$DEST/"
-cp data/weapons.json "$DEST/"
+cp src/Plugin/bin/Release/net472/NuclearOptionWiki.dll dist/NuclearOptionWiki.dll
 
 ZIP="$RACINE/dist/NuclearOptionWiki-$VERSION.zip"
 rm -f "$ZIP"
@@ -24,4 +25,4 @@ with zipfile.ZipFile(sys.argv[1], 'w', zipfile.ZIP_DEFLATED) as z:
         for f in sorted(files):
             z.write(os.path.join(base, f))
 " "$ZIP")
-echo "Paquet : dist/NuclearOptionWiki-$VERSION.zip"
+echo "Paquet : dist/NuclearOptionWiki-$VERSION.zip et dist/NuclearOptionWiki.dll"

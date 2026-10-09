@@ -12,13 +12,18 @@ La mise en page est identique pour toutes les armes. Une valeur absente s'affich
 
 ## Installation
 
-1. Il faut BepInEx 5, déjà installé si tu utilises NOMM.
-2. Extrais `NuclearOptionWiki-<version>.zip` **dans le dossier du jeu**. Tu dois obtenir :
-   ```
-   Nuclear Option/BepInEx/plugins/NuclearOptionWiki/NuclearOptionWiki.dll
-   Nuclear Option/BepInEx/plugins/NuclearOptionWiki/weapons.json
-   ```
-3. Lance le jeu. La ligne `[Wiki] chargé v… : 133 armes, 4 patch(s) appliqué(s)` doit apparaître dans `BepInEx/LogOutput.log`.
+Le mod tient en **un seul fichier**, `NuclearOptionWiki.dll`, qui contient déjà les données des armes. Il faut BepInEx 5, déjà installé si tu utilises NOMM.
+
+- **Avec NOMM** : utilise l'ajout de mod depuis un fichier et choisis `NuclearOptionWiki.dll`. Si NOMM demande une archive, donne-lui `NuclearOptionWiki-<version>.zip`.
+- **À la main** : extrais `NuclearOptionWiki-<version>.zip` dans le dossier du jeu, ou copie la DLL dans `BepInEx/plugins/`.
+
+Ne garde qu'**un seul exemplaire** de la DLL dans `BepInEx/plugins/`. Supprime une ancienne installation manuelle avant d'importer avec NOMM.
+
+Lance ensuite le jeu. Ces lignes doivent apparaître dans `BepInEx/LogOutput.log` :
+```
+[Wiki] Données intégrées à la DLL utilisées.
+[Wiki] chargé v… : 133 armes, 4 patch(s) appliqué(s).
+```
 
 ## Utilisation
 
@@ -72,7 +77,7 @@ Les notes viennent de `data/Armes_regroupees.xlsx`. Après une modification de l
 python3 tools/xlsx_vers_json.py      # régénère data/weapons.json (nécessite openpyxl)
 ```
 
-Copie ensuite `data/weapons.json` dans `BepInEx/plugins/NuclearOptionWiki/`. Il n'y a rien à recompiler.
+Copie ensuite `data/weapons.json` **dans le même dossier que la DLL**. Ce fichier est prioritaire sur les données intégrées, donc il n'y a rien à recompiler. Le journal indique alors `Données lues depuis …`.
 
 `data/correspondance.csv` relie chaque ligne de l'Excel (« Arme|Source ») au nom interne de l'arme dans le jeu. Il est établi à partir de l'export de diagnostic.
 
