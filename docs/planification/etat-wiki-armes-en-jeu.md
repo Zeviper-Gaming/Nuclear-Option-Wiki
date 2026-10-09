@@ -84,13 +84,14 @@ Maquette de référence : `docs/maquettes/fiche-arme-mfd.html` (en ligne : https
 | `tools/xlsx_vers_json.py`, `tools/package.sh` | Données, empaquetage | OK |
 | `data/weapons.json` | Données générées (clés provisoires « Arme\|Source ») | en attente de E4 |
 | `README.md` | Installation et usage (FR) | v0.2 |
-| `dist/NuclearOptionWiki-0.2.0.zip` | Paquet livré à Florian (non commité) | à tester |
+| `dist/NuclearOptionWiki.dll` + `dist/NuclearOptionWiki-0.2.1.zip` | Paquet livré à Florian (non commité) | à tester |
 
 ## Écarts au plan et remontées
 - D1 : cible **net472** au lieu de netstandard2.1. Le repli était prévu au plan ; c'est le standard de BepInEx 5 et il élimine le risque lié à la version de Unity. Phase 3.
 - E2 : clé provisoire « Arme|Source » au lieu de `weaponName`, qui n'est pas unique (« 30mm Autocannon » ×5). Phase 3.
 - D14 : IR réelle = intensité du **premier moteur**, pas la somme : le jeu ne crée la signature IR qu'à l'activation du premier moteur (`Missile.Motor.Activate`, `if (!missile.HasIRSignature())`). Phase 3.
 - E6, E7 et E8 livrés ensemble (v0.2) pour une seule séance de test en jeu de Florian, au lieu de trois. Les critères d'acceptation sont inchangés.
+- v0.2.1, demande de Florian : mod importable par NOMM en **une seule DLL**. `weapons.json` est intégré comme ressource ; un `weapons.json` posé à côté de la DLL reste prioritaire (D-plan « JSON à côté de la DLL » conservé comme surcharge). Format d'import local de NOMM (.dll ou .zip) non vérifié : code source inaccessible depuis la session (403) ; les deux formats sont livrés.
 - Ajout hors plan, mineur : remplacement ASCII automatique des caractères absents de la police du jeu (·, —, ², °, accents), pour éviter les carrés.
 
 ## Écarts de modèle assumés
