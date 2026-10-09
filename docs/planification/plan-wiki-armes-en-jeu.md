@@ -216,7 +216,7 @@ Ordre : E0 → E1 → (E2 ∥ E3) → E4 ; E5 après E2 ; E6 après E5 ; E7 → 
 | Section | Clé | Type | Défaut |
 |---|---|---|---|
 | Général | Touche bascule | KeyboardShortcut (touche + Ctrl/Shift/Alt possibles, capture dans F1) — voir D23 | F6 |
-| Général | Actif à l'ouverture du hangar | bool | false |
+| Général | Affichage automatique au hangar (pas d'apostrophe : interdite par BepInEx dans un nom de clé) | bool | false |
 | Affichage | Thème | enum MfdPhosphore / Annonciateur / HangarNO | MfdPhosphore |
 | Affichage | Note de portée | enum Logarithmique / Rang | Logarithmique |
 | Affichage | Échelle | float 0,75–1,5 | 1,0 |

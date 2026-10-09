@@ -13,7 +13,7 @@ namespace NuclearOptionWiki
     {
         public const string Guid = "zeviper.nuclearoption.wiki";
         public const string DisplayName = "Nuclear Option Wiki";
-        public const string Version = "0.2.1";
+        public const string Version = "0.2.2";
         public const string DataFileName = "weapons.json";
 
         internal static ManualLogSource Log;
@@ -23,10 +23,18 @@ namespace NuclearOptionWiki
         private void Awake()
         {
             Log = Logger;
-            Settings = new WikiConfig(Config);
-            Database = LoadDatabase();
-            int applied = LoadoutHooks.ApplyAll(new Harmony(Guid));
-            Log.LogInfo($"[Wiki] chargé v{Version} : {Database?.Count ?? 0} armes, {applied} patch(s) appliqué(s).");
+            try
+            {
+                Settings = new WikiConfig(Config);
+                Database = LoadDatabase();
+                int applied = LoadoutHooks.ApplyAll(new Harmony(Guid));
+                Log.LogInfo($"[Wiki] chargé v{Version} : {Database?.Count ?? 0} armes, {applied} patch(s) appliqué(s).");
+            }
+            catch (Exception e)
+            {
+                // Une exception dans Awake n'apparaît pas toujours dans LogOutput.log : on la journalise explicitement.
+                Log.LogError($"[Wiki] Échec du démarrage, mod inactif : {e}");
+            }
         }
 
         /// <summary>

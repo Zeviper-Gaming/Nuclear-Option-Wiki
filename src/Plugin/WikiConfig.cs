@@ -37,7 +37,9 @@ namespace NuclearOptionWiki
                 "Touche qui affiche ou masque la fiche wiki dans l'écran de loadout (hangar). " +
                 "Clique sur le bouton puis appuie sur la touche voulue ; Ctrl, Shift et Alt sont acceptés. " +
                 "Échap est refusée (elle ferme le hangar).");
-            ActiveOnOpen = config.Bind("Général", "Actif à l'ouverture du hangar", false,
+            // Les noms de section et de clé ne doivent contenir aucun de ces caractères : = \n \t \ " ' [ ]
+            // (BepInEx lève une exception sinon ; vérifié par tests/Core.Tests et tests/Config.Smoke).
+            ActiveOnOpen = config.Bind("Général", "Affichage automatique au hangar", false,
                 "Affiche la fiche dès l'ouverture du hangar, sans appuyer sur la touche.");
 
             Theme = config.Bind("Affichage", "Thème", WikiTheme.MfdPhosphore,

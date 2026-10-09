@@ -24,6 +24,7 @@ namespace NuclearOptionWiki.Tests
             Agm48Tests(db);
             UnknownWeaponTests();
             AllSheetsTests(db);
+            ConfigKeyTests(root);
 
             Console.WriteLine(_failures == 0 ? $"OK ({_checks} vérifications)" : $"ÉCHEC : {_failures} / {_checks} vérifications");
             return _failures == 0 ? 0 : 1;
@@ -144,6 +145,25 @@ namespace NuclearOptionWiki.Tests
                 if (!AllTextsPresent(sheet)) { bad++; Console.WriteLine($"  texte manquant : {key}"); }
             }
             Eq(0, bad, $"{sheets.Count} fiches construites, structure identique et textes complets");
+        }
+
+        /// <summary>
+        /// BepInEx refuse ces caractères dans les noms de section et de clé (ConfigDefinition.CheckInvalidConfigChars) :
+        /// une seule apostrophe fait échouer tout le démarrage du mod (bug de la v0.2.1).
+        /// </summary>
+        private static void ConfigKeyTests(string root)
+        {
+            string source = File.ReadAllText(Path.Combine(root, "src", "Plugin", "WikiConfig.cs"));
+            var binds = System.Text.RegularExpressions.Regex.Matches(source, "\\.Bind\\(\\s*\"([^\"]*)\"\\s*,\\s*\"([^\"]*)\"");
+            char[] forbidden = { '=', '\n', '\t', '\\', '"', '\'', '[', ']' };
+            Eq(9, binds.Count, "9 entrées de configuration trouvées");
+            foreach (System.Text.RegularExpressions.Match b in binds)
+            {
+                foreach (var name in new[] { b.Groups[1].Value, b.Groups[2].Value })
+                {
+                    True(name.IndexOfAny(forbidden) < 0 && name == name.Trim(), $"nom de réglage valide pour BepInEx : « {name} »");
+                }
+            }
         }
 
         private static string Signature(FicheModel f) => string.Join("|", new[]

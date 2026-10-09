@@ -50,7 +50,7 @@ Tu peux aussi éditer `BepInEx/config/zeviper.nuclearoption.wiki.cfg`, par exemp
 | Section | Réglage | Défaut | Rôle |
 |---|---|---|---|
 | Général | Touche bascule | F6 | Afficher / masquer la fiche |
-| Général | Actif à l'ouverture du hangar | non | Fiche visible sans appuyer sur la touche |
+| Général | Affichage automatique au hangar | non | Fiche visible sans appuyer sur la touche |
 | Affichage | Thème | MfdPhosphore | MfdPhosphore (voyants verts), Annonciateur (tuiles allumées), HangarNO (bleu du hangar) |
 | Affichage | Note de portée | Logarithmique | Logarithmique (100 m = 1, 1 000 km = 10) ou Rang (comme la vitesse) |
 | Affichage | Échelle | 1,0 | Taille de la fiche (0,75 à 1,5) |

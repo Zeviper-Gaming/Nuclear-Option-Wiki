@@ -4,7 +4,7 @@
     <TargetFramework>net472</TargetFramework>
     <AssemblyName>NuclearOptionWiki</AssemblyName>
     <RootNamespace>NuclearOptionWiki</RootNamespace>
-    <Version>0.2.1</Version>
+    <Version>0.2.2</Version>
     <LangVersion>9.0</LangVersion>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
