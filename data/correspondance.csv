@@ -65,7 +65,7 @@ Light Machine Gun|Jeu de base;Gun7.5mm;;auto;
 AAM-29 Scythe|Jeu de base;AAM2_info;AAM2_double,AAM2_double_internal,AAM2_single,AAM2_single_internal,AAM2_triple,AAM2_triple_internal,AAM2x8,Aryx_Interceptor1_AAM2_Quad_Internal,Aryx_Interceptor1_AAM2_Triple_Compact,Aryx_Interceptor1_AAM2_Triple_Compact_Event,Aryx_KingRaptor_AAM2_x2_Internal_Compact,Aryx_KingRaptor_AAM2_x3_Internal_Compact,Aryx_KingRaptor_StealthPod_AAM2_2x,akarrier_sam_aam2,fkarrier_sam_aam2,frikate_sam_aam2,korvette_sam_a_aam2,korvette_sam_b_aam2,kynamo_sam_a_aam2,kynamo_sam_b_aam2,skarrier_sam_aam2;auto;même arme sur plusieurs plateformes
 AAM-29 Scythe|Jeu de base;kar_AAM2_info;kar_lcv_aam2x4;auto;même arme sur plusieurs plateformes
 AAM-36 Scimitar|Jeu de base;AAM4_info;AAM4_double,AAM4_double_internal,AAM4_double_internal_compact,AAM4_single,AAM4_single_internal,AAM4_triple_internal,AAM4x8,Aryx_KingRaptor_AAM4_x2_Internal_Compact,Aryx_KingRaptor_AAM4_x3_Internal_Compact,Aryx_KingRaptor_StealthPod_AAM4_x2,akarrier_sam_aam4,fkarrier_sam_aam4,kynamo_sam_a_aam4,kynamo_sam_b_aam4;auto;
-AGM-48|Jeu de base;info_AGM1;AGM1_double,AGM1_double_compact,AGM1_double_line,AGM1_floorLauncher_QuadVTOL1,AGM1_quad,AGM1_quad_internal,AGM1_rotaryLauncher_UtilityHelo1,AGM1_single,AGM1_triple,AGM1_x40,Aryx_LightHeli1_AGM1_double_internal,PB_VLS_AGM1,frikate_ssm_agm1,kar_lcv_agmx3,korvette_ssm_a_agm1,korvette_ssm_b_agm1,skarrier_ssm_a_agm1,skarrier_ssm_b_agm1,truk_agmbed;auto;même arme sur plusieurs plateformes
+AGM-48|Jeu de base;info_AGM1;AGM1_double,AGM1_double_compact,AGM1_double_line,AGM1_floorLauncher_QuadVTOL1,AGM1_quad,AGM1_quad_internal,AGM1_rotaryLauncher_UtilityHelo1,AGM1_single,AGM1_triple,AGM1_x40,Aryx_LightHeli1_AGM1_double_internal,Ornithopter1_AGM1_double_internal,PB_VLS_AGM1,frikate_ssm_agm1,kar_lcv_agmx3,korvette_ssm_a_agm1,korvette_ssm_b_agm1,skarrier_ssm_a_agm1,skarrier_ssm_b_agm1,truk_agmbed;auto;même arme sur plusieurs plateformes
 AGM-48|Jeu de base;kar_info_agm1;kar_linebreaker_agm;auto;même arme sur plusieurs plateformes
 AGM-68|Jeu de base;info_AGM_heavy;AGM_heavy_internal,AGM_heavy_internalx2,AGM_heavy_internalx4,AGM_heavy_internalx6,AGM_heavy_internalx8,AGM_heavy_single,AGM_heavy_triple,AGM_heavyx2,P_AGM_heavy_internalx3,akarrier_ssm_agm_heavy,fkarrier_ssm_a_agm_heavy,fkarrier_ssm_b1_agm_heavy,fkarrier_ssm_b2_agm_heavy,frikate_ssm_agm_heavy,korvette_ssm_a_agm_heavy,korvette_ssm_b_agm_heavy,kynamo_ssm_a_agm_heavy,kynamo_ssm_b_agm_heavy,skarrier_ssm_a_agm_heavy,skarrier_ssm_b_agm_heavy;auto;même arme sur plusieurs plateformes
 AGM-68|Jeu de base;kar_info_AGM_Heavy;;auto;même arme sur plusieurs plateformes
@@ -75,12 +75,12 @@ ALM-C450|Jeu de base;info_CruiseMissile1;Aryx_KingRaptor_CruiseMissile1_External
 ARAD-116|Jeu de base;ARM1_info;ARM1_double,ARM1_internalx2,ARM1_internalx4,ARM1_single,P_ARM1_internalx3;auto;
 ARAD-45|Jeu de base;ARM2_info;ARM2_single,ARM2_single_internal;auto;levée par la source (jeu de base)
 AShM-300|Jeu de base;info_AShM1;AShM1_internal,AShM1_internalx2,AShM1_internalx4_flat,AShM1_internalx4_stack,AShM1_internalx6,AShM1_single,AShM1x2,akarrier_ssm_ashm1,fkarrier_ssm_a_ashm1,fkarrier_ssm_b1_ashm1,fkarrier_ssm_b2_ashm1,frikate_ssm_ashm1,korvette_ssm_a_ashm1,korvette_ssm_b_ashm1,kynamo_ssm_a_ashm1,kynamo_ssm_b_ashm1,skarrier_ssm_a_ashm1,skarrier_ssm_b_ashm1;auto;
-AT-145|Jeu de base;GTG1_info;ATGM1_quad,Aryx_LightHeli1_ATGM1_Quad_Internal,Aryx_LightHeli1_ATGM1_oct,Aryx_PropAttacker1_ATGM1_Hex,frikate_ssm_gtg1,korvette_ssm_a_GTG1,korvette_ssm_b_gtg1,skarrier_ssm_a_gtg1,skarrier_ssm_b_gtg1;auto;
+AT-145|Jeu de base;GTG1_info;ATGM1_quad,Aryx_LightHeli1_ATGM1_Quad_Internal,Aryx_LightHeli1_ATGM1_oct,Aryx_PropAttacker1_ATGM1_Hex,Ornithopter1_ATGM1_Quad_Internal,Ornithopter1_ATGM1_oct,frikate_ssm_gtg1,korvette_ssm_a_GTG1,korvette_ssm_b_gtg1,skarrier_ssm_a_gtg1,skarrier_ssm_b_gtg1;auto;
 ATP-1|Jeu de base;info_AGM2;AGM2_6Pod,AGM2_internalx4,frikate_ssm_agm2,korvette_ssm_a_agm2,korvette_ssm_b_agm2,skarrier_ssm_a_agm2,skarrier_ssm_b_agm2;auto;même arme sur plusieurs plateformes
 ATP-1|Jeu de base;kar_info_AGM2;kar_launcher_mbt1_atp;auto;même arme sur plusieurs plateformes
 ATP-1|Jeu de base;kar_launcher_mbt1_atp_info;;auto;même arme sur plusieurs plateformes
 ATP-1|Jeu de base;kar_launcher_mbt1_mixed_info;kar_launcher_mbt1_mixed;auto;même arme sur plusieurs plateformes
-Eyeball Mk.II|Jeu de base;info_AGM_scanner1;AGM_scanner1_double_compact,AGM_scanner1_double_line,Aryx_LightHeli1_AGMScanner1_Double_Internal;auto;
+Eyeball Mk.II|Jeu de base;info_AGM_scanner1;AGM_scanner1_double_compact,AGM_scanner1_double_line,Aryx_LightHeli1_AGMScanner1_Double_Internal,Ornithopter1_AGMScanner1_Double_Internal;auto;
 IRM-S1|Jeu de base;info_SAM_IR1;IRMS1_double,IRMS1_internalx2,IRMS1_single,IRMS1_triple,PB_VLS_IRM1,frikate_sam_s1,kar_lcv_S1x3,korvette_sam_a_s1,korvette_sam_b_s1,skarrier_sam_s1;auto;même arme sur plusieurs plateformes
 IRM-S1|Jeu de base;info_SAM_IR1_Turret;irm_1,irm_1_small;auto;même arme sur plusieurs plateformes
 IRM-S1|Jeu de base;kar_info_SAM_IR1;kar_afv8_samturret;auto;même arme sur plusieurs plateformes
@@ -106,7 +106,7 @@ AIR-2 Genie|Jeu de base;info_AIR-2_Genie;AIR-2_Genie_single;auto;
 ALND-4 (20kt)|Jeu de base;info_CruiseMissile20kt;Aryx_Interceptor1_ALND_Single,CruiseMissile20kt_internalx2,akarrier_ssm_cruisemissile20kt,fkarrier_ssm_a_cruisemissile20kt,fkarrier_ssm_b1_cruisemissile20kt,fkarrier_ssm_b2_cruisemissile20kt,kynamo_ssm_a_cruisemissile20kt,kynamo_ssm_b_cruisemissile20kt;auto;
 Piledriver TBM (20kt)|Jeu de base;ballisticMissile1_tacNuke_info;BallisticMissile1_tacNuke_internalx2,BallisticMissile1_tacNuke_single,P_BallisticMissile1_tacNuke_single2;auto;
 MLRS Rocket|Jeu de base;info_rocket_MLRS1;;auto;
-AGR-18 Lynchpin|Jeu de base;info_rocket1;Aryx_LightHeli1_RocketPod_Double,RocketPod1_single,RocketPod1_triple,kar_lcv_rocket1;auto;
+AGR-18 Lynchpin|Jeu de base;info_rocket1;Aryx_LightHeli1_RocketPod_Double,Ornithopter1_RocketPod_Double,RocketPod1_single,RocketPod1_triple,kar_lcv_rocket1;auto;
 AGR-24 Kingpin|Jeu de base;info_rocket2;Rocket2_4Pod,Rocket2_4Podx3,kar_lcv_rocket2;auto;même arme sur plusieurs plateformes
 AGR-24 Kingpin|Jeu de base;kar_info_rocket2;;auto;même arme sur plusieurs plateformes
 120kw Laser|Jeu de base;Laser_EW1;laser_EW1;auto;
@@ -148,7 +148,7 @@ SLND-9 (20kt)|Aryx NAVEX;Aryx_Navex_SLND_Info;;auto;
 14.5mm Machine Gun|Aryx OA-27 Cavalier;Aryx_PropAttacker1_14.5mm_info;Aryx_PropAttacker1_14.5mm_internal;auto;
 20mm Autocannon|Aryx OA-27 Cavalier;Aryx_PropAttacker1_20mm_AC;Aryx_PropAttacker1_20mm_Internal;auto;levée par la source (Aryx OA-27 Cavalier)
 30mm Autocannon|Aryx OA-27 Cavalier;Aryx_PropAttacker1_30mmGunpod_Info;Aryx_PropAttacker1_SwivelGunpod;auto;levée par la source (Aryx OA-27 Cavalier)
-30mm Autocannon|Aryx RAH-72;Aryx_LightHeli1_30mmTurret_Info;Aryx_LightHeli1_30mmTurret;auto;levée par la source (Aryx RAH-72)
+30mm Autocannon|Aryx RAH-72;Aryx_LightHeli1_30mmTurret_Info;Aryx_LightHeli1_30mmTurret,Ornithopter1_30mmTurret;auto;levée par la source (Aryx RAH-72)
 PAB-3000LR|Aryx Weaponry Pack;Aryx_Wep_GlideBomb_3000_info;aryx_wep_glidebomb_3000_double_internal,aryx_wep_glidebomb_3000_double_internal_side,aryx_wep_glidebomb_3000_single_internal;auto;
 PGM-400LR|Aryx Weaponry Pack;Aryx_GlideBomb400_Info;aryx_glidebomb400_double,aryx_glidebomb400_double_internal,aryx_glidebomb400_internal_8x,aryx_glidebomb400_single,aryx_glidebomb400_single_internal;auto;
 30mm Autocannon|Aryx Weaponry Pack;Aryx_SwivelGunpod30_Info;Aryx_Gunpod_Swivel30mm,Aryx_Gunpod_Swivel30mm_TA30;auto;levée par la source (Aryx Weaponry Pack)
@@ -233,6 +233,7 @@ AGR-37 Jester|Aryx Weaponry Pack;Aryx_HeavyRocket1_info;Aryx_HeavyRocket1_x1,Ary
 ;PB_Top_Radar_info;PB_Top_Radar;absent_excel;AN/SPS-34 Picket
 ;RadarContainerx1_info;RadarContainerx1,truk_radar;absent_excel;Radar Container (cargaison)
 ;SAMTurretx1_info;SAMTurret1x1;absent_excel;RAM45 Launcher (cargaison)
+;SARAAM1_info;SARAAM1_double,SARAAM1_double_internal,SARAAM1_single,SARAAM1_single_internal,SARAAM1_triple,SARAAM1_triple_internal,SARAAM1x8;absent_excel;AAM-21 Glaive
 ;SSM114P_info;KorvetteShipbreaker,PB_Side_Shipbreaker;absent_excel;SSM-114P Shipbreaker
 ;SSM26X_info;KorvetteSledgehammer;absent_excel;SSM-26X Sledgehammer
 ;Submunition2_info;;hors_hangar;ADMI-1
