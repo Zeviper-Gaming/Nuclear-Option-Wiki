@@ -3,9 +3,9 @@
 Slug : wiki-armes-en-jeu · Mis à jour : 2026-10-09 · Statut : en cours
 
 ## Reprise
-- Phase en cours : 2 Plan
+- Phase en cours : 2 Plan (version 1 du plan rédigée, en attente de validation par Florian)
 - Modèle conseillé : Opus 5.5, effort high
-- Prochaine action exacte : choisir le format de travail du plan (Markdown ou Claude Docs), trancher les points ouverts ci-dessous, analyser la DLL du jeu (écran de loadout, `WeaponInfo`), produire les maquettes HTML de style, puis rédiger `plan-wiki-armes-en-jeu.md`.
+- Prochaine action exacte : recueillir la validation ou les corrections de Florian sur `plan-wiki-armes-en-jeu.md` v1 ; intégrer les retours ; passer le statut du plan à « validé » ; puis phase 3 sur Opus 5.5, effort medium, en commençant par l'étape E0 (Florian fournit les DLL du dossier `Managed`).
 - Pour reprendre : nouvelle conversation sur le bon modèle → `/planification` → joindre ce fichier (+ le plan s'il existe).
 
 ## Récapitulatif de cadrage (validé le 2026-10-09)
@@ -33,19 +33,33 @@ Slug : wiki-armes-en-jeu · Mis à jour : 2026-10-09 · Statut : en cours
 - Colonnes vides pour toutes les armes : « Besoin laser », « Fire and Forget », « Virage / Agilité ».
 - Noms ambigus : « 30mm Autocannon » ×5, « 20mm Autocannon » ×3, « Radome » ×2, « ??? (variante 1-4) ».
 
-### À trancher en phase 2
-1. Formules : note de portée /10 et note globale (Claude propose, Florian valide).
-2. Colonnes vides (laser, F&F, agilité) : masquer ou afficher « N/A ».
-3. Armes absentes de l'Excel : fiche « N/A » complète ou pas de fiche.
-4. DLL `UnityEngine.UI` et `Unity.TextMeshPro` (dossier `Managed` du jeu) à fournir.
-5. Version du jeu visée.
+### Tranché en phase 2 (2026-10-09)
+1. Plan en Markdown dans le dépôt.
+2. Style : variante **A · MFD phosphore** par défaut ; thèmes A / B / C au choix dans le menu F1.
+3. Note de portée /10 : **logarithmique par défaut**, rang disponible dans F1. Florian avait écrit « logarithmique » en commentaire et coché « Rang » : les deux sont gardées, à confirmer.
+4. Pas de note globale (proposition de Claude, à confirmer par la validation du plan).
+5. Signatures radar et IR : note haute = grande signature = mauvais pour l'arme (couleurs inversées) ; afficher les valeurs réelles quand possible, avec les notes. Note RCS /5 calculée depuis la RCS de l'Excel.
+6. Valeurs réelles lues en jeu (RCS, IR, taux de virage / G) sur les missiles.
+7. Colonnes vides : voyants présents en N/A.
+8. Arme absente de l'Excel : fiche complète en N/A + « arme non référencée » + journal.
+9. Version du jeu : celle de la DLL fournie.
+10. Survol : liste déroulante ouverte **et** emplacement fermé ; affichage « collant » de la dernière arme.
+11. Touche : F6 par défaut, **modifiable** (capture dans F1, combinaisons Ctrl/Shift/Alt, fichier .cfg, Reset), appliquée à chaud, avertissement si la touche est déjà prise, rappel en pied de fiche.
+12. DLL `Managed` du jeu à fournir par Florian au début de la phase 3 (jamais commitées).
+
+### Constats techniques (décompilation de la DLL, phase 2)
+- Points d'accroche : `AircraftSelectionMenu.Initialize`, `LoadoutSelector.ShowMountInfo(WeaponMount)` (survol de la liste ouverte), `WeaponSelector.DropdownChanged` / `GetValue()` (sélection), `WeaponSelector.Initialize` (emplacement).
+- `WeaponMount.jsonKey`, `WeaponInfo.name` / `weaponName` ; `Encyclopedia.i.weaponMounts`.
+- Valeurs réelles : `Missile.definition.radarSize`, `IR_intensity` des moteurs, `maxTurnRate` / `gLimit` (privés).
+- Outils : SDK .NET 8 (apt), ilspycmd 8.2.0.7535 (`DOTNET_ROLL_FORWARD=Major`), BepInEx 5.4.23.2 depuis la release GitHub.
 
 ## Pistes évoquées (non retenues comme décisions)
 - Couche d'intégration au jeu isolée (patchs Harmony) + mode « désactivé » sûr en cas d'échec d'accroche.
 - Mode « dump » qui liste dans un fichier les identifiants d'armes présents en jeu, pour fiabiliser la correspondance.
 
 ## Plan
-À rédiger : `docs/planification/plan-wiki-armes-en-jeu.md`.
+`docs/planification/plan-wiki-armes-en-jeu.md` — version 1, brouillon en attente de validation.
+Maquette de référence : `docs/maquettes/fiche-arme-mfd.html` (en ligne : https://claude.ai/artifact/8JAaLwuogtTfQFgh2XWjGP, version 2).
 
 ## Avancement de l'exécution
 (phase 3 non commencée)
@@ -54,6 +68,8 @@ Slug : wiki-armes-en-jeu · Mis à jour : 2026-10-09 · Statut : en cours
 | Fichier | Rôle | Statut |
 |---|---|---|
 | `docs/planification/etat-wiki-armes-en-jeu.md` | État du projet | à jour |
+| `docs/planification/plan-wiki-armes-en-jeu.md` | Plan / cahier des charges | v1 brouillon |
+| `docs/maquettes/fiche-arme-mfd.html` | Maquette interactive (3 thèmes, données réelles) | v2 |
 
 ## Écarts au plan et remontées
 - (aucun)
@@ -62,4 +78,4 @@ Slug : wiki-armes-en-jeu · Mis à jour : 2026-10-09 · Statut : en cours
 - (aucun)
 
 ## Questions ouvertes
-- Voir « À trancher en phase 2 ».
+- Validation du plan v1 (dont : portée logarithmique par défaut, absence de note globale, touche F6 par défaut, GUID `zeviper.nuclearoption.wiki`).
