@@ -5,7 +5,7 @@ Slug : wiki-armes-en-jeu · Mis à jour : 2026-10-09 · Statut : en cours
 ## Reprise
 - Phase en cours : 3 Exécution (plan v1 validé le 2026-10-09)
 - Modèle conseillé : Opus 5.5, effort medium
-- Prochaine action exacte : (1) Florian lance la v0.3.0 avec l'export activé et renvoie le CSV enrichi (les noms de code Aryx sont validés) ; (2) avec l'export enrichi (stats), départager les 15 variantes et le 30mm du FS-41 dans `tools/correspondance.py`, puis régénérer `weapons.json` ; (3) rédiger le plan v1.1 (issue n° 1) et l'exécuter.
+- Prochaine action exacte : rédiger le **plan v1.1** (amendement phase 2, Opus 5.5 effort high) à partir de l'issue GitHub n° 1 et des décisions notées ci-dessous, le faire valider par Florian, puis l'exécuter. En parallèle (Florian, facultatif) : compléter l'Excel pour les armes absentes (`statut = absent_excel` dans `data/correspondance.csv`) et les lignes sans notes (ex. « CBO-400|Aryx F-99 Shrike »).
 - Pour reprendre : nouvelle conversation sur le bon modèle → `/planification` → joindre ce fichier (+ le plan). Dans une session cloud neuve : `apt-get install -y dotnet-sdk-8.0`, redéposer les DLL dans `lib/` (liste dans le README), télécharger BepInEx 5.4.23.2 pour `BepInEx.dll` et `0Harmony.dll`.
 
 ## Récapitulatif de cadrage (validé le 2026-10-09)
@@ -66,7 +66,7 @@ Maquette de référence : `docs/maquettes/fiche-arme-mfd.html` (en ligne : https
 - [x] E1 — Squelette, csproj, Plugin, configuration F1 complète. Build sans avertissement.
 - [x] E2 — `tools/xlsx_vers_json.py` → `data/weapons.json` : 133 armes, contrôle AGM-48 OK, sortie identique sur deux exécutions.
 - [x] E3 — Export reçu de Florian (v0.2.2, 681 lignes) → `data/dump/2026-10-09_v0.2.2.csv`. v0.3.0 : export enrichi (autodirecteur, guidage laser, vitesses, pénétration, explosif, coût, masse, portée, cadence).
-- [ ] E4 — `tools/correspondance.py` : 117 armes à clé définitive (147 rattachements auto, dont 24 armes sur plusieurs plateformes), 520 alias, noms de code Aryx validés par Florian (LightFighter1 = F-99, PropAttacker1 = OA-27, LightHeli1 = RAH-72, P_Trisurface1 = FS-3), **16 ambiguës** (15 variantes + 30mm du FS-41) en attente de l'export enrichi.
+- [x] E4 — Correspondance terminée (v0.3.2) : **133/133 lignes Excel à clé définitive**, 557 alias. Règles : nom unique, source (jeu de base, Aryx Weaponry Pack, noms de code validés), **stats du jeu** (export v0.3.1) pour les variantes, mêmes nom + stats. 74 assets montables restent absents de l'Excel (dont AAM-21 Glaive, AGR-28/32, SSM-114P/26X, torpilles, ADMI-44, armes KAR).
 - [x] E5 — Core + `tests/Core.Tests` : 65 vérifications OK, 267 fiches de structure identique.
 - [x] E6 — Interface uGUI + 3 thèmes : fonctionne en jeu (retour de Florian, v0.2.2).
 - [x] E7 — Intégration : fonctionne en jeu (v0.2.2 : 4 patchs, F6, journal sans erreur).
@@ -84,8 +84,8 @@ Maquette de référence : `docs/maquettes/fiche-arme-mfd.html` (en ligne : https
 | `tools/xlsx_vers_json.py`, `tools/package.sh` | Données, empaquetage | OK |
 | `data/weapons.json` | Données générées (clés provisoires « Arme\|Source ») | en attente de E4 |
 | `README.md` | Installation et usage (FR) | v0.2 |
-| `release/NuclearOptionWiki.dll` | DLL de la dernière version (commitée) | v0.3.0 |
-| `data/correspondance.csv`, `data/dump/*` | Correspondance Excel ↔ jeu, exports du jeu | E4 en cours |
+| `release/NuclearOptionWiki.dll` | DLL de la dernière version (commitée) | v0.3.2 |
+| `data/correspondance.csv`, `data/dump/*` | Correspondance Excel ↔ jeu, exports du jeu | E4 terminée |
 | `tools/correspondance.py` | Proposition de correspondance | OK |
 | `tests/Config.Smoke/*` | Test des réglages avec le vrai BepInEx | OK |
 
@@ -97,6 +97,8 @@ Maquette de référence : `docs/maquettes/fiche-arme-mfd.html` (en ligne : https
 - v0.2.1, demande de Florian : mod importable par NOMM en **une seule DLL**. `weapons.json` est intégré comme ressource ; un `weapons.json` posé à côté de la DLL reste prioritaire (D-plan « JSON à côté de la DLL » conservé comme surcharge). Format d'import local de NOMM (.dll ou .zip) non vérifié : code source inaccessible depuis la session (403) ; les deux formats sont livrés.
 - **Bug v0.2.1 corrigé en v0.2.2** (recette de Florian : F6 sans effet, cfg réduit à une entrée) : le réglage « Actif à l'ouverture du hangar » contenait une apostrophe, interdite par BepInEx dans un nom de clé (`= \n \t \ " ' [ ]`). L'exception dans `Awake` arrêtait le mod avant les patchs, sans trace dans le journal. Correctifs : clé renommée « Affichage automatique au hangar », `Awake` journalise toute erreur de démarrage, tests ajoutés (`Core.Tests` contrôle les noms, `tests/Config.Smoke` exécute le vrai `ConfigFile` de BepInEx).
 - Jeu de Florian : Unity 2022.3.62f2, BepInEx 5.4.23.4, jeu 0.34.1 (d'après `LogOutput.log`).
+- v0.3.1 : journal avec chemin de la DLL chargée, export nommé par version (`NuclearOptionWiki_armes_v<version>.csv`) — un export v0.2.x avait été pris pour un export v0.3.0.
+- E4 : la source « Aryx FS-41 Eclipse » de l'Excel correspond aux assets `Aryx_Supercarrier1_*` (stats identiques).
 - Ajout hors plan, mineur : remplacement ASCII automatique des caractères absents de la police du jeu (·, —, ², °, accents), pour éviter les carrés.
 
 ## Écarts de modèle assumés

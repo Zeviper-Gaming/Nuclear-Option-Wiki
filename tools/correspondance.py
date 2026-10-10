@@ -12,7 +12,7 @@ Statuts :
               (jeu de base ↔ asset sans préfixe Aryx ; table SOURCES_SURES pour les sources de mods)
   a_valider   ambiguïté levée par le nom de code d'avion Aryx (table AVIONS_ARYX) : à confirmer par Florian
   manuel      décision de Florian (jamais écrasée : les lignes « manuel » du fichier existant sont conservées)
-  ambigu      plusieurs candidats, aucune règle ne tranche (souvent des variantes : il faut les stats du jeu)
+  ambigu      plusieurs candidats, aucune règle ne tranche, y compris les stats (export v0.3.0 et plus)
   introuvable ligne Excel sans arme correspondante dans l'export
   absent_excel   arme montable en hangar absente de l'Excel
   hors_hangar    arme du jeu sans emport d'avion (véhicules, navires) absente de l'Excel
@@ -55,6 +55,66 @@ def nom_de_base(nom):
     return re.sub(r"\s*\(variante \d+\)$", "", nom or "").strip()
 
 
+def num(v):
+    if isinstance(v, bool):
+        return None
+    if isinstance(v, (int, float)):
+        return float(v)
+    try:
+        return float(str(v).replace(",", "."))
+    except (TypeError, ValueError):
+        return None
+
+
+def stats_export(r):
+    """Stats d'une ligne d'export (colonnes ajoutées en v0.3.0 ; absentes des exports plus anciens)."""
+    if "penetration" not in r:
+        return None
+    vi, vmax = num(r.get("vitesse_initiale")), num(r.get("vitesse_max"))
+    # Excel (feuille « Vitesse (calcul) ») : munitions propulsées = vitesse max ;
+    # armes à feu = vitesse initiale, plafonnée par la vitesse max fixée si elle est plus basse.
+    if r.get("missile") == "1" or r.get("bomb") == "1" or (r.get("autodirecteur") or "").strip():
+        vitesse = vmax
+    else:
+        vitesse = min(vi, vmax) if vi and vmax and vmax > 0 else (vi or vmax)
+    return {"penetration": num(r.get("penetration")), "explosif": num(r.get("explosif")),
+            "cout": num(r.get("cout_par_coup")), "portee": num(r.get("portee_max")), "vitesse": vitesse}
+
+
+# Écart absolu toléré par stat, en plus de 2 % : l'Excel arrondit l'explosif à 0,01 kg (0,015 → 0,01).
+TOLERANCE_ABS = {"penetration": 0.5, "explosif": 0.006, "cout": 0.0, "portee": 0.5, "vitesse": 0.5}
+
+
+def proches(a, b, cle):
+    if a is None or b is None:
+        return None
+    return abs(a - b) <= max(0.02 * max(abs(a), abs(b)), TOLERANCE_ABS.get(cle, 0.0))
+
+
+def score_stats(excel, cand):
+    """(nombre de stats égales, nombre de stats comparables) entre une ligne Excel et un asset du jeu."""
+    if not cand.get("stats"):
+        return 0, 0
+    egal = total = 0
+    for k, v in excel["stats"].items():
+        r = proches(v, cand["stats"].get(k), k)
+        if r is None:
+            continue
+        total += 1
+        egal += 1 if r else 0
+    return egal, total
+
+
+def departager(excel, cands):
+    """Candidats dont toutes les stats comparables (au moins 3) sont égales à celles de la ligne Excel."""
+    parfaits = []
+    for c in cands:
+        egal, total = score_stats(excel, c)
+        if total >= 3 and egal == total:
+            parfaits.append(c)
+    return parfaits
+
+
 def lire_export(chemin):
     infos = collections.OrderedDict()
     with open(chemin, encoding="utf-8", newline="") as f:
@@ -63,7 +123,8 @@ def lire_export(chemin):
             if not nom:
                 continue
             i = infos.setdefault(nom, {"info_name": nom, "weapon_name": (r.get("weapon_name") or "").strip(),
-                                       "mounts": [], "cargo": r.get("cargo") == "1", "troops": r.get("troops") == "1"})
+                                       "mounts": [], "cargo": r.get("cargo") == "1", "troops": r.get("troops") == "1",
+                                       "stats": stats_export(r)})
             if r.get("mount_jsonkey"):
                 i["mounts"].append(r["mount_jsonkey"].strip())
     return infos
@@ -76,7 +137,8 @@ def lire_excel(chemin):
         if r[0] is None or str(r[0]).strip() == "":
             continue
         nom, source = str(r[0]).strip(), str(r[1]).strip()
-        lignes.append({"cle": f"{nom}|{source}", "nom": nom, "source": source})
+        lignes.append({"cle": f"{nom}|{source}", "nom": nom, "source": source, "contenu": tuple(r[2:]), "stats": {
+            "penetration": num(r[4]), "explosif": num(r[5]), "cout": num(r[6]), "portee": num(r[9]), "vitesse": num(r[10])}})
     return lignes
 
 
@@ -142,6 +204,11 @@ def main():
                 if f:
                     statut, choix = "a_valider", f
                     note = "nom de code supposé : " + " / ".join(AVIONS_ARYX[l["source"]])
+        if statut == "ambigu" and cands:
+            f = departager(l, cands)
+            if f:
+                statut, choix = "auto", f
+                note = (note.split(" ;")[0] + " ; " if note else "") + f"départagée par les stats ({len(f)} asset(s))"
         if statut == "ambigu" and not note:
             note = "candidats : " + ", ".join(c["info_name"] for c in cands)
         elif statut == "ambigu":
@@ -154,6 +221,23 @@ def main():
                                "statut": statut, "commentaire": note})
         else:
             sortie.append({"excel_cle": l["cle"], "info_name": "", "mount_jsonkeys": "", "statut": statut, "commentaire": note})
+
+    # Asset absent de la correspondance mais portant le nom d'une ligne Excel : si ses stats sont identiques
+    # à une seule ligne de ce nom, c'est la même arme (ex. version KAR d'un canon du jeu de base).
+    par_base = collections.defaultdict(list)
+    for l in excel:
+        par_base[nom_de_base(l["nom"])].append(l)
+    for i in infos.values():
+        if i["info_name"] in pris or not i["weapon_name"] or i["weapon_name"] not in par_base:
+            continue
+        egales = [l for l in par_base[i["weapon_name"]] if i in departager(l, [i])]
+        # Plusieurs lignes Excel identiques (stats ET notes, seule la source change) : n'importe laquelle convient.
+        if len(egales) > 1 and len({l["contenu"] for l in egales}) == 1:
+            egales = egales[:1]
+        if len(egales) == 1:
+            pris.add(i["info_name"])
+            sortie.append({"excel_cle": egales[0]["cle"], "info_name": i["info_name"], "mount_jsonkeys": ",".join(i["mounts"]),
+                           "statut": "auto", "commentaire": "même nom et mêmes stats (alias)"})
 
     for i in infos.values():
         if i["info_name"] in pris or not i["weapon_name"]:
