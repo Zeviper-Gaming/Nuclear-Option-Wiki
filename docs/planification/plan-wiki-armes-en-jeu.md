@@ -1,6 +1,6 @@
 # Plan — Wiki d'armes en jeu (Nuclear Option)
 
-Version : 1 · Date : 2026-10-09 · Statut : validé (2026-10-09)
+Version : 1.1 · Date : 2026-10-11 · Statut : v1 validée (2026-10-09) ; amendement v1.1 en brouillon (section 11)
 
 ## 1. Objectif et livrable
 
@@ -303,3 +303,113 @@ Sonnet 5.5 conviendra au peaufinage (phase 4).
 ## Consigne à l'exécutant
 
 Suivre les étapes dans l'ordre et vérifier chaque critère d'acceptation. En cas d'étape impossible, ambiguë ou contredite par la réalité (méthode du jeu absente, DLL manquante, comportement en jeu différent), **s'arrêter et le signaler à Florian plutôt qu'improviser**. Un problème de structure renvoie en phase 2.
+
+---
+
+## 11. Amendement v1.1 (issue GitHub n° 1) — brouillon du 2026-10-11
+
+Point de départ : v0.3.2 (E0–E7 validées en jeu, E4 terminée : 133/133 armes à clé définitive). Cet amendement ajoute les idées de l'issue n° 1. Les décisions D1–D23 restent valables, sauf mention contraire.
+
+### 11.1 Décisions
+
+| # | Décision | Raison |
+|---|---|---|
+| D24 | **5 barres /10** dans la zone 1, dans cet ordre : VITESSE, PORTÉE, DÉGÂTS (explosif, kg éq. TNT), PÉNÉTRATION, EXPLOSIF/M$. Les 3 nouvelles notes sont calculées **au rang** par `xlsx_vers_json.py`, comme la note de vitesse, sur les seules valeurs > 0 : `1 + 9 × (nb ≤ v − 1)/(n − 1)`. Valeur 0 → note 0 (0 segment allumé, « 0,0 »). Valeur absente → N/A. | Issue : « Note /10 pour les dégâts, la pénétration et les explosifs par M$ ». L'explosif va de 0,01 kg à 2,5·10⁸ kg, donc pas d'échelle logarithmique. |
+| D25 | Valeur réelle des nouvelles barres : « 9 kg », « 1 550 », « 100 kg/M$ ». Les cellules Pénétration, Explosif et Explosif / M$ sont **retirées** de la grille de stats. | Pas de doublon. |
+| D26 | **Profil d'attaque en pastilles**, sur une ligne dédiée « PROFIL » sous le sous-titre. Découpage de `approche` sur « ; ». Correspondance dans le tableau 11.3 ; un motif inconnu donne une pastille avec le texte brut, en capitales, tronqué à 14 caractères. Trop de pastilles → la dernière affiche « +n ». Aucune approche → une pastille « N/A ». | Issue : « Améliorer la visibilité de la méthode d'approche ». |
+| D27 | Le sous-titre devient « Guidage : <Excel> · Autodirecteur : <jeu> ». | L'approche part en pastilles. |
+| D28 | **Grille de stats à 6 cellules** (3 colonnes × 2 rangées) : Coût · Portée min · Autodirecteur · IR · Tire et oublie · Laser requis. | Issue : « Ajouter IR requis et F&F ». IR = autodirecteur infrarouge oui/non (réponse de Florian). |
+| D29 | **Autodirecteur, IR, F&F et laser requis lus en jeu** (`MissileSeeker.GetSeekerType()`, nom du composant de l'autodirecteur, `WeaponInfo.laserGuided`, drapeaux `gun`/`energy`/`bomb`), selon le tableau 11.4. Une valeur non vide dans l'Excel (`laser_requis`, `tire_et_oublie`) reste prioritaire. | Données présentes en jeu ; vérifié dans l'export v0.3.1 (97 autodirecteurs). |
+| D30 | **Note d'agilité /5 calculée en jeu** pour les armes à composant `Missile`. Métrique : ω = taux de virage effectif à 300 m/s = min(`maxTurnRate` °/s, 9,81 × `gLimit` / 300 × 57,2958), en ignorant une limite ≤ 0. Note = arrondi(5 × rang centile de ω parmi tous les missiles chargés, mods compris), calculée une fois par session. Une note d'agilité de l'Excel reste prioritaire. La valeur réelle (« 35 °/s · 20 G ») est conservée. | Issue : « Ajouter les notes d'agilité » ; l'Excel est vide sur cette colonne. |
+| D31 | Les **couleurs d'interception** sont inchangées : seules les signatures radar et IR sont inversées. | Décision de Florian, 2026-10-09. |
+| D32 | **Tuiles ramenées à 72 px** de haut (au lieu de 78) pour tenir dans le panneau de 840 px. Budget vertical en 11.2. | Place nécessaire aux ajouts. |
+| D33 | **Icônes de catégories** (facultatif, en dernier) : pictogramme 14 × 14 px en haut à gauche de chaque tuile, repris des sprites du jeu (`Encyclopedia.i.vehicleTypes`, `buildingTypes`, `shipTypes`, `typeSprite`). Pas d'image embarquée. Si aucun sprite ne convient pour une catégorie, pas d'icône pour toute la rangée. Démarrage conditionné à un export des types d'unités (F6). | Issue : « Icônes en plus des noms ? ». Cohérence avec le style du jeu. |
+| D34 | Le schéma `weapons.json` reste en version 1 : les champs ajoutés sont facultatifs et ignorés par une DLL plus ancienne. | Compatibilité. |
+
+### 11.2 Budget vertical (px, référence 1080p, thème A avec séparateurs)
+
+Contenu disponible : 812 px (840 − 2 × 14). Le pied de fiche est à y = 798.
+
+| Élément | Hauteur (+ écart 8) | y de fin |
+|---|---|---|
+| Titre « Stats globales » | 20 | 28 |
+| Nom + puces | 36 | 72 |
+| Sous-titre (guidage · autodirecteur) | 17 | 97 |
+| Ligne PROFIL (pastilles 18 px) | 18 | 123 |
+| 5 barres | 5 × (20 + 8) | 263 |
+| Stats 3 × 2 | 2 × 46 + 6 | 361 |
+| Séparateur | 10 + 1 + 10 | 382 |
+| Titre CAS + 2 rangées de tuiles 72 | 28 + 152 + 8 | 570 |
+| Titre AA + 1 rangée | 28 + 72 | 670 |
+| Séparateur | 21 | 691 |
+| Titre Interception + 1 rangée | 28 + 72 | **791** (< 798) |
+
+Tuile de 72 px : lampe à y = 8 ; libellé ancré à 19 px du bas ; note ancrée à 52 px du bas, ou à 58 px avec ligne de valeur réelle (ancrée à 33 px du bas). Ce sont les ancrages actuels, relatifs au bas.
+
+### 11.3 Pastilles de profil (regex insensible à la casse sur chaque segment)
+
+| Motif | Pastille |
+|---|---|
+| `^loft` | LOFT |
+| `^évasion zigzag` | ZIGZAG |
+| `^datalink` | DATALINK |
+| `^phase terminale` | TERMINALE |
+| `^rase-flots/rase-sol (\d+) m` | RASE-SOL {n} M |
+| `^attaque par le haut` | ATTAQUE HAUTE |
+| `^évite le relief` | SUIVI RELIEF |
+| `^croisière` | CROISIÈRE |
+| `^accélération terminale` | SPRINT FINAL |
+| `^hit-to-kill` | HIT-TO-KILL |
+| `^angle d'attaque haut` | HAUT ANGLE |
+
+Exemple : AGM-48 (« datalink; loft 0.2; évasion zigzag 0.1; évite le relief ») → DATALINK · LOFT · ZIGZAG · SUIVI RELIEF.
+
+### 11.4 Autodirecteur, IR, tire et oublie, laser requis
+
+| `GetSeekerType()` / cas | Autodirecteur affiché | IR | Tire et oublie | Laser requis |
+|---|---|---|---|---|
+| IR | Infrarouge | OUI | OUI | NON |
+| ARH | Radar actif | NON | OUI | NON |
+| SARH | Radar semi-actif | NON | NON | NON |
+| ARAD | Anti-radar | NON | OUI | NON |
+| Laser | Laser | NON | NON | OUI |
+| INS | Inertiel | NON | OUI | NON |
+| INS / Opt. | Inertiel + optique | NON | OUI | NON |
+| Optical, composant `OpticalSeeker` | Optique (opérateur) | NON | NON | NON |
+| Optical, composant `OpticalSeekerBomb` ou `OpticalSeekerHighDrag` | Aucun (balistique) | NON | *voir question Q2* | NON |
+| sans autodirecteur, `gun` | Aucun (canon) | NON | N/A | NON |
+| sans autodirecteur, `energy` | Aucun (énergie) | NON | N/A | NON |
+| autre / pas de prefab | N/A | N/A | N/A | N/A |
+
+« Laser requis » vaut aussi OUI si `WeaponInfo.laserGuided` est vrai.
+
+### 11.5 Étapes
+
+| # | Étape | Dépend de | Critère d'acceptation |
+|---|---|---|---|
+| F1 | `xlsx_vers_json.py` : `note_explosif_rang`, `note_penetration_rang`, `note_explosif_par_m_rang` (D24). | — | Notes de l'AGM-48 cohérentes avec leur rang ; sortie identique sur deux exécutions ; 133 armes. |
+| F2 | Core : `FicheModel` v1.1 (5 barres, 6 stats, profil, agilité) ; `LiveStats` étendu (type et composant d'autodirecteur, laserGuided, drapeaux, note d'agilité) ; `Format.AttackProfile` (11.3) ; dérivation 11.4 en C# pur ; `LitSegments(0) = 0`. Tests mis à jour. | F1 | `tests/Core.Tests` OK, avec cas AGM-48, missile IR, canon, bombe balistique, arme inconnue ; les 267 fiches ont toujours une structure identique. |
+| F3 | Plugin : `LiveWeaponStats` lit type et nom de composant de l'autodirecteur, `laserGuided`, drapeaux, et calcule le classement d'agilité (D30), avec mise en cache. | F2 | Build sans avertissement ; aucune exception possible hors try/catch. |
+| F4 | UI : mise en page 11.2 (5 `Bar10`, `StatCell` sur 3 colonnes, nouveau widget `ProfileRow` à pastilles, tuiles de 72 px) dans les 3 thèmes. | F2 | Build OK ; capture Playwright de la maquette mise à jour (facultatif) ; aucun élément au-delà de y = 798. |
+| F5 | v0.4.0 : `tools/package.sh`, DLL dans `release/`, README, état, cases cochées de l'issue n° 1. | F3, F4 | Recette R9–R12 de Florian OK. |
+| F6 | Icônes (D33) : export diagnostic des types d'unités (nom, nom du sprite) → choix des sprites par catégorie avec Florian → icônes dans les tuiles → v0.5.0. | F5 | Captures des 3 thèmes avec icônes ; aucune régression R1–R12. |
+
+### 11.6 Recette complémentaire (Florian)
+
+- **R9** — Les 5 barres s'affichent. Contrôle sur l'AGM-48, une bombe nucléaire (dégâts 10/10) et un canon (pénétration et explosif faibles).
+- **R10** — Profil de l'AGM-48 : DATALINK · LOFT · ZIGZAG · SUIVI RELIEF. Un canon affiche « N/A ».
+- **R11** — Autodirecteur, IR, F&F et laser cohérents :
+  - AGM-48 : Optique (opérateur), IR NON, F&F NON ;
+  - IRM-S1 : Infrarouge, IR OUI, F&F OUI ;
+  - AGR-24 Kingpin : Laser requis OUI.
+- **R12** — Agilité notée sur les missiles et N/A sur les canons. La fiche tient dans les 3 thèmes, pied de fiche visible.
+
+### 11.7 Questions à trancher par Florian avant exécution
+
+- **Q1** — Vitesse de référence pour l'agilité : 300 m/s (proposition) ou autre.
+- **Q2** — Bombe non guidée : « Tire et oublie » = OUI (rien à faire après le largage), ou N/A (proposition : le F&F ne concerne que les armes guidées).
+- **Q3** — Valeur 0 sur les nouvelles barres (ex. CBO-400 : explosif 0 dans l'Excel) : note 0 (proposition) ou N/A.
+
+### 11.8 Modèle d'exécution
+
+**Opus 5.5, effort medium** : modifications sur plusieurs fichiers de l'UI et du code d'intégration au jeu, sans test en jeu possible. Les étapes F1 et F2 (données et Core) conviennent aussi à Sonnet 5.5.
