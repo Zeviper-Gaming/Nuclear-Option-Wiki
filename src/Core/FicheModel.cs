@@ -68,7 +68,7 @@ namespace NuclearOptionWiki.Core
         public const int BarCount = 5;
         public const int StatCount = 6;
         public const int AirToGroundCount = 8;
-        public const int AirToAirCount = 3;
+        public const int AirToAirCount = 4;
         public const int DefenseCount = 5;
 
         public string Title;
@@ -87,7 +87,7 @@ namespace NuclearOptionWiki.Core
         public static readonly string[] StatLabels = { "Coût", "Portée min", "Autodirecteur", "IR", "Tire et oublie", "Laser requis" };
         public static readonly string[] AirToGroundLabels =
             { "Véh. légers", "Chars", "Bât. légers", "Gros bât.", "Bunker", "Navire léger", "Navire moyen", "Porte-avions" };
-        public static readonly string[] AirToAirLabels = { "Petit avion", "Moyen avion", "Gros avion" };
+        public static readonly string[] AirToAirLabels = { "Petit avion", "Hélico", "Moyen avion", "Gros avion" };
         public static readonly string[] DefenseLabels = { "Agilité", "Sign. radar", "Sign. IR", "Rés. laser", "Diff. toucher" };
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace NuclearOptionWiki.Core
             for (int i = 0; i < AirToGroundCount; i++) m.AirToGround[i] = Tile(AirToGroundLabels[i], ground[i], false, null);
 
             var a = r.AirToAir ?? new AirToAir();
-            int?[] air = { a.SmallAircraft, a.MediumAircraft, a.LargeAircraft };
+            int?[] air = { a.SmallAircraft, a.Helicopter, a.MediumAircraft, a.LargeAircraft };
             for (int i = 0; i < AirToAirCount; i++) m.AirToAir[i] = Tile(AirToAirLabels[i], air[i], false, null);
 
             var d = r.Defense ?? new Defense();

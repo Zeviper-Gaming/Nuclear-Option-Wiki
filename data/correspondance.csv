@@ -36,9 +36,9 @@ Radar Jamming Pod|Jeu de base;JammingPod1;Aryx_Interceptor1_JammingPod,JammingPo
 20mm Rotary Cannon (variante 3)|Jeu de base;Gun20mm_Rotary_Turret;turret_20mm_rotary;auto;"variante : à départager par les stats du jeu (export enrichi) ; départagée par les stats (1 asset(s))"
 23mm Autocannon|Jeu de base;Gun23mm_Autocannon;Aryx_MiG15_Gun23mm;auto;même arme sur plusieurs plateformes
 23mm Autocannon|Jeu de base;kar_23mm_turret_info;kar_23mm_turret;auto;même arme sur plusieurs plateformes
-25mm Autocannon|Jeu de base;Gun25mm_Autocannon;Gunpod_25mm_flex,PB_Turret_R_AT,kar_lcv_IFV_Turret,kar_tonk3_IFV_turret,lkraft_ifv_aa;auto;même arme sur plusieurs plateformes
-25mm Autocannon|Jeu de base;kar_afv8_ifvturret_info;kar_afv8_ifvturret;auto;même arme sur plusieurs plateformes
-25mm Autocannon|Jeu de base;tonk3_IFV_turret_info;;auto;même arme sur plusieurs plateformes
+25mm Autocannon|Jeu de base;Gun25mm_Autocannon;Gunpod_25mm_flex,PB_Turret_R_AT,kar_lcv_IFV_Turret,kar_tonk3_IFV_turret,lkraft_ifv_aa;auto;levée par la source (jeu de base)
+25mm Autocannon|Jeu de base;kar_afv8_ifvturret_info;kar_afv8_ifvturret;auto;levée par la source (jeu de base)
+25mm Autocannon|Jeu de base;tonk3_IFV_turret_info;;auto;levée par la source (jeu de base)
 25mm Rotary Cannon|Jeu de base;Gun25mm_Rotary;gunpod_25mm_trainer,kar_afv8_lavitturret;auto;
 27mm Autocannon|Jeu de base;Gun27mm_Autocannon;autocannon_27mm_internal;auto;
 30mm Cannon|Jeu de base;Gun30mm_SPAAG;;auto;même arme sur plusieurs plateformes
@@ -177,6 +177,12 @@ AGR-37 Jester|Aryx Weaponry Pack;Aryx_HeavyRocket1_info;Aryx_HeavyRocket1_x1,Ary
 450kg Drop Tank|Aryx Weaponry Pack;Aryx_DropTank450_Info;Aryx_DropTank450;auto;
 20mm Rotary Cannon|FS-3 Ternion;P_Trisurface1_Gun20mm_info;P_Trisurface1_Gun20mm;auto;levée par la source (FS-3 Ternion)
 5MW Laser|FS-3 Ternion;Trisurface1_laser_info;Trisurface1_laser_pod_ventral;auto;
+CBO-400|Aryx Weaponry Pack;Aryx_ClusterBomb1_Info;Aryx_ClusterBomb1_Double,Aryx_ClusterBomb1_Single,Aryx_ClusterBomb1_Single_Internal;auto;levée par la source (Aryx Weaponry Pack)
+AEC-124 Offensive Jammer|Aryx Weaponry Pack;Aryx_SmallJammingPod_Info;Aryx_SmallJammingPod;auto;
+25mm Autocannon|KR-33 Agni;;;introuvable;aucune arme de ce nom dans l'export
+30mm Autocannon|KR-33 Agni;;;ambigu;candidats : Gun30mm_Autocannon
+3S-RMM|KR-33 Agni;;;introuvable;aucune arme de ce nom dans l'export
+AAM-21 Glaive|SARAAM1 (AAM-21 Glaive);SARAAM1_info;SARAAM1_double,SARAAM1_double_internal,SARAAM1_single,SARAAM1_single_internal,SARAAM1_triple,SARAAM1_triple_internal,SARAAM1x8;auto;
 ;6x6_1_AAx1_info;6x6_1_AAx1;absent_excel;AFV6 AA (cargaison)
 ;6x6_1_APCx1_info;6x6_1_APCx1;absent_excel;AFV6 APC (cargaison)
 ;6x6_1_ATx1_info;6x6_1_ATx1;absent_excel;AFV6 AT (cargaison)
@@ -184,7 +190,6 @@ AGR-37 Jester|Aryx Weaponry Pack;Aryx_HeavyRocket1_info;Aryx_HeavyRocket1_x1,Ary
 ;Aryx_ADLT_01_x1_WeaponInfo;Aryx_ADLT_01x1;absent_excel;FRCV-105 LT (cargaison)
 ;Aryx_CRVL_1_Mortar_Info;Aryx_CRVL_1_Mortar_x1;absent_excel;CVR-L Serval Mortar (cargaison)
 ;Aryx_CRVL_1_Recon_Info;Aryx_CRVL_1_Recon_x1;absent_excel;CVR-L Serval Recon (cargaison)
-;Aryx_ClusterBomb1_Info;Aryx_ClusterBomb1_Double,Aryx_ClusterBomb1_Single,Aryx_ClusterBomb1_Single_Internal;absent_excel;CBO-400
 ;Aryx_FRCV_Artillery_x1_Info;Aryx_FRCV_Artillery_x1;absent_excel;FRCV-SPG (cargaison)
 ;Aryx_HeavyCEV_info;Aryx_HeavyCEV_x1;absent_excel;Type-12 CEV (cargaison)
 ;Aryx_MC260_AAGunContainerx1_Info;Aryx_MC260_AAGunContainerx1;absent_excel;35mm AA Gun Container (cargaison)
@@ -196,7 +201,6 @@ AGR-37 Jester|Aryx Weaponry Pack;Aryx_HeavyRocket1_info;Aryx_HeavyRocket1_x1,Ary
 ;Aryx_MC260_IRSAM_Turret_Info;Aryx_IRSAM_Turret_x1;absent_excel;SLMMR-A3 SAM Turret (cargaison)
 ;Aryx_MC260_MunitionsContainer_50T_x1_Info;Aryx_MC260_MunitionsContainer_50T_x1;absent_excel;Large Munitions Container (cargaison)
 ;Aryx_MC260_R9SAMx1_Info;Aryx_MC260_R9SAMLauncherx1;absent_excel;R9 StratoLance SAM Launcher (cargaison)
-;Aryx_SmallJammingPod_Info;Aryx_SmallJammingPod;absent_excel;AEC-124 Offensive Jammer
 ;CargoHook_info;CargoHook;absent_excel;Cargo Hook
 ;DestroyerDefensive_info;DestroyerDefensive;absent_excel;Mk.I Defensive Systems Addon
 ;FuelContainer1_info;FuelContainer1x1,FuelContainer1x2,FuelContainer1x4;absent_excel;Fuel Container 1500L (cargaison)
@@ -225,7 +229,6 @@ AGR-37 Jester|Aryx Weaponry Pack;Aryx_HeavyRocket1_info;Aryx_HeavyRocket1_x1,Ary
 ;PB_Top_Radar_info;PB_Top_Radar;absent_excel;AN/SPS-34 Picket
 ;RadarContainerx1_info;RadarContainerx1,truk_radar;absent_excel;Radar Container (cargaison)
 ;SAMTurretx1_info;SAMTurret1x1;absent_excel;RAM45 Launcher (cargaison)
-;SARAAM1_info;SARAAM1_double,SARAAM1_double_internal,SARAAM1_single,SARAAM1_single_internal,SARAAM1_triple,SARAAM1_triple_internal,SARAAM1x8;absent_excel;AAM-21 Glaive
 ;SSM114P_info;KorvetteShipbreaker,PB_Side_Shipbreaker;absent_excel;SSM-114P Shipbreaker
 ;SSM26X_info;KorvetteSledgehammer;absent_excel;SSM-26X Sledgehammer
 ;Submunition2_info;;hors_hangar;ADMI-1

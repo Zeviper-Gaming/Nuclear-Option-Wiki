@@ -131,9 +131,10 @@ def lire_export(chemin):
 
 
 def lire_excel(chemin):
-    ws = openpyxl.load_workbook(chemin, data_only=True)["Armes"]
+    from xlsx_vers_json import lignes_completes  # même liste d'armes que le convertisseur (sources comprises)
+    donnees, _, _ = lignes_completes(chemin)
     lignes = []
-    for r in list(ws.iter_rows(values_only=True))[2:]:
+    for r in donnees:
         if r[0] is None or str(r[0]).strip() == "":
             continue
         nom, source = str(r[0]).strip(), str(r[1]).strip()

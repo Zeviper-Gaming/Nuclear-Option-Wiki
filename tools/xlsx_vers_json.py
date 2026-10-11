@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Convertit data/Armes_regroupees.xlsx (+ data/correspondance.csv s'il existe) en data/weapons.json.
+"""Convertit data/Armes_regroupees.xlsx (+ data/sources/*.xlsx et data/correspondance.csv) en data/weapons.json.
+
+Sources complémentaires (facultatives) : data/sources/NO-stats.xlsx et data/sources/NO_efficacite_armes.xlsx.
+Les armes de NO-stats absentes d'Armes_regroupees y sont ajoutées, et la note « Hélico » est reprise pour toutes.
 
 Usage : python3 tools/xlsx_vers_json.py [--xlsx data/Armes_regroupees.xlsx] [--out data/weapons.json]
 
@@ -119,6 +122,56 @@ def lire_correspondance(chemin):
     return resultat
 
 
+SOURCES = os.path.join(RACINE, "data", "sources")
+
+
+def _feuille(chemin, nom, ligne_entete):
+    lignes = list(openpyxl.load_workbook(chemin, read_only=True, data_only=True)[nom].iter_rows(values_only=True))
+    return lignes[ligne_entete + 1:]
+
+
+def lignes_completes(xlsx, stats=None, efficacite=None):
+    """
+    Lignes au format de la feuille « Armes » d'Armes_regroupees.xlsx (31 colonnes), complétées par :
+    - les armes de NO-stats.xlsx absentes d'Armes_regroupees (ligne reconstruite à partir de NO-stats,
+      « Notes efficacité » et « Vulnérabilité défenses ») ;
+    - la note « Hélico » de « Notes efficacité », pour toutes les armes (renvoyée à part : {cle: note}).
+    Renvoie (lignes, notes_helico, cles_ajoutees). Sans fichiers sources : seulement Armes_regroupees.
+    """
+    stats = stats or os.path.join(SOURCES, "NO-stats.xlsx")
+    efficacite = efficacite or os.path.join(SOURCES, "NO_efficacite_armes.xlsx")
+    ws = openpyxl.load_workbook(xlsx, data_only=True)["Armes"]
+    lignes = list(ws.iter_rows(values_only=True))
+    en_tetes = lignes[1]
+    for i, attendu in EN_TETES_ATTENDUS.items():
+        if (en_tetes[i] or "").strip() != attendu:
+            sys.exit(f"Colonne {i + 1} : en-tête « {en_tetes[i]} », attendu « {attendu} ». Structure de l'Excel modifiée ?")
+    donnees = [list(r) for r in lignes[2:] if texte(r[0])]
+    helico, ajoutees = {}, []
+    if not (os.path.exists(stats) and os.path.exists(efficacite)):
+        return donnees, helico, ajoutees
+
+    notes = {(texte(r[0]), texte(r[1])): r for r in _feuille(efficacite, "Notes efficacité", 7) if texte(r[0])}
+    defenses = {(texte(r[0]), texte(r[1])): r for r in _feuille(efficacite, "Vulnérabilité défenses", 7) if texte(r[0])}
+    for cle, n in notes.items():
+        helico[f"{cle[0]}|{cle[1]}"] = note_entiere(n[13])
+
+    existantes = {(texte(r[0]), texte(r[1])) for r in donnees}
+    for st in _feuille(stats, "Armes", 0):
+        cle = (texte(st[1]), texte(st[0]))
+        if not cle[0] or cle in existantes:
+            continue
+        n = notes.get(cle) or [None] * 16
+        v = defenses.get(cle) or [None] * 30
+        vitesse = nombre(st[16]) or nombre(st[12]) or nombre(st[11])
+        ligne = [st[1], st[0], st[2], st[3], st[7], st[6], st[30], st[31], st[18], st[19], vitesse, None, st[4], None, None,
+                 n[4], n[5], n[6], n[7], n[8], n[9], n[10], n[11], n[12], n[14], n[15],
+                 None, v[5], v[8], v[13], v[17]]
+        donnees.append(ligne)
+        ajoutees.append(f"{cle[0]}|{cle[1]}")
+    return donnees, helico, ajoutees
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--xlsx", default=os.path.join(RACINE, "data", "Armes_regroupees.xlsx"))
@@ -126,13 +179,15 @@ def main():
     ap.add_argument("--out", default=os.path.join(RACINE, "data", "weapons.json"))
     args = ap.parse_args()
 
-    ws = openpyxl.load_workbook(args.xlsx, data_only=True)["Armes"]
-    lignes = list(ws.iter_rows(values_only=True))
-    en_tetes = lignes[1]
-    for i, attendu in EN_TETES_ATTENDUS.items():
-        if (en_tetes[i] or "").strip() != attendu:
-            sys.exit(f"Colonne {i + 1} : en-tête « {en_tetes[i]} », attendu « {attendu} ». Structure de l'Excel modifiée ?")
-    donnees = [r for r in lignes[2:] if texte(r[0])]
+    donnees, notes_helico, ajoutees = lignes_completes(args.xlsx)
+
+    # Indice de vitesse /10 des lignes ajoutées depuis NO-stats : même formule que la feuille « Vitesse (calcul) »
+    # (1 + 9 × rang centile parmi toutes les vitesses, ex æquo en haut du groupe).
+    vitesses = sorted(v for v in (nombre(r[COL["vitesse_ms"]]) for r in donnees) if v is not None and v > 0)
+    for r in donnees:
+        v = nombre(r[COL["vitesse_ms"]])
+        if nombre(r[COL["note_vitesse"]]) is None and v and len(vitesses) > 1:
+            r[COL["note_vitesse"]] = arrondi(1 + 9 * (sum(1 for x in vitesses if x <= v) - 1) / (len(vitesses) - 1), 1)
 
     portees = sorted(p for p in (nombre(r[COL["portee_max_m"]]) for r in donnees) if p is not None and p > 0)
     n = len(portees)
@@ -189,7 +244,8 @@ def main():
             "laser_requis": oui_non(r[COL["laser_requis"]]),
             "tire_et_oublie": oui_non(r[COL["tire_et_oublie"]]),
             "air_sol": {k: note_entiere(r[15 + i]) for i, k in enumerate(AIR_SOL)},
-            "air_air": {k: note_entiere(r[23 + i]) for i, k in enumerate(AIR_AIR)},
+            "air_air": dict({k: note_entiere(r[23 + i]) for i, k in enumerate(AIR_AIR)},
+                            helico=notes_helico.get(f"{texte(r[COL['nom']])}|{texte(r[COL['source']])}")),
             "defense": {
                 "agilite": note_entiere(r[COL_AGILITE]),
                 "rcs_m2": rcs,
@@ -199,6 +255,8 @@ def main():
                 "difficulte_toucher": note_entiere(r[COL_DIFF]),
             },
         }
+        if cle_excel in ajoutees:
+            arme["origine"] = "NO-stats"
         if cle_excel in correspondance:
             cle, autres = correspondance[cle_excel]
             for a in autres:
@@ -224,6 +282,8 @@ def main():
         json.dump(sortie, f, ensure_ascii=False, indent=1)
         f.write("\n")
     provisoires = sum(1 for a in armes.values() if a.get("cle_provisoire"))
+    if ajoutees:
+        print(f"{len(ajoutees)} arme(s) ajoutée(s) depuis data/sources/NO-stats.xlsx : " + ", ".join(ajoutees))
     print(f"{len(armes)} armes écrites dans {os.path.relpath(args.out, RACINE)} "
           f"({len(armes) - provisoires} clés définitives, {provisoires} provisoires, {len(alias)} alias).")
 

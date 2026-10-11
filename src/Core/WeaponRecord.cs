@@ -58,6 +58,7 @@ namespace NuclearOptionWiki.Core
     public sealed class AirToAir
     {
         [JsonProperty("petit_avion")] public int? SmallAircraft;
+        [JsonProperty("helico")] public int? Helicopter;
         [JsonProperty("moyen_avion")] public int? MediumAircraft;
         [JsonProperty("gros_avion")] public int? LargeAircraft;
     }

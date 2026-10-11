@@ -181,7 +181,7 @@ namespace NuclearOptionWiki.UI
             y += Gap;
             ZoneTitle.Create(c, th, font, "Capacité air-air (AA)", y, InnerW);
             y += ZoneTitle.Height + Gap;
-            y = TileGrid(c, th, font, _air, 3, y, TileH, false);
+            y = TileGrid(c, th, font, _air, 4, y, TileH, false);   // Petit avion · Hélico · Moyen · Gros
 
             // --- Zone 3 : interception et défenses ---
             y = Divider(c, th, y);

@@ -71,17 +71,33 @@ Tu peux aussi éditer `BepInEx/config/zeviper.nuclearoption.wiki.cfg`, par exemp
   - « — » si la valeur est inconnue.
 - **Arme non référencée** : arme du jeu absente de `weapons.json`. La fiche est identique, tout est en N/A, et le nom de l'arme est noté dans le journal.
 
-## Mettre à jour les notes
+## Mettre à jour les données soi-même (sans recompiler)
 
-Les notes viennent de `data/Armes_regroupees.xlsx`. Après une modification de l'Excel :
+Les données viennent de trois classeurs :
 
-```bash
-python3 tools/xlsx_vers_json.py      # régénère data/weapons.json (nécessite openpyxl)
-```
+| Fichier | Rôle |
+|---|---|
+| `data/Armes_regroupees.xlsx` | Fiche fusionnée : stats, notes air-sol/air-air, interception. Prioritaire pour les armes qu'il contient. |
+| `data/sources/NO-stats.xlsx` | Stats brutes. Une arme qui n'est pas encore dans `Armes_regroupees` y est reprise automatiquement. |
+| `data/sources/NO_efficacite_armes.xlsx` | Notes d'efficacité (dont la cible « Hélico ») et vulnérabilité aux défenses. |
 
-Copie ensuite `data/weapons.json` **dans le même dossier que la DLL**. Ce fichier est prioritaire sur les données intégrées, donc il n'y a rien à recompiler. Le journal indique alors `Données lues depuis …`.
+**Procédure (Windows)**, après une modification des classeurs :
 
-`data/correspondance.csv` relie chaque ligne de l'Excel (« Arme|Source ») aux noms internes de l'arme dans le jeu. Il est proposé par `python3 tools/correspondance.py data/dump/<export>.csv`, à partir de l'export de diagnostic. Les lignes de statut `manuel` sont conservées d'une exécution à l'autre.
+1. Installe une fois Python 3, puis lance `pip install openpyxl`.
+2. Récupère le dépôt (bouton « Code → Download ZIP » sur GitHub, ou `git pull`) et remplace les fichiers dans `data/` et `data/sources/`.
+3. *Facultatif, pour les armes nouvelles en jeu* : lance le jeu, active F1 → Diagnostic → **Exporter la liste des armes**, ouvre le hangar avec les avions concernés, puis quitte. L'export sert à rattacher les nouvelles armes à leur nom interne.
+4. Double-clique sur **`mettre_a_jour.bat`**. Si le jeu est installé ailleurs que dans `G:\SteamLibrary\steamapps\common\Nuclear Option`, corrige la ligne `JEU=` au début du fichier.
+5. Relance le jeu. Le journal BepInEx doit afficher `[Wiki] Données lues depuis … weapons.json`.
+
+`mettre_a_jour.bat` lance `python tools/mettre_a_jour.py --jeu "<dossier du jeu>"`, qui :
+- prend l'export le plus récent ;
+- met à jour `data/correspondance.csv` ;
+- régénère `data/weapons.json` ;
+- le copie à côté de `NuclearOptionWiki.dll`.
+
+Le `weapons.json` placé à côté de la DLL est **prioritaire** sur les données intégrées à la DLL. Quand tu installes une nouvelle version du mod, relance `mettre_a_jour.bat`, ou supprime ce `weapons.json`, pour ne pas garder d'anciennes données.
+
+**Ce qui demande une nouvelle version du mod** : ajouter une nouvelle **catégorie** de note, c'est-à-dire une nouvelle colonne de cible ou de défense. De nouvelles armes ou de nouvelles valeurs n'en ont pas besoin.
 
 ## Développement
 

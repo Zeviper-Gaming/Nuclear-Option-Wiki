@@ -71,7 +71,8 @@ namespace NuclearOptionWiki.Tests
 
         private static void DatabaseTests(WeaponDatabase db)
         {
-            Eq(133, db.Count, "133 armes dans weapons.json");
+            Eq(139, db.Count, "139 armes dans weapons.json (133 + 6 de NO-stats)");
+            True(db.Find("SARAAM1_info", null, null)?.Name == "AAM-21 Glaive", "AAM-21 Glaive ajouté depuis NO-stats");
             string agmKey = KeyOf(db, "AGM-48|Jeu de base");
             True(agmKey != null && db.Find(agmKey, null, null) != null, "recherche par clé du jeu");
             True(db.Find("kar_info_SAM_IR1", null, null)?.ExcelKey == "IRM-S1|Jeu de base", "recherche par alias d'asset (version KAR)");
@@ -106,7 +107,7 @@ namespace NuclearOptionWiki.Tests
             Eq("6,7", FicheModel.Build(record, null, LiveStats.None, RangeNoteMode.Rank).Bars[1].Note, "note portée rang");
             Eq("5,5|9 kg", f.Bars[2].Note + "|" + f.Bars[2].Real, "barre dégâts");
             Eq("8,3|1 550", f.Bars[3].Note + "|" + f.Bars[3].Real, "barre pénétration");
-            Eq("3,3|100 kg/M$", f.Bars[4].Note + "|" + f.Bars[4].Real, "barre explosif/M$");
+            Eq("3,4|100 kg/M$", f.Bars[4].Note + "|" + f.Bars[4].Real, "barre explosif/M$");
             Eq("DATALINK|LOFT|ZIGZAG|SUIVI RELIEF", string.Join("|", f.Profile), "profil d'attaque");
             Eq("0,09 M$|1 km|N/A|N/A|N/A|N/A", string.Join("|", f.Stats.Select(s => s.Value)), "cellules de stats sans données de jeu");
             var agmLive = new LiveStats { SeekerType = "Optical", SeekerComponent = "OpticalSeeker", IsMissile = true, LaserGuided = false };
@@ -114,7 +115,7 @@ namespace NuclearOptionWiki.Tests
             Eq("0,09 M$|1 km|Optique (opérateur)|NON|NON|NON", string.Join("|", fa.Stats.Select(s => s.Value)), "R11 : AGM-48 optique opérateur");
             True(fa.Subtitle.EndsWith("Autodirecteur : Optique (opérateur)"), "sous-titre avec autodirecteur");
             Eq("5|5|3|1|0|3|1|0", string.Join("|", f.AirToGround.Select(t => t.Note)), "notes air-sol");
-            True(f.AirToAir.All(t => t.IsNotAvailable), "AA en N/A");
+            Eq("N/A|4|N/A|N/A", string.Join("|", f.AirToAir.Select(t => t.Note)), "AA : seule la note Hélico existe (efficacité)");
             Eq("2", f.Defense[1].Note, "note RCS");
             Eq(3, f.Defense[1].ColorIndex, "RCS inversée : 2 → couleur 3");
             Eq("0,02 m²", f.Defense[1].Real, "RCS réelle (Excel)");
