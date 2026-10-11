@@ -8,6 +8,8 @@ Usage : python3 tools/xlsx_vers_json.py [--xlsx data/Armes_regroupees.xlsx] [--o
 - Notes calculées (plan, décisions D10 et D13) :
     note_portee_log  = 1 + 9 × (log10(portée_m) − 2) / 4, bornée à [1 ; 10], 1 décimale
     note_portee_rang = 1 + 9 × (nb de portées ≤ p − 1) / (n − 1), ex æquo en haut du groupe
+    note_explosif_rang, note_penetration_rang, note_explosif_par_m_rang : même formule sur les valeurs > 0 ;
+                       valeur 0 → note 0 (plan v1.1, D24)
     note_rcs         = arrondi(5 × (log10(rcs) + 3) / 3), borné à [0 ; 5]
   Les arrondis se font « au demi supérieur » (comme MidpointRounding.AwayFromZero en C#).
 - Clé d'une arme : WeaponInfo.name si la correspondance la donne (statut auto ou manuel),
@@ -141,6 +143,23 @@ def main():
         inferieures_ou_egales = sum(1 for x in portees if x <= p)
         return arrondi(1 + 9 * (inferieures_ou_egales - 1) / (n - 1), 1)
 
+    def noteur_rang(colonne):
+        """Note /10 au rang (plan v1.1, D24) : 1 + 9 × rang centile parmi les valeurs > 0 ; 0 → 0 ; absent → null."""
+        valeurs = sorted(v for v in (nombre(r[colonne]) for r in donnees) if v is not None and v > 0)
+        def note(v):
+            if v is None:
+                return None
+            if v <= 0:
+                return 0
+            if len(valeurs) < 2:
+                return 10
+            return arrondi(1 + 9 * (sum(1 for x in valeurs if x <= v) - 1) / (len(valeurs) - 1), 1)
+        return note
+
+    note_explosif_rang = noteur_rang(COL["explosif_kg"])
+    note_penetration_rang = noteur_rang(COL["penetration"])
+    note_explosif_par_m_rang = noteur_rang(COL["explosif_par_m"])
+
     correspondance = lire_correspondance(args.correspondance)
     armes, alias = {}, {}
     for r in donnees:
@@ -164,6 +183,9 @@ def main():
             "note_vitesse": nombre(r[COL["note_vitesse"]]),
             "note_portee_log": note_portee_log(portee),
             "note_portee_rang": note_portee_rang(portee),
+            "note_explosif_rang": note_explosif_rang(nombre(r[COL["explosif_kg"]])),
+            "note_penetration_rang": note_penetration_rang(nombre(r[COL["penetration"]])),
+            "note_explosif_par_m_rang": note_explosif_par_m_rang(nombre(r[COL["explosif_par_m"]])),
             "laser_requis": oui_non(r[COL["laser_requis"]]),
             "tire_et_oublie": oui_non(r[COL["tire_et_oublie"]]),
             "air_sol": {k: note_entiere(r[15 + i]) for i, k in enumerate(AIR_SOL)},

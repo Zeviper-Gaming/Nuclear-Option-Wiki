@@ -1,6 +1,6 @@
 # Plan — Wiki d'armes en jeu (Nuclear Option)
 
-Version : 1.1 · Date : 2026-10-11 · Statut : v1 validée (2026-10-09) ; amendement v1.1 en brouillon (section 11)
+Version : 1.1 · Date : 2026-10-11 · Statut : v1 validée (2026-10-09) ; amendement v1.1 validé (2026-10-11)
 
 ## 1. Objectif et livrable
 
@@ -306,7 +306,7 @@ Suivre les étapes dans l'ordre et vérifier chaque critère d'acceptation. En c
 
 ---
 
-## 11. Amendement v1.1 (issue GitHub n° 1) — brouillon du 2026-10-11
+## 11. Amendement v1.1 (issue GitHub n° 1) — validé le 2026-10-11
 
 Point de départ : v0.3.2 (E0–E7 validées en jeu, E4 terminée : 133/133 armes à clé définitive). Cet amendement ajoute les idées de l'issue n° 1. Les décisions D1–D23 restent valables, sauf mention contraire.
 
@@ -320,7 +320,7 @@ Point de départ : v0.3.2 (E0–E7 validées en jeu, E4 terminée : 133/133 arme
 | D27 | Le sous-titre devient « Guidage : <Excel> · Autodirecteur : <jeu> ». | L'approche part en pastilles. |
 | D28 | **Grille de stats à 6 cellules** (3 colonnes × 2 rangées) : Coût · Portée min · Autodirecteur · IR · Tire et oublie · Laser requis. | Issue : « Ajouter IR requis et F&F ». IR = autodirecteur infrarouge oui/non (réponse de Florian). |
 | D29 | **Autodirecteur, IR, F&F et laser requis lus en jeu** (`MissileSeeker.GetSeekerType()`, nom du composant de l'autodirecteur, `WeaponInfo.laserGuided`, drapeaux `gun`/`energy`/`bomb`), selon le tableau 11.4. Une valeur non vide dans l'Excel (`laser_requis`, `tire_et_oublie`) reste prioritaire. | Données présentes en jeu ; vérifié dans l'export v0.3.1 (97 autodirecteurs). |
-| D30 | **Note d'agilité /5 calculée en jeu** pour les armes à composant `Missile`. Métrique : ω = taux de virage effectif à 300 m/s = min(`maxTurnRate` °/s, 9,81 × `gLimit` / 300 × 57,2958), en ignorant une limite ≤ 0. Note = arrondi(5 × rang centile de ω parmi tous les missiles chargés, mods compris), calculée une fois par session. Une note d'agilité de l'Excel reste prioritaire. La valeur réelle (« 35 °/s · 20 G ») est conservée. | Issue : « Ajouter les notes d'agilité » ; l'Excel est vide sur cette colonne. |
+| D30 | **Note d'agilité /5 calculée en jeu** sur l'**accélération maximale en virage** (`gLimit`, en G) des armes à composant `Missile` (décision Q1 de Florian). Note = arrondi(5 × rang centile du `gLimit` parmi tous les missiles chargés, mods compris), calculée une fois par session. `gLimit` ≤ 0 → note N/A. Une note d'agilité de l'Excel reste prioritaire. La valeur réelle (« 35 °/s · 20 G ») est conservée. | Issue : « Ajouter les notes d'agilité » ; Q1. |
 | D31 | Les **couleurs d'interception** sont inchangées : seules les signatures radar et IR sont inversées. | Décision de Florian, 2026-10-09. |
 | D32 | **Tuiles ramenées à 72 px** de haut (au lieu de 78) pour tenir dans le panneau de 840 px. Budget vertical en 11.2. | Place nécessaire aux ajouts. |
 | D33 | **Icônes de catégories** (facultatif, en dernier) : pictogramme 14 × 14 px en haut à gauche de chaque tuile, repris des sprites du jeu (`Encyclopedia.i.vehicleTypes`, `buildingTypes`, `shipTypes`, `typeSprite`). Pas d'image embarquée. Si aucun sprite ne convient pour une catégorie, pas d'icône pour toute la rangée. Démarrage conditionné à un export des types d'unités (F6). | Issue : « Icônes en plus des noms ? ». Cohérence avec le style du jeu. |
@@ -376,12 +376,14 @@ Exemple : AGM-48 (« datalink; loft 0.2; évasion zigzag 0.1; évite le relief �
 | INS | Inertiel | NON | OUI | NON |
 | INS / Opt. | Inertiel + optique | NON | OUI | NON |
 | Optical, composant `OpticalSeeker` | Optique (opérateur) | NON | NON | NON |
-| Optical, composant `OpticalSeekerBomb` ou `OpticalSeekerHighDrag` | Aucun (balistique) | NON | *voir question Q2* | NON |
+| Optical, composant `OpticalSeekerBomb` ou `OpticalSeekerHighDrag` | Aucun (balistique) | NON | N/A | NON |
 | sans autodirecteur, `gun` | Aucun (canon) | NON | N/A | NON |
 | sans autodirecteur, `energy` | Aucun (énergie) | NON | N/A | NON |
 | autre / pas de prefab | N/A | N/A | N/A | N/A |
 
 « Laser requis » vaut aussi OUI si `WeaponInfo.laserGuided` est vrai.
+
+**Tire et oublie ne concerne que les missiles** (Q2). Une arme est un missile si `WeaponInfo.missile` est vrai, ou si elle a un autodirecteur sans être une bombe (`bomb`, `glideBomb`). Dans tous les autres cas, F&F = N/A.
 
 ### 11.5 Étapes
 
@@ -398,17 +400,17 @@ Exemple : AGM-48 (« datalink; loft 0.2; évasion zigzag 0.1; évite le relief �
 
 - **R9** — Les 5 barres s'affichent. Contrôle sur l'AGM-48, une bombe nucléaire (dégâts 10/10) et un canon (pénétration et explosif faibles).
 - **R10** — Profil de l'AGM-48 : DATALINK · LOFT · ZIGZAG · SUIVI RELIEF. Un canon affiche « N/A ».
-- **R11** — Autodirecteur, IR, F&F et laser cohérents :
+- **R11** — Autodirecteur, IR, F&F et laser cohérents (F&F N/A sur les bombes et les canons) :
   - AGM-48 : Optique (opérateur), IR NON, F&F NON ;
   - IRM-S1 : Infrarouge, IR OUI, F&F OUI ;
   - AGR-24 Kingpin : Laser requis OUI.
-- **R12** — Agilité notée sur les missiles et N/A sur les canons. La fiche tient dans les 3 thèmes, pied de fiche visible.
+- **R12** — Agilité notée (d'après les G) sur les missiles et N/A sur les canons. La fiche tient dans les 3 thèmes, pied de fiche visible.
 
-### 11.7 Questions à trancher par Florian avant exécution
+### 11.7 Décisions de Florian (2026-10-11)
 
-- **Q1** — Vitesse de référence pour l'agilité : 300 m/s (proposition) ou autre.
-- **Q2** — Bombe non guidée : « Tire et oublie » = OUI (rien à faire après le largage), ou N/A (proposition : le F&F ne concerne que les armes guidées).
-- **Q3** — Valeur 0 sur les nouvelles barres (ex. CBO-400 : explosif 0 dans l'Excel) : note 0 (proposition) ou N/A.
+- **Q1** — Agilité : accélération maximale en virage (G) des missiles, et non le taux de virage à 300 m/s. Voir D30.
+- **Q2** — Le F&F ne concerne que les missiles ; partout ailleurs, N/A. Voir 11.4.
+- **Q3** — Valeur 0 sur une barre : note 0, barre éteinte. Voir D24.
 
 ### 11.8 Modèle d'exécution
 
