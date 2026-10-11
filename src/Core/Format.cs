@@ -44,6 +44,7 @@ namespace NuclearOptionWiki.Core
         public static string Cost(double? millions) => millions == null ? NotAvailable : Number(millions.Value, 2) + " M$";
         public static string Kilograms(double? kg) => kg == null ? NotAvailable : Number(kg.Value, 1) + " kg";
         public static string Plain(double? v) => v == null ? NotAvailable : Number(v.Value);
+        public static string KilogramsPerMillion(double? v) => v == null ? NotAvailable : Number(v.Value) + " kg/M$";
         public static string SquareMeters(double? m2) => m2 == null ? Unknown : Number(m2.Value, 3) + " m²";
         public static string YesNo(bool? b) => b == null ? NotAvailable : b.Value ? "OUI" : "NON";
 

@@ -33,6 +33,9 @@ namespace NuclearOptionWiki.Core
         [JsonProperty("note_vitesse")] public double? SpeedNote;
         [JsonProperty("note_portee_log")] public double? RangeNoteLog;
         [JsonProperty("note_portee_rang")] public double? RangeNoteRank;
+        [JsonProperty("note_explosif_rang")] public double? ExplosiveNote;
+        [JsonProperty("note_penetration_rang")] public double? PenetrationNote;
+        [JsonProperty("note_explosif_par_m_rang")] public double? ExplosivePerMillionNote;
         [JsonProperty("laser_requis")] public bool? LaserRequired;
         [JsonProperty("tire_et_oublie")] public bool? FireAndForget;
         [JsonProperty("air_sol")] public AirToGround AirToGround = new AirToGround();

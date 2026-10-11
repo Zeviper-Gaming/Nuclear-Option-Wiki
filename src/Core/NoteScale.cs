@@ -30,10 +30,13 @@ namespace NuclearOptionWiki.Core
             return Clamp((int)RoundHalfUp(note.Value / 2.0), 0, 5);
         }
 
-        /// <summary>Nombre de segments allumés d'une barre à 10 niveaux : arrondi(note) borné à [1 ; 10], 0 si N/A.</summary>
+        /// <summary>
+        /// Nombre de segments allumés d'une barre à 10 niveaux : arrondi(note) borné à [1 ; 10] ;
+        /// 0 si la note vaut 0 (valeur nulle, plan v1.1 Q3) ou si elle est absente.
+        /// </summary>
         public static int LitSegments(double? note)
         {
-            if (note == null) return 0;
+            if (note == null || note.Value <= 0) return 0;
             return Clamp((int)RoundHalfUp(note.Value), 1, 10);
         }
 

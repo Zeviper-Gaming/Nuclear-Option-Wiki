@@ -22,6 +22,8 @@ namespace NuclearOptionWiki.Tests
             NoteScaleTests();
             DatabaseTests(db);
             Agm48Tests(db);
+            SeekerTests();
+            ProfileTests();
             UnknownWeaponTests();
             AllSheetsTests(db);
             ConfigKeyTests(root);
@@ -95,14 +97,22 @@ namespace NuclearOptionWiki.Tests
             Eq("AGM-48", f.Title, "titre");
             Eq("Missile", f.Chip1, "puce type");
             Eq("Jeu de base", f.Chip2, "puce source");
-            Eq("2,1", f.Speed.Note, "note vitesse");
-            Eq(2, f.Speed.LitSegments, "segments vitesse");
-            Eq("358 m/s", f.Speed.Real, "vitesse réelle");
-            Eq("5,5", f.Range.Note, "note portée log");
-            Eq(6, f.Range.LitSegments, "segments portée");
-            Eq("10 km", f.Range.Real, "portée réelle");
-            Eq("6,7", FicheModel.Build(record, null, LiveStats.None, RangeNoteMode.Rank).Range.Note, "note portée rang");
-            Eq("1 550|9 kg|0,09 M$|100|1 km|N/A|N/A", string.Join("|", f.Stats.Select(s => s.Value)), "cellules de stats");
+            Eq("2,1", f.Bars[0].Note, "note vitesse");
+            Eq(2, f.Bars[0].LitSegments, "segments vitesse");
+            Eq("358 m/s", f.Bars[0].Real, "vitesse réelle");
+            Eq("5,5", f.Bars[1].Note, "note portée log");
+            Eq(6, f.Bars[1].LitSegments, "segments portée");
+            Eq("10 km", f.Bars[1].Real, "portée réelle");
+            Eq("6,7", FicheModel.Build(record, null, LiveStats.None, RangeNoteMode.Rank).Bars[1].Note, "note portée rang");
+            Eq("5,5|9 kg", f.Bars[2].Note + "|" + f.Bars[2].Real, "barre dégâts");
+            Eq("8,3|1 550", f.Bars[3].Note + "|" + f.Bars[3].Real, "barre pénétration");
+            Eq("3,3|100 kg/M$", f.Bars[4].Note + "|" + f.Bars[4].Real, "barre explosif/M$");
+            Eq("DATALINK|LOFT|ZIGZAG|SUIVI RELIEF", string.Join("|", f.Profile), "profil d'attaque");
+            Eq("0,09 M$|1 km|N/A|N/A|N/A|N/A", string.Join("|", f.Stats.Select(s => s.Value)), "cellules de stats sans données de jeu");
+            var agmLive = new LiveStats { SeekerType = "Optical", SeekerComponent = "OpticalSeeker", IsMissile = true, LaserGuided = false };
+            var fa = FicheModel.Build(record, "AGM-48", agmLive, RangeNoteMode.Logarithmic);
+            Eq("0,09 M$|1 km|Optique (opérateur)|NON|NON|NON", string.Join("|", fa.Stats.Select(s => s.Value)), "R11 : AGM-48 optique opérateur");
+            True(fa.Subtitle.EndsWith("Autodirecteur : Optique (opérateur)"), "sous-titre avec autodirecteur");
             Eq("5|5|3|1|0|3|1|0", string.Join("|", f.AirToGround.Select(t => t.Note)), "notes air-sol");
             True(f.AirToAir.All(t => t.IsNotAvailable), "AA en N/A");
             Eq("2", f.Defense[1].Note, "note RCS");
@@ -116,6 +126,29 @@ namespace NuclearOptionWiki.Tests
             Eq("IR 1,5", fl.Defense[2].Real, "IR lue en jeu");
             Eq("35 °/s · 20 G", fl.Defense[0].Real, "agilité lue en jeu");
             Eq("N/A", fl.Defense[0].Note, "note d'agilité absente de l'Excel");
+        }
+
+        /// <summary>Plan v1.1, tableau 11.4 et décision Q2 (F&F réservé aux missiles).</summary>
+        private static void SeekerTests()
+        {
+            string Row(LiveStats l) { var s = SeekerInfo.Derive(l); return $"{s.Display ?? "N/A"}|{Format.YesNo(s.Infrared)}|{Format.YesNo(s.FireAndForget)}|{Format.YesNo(s.LaserRequired)}"; }
+            Eq("Infrarouge|OUI|OUI|NON", Row(new LiveStats { SeekerType = "IR", IsMissile = true }), "missile IR");
+            Eq("Radar semi-actif|NON|NON|NON", Row(new LiveStats { SeekerType = "SARH", IsMissile = true }), "missile SARH");
+            Eq("Laser|NON|NON|OUI", Row(new LiveStats { SeekerType = "Laser", IsMissile = false }), "roquette laser (autodirecteur sans être une bombe = missile)");
+            Eq("Aucun (balistique)|NON|N/A|NON", Row(new LiveStats { SeekerType = "Optical", SeekerComponent = "OpticalSeekerBomb", IsBomb = true }), "bombe non guidée : F&F N/A");
+            Eq("Laser|NON|N/A|OUI", Row(new LiveStats { SeekerType = "Laser", IsBomb = true, LaserGuided = true }), "bombe guidée laser : F&F N/A (pas un missile)");
+            Eq("Aucun (canon)|NON|N/A|NON", Row(new LiveStats { IsGun = true }), "canon");
+            Eq("N/A|N/A|N/A|N/A", Row(LiveStats.None), "inconnu");
+        }
+
+        private static void ProfileTests()
+        {
+            Eq("RASE-SOL 15 M|TERMINALE", string.Join("|", AttackProfile.Chips("rase-flots/rase-sol 15 m; phase terminale à 3000 m")), "pastilles avec valeur");
+            Eq("ATTAQUE HAUTE|DATALINK", string.Join("|", AttackProfile.Chips("attaque par le haut (proba 1.0, 1000-50000 m); datalink")), "attaque haute");
+            Eq("MOTIF INCONNU…", string.Join("|", AttackProfile.Chips("motif inconnu très long")), "motif inconnu tronqué");
+            Eq(0, AttackProfile.Chips(null).Count, "pas d'approche");
+            Eq(0, NoteScale.LitSegments(0), "Q3 : note 0 → barre éteinte");
+            Eq(0, NoteScale.ColorIndex10(0), "Q3 : note 0 → rouge");
         }
 
         private static void UnknownWeaponTests()
@@ -175,8 +208,8 @@ namespace NuclearOptionWiki.Tests
 
         private static string Signature(FicheModel f) => string.Join("|", new[]
         {
-            f.Speed.Label, f.Range.Label,
-            string.Join(",", f.Stats.Select(s => s.Label + (s.WideCell ? "*" : ""))),
+            string.Join(",", f.Bars.Select(b => b.Label)),
+            string.Join(",", f.Stats.Select(s => s.Label)),
             string.Join(",", f.AirToGround.Select(t => t.Label)),
             string.Join(",", f.AirToAir.Select(t => t.Label)),
             string.Join(",", f.Defense.Select(t => t.Label + (t.Inverted ? "~" : "") + (t.Real != null ? "+" : ""))),
@@ -184,7 +217,9 @@ namespace NuclearOptionWiki.Tests
 
         private static bool AllTextsPresent(FicheModel f)
         {
-            var texts = new List<string> { f.Title, f.Chip1, f.Chip2, f.Subtitle, f.Speed.Note, f.Speed.Real, f.Range.Note, f.Range.Real };
+            var texts = new List<string> { f.Title, f.Chip1, f.Chip2, f.Subtitle };
+            texts.AddRange(f.Bars.SelectMany(b => new[] { b.Label, b.Note, b.Unit, b.Real }));
+            if (f.Profile == null || f.Profile.Any(p => string.IsNullOrEmpty(p))) return false;
             texts.AddRange(f.Stats.Select(s => s.Value));
             texts.AddRange(f.AirToGround.Concat(f.AirToAir).Concat(f.Defense).Select(t => t.Note));
             texts.AddRange(f.AirToGround.Concat(f.AirToAir).Concat(f.Defense).Select(t => t.Unit));
