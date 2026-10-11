@@ -3,9 +3,9 @@
 Slug : wiki-armes-en-jeu · Mis à jour : 2026-10-09 · Statut : en cours
 
 ## Reprise
-- Phase en cours : 3 Exécution (plan v1 validé le 2026-10-09)
+- Phase en cours : 2 (amendement v1.1 en brouillon) — exécution v1 terminée jusqu'à E4 ; E8/E9 couverts par v0.3.2
 - Modèle conseillé : Opus 5.5, effort medium
-- Prochaine action exacte : rédiger le **plan v1.1** (amendement phase 2, Opus 5.5 effort high) à partir de l'issue GitHub n° 1 et des décisions notées ci-dessous, le faire valider par Florian, puis l'exécuter. En parallèle (Florian, facultatif) : compléter l'Excel pour les armes absentes (`statut = absent_excel` dans `data/correspondance.csv`) et les lignes sans notes (ex. « CBO-400|Aryx F-99 Shrike »).
+- Prochaine action exacte : Florian valide le **plan v1.1** (section 11 de `plan-wiki-armes-en-jeu.md`) et tranche Q1–Q3 (11.7) ; ensuite exécuter F1 → F5 (v0.4.0), puis F6 (icônes, facultatif). Modèle d'exécution : Opus 5.5, effort medium.
 - Pour reprendre : nouvelle conversation sur le bon modèle → `/planification` → joindre ce fichier (+ le plan). Dans une session cloud neuve : `apt-get install -y dotnet-sdk-8.0`, redéposer les DLL dans `lib/` (liste dans le README), télécharger BepInEx 5.4.23.2 pour `BepInEx.dll` et `0Harmony.dll`.
 
 ## Récapitulatif de cadrage (validé le 2026-10-09)
