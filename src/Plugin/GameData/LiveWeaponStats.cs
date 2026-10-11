@@ -22,24 +22,75 @@ namespace NuclearOptionWiki.GameData
 
         public static LiveStats Get(WeaponInfo info)
         {
-            if (info == null || info.weaponPrefab == null) return LiveStats.None;
+            if (info == null) return LiveStats.None;
             if (Cache.TryGetValue(info, out var cached)) return cached;
 
             var stats = LiveStats.None;
             try
             {
-                if (Resolve())
+                if (info.weaponPrefab != null && Resolve())
                 {
                     var missile = info.weaponPrefab.GetComponent(_missileType);
-                    if (missile != null) stats = Read(missile);
+                    if (missile != null)
+                    {
+                        stats = Read(missile);
+                        stats.AgilityNote = AgilityNote(stats.GLimit);
+                    }
+                    var seeker = info.weaponPrefab.GetComponent<MissileSeeker>();
+                    if (seeker != null)
+                    {
+                        stats.SeekerType = seeker.GetSeekerType();
+                        stats.SeekerComponent = seeker.GetType().Name;
+                    }
                 }
             }
             catch (Exception e)
             {
                 WarnOnce($"lecture de {info.name} impossible : {e.GetBaseException().Message}");
             }
+            // Drapeaux de l'arme (plan v1.1, D29) : disponibles même sans prefab (canons).
+            stats.LaserGuided = info.laserGuided;
+            stats.IsMissile = info.missile;
+            stats.IsBomb = info.bomb || info.glideBomb;
+            stats.IsGun = info.gun;
+            stats.IsEnergy = info.energy;
             Cache[info] = stats;
             return stats;
+        }
+
+        private static List<float> _gLimits;
+
+        /// <summary>
+        /// Note d'agilité /5 (plan v1.1, D30 / Q1) : rang centile de l'accélération max en virage (gLimit)
+        /// parmi tous les missiles chargés, mods compris ; calculé une fois par session. gLimit ≤ 0 → null.
+        /// </summary>
+        private static int? AgilityNote(double? gLimit)
+        {
+            if (gLimit == null || gLimit.Value <= 0) return null;
+            if (_gLimits == null)
+            {
+                _gLimits = new List<float>();
+                foreach (var w in Resources.FindObjectsOfTypeAll<WeaponInfo>())
+                {
+                    try
+                    {
+                        var m = w != null && w.weaponPrefab != null ? w.weaponPrefab.GetComponent(_missileType) : null;
+                        if (m != null && _gLimit?.GetValue(m) is float g && g > 0f) _gLimits.Add(g);
+                    }
+                    catch (Exception)
+                    {
+                        // arme illisible : ignorée dans le classement
+                    }
+                }
+                _gLimits.Sort();
+                Plugin.Log.LogInfo($"[Wiki] Classement d'agilité : {_gLimits.Count} missiles.");
+            }
+            int n = _gLimits.Count;
+            if (n < 2) return null;
+            int le = 0;
+            foreach (var g in _gLimits) if (g <= gLimit.Value + 1e-4) le++;
+            double rank = (double)Math.Max(le - 1, 0) / (n - 1);
+            return Math.Min(5, Math.Max(0, (int)NoteScale.RoundHalfUp(5 * rank)));
         }
 
         private static LiveStats Read(Component missile)

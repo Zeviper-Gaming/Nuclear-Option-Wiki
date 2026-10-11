@@ -17,6 +17,7 @@ namespace NuclearOptionWiki.UI
         public const float PanelW = 600f, PanelH = 840f, Margin = 12f, Pad = 14f;
         private const float InnerW = PanelW - 2f * Pad;   // 572
         private const float Gap = 8f, ZoneGap = 10f;
+        private const float TileH = 72f;   // plan v1.1 (D32) : 78 → 72 px pour tenir dans 840 px
 
         private static WikiPanel _instance;
         public static WikiPanel Instance => _instance ?? (_instance = new WikiPanel());
@@ -34,7 +35,8 @@ namespace NuclearOptionWiki.UI
         private TextMeshProUGUI _title, _subtitle, _footerKey, _footerWarn;
         private readonly Frame[] _chipFrames = new Frame[2];
         private readonly TextMeshProUGUI[] _chipTexts = new TextMeshProUGUI[2];
-        private Bar10 _speed, _range;
+        private readonly Bar10[] _bars = new Bar10[FicheModel.BarCount];
+        private ProfileRow _profile;
         private readonly StatCell[] _stats = new StatCell[FicheModel.StatCount];
         private readonly Tile[] _ground = new Tile[FicheModel.AirToGroundCount];
         private readonly Tile[] _air = new Tile[FicheModel.AirToAirCount];
@@ -98,8 +100,8 @@ namespace NuclearOptionWiki.UI
             _subtitle.color = m.Unreferenced ? _theme.Unknown : _theme.Sub;
             LayoutChips(m.Chip1, m.Chip2);
 
-            _speed.Apply(m.Speed);
-            _range.Apply(m.Range);
+            _profile.Apply(m.Profile);
+            for (int i = 0; i < _bars.Length; i++) _bars[i].Apply(m.Bars[i]);
             for (int i = 0; i < _stats.Length; i++) _stats[i].Apply(m.Stats[i]);
             for (int i = 0; i < _ground.Length; i++) _ground[i].Apply(m.AirToGround[i]);
             for (int i = 0; i < _air.Length; i++) _air[i].Apply(m.AirToAir[i]);
@@ -155,17 +157,19 @@ namespace NuclearOptionWiki.UI
             y += 36f + Gap;
             _subtitle = Text(c, "Sous-titre", 0f, y, InnerW, 17f, font, 13f, th.Sub, TextAlignmentOptions.MidlineLeft);
             y += 17f + Gap;
-            _speed = new Bar10(c, th, font, y, InnerW);
-            y += Bar10.Height + Gap;
-            _range = new Bar10(c, th, font, y, InnerW);
-            y += Bar10.Height + Gap;
-            float statW = (InnerW - 3f * 6f) / 4f;
+            _profile = new ProfileRow(c, th, font, y, InnerW);
+            y += ProfileRow.Height + Gap;
+            for (int i = 0; i < _bars.Length; i++)
+            {
+                _bars[i] = new Bar10(c, th, font, y, InnerW);
+                y += Bar10.Height + Gap;
+            }
+            // Plan v1.1 (D28) : 6 cellules, 3 colonnes × 2 rangées.
+            float statW = (InnerW - 2f * 6f) / 3f;
             for (int i = 0; i < _stats.Length; i++)
             {
-                int row = i / 4, col = i % 4;
-                bool wide = i == _stats.Length - 1;
-                float w = wide ? 2f * statW + 6f : statW;
-                _stats[i] = new StatCell(c, th, font, col * (statW + 6f), y + row * (StatCell.Height + 6f), w);
+                int row = i / 3, col = i % 3;
+                _stats[i] = new StatCell(c, th, font, col * (statW + 6f), y + row * (StatCell.Height + 6f), statW);
             }
             y += 2f * StatCell.Height + 6f;
 
@@ -173,17 +177,17 @@ namespace NuclearOptionWiki.UI
             y = Divider(c, th, y);
             ZoneTitle.Create(c, th, font, "Capacité air-sol (CAS)", y, InnerW);
             y += ZoneTitle.Height + Gap;
-            y = TileGrid(c, th, font, _ground, 4, y, 78f, false);
+            y = TileGrid(c, th, font, _ground, 4, y, TileH, false);
             y += Gap;
             ZoneTitle.Create(c, th, font, "Capacité air-air (AA)", y, InnerW);
             y += ZoneTitle.Height + Gap;
-            y = TileGrid(c, th, font, _air, 3, y, 78f, false);
+            y = TileGrid(c, th, font, _air, 3, y, TileH, false);
 
             // --- Zone 3 : interception et défenses ---
             y = Divider(c, th, y);
             ZoneTitle.Create(c, th, font, "Interception · défenses", y, InnerW);
             y += ZoneTitle.Height + Gap;
-            TileGrid(c, th, font, _defense, 5, y, 78f, true);
+            TileGrid(c, th, font, _defense, 5, y, TileH, true);
 
             // --- Pied : touche active et avertissement ---
             float footY = PanelH - 2f * Pad - 14f;

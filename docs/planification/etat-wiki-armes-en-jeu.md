@@ -3,9 +3,9 @@
 Slug : wiki-armes-en-jeu · Mis à jour : 2026-10-09 · Statut : en cours
 
 ## Reprise
-- Phase en cours : 2 (amendement v1.1 en brouillon) — exécution v1 terminée jusqu'à E4 ; E8/E9 couverts par v0.3.2
+- Phase en cours : 3 Exécution du plan v1.1 (validé le 2026-10-11) — F1 à F5 faits, recette en jeu en attente
 - Modèle conseillé : Opus 5.5, effort medium
-- Prochaine action exacte : Florian valide le **plan v1.1** (section 11 de `plan-wiki-armes-en-jeu.md`) et tranche Q1–Q3 (11.7) ; ensuite exécuter F1 → F5 (v0.4.0), puis F6 (icônes, facultatif). Modèle d'exécution : Opus 5.5, effort medium.
+- Prochaine action exacte : Florian teste la **v0.4.0** (recette R9–R12, plan section 11.6) et envoie captures + `LogOutput.log`. Ensuite : corrections éventuelles, cocher les cases de l'issue GitHub n° 1, puis F6 (icônes, facultatif → v0.5.0).
 - Pour reprendre : nouvelle conversation sur le bon modèle → `/planification` → joindre ce fichier (+ le plan). Dans une session cloud neuve : `apt-get install -y dotnet-sdk-8.0`, redéposer les DLL dans `lib/` (liste dans le README), télécharger BepInEx 5.4.23.2 pour `BepInEx.dll` et `0Harmony.dll`.
 
 ## Récapitulatif de cadrage (validé le 2026-10-09)
@@ -84,7 +84,7 @@ Maquette de référence : `docs/maquettes/fiche-arme-mfd.html` (en ligne : https
 | `tools/xlsx_vers_json.py`, `tools/package.sh` | Données, empaquetage | OK |
 | `data/weapons.json` | Données générées (clés provisoires « Arme\|Source ») | en attente de E4 |
 | `README.md` | Installation et usage (FR) | v0.2 |
-| `release/NuclearOptionWiki.dll` | DLL de la dernière version (commitée) | v0.3.2 |
+| `release/NuclearOptionWiki.dll` | DLL de la dernière version (commitée) | v0.4.0 |
 | `data/correspondance.csv`, `data/dump/*` | Correspondance Excel ↔ jeu, exports du jeu | E4 terminée |
 | `tools/correspondance.py` | Proposition de correspondance | OK |
 | `tests/Config.Smoke/*` | Test des réglages avec le vrai BepInEx | OK |
@@ -103,6 +103,14 @@ Maquette de référence : `docs/maquettes/fiche-arme-mfd.html` (en ligne : https
 
 ## Écarts de modèle assumés
 - (aucun)
+
+## Avancement plan v1.1
+- [x] F1 — notes /10 au rang (dégâts, pénétration, explosif/M$), 0 → 0.
+- [x] F2 — Core v1.1 (5 barres, 6 stats, profil, autodirecteur/IR/F&F/laser, Q2) : 105 vérifications OK.
+- [x] F3 — lecture en jeu : autodirecteur (type + composant), laserGuided, drapeaux, note d'agilité (rang du gLimit, Q1).
+- [x] F4 — UI : ligne PROFIL, 5 barres, stats 3 × 2, tuiles 72 px (fin à y = 791). Build OK.
+- [ ] F5 — v0.4.0 livrée (`release/`), **recette R9–R12 de Florian en attente**.
+- [ ] F6 — icônes (facultatif).
 
 ## Retours de Florian (issue GitHub n° 1, 2026-10-09)
 - Couleurs d'interception : inchangées (seules les signatures sont inversées). Décidé.

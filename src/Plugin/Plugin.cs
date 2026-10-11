@@ -13,7 +13,7 @@ namespace NuclearOptionWiki
     {
         public const string Guid = "zeviper.nuclearoption.wiki";
         public const string DisplayName = "Nuclear Option Wiki";
-        public const string Version = "0.3.2";
+        public const string Version = "0.4.0";
         public const string DataFileName = "weapons.json";
 
         internal static ManualLogSource Log;

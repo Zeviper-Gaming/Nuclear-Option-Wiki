@@ -3,10 +3,11 @@
 Mod BepInEx 5 pour **Nuclear Option** : une fiche « wiki » d'arme, de style MFD, affichée à gauche de l'écran de **loadout / hangar**.
 
 Pour chaque arme, la fiche présente :
-- vitesse et portée en barres à 10 niveaux, avec la note et la valeur réelle ;
-- stats globales ;
+- 5 barres à 10 niveaux, avec la note et la valeur réelle : vitesse, portée, dégâts (explosif), pénétration, explosif par M$ ;
+- le profil d'attaque en pastilles (DATALINK, LOFT, ZIGZAG, SUIVI RELIEF…) ;
+- coût, portée min, autodirecteur, IR, tire et oublie, laser requis (lus en jeu quand l'Excel ne les donne pas) ;
 - capacités air-sol (CAS) et air-air (AA) en voyants notés sur 5 ;
-- interception et défenses (agilité, signatures radar et IR, résistance laser, difficulté à toucher).
+- interception et défenses : agilité (notée en jeu d'après la limite en G des missiles), signatures radar et IR, résistance laser, difficulté à toucher.
 
 La mise en page est identique pour toutes les armes. Une valeur absente s'affiche en gris avec « N/A ».
 
@@ -61,7 +62,8 @@ Tu peux aussi éditer `BepInEx/config/zeviper.nuclearoption.wiki.cfg`, par exemp
 
 ### Lire la fiche
 
-- **Couleurs des notes** : 0 rouge, 1 rouge-orange, 2 orange, 3 jaune, 4 vert-jaune, 5 vert, N/A gris. Les barres /10 utilisent la même échelle (note ÷ 2).
+- **Couleurs des notes** : 0 rouge, 1 rouge-orange, 2 orange, 3 jaune, 4 vert-jaune, 5 vert, N/A gris. Les barres /10 utilisent la même échelle (note ÷ 2). Vitesse, dégâts, pénétration et explosif/M$ sont notés au rang parmi les armes de l'Excel ; une valeur nulle donne 0 (barre éteinte).
+- **Tire et oublie** ne concerne que les missiles : N/A pour les bombes, canons et armes à énergie.
 - **« inv. »** (signature radar, signature IR) : une note haute veut dire une grande signature, donc une note mauvaise pour l'arme. Les couleurs sont inversées : 0 = invisible = vert.
 - **Valeurs réelles** sous les voyants :
   - signature radar : lue en jeu, sinon tirée de l'Excel ;
