@@ -72,6 +72,7 @@ def main():
         for l in ws.iter_rows(min_row=2):
             if l[0].value == "COIN":
                 l[ent.index("Texte perso")].value = "Mon avion préféré"
+                l[ent.index("Tags")].value = "STOL · Terrain sommaire, Pas cher"
         we = wb["Emports"]
         ente = [c.value for c in we[1]]
         for l in we.iter_rows(min_row=2):
@@ -87,6 +88,7 @@ def main():
         lancer("avions_classeur.py", "--sortie", x)
         ci = ligne_avion(x, "COIN")
         ok(ci["Texte perso"] == "Mon avion préféré", "V2 : Texte perso conservé")
+        ok(ci["Tags"] == "STOL · Terrain sommaire, Pas cher", "v3.3 : Tags conservés")
         c2 = contenu(x)
         ok(any(l[0] == "COIN" and l[4] == "Test pylônes" for l in c2["Emports"]), "V2 : Nom (FR) conservé")
         corr = c2["Corrections"][1:]
@@ -113,6 +115,7 @@ def main():
             ok(a["Aryx_Interceptor1"]["note_vitesse"] <= 9.6, "V4 : note vitesse FS-41 ≤ 9,6")
             ok(a["COIN"]["emports_forces"]["Inner Wing Pylons"]["charge_kg"] == 250, "V4 : emport forcé")
             ok(a["COIN"]["texte_perso"] == "Mon avion préféré", "V4 : texte perso")
+            ok(a["COIN"]["tags"] == ["STOL", "Terrain sommaire", "Pas cher"], "v3.3 : tags en liste")
             ok(data["emplacements_fr"]["COIN"]["Inner Wing Pylons"] == "Test pylônes", "V4 : nom FR d'emplacement")
             ok(data["alias"].get("CI-22 Cricket") == "COIN", "V4 : alias unitName → clé")
 
@@ -129,6 +132,7 @@ def main():
         ok(all(not s["affiche"] for s in p["Aryx_CargoPlane1"]["emplacements"] if s["nom_jeu"] == "-"), "A23 : « - » du MC-260 masqué")
         ok(ac.note_rcs(5e-7) == 0 and ac.note_rcs(0.001) == 1 and ac.note_rcs(0.02) == 2 and ac.note_rcs(0.08) == 3
            and ac.note_rcs(0.5) == 4 and ac.note_rcs(5) == 5, "A12 : échelle RCS")
+        ok(ac.convertir("cn, AAM, bombe", "L")[0] == ["CANON", "MISSILE AA", "BOMBE"], "v3.3 : catégories par acronyme")
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     print(f"OK ({verifs} vérifications)" if echecs == 0 else f"ÉCHEC : {echecs} / {verifs}")

@@ -16,13 +16,11 @@ import avions_commun as ac  # noqa: E402
 MAQ = os.path.join(ac.RACINE, "docs", "maquettes")
 
 
-def note_centile(v, valeurs):
-    """A11 : rang centile /5 (même forme que A14, ramenée à 0–5)."""
-    vals = [x for x in valeurs if x is not None]
-    if v is None or len(vals) < 2:
+def note_ir(v, ir_max):
+    """A11 amendé v3.3 : même échelle linéaire pour les deux voyants, de 0 à l'IR plein gaz le plus fort."""
+    if v is None or not ir_max:
         return None
-    nb = sum(1 for x in vals if x <= v)
-    return int(ac.arrondi(5 * (nb - 1) / (len(vals) - 1), 0))
+    return int(max(0, min(5, ac.arrondi(5 * v / ir_max, 0))))
 
 
 def main():
@@ -41,7 +39,9 @@ def main():
         d["type_court"] = ac.type_court(a["type"])
         d["roles"] = [r.strip() for r in (a["roles"] or "").split("·") if r.strip()]
         d["ir30"], d["irmax"] = i30, imx
-        d["note_ir30"], d["note_irmax"] = note_centile(i30, ir30), note_centile(imx, irmax)
+        top = max(x for x in irmax if x is not None)
+        d["note_ir30"], d["note_irmax"] = note_ir(i30, top), note_ir(imx, top)
+        d["tags"] = [t.strip() for t in re.split(r"[·,;]", a["tags"] or "") if t.strip()]
         d["corriges"] = a["corriges"]
         d["emplacements"] = [{"nom": s["nom_fr"] or s["nom_jeu"], "points": s["points"], "soute": s["soute"], "classe": s["classe"],
                               "charge": ac.entier_si_rond(s["charge_kg"]), "cats": s["categories"], "nb": s["nb_armes"],
@@ -53,6 +53,7 @@ def main():
     bg = re.search(r"data:image/jpeg;base64,[A-Za-z0-9+/=]+", arme).group()
     html = gabarit.replace("__DATA__", json.dumps(out, ensure_ascii=False)).replace("__BG__", bg)
     html = html.replace("__SEUILS__", json.dumps(m["seuils"], ensure_ascii=False))
+    html = html.replace("__ACRO__", json.dumps(ac.ACRONYMES, ensure_ascii=False))
     dest = os.path.join(MAQ, "fiche-appareil-mfd.html")
     open(dest, "w", encoding="utf-8", newline="\n").write(html)
     print(f"{dest} ({len(out)} appareils, {len(html) // 1024} Ko)")

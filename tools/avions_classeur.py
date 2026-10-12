@@ -26,7 +26,7 @@ AVERTISSEMENT = ("Seules les colonnes jaunes et la feuille Corrections sont cons
 # (en-tête, champ du modèle ou fonction, largeur)
 COLONNES_AVIONS = [
     ("Clé", "cle", 26), ("Appareil", "nom", 20), ("Code", "code", 9), ("Source", "source", 14), ("Type", "type", 26),
-    ("Rôle(s)", "roles", 34), ("Description (FR)", "description_fr", 60), ("Texte perso", "texte_perso", 30),
+    ("Rôle(s)", "roles", 34), ("Description (FR)", "description_fr", 60), ("Texte perso", "texte_perso", 30), ("Tags", "tags", 30),
     ("Taille", "taille", 7), ("Encombrement (m²)", "encombrement_m2", 11), ("Note vitesse", "note_vitesse", 8),
     ("Note charge", "note_charge", 8), ("Note coût", "note_cout", 8), ("Note RCS", "note_rcs", 8),
     ("Rang requis", "rang", 7), ("Coût (M$)", "cout_m", 9), ("Vitesse max. (km/h)", "vitesse_kmh", 10),
@@ -46,7 +46,7 @@ COLONNES_AVIONS = [
     ("Indice IA anti-missile", ("role_ia", "role_missile"), 8), ("Indice IA anti-radar", ("role_ia", "role_radar"), 8),
     ("Description (jeu, EN)", "description_jeu", 60), ("Notes", "notes", 50),
 ]
-EDITABLES_AVIONS = {"Rôle(s)", "Description (FR)", "Texte perso"}
+EDITABLES_AVIONS = {"Rôle(s)", "Description (FR)", "Texte perso", "Tags"}
 # Colonnes de stats comparées à l'existant pour repérer une saisie directe (plan, section 8).
 STATS_SURVEILLEES = {lib: champ for lib, champ, _ in COLONNES_AVIONS
                      if isinstance(champ, str) and lib not in EDITABLES_AVIONS and lib not in ("Clé", "Notes")}
@@ -221,12 +221,13 @@ def lisez_moi(modele):
         "Colonnes à remplir (jaunes) :",
         "  • Avions › Rôle(s) : 3 rôles au plus, séparés par « · », pris dans la liste de la feuille Listes (colonne D). Vide = « N/A » en jeu.",
         "  • Avions › Description (FR) : traduction affichée en bas de la fiche. Vide = description anglaise du jeu.",
-        "  • Avions › Texte perso : ton texte, affiché en ambre au-dessus de la description.",
+        "  • Avions › Texte perso : ton texte, affiché en ambre au-dessus des tags.",
+        "  • Avions › Tags : tes mots-clés libres, séparés par « · » (ou des virgules), affichés en pastilles juste au-dessus de la description.",
         "  • Emports › Nom (FR) : nom de l'emplacement sur la fiche. Vide = nom anglais du jeu.",
         "  • Corrections : une ligne par valeur à forcer (Clé appareil · Emplacement (jeu), vide pour l'appareil · Champ · Valeur forcée · "
         "Commentaire). La colonne État dit si la ligne est appliquée ou ignorée (et pourquoi). Une valeur forcée est affichée avec « * » "
         "en jeu et surlignée en orange ici ; les notes, tailles et classes sont recalculées avec elle.",
-        "    Catégories : liste séparée par des virgules parmi " + ", ".join(ac.CATEGORIES) + ". OUI/NON pour Soute, Brouilleur, "
+        "    Catégories : liste séparée par des virgules parmi " + ", ".join(f"{c} ({ac.ACRONYMES[c]})" for c in ac.CATEGORIES) + " (nom ou acronyme). OUI/NON pour Soute, Brouilleur, "
         "Décollage vertical, Masquer l'emplacement.",
         "",
         "Règles de calcul :",
@@ -236,7 +237,8 @@ def lisez_moi(modele):
         f"tiers log entre {ch['min']} et {ch['max']} kg : S ≤ {ch['s_max']} kg, M ≤ {ch['m_max']} kg, H au-delà.",
         "  • Emplacements sans arme (crochets…) : listés ici en gris, non affichés sur la fiche (A23).",
         "  • IR (A11) : par moteur, max des moteurs. IR 30 % gaz = IR ralenti + 0,3 × (IR plein gaz sans postcombustion − IR ralenti) : "
-        "estimation linéaire. IR plein gaz = avec postcombustion. Notes /5 calculées en jeu (rang centile).",
+        "estimation linéaire. IR plein gaz = avec postcombustion. Les deux notes /5 sont sur la même échelle linéaire, de 0 à l'IR plein gaz "
+        "le plus fort de tous les appareils : note = arrondi(5 × IR / IR max), calculée en jeu.",
         "  • Note RCS /5 (A12) : arrondi(log10(RCS) + 4), bornée à 0–5 (10⁻⁴ m² → 0 ; 10 m² → 5).",
         "  • Notes /10 vitesse, charge utile, coût (A14) : rang parmi les appareils du classeur, 1 + 9 × (nb ≤ valeur − 1) / (n − 1). "
         "Agilité = Maniabilité (0 à 10) telle quelle.",

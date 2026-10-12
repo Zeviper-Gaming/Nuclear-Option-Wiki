@@ -58,6 +58,7 @@ table.cotes td:first-child{font-family:var(--f-hud);color:var(--ink)}
 .fiche .roles .k{font-size:11px;letter-spacing:.14em;opacity:.7;margin-right:2px}
 .fiche .pill{font-size:11px;letter-spacing:.06em;padding:2px 8px;border-radius:10px;border:1px solid color-mix(in srgb,var(--acc) 55%,transparent);color:var(--acc);white-space:nowrap}
 .fiche .pill.na{color:var(--na);border-color:var(--na)}
+.fiche .pill.tag{font-size:10px;padding:0 7px;line-height:15px;border-style:dashed}
 .fiche .bars{display:flex;flex-direction:column;justify-content:space-between}
 .fiche .bar{display:grid;grid-template-columns:104px 1fr 62px 96px;align-items:center;gap:10px;font-size:13px;height:22px}
 .fiche .segs{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;height:15px}
@@ -80,11 +81,11 @@ table.cotes td:first-child{font-family:var(--f-hud);color:var(--ink)}
 .fiche .hp .cl{color:var(--acc)}
 .fiche .hp .kg{text-align:right}
 .fiche .hp .cats{display:flex;gap:3px;overflow:hidden}
-.fiche .hp .cat{font-size:8.5px;letter-spacing:.02em;padding:0 3px;line-height:13px;border-radius:2px;background:color-mix(in srgb,var(--acc) 16%,transparent);color:var(--acc);white-space:nowrap}
+.fiche .hp .cat{font-size:10px;letter-spacing:.04em;padding:0 4px;line-height:14px;border-radius:2px;background:color-mix(in srgb,var(--acc) 16%,transparent);color:var(--acc);white-space:nowrap}
 .fiche .hp .cat.more{background:transparent;opacity:.8}
 .fiche .hp .nb{text-align:right;opacity:.75}
 .fiche .hp.more{grid-template-columns:1fr;opacity:.75;font-size:11px;letter-spacing:.08em}
-.fiche .tiles{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;height:64px}
+.fiche .tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;height:64px}
 .fiche .tile{position:relative;height:64px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 3px 4px;--c:var(--na);min-width:0}
 .fiche .tile .lamp{position:absolute;top:6px;left:50%;transform:translateX(-50%);width:42%;height:3px;background:var(--c)}
 .fiche .tile .lbl{font-size:9.5px;letter-spacing:.03em;text-transform:uppercase;text-align:center;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
@@ -185,14 +186,14 @@ table.cotes td:first-child{font-family:var(--f-hud);color:var(--ink)}
 
   <section class="notes">
     <div class="card"><h2>Ce qui est lu en jeu</h2><p>Les <b>emplacements</b> (points, soute, classe de charge, catégories, nombre d'armes), l'<b>IR</b> et le <b>désignateur laser</b> viennent du jeu ; le reste vient de ton classeur. Une valeur forcée dans la feuille Corrections porte un <span style="color:var(--perso)">*</span>.</p></div>
-    <div class="card"><h2>Couleurs</h2><p>Barres /10 et voyants /5 : rouge = mauvais, vert = bon. <b>Coût</b>, <b>signature radar</b> et <b>IR</b> sont inversés (cher ou visible = rouge). Les <b>compteurs</b> (leurres, paillettes, blindage, désignateur) restent dans la couleur du thème : ce ne sont pas des notes.</p></div>
+    <div class="card"><h2>Couleurs</h2><p>Barres /10 et voyants /5 : rouge = mauvais, vert = bon. <b>Coût</b>, <b>signature radar</b> et <b>IR</b> sont inversés (cher ou visible = rouge). Les <b>compteurs</b> (leurres, blindage, désignateur) restent dans la couleur du thème : ce ne sont pas des notes.</p></div>
     <div class="card"><h2>Emplacements</h2><ul>
       <li><b>×2</b> points · <b>SOUTE</b> ou <b>EXT</b> · classe <b>S/M/H</b> et charge de l'arme la plus lourde</li>
-      <li>catégories (3 au plus, puis « +n ») · <b>(12)</b> armes compatibles</li>
+      <li>catégories en acronymes : CN canon, AAM / ASM missiles air-air / air-sol, RK roquette, BMB bombe, NK nucléaire, LZ laser, EW brouilleur, TR cargo · <b>(12)</b> armes compatibles</li>
       <li><b>⊘</b> : l'emplacement en exclut d'autres. Crochets et emplacements sans arme : non affichés.</li></ul></div>
     <div class="card"><h2>À valider</h2><ul>
-      <li>Lisibilité de la rangée d'emplacement (pastilles en 8,5 px).</li>
-      <li>Description en bas : 4 lignes de 56 px, les textes longs sont coupés par « … ».</li>
+      <li>Tags : exemples inventés pour la maquette (ta colonne Tags est vide) ; ils s'affichent comme les rôles, en pointillés.</li>
+      <li>IR : les deux voyants sont notés sur la même échelle, de 0 à l'IR plein gaz le plus fort de tous les appareils.</li>
       <li>Thème par défaut et couleurs des compteurs.</li></ul></div>
   </section>
 
@@ -207,10 +208,11 @@ table.cotes td:first-child{font-family:var(--f-hud);color:var(--ink)}
       <tr><td>368 → 386</td><td>Titre EMPORTS</td></tr>
       <tr><td>392 → 409</td><td>Synthèse</td></tr>
       <tr><td>409 → 589</td><td>9 rangées de 20 px</td></tr>
-      <tr><td>607 → 625</td><td>Titre SIGNATURES · DÉFENSES</td></tr>
-      <tr><td>625 → 689</td><td>7 voyants de 64 px</td></tr>
-      <tr><td>697 → 725</td><td>Texte perso</td></tr>
-      <tr><td>729 → 785</td><td>Description (FR)</td></tr>
+      <tr><td>593 → 607</td><td>Titre SIGNATURES · DÉFENSES</td></tr>
+      <tr><td>607 → 671</td><td>6 voyants de 64 px</td></tr>
+      <tr><td>677 → 705</td><td>Texte perso</td></tr>
+      <tr><td>709 → 727</td><td>Tags</td></tr>
+      <tr><td>731 → 785</td><td>Description (FR)</td></tr>
       <tr><td>798 →</td><td>Pied de fiche</td></tr>
     </tbody></table></div>
   </section>
@@ -219,6 +221,9 @@ table.cotes td:first-child{font-family:var(--f-hud);color:var(--ink)}
 <script>
 const A = __DATA__;
 const SEUILS = __SEUILS__;
+const ACRO = __ACRO__;
+/* Exemple de tags pour la maquette : la colonne Tags du classeur est vide tant que tu ne l'as pas remplie. */
+const TAGS_DEMO = {COIN:["STOL","Terrain sommaire","Pas cher"], AttackHelo1:["Pop-up","Furtif"], Aryx_CargoPlane1:["Canonnière","AEW","STOL"], Aryx_F22E_StrikeRaptor:["Poussée vectorielle","Nacelles furtives"]};
 A.push({cle:"?", nom:"Mod_Aircraft_X", inconnu:true, roles:[], emplacements:[], corriges:[]});
 const BG = "__BG__";
 const st = {v:"va", k:"COIN", view:"fiche"};
@@ -252,7 +257,7 @@ const tonnes = v => v==null ? "—" : nf(v/1000,1);
 const pl = (n, mot) => `${n} ${mot}${n>1?"s":""}`;
 
 function hpRow(h){
-  const cats = h.cats.slice(0,3).map(c=>`<span class="cat">${c}</span>`).join("") + (h.cats.length>3 ? `<span class="cat more">+${h.cats.length-3}</span>` : "");
+  const cats = h.cats.map(c=>`<span class="cat" title="${c}">${ACRO[c]||c}</span>`).join("");
   return `<div class="hp"><span>${h.exclut?"⊘ ":""}${esc(h.nom)}</span><span class="pt">×${h.points}</span>`+
     `<span class="mini ${h.soute?"":"ext"}">${h.soute?"SOUTE":"EXT"}</span><span class="mini cl">${h.classe||"–"}</span>`+
     `<span class="kg">${h.charge==null?"N/A":nf(h.charge)+" kg"}</span><span class="cats">${cats}</span><span class="nb">(${h.nb})</span></div>`;
@@ -272,8 +277,10 @@ function fiche(a){
   if (E.length > 9) rows.push(`<div class="hp more">+${E.length-8} emplacements</div>`);
   const synth = u ? `<span class="unk">APPAREIL NON RÉFÉRENCÉ · clé notée dans le journal BepInEx</span>` :
     `${pl(a.nb_emplacements,"emplacement")} · ${pl(a.nb_points,"point")} · ${pl(a.nb_soutes,"soute")} · charge max ${a.charge_max_point_kg==null?"N/A":nf(a.charge_max_point_kg)+" kg"}`;
-  const perso = a.texte_perso ? `<div class="b perso" style="top:697px;max-height:28px">${esc(a.texte_perso)}</div>` : `<div class="b perso vide" style="top:697px;max-height:28px">—</div>`;
+  const perso = a.texte_perso ? `<div class="b perso" style="top:677px;max-height:28px">${esc(a.texte_perso)}</div>` : `<div class="b perso vide" style="top:677px;max-height:28px">—</div>`;
   const desc = a.description_fr || a.description_jeu || "";
+  const tg = (a.tags && a.tags.length) ? a.tags : (TAGS_DEMO[a.cle] || []);
+  const tags = tg.length ? tg.map(t=>`<span class="pill tag">${esc(t)}</span>`).join("") : `<span class="pill na">—</span>`;
   return `<section class="fiche ${st.v}" aria-label="Fiche de l'appareil ${esc(a.nom)}">
     <div class="b zt" style="top:14px;height:14px">Appareil</div>
     <div class="b head" style="top:30px;height:42px"><div class="nom">${esc(a.nom)}</div><div class="chips">${chips}</div></div>
@@ -298,18 +305,18 @@ function fiche(a){
     <div class="b zt" style="top:372px;height:14px">Emports</div>
     <div class="b synth" style="top:392px;height:17px">${synth}</div>
     <div class="b rows" style="top:409px;height:180px">${rows.join("")}</div>
-    <div class="b zt" style="top:611px;height:14px">Signatures · défenses</div>
-    <div class="b tiles" style="top:625px">
+    <div class="b zt" style="top:593px;height:14px">Signatures · défenses</div>
+    <div class="b tiles" style="top:607px">
       ${tile("Sign. radar", a.note_rcs, {inv:true, sub: a.rcs_m2==null?"—":nf(a.rcs_m2,a.rcs_m2<0.01?4:2)+" m²"})}
       ${tile("IR 30 % gaz", a.note_ir30, {inv:true, sub: a.ir30==null?"—":nf(a.ir30,2)})}
       ${tile("IR plein gaz", a.note_irmax, {inv:true, sub: a.irmax==null?"—":nf(a.irmax,2)})}
       ${tile("Leurres IR", a.leurres, {neutral:true})}
-      ${tile("Paillettes", a.paillettes, {neutral:true})}
       ${tile("Blindage", a.blindage, {neutral:true})}
       ${tile("Désignateur", a.laser_cibles, {neutral:true, sub: a.laser_portee_m ? nf(a.laser_portee_m/1000)+" km" : "—"})}
     </div>
     ${perso}
-    <div class="b desc" style="top:729px;max-height:56px">${esc(desc)}</div>
+    <div class="b roles" style="top:709px;height:18px"><span class="k">TAGS</span>${tags}</div>
+    <div class="b desc" style="top:731px;max-height:54px">${esc(desc)}</div>
     <div class="b foot" style="top:806px;height:16px"><span></span><span>F6 · masquer</span></div>
   </section>`;
 }

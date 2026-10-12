@@ -42,6 +42,9 @@ ROLES = [
 ]
 
 CATEGORIES = ["CANON", "MISSILE AA", "MISSILE AS", "ROQUETTE", "BOMBE", "NUC", "LASER", "BROUILLEUR", "CARGO"]
+# Pastilles de la fiche (amendement v3.3, choix de Florian ; EW pour le brouilleur, non précisé).
+ACRONYMES = {"CANON": "CN", "MISSILE AA": "AAM", "MISSILE AS": "ASM", "ROQUETTE": "RK", "BOMBE": "BMB", "NUC": "NK",
+             "LASER": "LZ", "BROUILLEUR": "EW", "CARGO": "TR"}
 
 # Champs corrigeables (plan 7.7, amendé v3.2) : libellé → (champ JSON, type). N nombre, T texte, B OUI/NON, L catégories.
 CHAMPS_APPAREIL = [
@@ -258,7 +261,8 @@ def lire_classeur(chemin=CLASSEUR):
             cle = texte(d.get("Clé"))
             if cle:
                 res["avions"][cle] = {"roles": texte(d.get("Rôle(s)")), "description_fr": texte(d.get("Description (FR)")),
-                                      "texte_perso": texte(d.get("Texte perso"))}
+                                      "texte_perso": texte(d.get("Texte perso")),
+                                      "tags": texte(d.get("Tags"))}
                 res["stats"][cle] = d
     if "Emports" in wb.sheetnames:
         ws = wb["Emports"]
@@ -345,7 +349,7 @@ def construire(classeur=None, no_stats=NO_STATS, export_avions=None, export_empo
             if canons:
                 a["notes_auto"].append(f"Canons fixes = {canons} (emplacements internes à canon, lus en jeu).")
         ed = classeur["avions"].get(a["cle"], {})
-        for champ in ("roles", "description_fr", "texte_perso"):
+        for champ in ("roles", "description_fr", "texte_perso", "tags"):
             a[champ] = ed.get(champ)
 
     # --- A15 : masse à vide manquante.
@@ -445,7 +449,8 @@ def convertir(valeur, typ):
         v = booleen(valeur)
         return (v, None) if v is not None else (None, "valeur attendue : OUI ou NON")
     if typ == "L":
-        cats = [c.strip().upper() for c in str(valeur or "").split(",") if c.strip()]
+        long = {v: k for k, v in ACRONYMES.items()}
+        cats = [long.get(c.strip().upper(), c.strip().upper()) for c in str(valeur or "").split(",") if c.strip()]
         inconnues = [c for c in cats if c not in CATEGORIES]
         if inconnues:
             return None, "catégorie inconnue : " + ", ".join(inconnues)

@@ -10,6 +10,7 @@ Usage : python tools/avions_vers_json.py [--classeur data/Avions_wiki.xlsx] [--s
 import argparse
 import json
 import os
+import re
 import sys
 from datetime import date
 
@@ -19,7 +20,7 @@ import avions_commun as ac  # noqa: E402
 SORTIE = os.path.join(ac.RACINE, "data", "aircraft.json")
 
 CHAMPS_JSON = [
-    "nom", "code", "source", "type", "taille", "encombrement_m2", "longueur_m", "envergure_m", "roles", "description_fr",
+    "nom", "code", "source", "type", "taille", "encombrement_m2", "longueur_m", "envergure_m", "roles", "tags", "description_fr",
     "texte_perso", "rang", "cout_m", "vitesse_kmh", "decrochage_kmh", "maniabilite", "g_max", "masse_vide_kg", "masse_max_kg",
     "charge_utile_kg", "carburant_kg", "poussee_kn", "puissance_kw", "decollage_vertical", "decollage_m", "decollage_ms",
     "radar_m", "brouilleur", "canons_fixes", "leurres", "paillettes", "blindage", "rcs_m2", "laser_cibles",
@@ -38,8 +39,8 @@ def propre(v):
 def appareil_json(a):
     d = {}
     for champ in CHAMPS_JSON:
-        if champ == "roles":
-            v = [r.strip() for r in (a["roles"] or "").split("·") if r.strip()]
+        if champ in ("roles", "tags"):
+            v = [r.strip() for r in re.split(r"[·,;]", a[champ] or "") if r.strip()]
         elif champ in LUS_EN_JEU and champ not in a["corriges"]:
             v = None
         else:

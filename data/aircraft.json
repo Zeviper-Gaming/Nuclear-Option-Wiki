@@ -27,6 +27,7 @@
    "longueur_m": 10.1,
    "envergure_m": 10,
    "roles": [],
+   "tags": [],
    "description_fr": "Des MiG-15 en plein '85 :wilt: :sob:",
    "texte_perso": null,
    "rang": 0,
@@ -76,6 +77,7 @@
     "Contre-insurrection",
     "Appui aérien rapproché"
    ],
+   "tags": [],
    "description_fr": "Conçu pour la contre-insurrection et les conflits de faible intensité, le CI-22 Cricket dispose d'un train d'atterrissage robuste et de capacités de décollage et d'atterrissage courts, qui lui permettent d'opérer depuis des terrains non préparés. S'il manque de vitesse et de capacité de survie, le CI-22 offre une agilité remarquable et peut emporter un large éventail d'armes.",
    "texte_perso": null,
    "rang": 0,
@@ -126,6 +128,7 @@
     "Attaque au sol",
     "Entraînement"
    ],
+   "tags": [],
    "description_fr": "Le Hartnell-Wesley OA-27 Cavalier est un avion léger d'entraînement, d'attaque et de contre-insurrection en service dans l'État primévien et la PALAAF. Conçu avant la révolution dans l'un des micro-États primévien, le Cavalier est l'appareil de choix pour les opérations d'attaque de faible intensité, les escarmouches frontalières et la formation intermédiaire des pilotes. Il est fiable, robuste et remarquablement peu coûteux à acquérir et à entretenir.",
    "texte_perso": null,
    "rang": 0,
@@ -175,6 +178,7 @@
     "Reconnaissance",
     "Hélicoptère d'attaque"
    ],
+   "tags": [],
    "description_fr": "Le RAH-72 est un hélicoptère de reconnaissance et d'attaque légère. Capable d'emporter un bon nombre de munitions légères, c'est un monoplace biturbine à rotors coaxiaux et empennage en V, avec des soutes internes sous le fuselage et quatre pylônes externes sur des ailettes dont les extrémités portent ses lance-leurres. Il bénéficie d'une mise en forme à facettes peu observable, d'excellents capteurs optiques et d'un grand radar de triangulation au sol monté au sommet du mât rotor, qui détecte unités terrestres et navires à longue distance.",
    "texte_perso": null,
    "rang": 0,
@@ -224,6 +228,7 @@
     "Entraînement",
     "Attaque au sol"
    ],
+   "tags": [],
    "description_fr": "Avion d'entraînement avancé à réaction, bien adapté aux missions de combat léger, le T/A-30 est très manœuvrant à basse et moyenne vitesse et pardonne les erreurs de pilotage. Particulièrement à l'aise dans les frappes à basse altitude, le Compass dispose de gouvernes redondantes et de deux réacteurs qui améliorent sa capacité de survie.",
    "texte_perso": null,
    "rang": 1,
@@ -274,6 +279,7 @@
     "Attaque au sol",
     "Embarqué (porte-avions)"
    ],
+   "tags": [],
    "description_fr": "Doté d'un système unique de poussée canalisée à trois tuyères, cet avion d'entraînement sert aussi d'avion d'attaque économique à décollage vertical. Le Vagrant est très manœuvrant et atteint des vitesses transsoniques ; il dispose aussi d'un radar qui lui permet d'engager des cibles aériennes au-delà de la portée visuelle. Bien qu'il n'ait pas de furtivité avancée, le VT-7 reste la colonne vertébrale de l'aéronavale de la BDF.",
    "texte_perso": null,
    "rang": 1,
@@ -323,6 +329,7 @@
     "Hélicoptère utilitaire",
     "Transport"
    ],
+   "tags": [],
    "description_fr": "Conçu pour un programme PALA de transport vertical rapide dans les années 2050, l'UH-90 a été pensé comme un hélicoptère utilitaire combiné de taille moyenne, mais il a depuis reçu de nombreux points d'emport qui lui permettent de servir d'appareil d'appui feu. Doté d'un rotor rigide coaxial et de deux soufflantes carénées turbo-électriques réversibles en configuration propulsive, l'Ibis atteint rapidement de hautes vitesses de croisière avant de décélérer jusqu'à un atterrissage vertical en moins de 30 secondes.",
    "texte_perso": null,
    "rang": 1,
@@ -371,6 +378,7 @@
    "roles": [
     "Hélicoptère d'attaque"
    ],
+   "tags": [],
    "description_fr": "Le SAH-46 Chicane conserve la configuration classique d'un hélicoptère d'attaque tout en intégrant des améliorations qui en font toujours une présence redoutable sur le champ de bataille de la fin du XXIe siècle. Sa technologie furtive de pointe lui permet de lancer des attaques surprises depuis l'abri du relief, puis de disparaître des radars sans laisser de trace.",
    "texte_perso": null,
    "rang": 1,
@@ -420,6 +428,7 @@
     "Supériorité aérienne",
     "Chasseur"
    ],
+   "tags": [],
    "description_fr": "Malgré une conception ancienne, ce chasseur léger supersonique est exceptionnellement agile et très adapté aux missions de supériorité aérienne, avec des options d'attaque au sol limitées à basse altitude. Ses deux réacteurs lui donnent un rapport poussée/poids et une vitesse de pointe incroyables, tandis qu'une soute interne axiale réduit la traînée de la charge.",
    "texte_perso": null,
    "rang": 2,
@@ -470,6 +479,7 @@
     "Attaque au sol",
     "Lutte antinavire"
    ],
+   "tags": [],
    "description_fr": "Le Brawler est une plateforme fiable et robuste, conçue pour emporter de grandes quantités d'armes de précision. Ses propfans de pointe allient endurance et vitesse respectable, tandis que ses gouvernes redondantes, ses moteurs isolés et le lourd blindage de son cockpit lui assurent une excellente capacité de survie. L'A-19 est dans son élément face aux convois de véhicules, aux défenses antiaériennes courte portée dispersées ou aux navires opérant en eaux côtières.",
    "texte_perso": null,
    "rang": 2,
@@ -518,6 +528,7 @@
    "roles": [
     "Transport"
    ],
+   "tags": [],
    "description_fr": "Alliant capacité de levage vertical et 20 tonnes de capacité d'emport, ce grand quadrimoteur à ailes basculantes peut livrer des approvisionnements vitaux aux positions avancées ou servir d'appareil d'appui feu polyvalent. Ses 4 rotors sont reliés par des arbres de transmission internes, ce qui permet au Tarantula de continuer à voler après avoir encaissé des dégâts importants.",
    "texte_perso": null,
    "rang": 2,
@@ -564,6 +575,7 @@
    "longueur_m": 16.2,
    "envergure_m": 10.6,
    "roles": [],
+   "tags": [],
    "description_fr": "Bien que plus que centenaire, le F-16 reste un pilier des forces aériennes du monde entier, ses dernières variantes Block 165 étant en service aussi bien dans la BDAF que dans la PALAAF. Les programmes de modernisation et un lobbying acharné l'ont maintenu dans la course : le Viper est vraiment éternel.",
    "texte_perso": null,
    "rang": 3,
@@ -612,6 +624,7 @@
    "roles": [
     "Chasseur"
    ],
+   "tags": [],
    "description_fr": "Une conception plus ancienne mais éprouvée, qui remonte à la révolution primévienne. L'Agni est un chasseur monoréacteur tout temps doté d'un grand nombre de points d'emport pour plus de souplesse. Sans aucune soute interne, l'appareil est plus facile à détecter que les modèles plus modernes.",
    "texte_perso": null,
    "rang": 3,
@@ -660,6 +673,7 @@
    "roles": [
     "Supériorité aérienne"
    ],
+   "tags": [],
    "description_fr": "Le FS-12 Revoker est conçu avant tout pour l'agilité : il est capable de manœuvres extrêmes à presque toutes les vitesses. Ses soutes internes réduisent la traînée et lui permettent d'atteindre des vitesses supersoniques même à basse altitude et lourdement armé. Moins furtif que les chasseurs plus récents, le Revoker reste un moyen économique d'obtenir la supériorité aérienne.",
    "texte_perso": null,
    "rang": 3,
@@ -709,6 +723,7 @@
     "Multirôle",
     "Embarqué (porte-avions)"
    ],
+   "tags": [],
    "description_fr": "Chasseur multirôle compact et avancé, le Vortex peut opérer à la verticale depuis de petits porte-avions et rester indétecté grâce à une furtivité exceptionnelle. Rapide, agile et furtif quand il est peu chargé, il perd une partie de ces qualités sous une lourde charge d'armement.",
    "texte_perso": null,
    "rang": 3,
@@ -757,6 +772,7 @@
    "roles": [
     "Frappe furtive"
    ],
+   "tags": [],
    "description_fr": "Avion de frappe subsonique rapide à très faible observabilité, doté de deux réacteurs F404 sans postcombustion, de commandes de vol électriques numériques, d'un système de désignation électro-optique et de deux soutes internes. Un large choix de chargements de bombes et de missiles compatibles offre un jeu varié. Soutes fermées, les armes internes restent masquées au radar ; ouvrir une soute ou sortir le train augmente la signature radar. Un brouilleur radar actif fixe est installé dans chaque chargement : sélectionne-le comme arme, désigne une cible radar suivie et maintiens le tir pour brouiller. Maintenir le frein de roues pendant un roulage d'atterrissage valide déploie le parachute de freinage (à usage unique) une fois les trois roues au sol et l'appareil aligné sur sa trajectoire.",
    "texte_perso": null,
    "rang": 4,
@@ -806,6 +822,7 @@
     "Multirôle",
     "Embarqué (porte-avions)"
    ],
+   "tags": [],
    "description_fr": "Grand chasseur multirôle biréacteur apte à l'embarquement, l'Ifrit convient aussi bien à la supériorité aérienne qu'à l'attaque au sol. Il offre une poussée et une maniabilité excellentes, une signature radar réduite et des capteurs puissants. Deux soutes internes, plus deux soutes latérales pour missiles à guidage infrarouge, permettent à l'Ifrit d'emporter une charge interne importante sans nuire à sa furtivité ni à sa vitesse de pointe.",
    "texte_perso": null,
    "rang": 4,
@@ -854,6 +871,7 @@
    "roles": [
     "Multirôle"
    ],
+   "tags": [],
    "description_fr": "Conçu au tournant du siècle, le FS-3 Ternion est un grand chasseur multirôle biréacteur. D'abord développé pour de longues patrouilles au-dessus du Pacifique, il a ensuite été adapté à des besoins opérationnels croissants. Malgré l'absence de furtivité, des modernisations régulières ont permis au Ternion de rester un défenseur fiable du Heartland.",
    "texte_perso": null,
    "rang": 4,
@@ -903,6 +921,7 @@
     "Guerre électronique",
     "SEAD"
    ],
+   "tags": [],
    "description_fr": "L'EW-25 est un avion de soutien à décollage court et atterrissage vertical (STOVL) doté de puissants systèmes de guerre électronique. Capable de trianguler la position des radars, de brouiller les installations radar ennemies, de neutraliser les défenses antiaériennes et même d'abattre des missiles avec un laser à haute énergie, un seul Medusa peut facilement renverser le cours d'une bataille.",
    "texte_perso": null,
    "rang": 4,
@@ -952,6 +971,7 @@
     "Transport",
     "Bombardier"
    ],
+   "tags": [],
    "description_fr": "Plus gros appareil d'Aryx Dynamics à ce jour, le MC-260 Chimera est un avion cargo lourd polyvalent, conçu pour des opérations multirôles lourdes et rustiques dans des conditions spartiates, près des lignes de front. Il offre des performances de décollage et d'atterrissage courts à faible charge grâce à son aile soufflée et à ses inverseurs de poussée, et tient dans les hangars moyens existants grâce à son gouvernail à volets divisés et à ses dérives ventrales uniques. Le Chimera peut servir de canonnière, de bombardier, d'avion de guet aérien (AEW) et de transport de fret.",
    "texte_perso": null,
    "rang": 4,
@@ -1001,6 +1021,7 @@
     "Supériorité aérienne",
     "Attaque au sol"
    ],
+   "tags": [],
    "description_fr": "Proposé à la fin des années 2040, en pleine Troisième Guerre mondiale, comme programme de modernisation et de refonte du F-22C d'exportation, le F-22E Strike Raptor reprend la forme bien connue du F-22 en y ajoutant une paire d'EOTS intégrés aux arêtes du fuselage central pour guider les munitions de précision, ainsi qu'une soute agrandie et approfondie pour emporter de gros volumes d'armement. Excellente agilité, poussée vectorielle, nacelles d'armes furtives possibles sur ses pylônes d'aile intérieurs, et désormais tout à fait capable d'attaque au sol comme de domination aérienne : le F-22E est aussi féroce que l'était son modèle original un demi-siècle plus tôt.",
    "texte_perso": null,
    "rang": 5,
@@ -1049,6 +1070,7 @@
    "roles": [
     "Bombardier furtif"
    ],
+   "tags": [],
    "description_fr": "Avec ses moteurs puissants, sa silhouette furtive et ses 4 grandes soutes internes, le SFB-81 Darkreach est un bombardier redoutable capable de délivrer des armes conventionnelles comme nucléaires. Son aile volante intégrée lui permet d'opérer dans des régimes de vol variés, de la pénétration à très basse altitude au bombardement stratégique à distance de sécurité.",
    "texte_perso": null,
    "rang": 5,
@@ -1098,6 +1120,7 @@
     "Intercepteur",
     "Embarqué (porte-avions)"
    ],
+   "tags": [],
    "description_fr": "Le FS-41 Eclipse est un grand intercepteur embarqué biréacteur supersonique, conçu pour localiser, intercepter et détruire les cibles de grande valeur avant qu'elles ne menacent l'espace aérien allié et les groupes aéronavals. Il allie des vitesses supérieures à Mach 2, un radar extraordinairement puissant et une furtivité impressionnante pour son rôle d'interception et de domination, renforcés par son armement emblématique, le missile AAM-45 Sabre. Ses ailes à géométrie variable le rendent en outre très agile, et il peut emporter une charge air-sol limitée pour des missions variées.",
    "texte_perso": null,
    "rang": 5,
@@ -1147,6 +1170,7 @@
     "Bombardier",
     "Guerre électronique"
    ],
+   "tags": [],
    "description_fr": "L'Alkyon AB-4 est un bombardier supersonique avancé doté de capacités de guerre électronique, conçu pour délivrer discrètement des charges nucléaires ou conventionnelles sur des cibles de grande valeur. Ses 4 réacteurs à postcombustion et ses ailes à géométrie variable lui donnent une vitesse de pointe incroyable et assez de maniabilité pour échapper aux menaces aériennes. En cas de dégâts critiques, une capsule d'évacuation permet à l'équipage de s'éjecter en sécurité à toute altitude et à toute vitesse.",
    "texte_perso": null,
    "rang": 6,
