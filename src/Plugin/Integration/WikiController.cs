@@ -12,8 +12,9 @@ using UnityEngine.EventSystems;
 namespace NuclearOptionWiki.Integration
 {
     /// <summary>
-    /// État de la fiche : mode actif (touche bascule), arme affichée (dernière survolée ou sélectionnée,
-    /// affichage « collant »), visibilité liée à l'écran hangar. Vit sur son propre GameObject persistant.
+    /// État de la fiche : mode actif (touche bascule), élément affiché, visibilité liée à l'écran hangar.
+    /// Règle d'affichage (plan avions A2, amendé v3.5) : l'appareil ou l'arme SURVOLÉ par la souris ; quand la souris
+    /// ne survole rien, l'appareil SÉLECTIONNÉ dans le hangar. Vit sur son propre GameObject persistant.
     /// </summary>
     internal sealed class WikiController : MonoBehaviour
     {
@@ -21,18 +22,22 @@ namespace NuclearOptionWiki.Integration
 
         private static WikiController _instance;
         private static readonly HashSet<string> LoggedUnknown = new HashSet<string>();
+        private static readonly HashSet<string> LoggedUnknownAircraft = new HashSet<string>();
+
+        private enum Hover { None, Aircraft, Weapon }
 
         private AircraftSelectionMenu _menu;
         private bool _active;
         private bool _dirty = true;
         private bool _demo;
-        private WeaponMount _mount;
-        // Plan avions A2 : la fiche montre le dernier élément survolé ou sélectionné (appareil ou arme).
-        private AircraftDefinition _aircraft;
-        private bool _showAircraft;
-        private bool _hidden;          // A22 : navire ou véhicule sélectionné, fiche masquée
+        private Hover _hover;
+        private AircraftDefinition _hoverAircraft;
+        private WeaponMount _hoverMount;
+        private Component _hoverSource;      // relais qui a signalé le survol (null : survol signalé par le jeu)
+        private object _shown;               // élément actuellement affiché (appareil ou emport)
+        private bool _hidden;                // A22 : navire ou véhicule, fiche masquée
         private int _aircraftFrame = -1;
-        private static readonly HashSet<string> LoggedUnknownAircraft = new HashSet<string>();
+        private int _hoverFrame = -1;
         private float _warningUntil;
         private string _warning = "";
 
@@ -50,41 +55,65 @@ namespace NuclearOptionWiki.Integration
             _instance.OnMenuOpened(menu);
         }
 
-        /// <summary>Survol ou sélection d'un emport. Null (« Empty », emplacement vide) : rien ne change.</summary>
-        public static void ShowWeapon(WeaponMount mount)
+        /// <summary>
+        /// Survol (ou sélection dans la liste) d'un emport. Null (option « Empty ») : plus d'arme survolée.
+        /// <paramref name="source"/> : relais de l'emplacement, null quand c'est le jeu qui signale le survol.
+        /// </summary>
+        public static void ShowWeapon(WeaponMount mount, Component source = null)
         {
-            if (_instance == null || mount == null || mount.info == null || Plugin.Database == null) return;
-            // Piège 8 : AssignAircraft lève des DropdownChanged pendant le changement d'appareil ; l'appareil gagne.
+            if (_instance == null) return;
+            if (mount == null || mount.info == null || Plugin.Database == null) { EndHover(source); return; }
+            // Piège 8 : AssignAircraft lève des DropdownChanged pendant le changement d'appareil : ignorés.
             if (Time.frameCount == _instance._aircraftFrame) return;
-            if (_instance._mount == mount && !_instance._showAircraft && !_instance._hidden && !_instance._demo) return;
-            _instance._mount = mount;
-            _instance._showAircraft = false;
-            _instance._hidden = false;
+            _instance._hover = Hover.Weapon;
+            _instance._hoverFrame = Time.frameCount;
+            _instance._hoverMount = mount;
+            _instance._hoverAircraft = null;
+            _instance._hoverSource = source;
             _instance._demo = false;
-            _instance._dirty = true;
         }
 
-        /// <summary>Changement d'appareil (OnSelectedAircraftChange) ou survol d'un bouton de la grille.</summary>
-        public static void ShowAircraft(AircraftDefinition def)
+        /// <summary>Survol d'un bouton de la grille d'appareils (grisés compris).</summary>
+        public static void ShowAircraft(AircraftDefinition def, Component source = null)
         {
             if (_instance == null || def == null || Plugin.Aircraft == null) return;
-            _instance._aircraftFrame = Time.frameCount;
-            bool isAircraft = LiveAircraftStats.IsAircraft(def);
-            if (_instance._aircraft == def && _instance._showAircraft && !_instance._demo && _instance._hidden == !isAircraft) return;
-            _instance._aircraft = def;
-            _instance._showAircraft = true;
-            _instance._hidden = !isAircraft;
+            _instance._hover = Hover.Aircraft;
+            _instance._hoverAircraft = def;
+            _instance._hoverMount = null;
+            _instance._hoverSource = source;
             _instance._demo = false;
-            _instance._dirty = true;
         }
 
-        /// <summary>A24 : clé et nom de l'appareil affiché (éditeur de tags du menu F1).</summary>
-        public static string CurrentAircraftKey => _instance?._aircraft == null || _instance._hidden ? null : ResolveKey(_instance._aircraft);
-        public static string CurrentAircraftName => _instance?._aircraft?.unitName;
+        /// <summary>La souris quitte un élément : retour à l'appareil sélectionné (sauf si un autre élément a pris le relais).</summary>
+        public static void EndHover(Component source)
+        {
+            if (_instance == null || _instance._hover == Hover.None) return;
+            if (source != null && _instance._hoverSource != null && _instance._hoverSource != source) return;
+            _instance._hover = Hover.None;
+            _instance._hoverAircraft = null;
+            _instance._hoverMount = null;
+            _instance._hoverSource = null;
+        }
+
+        /// <summary>
+        /// A24 (amendé v3.5) : l'éditeur de tags vise l'appareil (ou le véhicule) SÉLECTIONNÉ dans le hangar,
+        /// pas celui survolé par la souris : la sélection ne bouge pas quand on parcourt la grille.
+        /// </summary>
+        private static AircraftDefinition SelectedAircraft
+        {
+            get
+            {
+                try { return _instance?._menu != null ? _instance._menu.GetSelectedType() : null; }
+                catch (Exception) { return null; }
+            }
+        }
+
+        public static string CurrentAircraftKey => SelectedAircraft == null ? null : ResolveKey(SelectedAircraft);
+        public static string CurrentAircraftName => SelectedAircraft?.unitName;
 
         public static List<string> CurrentAircraftSheetTags()
         {
-            var def = _instance?._aircraft;
+            var def = SelectedAircraft;
             if (def == null || Plugin.Aircraft == null) return new List<string>();
             return Plugin.Aircraft.Find(def.jsonKey, def.unitName).Value?.Tags ?? new List<string>();
         }
@@ -108,9 +137,8 @@ namespace NuclearOptionWiki.Integration
             _menu = menu;
             _menu.OnSelectedAircraftChange -= OnAircraftChanged;
             _menu.OnSelectedAircraftChange += OnAircraftChanged;
-            _mount = null;
-            _aircraft = null;
-            _showAircraft = false;
+            EndHover(null);
+            _shown = null;
             _hidden = false;
             _demo = s.DemoSheet.Value;
             _active = s.ActiveOnOpen.Value || _demo;
@@ -122,23 +150,34 @@ namespace NuclearOptionWiki.Integration
             panel.SetOpacity(s.BackgroundOpacity.Value);
             UpdateFooter();
             panel.SetVisible(false);
-
-            // Le premier OnSelectedAircraftChange est levé avant ce Postfix : on lit l'appareil courant (A2).
-            var current = menu.GetSelectedType();
-            if (current != null) ShowAircraft(current);
-            _demo = s.DemoSheet.Value;
-            _dirty = true;
         }
 
+        /// <summary>Changement d'appareil sélectionné : la fiche le suit dès que la souris ne survole rien.</summary>
         private static void OnAircraftChanged(AircraftDefinition def)
         {
-            try { ShowAircraft(def); }
-            catch (Exception e) { Plugin.Log.LogError($"[Wiki] Erreur (changement d'appareil) : {e}"); }
+            if (_instance == null) return;
+            _instance._aircraftFrame = Time.frameCount;
+            // Piège 8 : AssignAircraft (juste avant cet événement) lève des DropdownChanged qui ne sont pas des survols.
+            if (_instance._hover == Hover.Weapon && _instance._hoverSource == null && _instance._hoverFrame == Time.frameCount) EndHover(null);
+            _instance._dirty = true;
         }
 
         private void OnDestroy()
         {
             if (_menu != null) _menu.OnSelectedAircraftChange -= OnAircraftChanged;
+        }
+
+        /// <summary>Élément à afficher : survolé, sinon fiche de démonstration, sinon appareil sélectionné.</summary>
+        private object Target()
+        {
+            if (_hover == Hover.Weapon && _hoverMount != null) return _hoverMount;
+            if (_hover == Hover.Aircraft && _hoverAircraft != null) return _hoverAircraft;
+            if (_demo && Plugin.Aircraft != null)
+            {
+                var demo = FindDefinition("COIN");
+                if (demo != null) return demo;
+            }
+            return Plugin.Aircraft != null ? SelectedAircraft : null;
         }
 
         private void Update()
@@ -147,7 +186,7 @@ namespace NuclearOptionWiki.Integration
             if (_menu == null || !_menu.isActiveAndEnabled)
             {
                 if (panel.Visible) panel.SetVisible(false);
-                if (_menu == null) { _mount = null; _aircraft = null; } // menu détruit : on repart de zéro à la prochaine ouverture
+                if (_menu == null) { EndHover(null); _shown = null; } // menu détruit : on repart de zéro à la prochaine ouverture
                 return;
             }
 
@@ -161,34 +200,40 @@ namespace NuclearOptionWiki.Integration
                 UpdateFooter();
             }
 
-            panel.SetVisible(_active && !_hidden);
-            if (_active && _dirty) Refresh();
+            // Relais détruit (objet Unity nul mais référence C# conservée) ou masqué, sans événement de sortie : fin du survol.
+            bool sourceDestroyed = !ReferenceEquals(_hoverSource, null) && _hoverSource == null;
+            if (sourceDestroyed || (_hoverSource != null && !_hoverSource.gameObject.activeInHierarchy)) EndHover(null);
+            // Souris hors de toute interface (vue 3D du hangar) : plus rien n'est survolé, même sans événement de sortie.
+            else if (_hover != Hover.None && EventSystem.current != null && !EventSystem.current.IsPointerOverGameObject()) EndHover(null);
+
+            var target = Target();
+            if (!ReferenceEquals(target, _shown)) _dirty = true;
+            if (_dirty)
+                _hidden = target is AircraftDefinition def && !LiveAircraftStats.IsAircraft(def);
+
+            panel.SetVisible(_active && !_hidden && target != null);
+            if (_active && _dirty) Refresh(target);
         }
 
-        private void Refresh()
+        private void Refresh(object target)
         {
             _dirty = false;
+            _shown = target;
             try
             {
-                if (_demo && Plugin.Aircraft != null)
+                if (target is AircraftDefinition def)
                 {
-                    // Réglage « Fiche de démonstration » : CI-22 (fiche appareil) à l'ouverture du hangar.
-                    var demoDef = FindDefinition("COIN");
-                    if (demoDef != null) { WikiPanel.Instance.ShowAircraft(BuildAircraft(demoDef)); return; }
-                }
-                if (_showAircraft && _aircraft != null)
-                {
-                    if (!_hidden) WikiPanel.Instance.ShowAircraft(BuildAircraft(_aircraft));
+                    if (!_hidden) WikiPanel.Instance.ShowAircraft(BuildAircraft(def));
                     return;
                 }
                 if (Plugin.Database == null) return;
                 var mode = Plugin.Settings.RangeNote.Value == RangeScale.Rang ? RangeNoteMode.Rank : RangeNoteMode.Logarithmic;
                 FicheModel model;
-                if (_mount != null)
+                if (target is WeaponMount mount)
                 {
-                    var info = _mount.info;
-                    var record = Plugin.Database.Find(info.name, _mount.jsonKey, info.weaponName);
-                    if (record == null) LogUnknownOnce(info, _mount);
+                    var info = mount.info;
+                    var record = Plugin.Database.Find(info.name, mount.jsonKey, info.weaponName);
+                    if (record == null) LogUnknownOnce(info, mount);
                     model = FicheModel.Build(record, info.weaponName, LiveWeaponStats.Get(info), mode);
                 }
                 else if (_demo)

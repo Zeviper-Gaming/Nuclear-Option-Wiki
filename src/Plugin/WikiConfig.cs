@@ -69,8 +69,8 @@ namespace NuclearOptionWiki
                     null, Tags(exportButton, "appareils")));
             // A24 : la valeur n'est pas utilisée ; le Configuration Manager dessine le champ des tags de l'appareil affiché.
             object tagsTag = tagsEditor?.Invoke();
-            AircraftTags = config.Bind("Tags", "Tags (appareil affiché)", "",
-                new ConfigDescription("Mots-clés de l'appareil affiché sur la fiche, séparés par « ; ». « Enregistrer » met la fiche à jour ; " +
+            AircraftTags = config.Bind("Tags", "Tags (appareil sélectionné)", "",
+                new ConfigDescription("Mots-clés de l'appareil sélectionné dans le hangar (pas celui survolé), séparés par « ; ». « Enregistrer » met la fiche à jour ; " +
                                       "champ vide = retour aux tags du classeur. Enregistrés dans BepInEx/config/NuclearOptionWiki_tags.json.",
                     null, tagsTag == null ? new object[0] : new[] { tagsTag }));
             DemoSheet = config.Bind("Diagnostic", "Fiche de démonstration", false,

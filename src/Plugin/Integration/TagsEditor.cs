@@ -6,7 +6,7 @@ using UnityEngine;
 namespace NuclearOptionWiki.Integration
 {
     /// <summary>
-    /// A24 : éditeur des tags de l'appareil affiché, dessiné dans le menu F1 (Configuration Manager).
+    /// A24 : éditeur des tags de l'appareil sélectionné dans le hangar (v3.5 : pas celui survolé), dessiné dans le menu F1 (Configuration Manager).
     /// Champ prérempli (tags séparés par « ; »), bouton « Enregistrer » : la fiche est mise à jour aussitôt.
     /// </summary>
     internal static class TagsEditor
@@ -22,7 +22,7 @@ namespace NuclearOptionWiki.Integration
             string key = WikiController.CurrentAircraftKey;
             if (key == null)
             {
-                GUILayout.Label("Ouvre le hangar et affiche la fiche d'un appareil (F6).");
+                GUILayout.Label("Ouvre le hangar et sélectionne un appareil.");
                 return;
             }
             if (key != _key)
@@ -32,7 +32,7 @@ namespace NuclearOptionWiki.Integration
                 _status = "";
             }
             GUILayout.BeginVertical();
-            GUILayout.Label(WikiController.CurrentAircraftName ?? key);
+            GUILayout.Label("Appareil sélectionné : " + (WikiController.CurrentAircraftName ?? key));
             GUILayout.BeginHorizontal();
             _buffer = GUILayout.TextField(_buffer ?? "", GUILayout.ExpandWidth(true));
             if (GUILayout.Button("Enregistrer", GUILayout.ExpandWidth(false)))

@@ -21,7 +21,7 @@ namespace NuclearOptionWiki.Integration
         }
     }
 
-    internal sealed class AircraftHoverRelay : MonoBehaviour, IPointerEnterHandler
+    internal sealed class AircraftHoverRelay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         private AircraftSelectionButton _button;
 
@@ -33,7 +33,10 @@ namespace NuclearOptionWiki.Integration
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (_button != null && _button.definition != null) WikiController.ShowAircraft(_button.definition);
+            if (_button != null && _button.definition != null) WikiController.ShowAircraft(_button.definition, this);
         }
+
+        /// <summary>v3.5 : la souris quitte le bouton → retour à l'appareil sélectionné.</summary>
+        public void OnPointerExit(PointerEventData eventData) => WikiController.EndHover(this);
     }
 }
