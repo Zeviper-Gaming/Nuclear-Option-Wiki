@@ -1,6 +1,6 @@
 # Plan — Wiki avions et hélicos (Nuclear Option)
 
-Version : 3 · Date : 2026-10-12 · Statut : **validé** le 2026-10-12, amendement v3.1 (voyant VISEURS IR, A21) le 2026-10-12, **amendement v3.2** (constats de l'export V1, décisions de Florian du 2026-10-12 : A9, A21, A22, 7.2, 7.3, 7.5, 7.7), **amendement v3.3** (retours de Florian sur la maquette V5, 2026-10-12 : pastilles en acronymes A10, notes IR A11, tags, voyant Paillettes retiré, 7.1, 7.3, 7.4) (v2 : corrections manuelles A20 ; v3 : branche `zv/plane_update`, IR à 30 % de gaz et plein gaz, description en bas de fiche)
+Version : 3 · Date : 2026-10-12 · Statut : **validé** le 2026-10-12, amendement v3.1 (voyant VISEURS IR, A21) le 2026-10-12, **amendement v3.2** (constats de l'export V1, décisions de Florian du 2026-10-12 : A9, A21, A22, 7.2, 7.3, 7.5, 7.7), **amendement v3.3** (retours de Florian sur la maquette V5, 2026-10-12 : pastilles en acronymes A10, notes IR A11, tags, voyant Paillettes retiré, 7.1, 7.3, 7.4), **amendement v3.4** (tags modifiables en jeu, A24 ; maquette V5 validée le 2026-10-12) (v2 : corrections manuelles A20 ; v3 : branche `zv/plane_update`, IR à 30 % de gaz et plein gaz, description en bas de fiche)
 
 ## 1. Objectif et livrable
 
@@ -80,6 +80,7 @@ Dépôt : `zeviper-gaming/nuclear-option-wiki`, branche **`zv/plane_update`** (p
 | A21 | **Voyant DÉSIGN. LASER** (amendé v3.2 ; v3.1 visait à tort les caméras `TargetDetector`) : nombre de **cibles désignables simultanément** par les désignateurs laser **intégrés** à l'appareil = somme des `LaserDesignator.GetMaxTargets()` du prefab (`GetComponentsInChildren<LaserDesignator>(true)`), **sans les nacelles**. Valeur réelle sous le nombre : portée max. (« 10 km »). Couleur neutre, pas de note. Aucun désignateur → « 0 » (pas N/A). Lu en jeu, exporté (7.2), corrigeable (7.7). | Demande de Florian (2026-10-12) : désignateurs utilisés par les roquettes, ex. CI-22 = 2, MiG-15 = 0. |
 | A22 | **Navires et véhicules** (amendement v3.2) : un élément de la liste du hangar qui n'est pas un aéronef ne reçoit **aucune fiche** : la fiche se masque (comme F6 désactivé, sans changer le réglage) jusqu'au prochain appareil ou arme. Aéronef = prefab sans `PlayerShipPropulsion` ni `WheelEngine`, et avec au moins un `JetNozzle`, `ConstantSpeedProp`, `PropFan` ou `RotorShaft` (l'aéroglisseur LCAC n'en a aucun). Exclus du classeur et des classements. Un aéronef inconnu reste « APPAREIL NON RÉFÉRENCÉ » (A5). | Décision de Florian (2026-10-12) ; fiches navires hors périmètre. |
 | A23 | **Emplacements sans arme** (amendement v3.2) : un emplacement dont aucune option n'a de catégorie 7.5 (crochet d'appontage, emplacement « - » du MC-260…) n'est **pas affiché** sur la fiche ni compté dans la ligne de synthèse ; il reste listé dans la feuille « Emports ». | Décision de Florian (2026-10-12) : place sur la fiche. |
+| A24 | **Tags modifiables en jeu** (amendement v3.4, demande de Florian) : section F1 « Tags », une seule entrée dessinée par le Configuration Manager (`CustomDrawer`) : nom de l'appareil affiché sur la fiche, champ texte prérempli avec ses tags séparés par « ; », bouton **Enregistrer** qui met la fiche à jour immédiatement. Stockage : `BepInEx/config/NuclearOptionWiki_tags.json` (`{ "<jsonKey>": ["tag", …] }`), prioritaire sur la colonne Tags du classeur ; champ vide enregistré = suppression de l'entrée (retour aux tags du classeur). `mettre_a_jour.py --jeu` recopie ces tags dans la colonne Tags du classeur (le jeu l'emporte), pour que l'Excel reste la référence. Hors de ce cas, l'édition des textes en jeu reste hors périmètre. | Demande de Florian (2026-10-12). |
 | A19 | Tout nouveau patch est un **Postfix** dans un try/catch qui journalise ; une méthode absente désactive seulement ce patch. L'événement `OnSelectedAircraftChange` est abonné dans `WikiController.Attach` et désabonné quand le menu est détruit ou change. | Robustesse (D-plan armes 7.5). |
 
 ## 4. Laissé libre à l'exécutant
@@ -325,6 +326,7 @@ Avion à hélice → « HÉLICE » ; Hélicoptère → « HÉLICO » ; Avion à 
 - RA3 : survol d'un bouton d'appareil (y compris grisé) → fiche de cet appareil ; survol ou sélection d'une arme ensuite → fiche arme.
 - RA4 : changer d'appareil ne laisse jamais la fiche arme affichée à la place de l'appareil.
 - RA5b : DÉSIGN. LASER correspond aux désignateurs intégrés connus (CI-22 = 2, MiG-15 = 0, nacelles exclues) sur 5 appareils choisis par Florian.
+- RA11 : F1 → Tags : modifier les tags de l'appareil affiché, Enregistrer → la fiche change aussitôt ; relancer le jeu → les tags sont toujours là ; `mettre_a_jour.bat` → ils apparaissent dans la colonne Tags du classeur.
 - RA10 : sélection ou survol d'un navire ou d'un véhicule → la fiche se masque (A22) ; crochets d'appontage absents de la fiche (A23) ; pastille ROQUETTE sur les emplacements à roquettes AGR.
 - RA5 : fiches identiques en structure pour un avion à hélice (CI-22), un hélico (SAH-46), un VTOL (VT-7), un furtif moddé (F-117A) et le MC-260 (9 emplacements) ; N/A aux bons endroits.
 - RA6 : soutes, classes S/M/H, catégories et nombre d'armes cohérents avec la liste des emplacements du jeu (bas de l'écran).
@@ -350,7 +352,7 @@ Sonnet 5.5 conviendra au peaufinage (phase 4).
 - Indice de furtivité combiné (A12).
 - Affichage des indices d'IA (A8).
 - Valeurs du chargement en cours (masse totale, P/W, RCS chargé) : le jeu les affiche déjà à droite.
-- Édition des textes en jeu ; synchronisation multijoueur ; rendu 3D.
+- Édition des textes en jeu (sauf les tags, A24) ; synchronisation multijoueur ; rendu 3D.
 - Icônes de catégories (point F6 du wiki d'armes, inchangé).
 
 ## Consigne à l'exécutant
