@@ -50,6 +50,7 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 - **D-F Taille des emplacements** : le jeu n'en a pas ; remplacée par une **classe de charge S/M/H** (masse de l'arme compatible la plus lourde, tiers log), affichée avec la charge en kg.
 - **D-H Origine des valeurs** (option 2) : emports et IR lus en jeu, toutes les autres stats issues de l'Excel ; feuille **« Corrections »** du classeur pour forcer n'importe quelle valeur affichée, prioritaire sur tout, notes recalculées, valeur forcée marquée « * » (décision A20 du plan).
 - **D-I (2026-10-12)** : branche de travail **`zv/plane_update`** (renommée par Florian ; l'ancienne `claude/dazzling-dijkstra-b1t4u4` n'existe plus) · les **4 barres** (vitesse, agilité, charge utile, coût) validées · **vocabulaire des rôles** validé · **description FR tout en bas** de la fiche, texte perso juste au-dessus · **deux voyants IR** : à ≈ 30 % de gaz (estimation linéaire, sans postcombustion) et plein gaz.
+- **D-J (2026-10-12, amendement v3.1)** : voyant **VISEURS IR** = nombre de viseurs intégrés (`TargetDetector` hors radar, dont `Aircraft.EOTS`), nacelles exclues, avec portée et grossissement ; 7 voyants dans la rangée « Signatures · défenses » (décision A21).
 - **D-G Compatibilité à l'écran** : **pastilles de catégories** + nombre d'armes compatibles ; liste complète dans le classeur (feuille « Emports »).
 - **D-A Format du plan** : Markdown dans le dépôt (`docs/planification/plan-wiki-avions-no.md`), comme pour le wiki d'armes.
 - **D-B Cohabitation** : **panneau unique** à gauche, qui montre le **dernier élément** survolé ou sélectionné : l'appareil (changement ou survol d'appareil) ou l'arme (survol ou sélection d'arme). Même touche F6.
@@ -63,7 +64,7 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 - Mini-clé de correspondance Excel ↔ identifiants internes des appareils (25 lignes seulement), déduite de l'export.
 
 ## Plan
-`docs/planification/plan-wiki-avions-no.md` — **v3 validé** le 2026-10-12 (v2 = corrections manuelles A20 ; v3 = branche, IR, description).
+`docs/planification/plan-wiki-avions-no.md` — **v3.1 validé** le 2026-10-12 (v3.1 = voyant VISEURS IR ; v2 = corrections manuelles A20 ; v3 = branche, IR, description).
 
 ## Avancement de l'exécution
 - [x] Phase 1 — cadrage validé (2026-10-12)
