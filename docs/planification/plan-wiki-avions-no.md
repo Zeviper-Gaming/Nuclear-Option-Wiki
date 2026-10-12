@@ -1,6 +1,6 @@
 # Plan — Wiki avions et hélicos (Nuclear Option)
 
-Version : 3 · Date : 2026-10-12 · Statut : brouillon (v2 : corrections manuelles A20 ; v3 : branche `zv/plane_update`, IR à 30 % de gaz et plein gaz, description en bas de fiche)
+Version : 3 · Date : 2026-10-12 · Statut : **validé** le 2026-10-12 (v2 : corrections manuelles A20 ; v3 : branche `zv/plane_update`, IR à 30 % de gaz et plein gaz, description en bas de fiche)
 
 ## 1. Objectif et livrable
 

@@ -3,9 +3,9 @@
 Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 
 ## Reprise
-- Phase en cours : 2 Plan — **plan v3 (brouillon) rédigé, en attente de la validation finale de Florian**
-- Modèle conseillé : Opus 5.5, effort high (phase 2) ; exécution prévue sur Opus 5.5, effort medium
-- Prochaine action exacte : Florian valide `docs/planification/plan-wiki-avions-no.md` (v3) et le valide ou le corrige. Après validation : passer le plan en « validé », puis phase 3, étape V0.
+- Phase en cours : 3 Exécution — plan v3 **validé** le 2026-10-12 ; aucune étape commencée
+- Modèle conseillé : Opus 5.5, effort medium
+- Prochaine action exacte : étape **V0** du plan (environnement : `apt-get update && apt-get install -y dotnet-sdk-8.0`, ilspycmd, BepInEx 5.4.23.2 dans `lib/`, demander à Florian les DLL `Managed/` dont `Assembly-CSharp.dll`, revérifier le tableau 2.3). Travailler et pousser **uniquement** sur `zv/plane_update`.
 - Pour reprendre : nouvelle conversation sur le bon modèle → `/planification` → joindre ce fichier (+ le plan).
 - Prérequis session cloud neuve (comme le projet armes) : `apt-get install -y dotnet-sdk-8.0`, redéposer les DLL du jeu dans `lib/` (jamais commitées), BepInEx 5.4.23.2 pour `BepInEx.dll` et `0Harmony.dll`.
 
@@ -63,11 +63,11 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 - Mini-clé de correspondance Excel ↔ identifiants internes des appareils (25 lignes seulement), déduite de l'export.
 
 ## Plan
-`docs/planification/plan-wiki-avions-no.md` — **v3 brouillon** (2026-10-12 ; v2 = corrections manuelles A20 ; v3 = branche, IR, description), en attente de validation finale.
+`docs/planification/plan-wiki-avions-no.md` — **v3 validé** le 2026-10-12 (v2 = corrections manuelles A20 ; v3 = branche, IR, description).
 
 ## Avancement de l'exécution
 - [x] Phase 1 — cadrage validé (2026-10-12)
-- [ ] Phase 2 — plan validé
+- [x] Phase 2 — plan v3 validé (2026-10-12)
 - [ ] Phase 3 — exécution
 - [ ] Phase 4 — peaufinage
 
@@ -75,7 +75,7 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 | Fichier | Rôle | Statut |
 |---|---|---|
 | `docs/planification/etat-wiki-avions-no.md` | État du projet | à jour |
-| `docs/planification/plan-wiki-avions-no.md` | Plan / cahier des charges | v3 brouillon |
+| `docs/planification/plan-wiki-avions-no.md` | Plan / cahier des charges | v3 validé |
 | `data/sources/NO-stats.xlsx` | Excel source (déjà au dépôt, identique au fichier joint) | existant |
 
 ## Écarts au plan et remontées
@@ -85,4 +85,4 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 - (aucun) — phase 1 menée sur Sonnet 5.5, modèle conforme.
 
 ## Questions ouvertes
-- Validation finale du plan v3 (décisions A1–A20, étapes V0–V10, mise en page 7.3, vocabulaire des rôles 7.4).
+- (aucune) — prochaine interaction avec Florian : fournir les DLL à l'étape V0, puis lancer l'export à l'étape V1.
