@@ -337,6 +337,13 @@ def construire(classeur=None, no_stats=NO_STATS, export_avions=None, export_empo
             s["nom_fr"] = classeur["emports"].get((a["cle"], s["nom_jeu"]))
             s["force"] = {}
         a["emplacements"] = sets
+        if a["canons_fixes"] is None:
+            # Repli lu en jeu (A4) : points des emplacements internes dont toutes les options sont des canons.
+            canons = sum(s["points"] for s in sets if "internal" in s["nom_jeu"].lower() and s["options"]
+                         and all(o["categories"] == ["CANON"] for o in s["options"]))
+            a["canons_fixes"] = float(canons)
+            if canons:
+                a["notes_auto"].append(f"Canons fixes = {canons} (emplacements internes à canon, lus en jeu).")
         ed = classeur["avions"].get(a["cle"], {})
         for champ in ("roles", "description_fr", "texte_perso"):
             a[champ] = ed.get(champ)
