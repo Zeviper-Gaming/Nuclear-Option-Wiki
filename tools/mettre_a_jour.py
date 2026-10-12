@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Met à jour les données du wiki après une modification des fichiers Excel, sans recompiler le mod.
+"""Met à jour les données du wiki (armes et avions) après une modification des fichiers Excel, sans recompiler le mod.
 
 Usage :
     python tools/mettre_a_jour.py --jeu "G:\\SteamLibrary\\steamapps\\common\\Nuclear Option"
@@ -10,7 +10,10 @@ Usage :
 1. Si un export du mod est disponible (--export, ou le plus récent BepInEx/config/NuclearOptionWiki_armes_v*.csv
    du dossier du jeu), il est copié dans data/dump/ et la correspondance Excel ↔ jeu est recalculée.
 2. data/weapons.json est régénéré depuis data/Armes_regroupees.xlsx et data/sources/*.xlsx.
-3. Avec --jeu : weapons.json est copié à côté de chaque NuclearOptionWiki.dll trouvée sous BepInEx/plugins.
+3. Avions : si des exports d'appareils existent (BepInEx/config/NuclearOptionWiki_avions_v*.csv et _emports_v*.csv),
+   ils sont copiés dans data/dump/ ; puis data/Avions_wiki.xlsx est régénéré (colonnes jaunes et feuille Corrections
+   conservées) et data/aircraft.json est produit.
+4. Avec --jeu : weapons.json et aircraft.json sont copiés à côté de chaque NuclearOptionWiki.dll trouvée sous BepInEx/plugins.
    Le mod le lit au prochain lancement du jeu (il est prioritaire sur les données intégrées à la DLL).
 
 Prérequis : Python 3 et openpyxl (pip install openpyxl).
@@ -37,8 +40,17 @@ def dernier_export(jeu):
     return max(fichiers, key=os.path.getmtime) if fichiers else None
 
 
+def derniers_exports_avions(jeu):
+    res = []
+    for motif in ("NuclearOptionWiki_avions_v*.csv", "NuclearOptionWiki_emports_v*.csv"):
+        fichiers = glob.glob(os.path.join(jeu, "BepInEx", "config", motif))
+        if fichiers:
+            res.append(max(fichiers, key=os.path.getmtime))
+    return res if len(res) == 2 else []
+
+
 def main():
-    ap = argparse.ArgumentParser(description="Met à jour weapons.json du wiki d'armes (sans recompiler le mod).")
+    ap = argparse.ArgumentParser(description="Met à jour weapons.json et aircraft.json du wiki (sans recompiler le mod).")
     ap.add_argument("--jeu", help="Dossier du jeu Nuclear Option (contenant BepInEx).")
     ap.add_argument("--export", help="Export CSV du mod (option F1 « Exporter la liste des armes »).")
     args = ap.parse_args()
@@ -59,21 +71,31 @@ def main():
         print("Aucun export du jeu fourni : la correspondance existante (data/correspondance.csv) est conservée.")
 
     lancer("xlsx_vers_json.py")
-    source = os.path.join(RACINE, "data", "weapons.json")
+
+    for export_avion in (derniers_exports_avions(args.jeu) if args.jeu else []):
+        # « NuclearOptionWiki_avions_v0.5.0.csv » → data/dump/<date>_avions_v0.5.0.csv
+        nom = os.path.basename(export_avion).replace("NuclearOptionWiki_", "")
+        cible = os.path.join(RACINE, "data", "dump", f"{date.today().isoformat()}_{nom}")
+        shutil.copy2(export_avion, cible)
+        print(f"Export d'appareils utilisé : {export_avion}")
+    lancer("avions_classeur.py")
+    lancer("avions_vers_json.py")
+    fichiers = [os.path.join(RACINE, "data", n) for n in ("weapons.json", "aircraft.json")]
 
     if args.jeu:
         dlls = glob.glob(os.path.join(args.jeu, "BepInEx", "plugins", "**", "NuclearOptionWiki.dll"), recursive=True)
         if not dlls:
             sys.exit("NuclearOptionWiki.dll introuvable sous BepInEx/plugins : vérifie le dossier du jeu (--jeu).")
         for dll in dlls:
-            dest = os.path.join(os.path.dirname(dll), "weapons.json")
-            shutil.copy2(source, dest)
-            print(f"Copié : {dest}")
+            for source in fichiers:
+                dest = os.path.join(os.path.dirname(dll), os.path.basename(source))
+                shutil.copy2(source, dest)
+                print(f"Copié : {dest}")
         if len(dlls) > 1:
             print("Attention : plusieurs copies du mod trouvées. N'en garde qu'une seule.")
-        print("\nTerminé. Relance le jeu : le journal BepInEx doit afficher « [Wiki] Données lues depuis … weapons.json ».")
+        print("\nTerminé. Relance le jeu : le journal BepInEx doit afficher « [Wiki] Données lues depuis … » pour les deux fichiers.")
     else:
-        print(f"\nTerminé : {source}. Copie ce fichier à côté de NuclearOptionWiki.dll (ou relance avec --jeu).")
+        print(f"\nTerminé : {', '.join(fichiers)}. Copie ces fichiers à côté de NuclearOptionWiki.dll (ou relance avec --jeu).")
 
 
 if __name__ == "__main__":

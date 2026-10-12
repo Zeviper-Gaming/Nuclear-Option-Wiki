@@ -3,9 +3,9 @@
 Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 
 ## Reprise
-- Phase en cours : 3 Exécution — V0 et V1 faites ; plan amendé v3.2 ; second export demandé ; prochaine étape V2
+- Phase en cours : 3 Exécution — V0 à V4 faites ; prochaine étape V5 (maquette, validation de Florian)
 - Modèle conseillé : Opus 5.5, effort medium
-- Prochaine action exacte : recevoir de Florian le **second export** (v0.5.0-export n° 3 : colonnes `laser_cibles`/`laser_portee`, roquettes) → remplacer `data/dump/2026-10-12_*_v0.5.0.csv`, vérifier CI-22 `laser_cibles` = 2, MiG-15 = 0, pastilles ROQUETTE présentes. En parallèle : **V2** (classeur) sur l'export actuel, puis V3, V4. Travailler et pousser **uniquement** sur `zv/plane_update`.
+- Prochaine action exacte : **V5** — maquette `docs/maquettes/fiche-appareil-mfd.html` (cotes 7.3 amendées v3.2, 3 thèmes, CI-22, SAH-46, MC-260), publiée en artefact, captures Playwright, puis validation de Florian. Travailler et pousser **uniquement** sur `zv/plane_update`.
 - Pour reprendre : nouvelle conversation sur le bon modèle → `/planification` → joindre ce fichier (+ le plan).
 - Prérequis session cloud neuve (comme le projet armes) : `apt-get install -y dotnet-sdk-8.0`, redéposer les DLL du jeu dans `lib/` (jamais commitées), BepInEx 5.4.23.2 pour `BepInEx.dll` et `0Harmony.dll`.
 
@@ -72,6 +72,9 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 - [ ] Phase 3 — exécution
   - [x] V0 — environnement prêt, DLL du jeu 0.34.1 dans `lib/`, build v0.4.1 sans avertissement, tableau 2.3 **confirmé** (2026-10-12) ; voir « Écarts » pour les précisions
   - [x] V1 — export reçu le 2026-10-12 (`data/dump/2026-10-12_avions_v0.5.0.csv`, `…_emports_v0.5.0.csv`) : 41 entrées dont les 24 appareils de NO-stats (tous appariés par `unit_name`) + OVNI + 16 navires/véhicules ; chaque appareil armé a ≥ 1 emplacement. Journal sans erreur `[Wiki]`.
+  - [x] V2 — `tools/avions_commun.py` + `tools/avions_classeur.py` → `data/Avions_wiki.xlsx` (feuilles Lisez-moi, Avions, Emports, Corrections, Listes masquée) : 24 appareils, 152 emplacements ; test `tools/test_avions.py` (idempotence, conservation Texte perso / Nom (FR) / Corrections)
+  - [x] V3 — `tools/avions_textes_v3.py` (une fois, n'écrase rien) : 24 descriptions FR, rôles (vides : **MiG-15, F-16M**), 87 noms d'emplacement traduits
+  - [x] V4 — `tools/avions_vers_json.py` → `data/aircraft.json` ; contrôles chiffrés OK (CI-22 S / RCS 4 / agilité 6,5 ; MC-260 H ; F-117A RCS 0 ; FS-41 vitesse 10,0 ; correction CI-22 3000 km/h → 10,0 et FS-41 ≤ 9,6 ; champ inconnu « ignorée ») ; `mettre_a_jour.py`/`.bat` étendus
 - [ ] Phase 4 — peaufinage
 
 ## Fichiers produits
@@ -83,6 +86,7 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 
 ## Écarts au plan et remontées
 - **Amendement v3.2 du plan (2026-10-12, décisions de Florian sur les constats de l'export V1)** : Q1 → A22, navires et véhicules de la liste du hangar = fiche masquée ; Q2 → A21 refait, le voyant compte les **cibles des désignateurs laser** intégrés (`LaserDesignator.GetMaxTargets()`, portée `range`), et non les caméras `TargetDetector` (1 par appareil) ; Q3 → 7.5, une option sans drapeau d'arme dont le projectile porte un `Missile` = ROQUETTE (AGR-18/24/37) ; Q4 → A23, emplacements sans arme non affichés, et charge max (A9) calculée sur les options à catégorie hors CARGO. Export complété (`laser_cibles`, `laser_portee`, règle des roquettes) : **second export à refaire par Florian**.
+- V4 : `aircraft.json` porte `laser_cibles` seulement s'il est corrigé (sinon null : lu en jeu, comme l'IR et les emports). `genere_le` = date du jour (sortie identique sur deux exécutions le même jour). La colonne « État » de Corrections est remplie par `avions_classeur.py` (lancé avant le JSON par `mettre_a_jour`).
 - Info A15 : `masse_parts` concorde à ±15 % pour 12 appareils sur 21 (57 % < 80 %) → masse à vide et charge utile N/A pour OA-27, RAH-72, F-22E.
 - V0 (précisions, sans effet sur le plan) : `Aircraft` dérive de `Mirage.NetworkBehaviour` (assembly non référencé) → ses champs `EOTS` et `weaponManager` sont lus par réflexion ; les moteurs `Turbojet`/`Turbofan` portent leur IR par leurs `JetNozzle` (couverts par A11) ; les boutons de la grille ne sont créés que pour les appareils autorisés (`NotAllowed(AllowEventContent)`) ; un clic sur un appareil non pilotable (`CanFlyAircraft` faux) ne lève pas `OnSelectedAircraftChange` (le survol, RA3, couvre ce cas).
 - V1 : colonne `categorie` de l'export : catégorie principale, suivie de `|NUC` pour une arme nucléaire (ex. `BOMBE|NUC`). `canons_fixes` = total des `BuiltInWeapons` + `BuiltInTurrets` du prefab. Entrées de configuration : 10 (tests mis à jour).
