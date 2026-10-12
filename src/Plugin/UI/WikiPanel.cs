@@ -42,7 +42,11 @@ namespace NuclearOptionWiki.UI
         private readonly Tile[] _air = new Tile[FicheModel.AirToAirCount];
         private readonly Tile[] _defense = new Tile[FicheModel.DefenseCount];
 
+        private RectTransform _weaponRoot;
+        private AircraftContent _aircraft;
         private FicheModel _current;
+        private AircraftFicheModel _currentAircraft;
+        private bool _showingAircraft;
         private string _footerKeyText = "", _footerWarnText = "";
 
         private WikiPanel() { }
@@ -59,7 +63,8 @@ namespace NuclearOptionWiki.UI
             _theme = ThemeDef.For(theme);
             Build();
             SetVisible(wasVisible);
-            if (_current != null) Show(_current);
+            if (_showingAircraft && _currentAircraft != null) ShowAircraft(_currentAircraft);
+            else if (_current != null) Show(_current);
             SetFooter(_footerKeyText, _footerWarnText);
         }
 
@@ -90,10 +95,24 @@ namespace NuclearOptionWiki.UI
             SetText(_footerWarn, _footerWarnText);
         }
 
+        /// <summary>Fiche appareil (plan avions A2) : même cadre, contenu « appareil » ; le Canvas n'est pas reconstruit.</summary>
+        public void ShowAircraft(AircraftFicheModel m)
+        {
+            _currentAircraft = m;
+            _showingAircraft = true;
+            if (!_built || m == null) return;
+            _weaponRoot.gameObject.SetActive(false);
+            _aircraft.SetActive(true);
+            _aircraft.Show(m);
+        }
+
         public void Show(FicheModel m)
         {
             _current = m;
+            _showingAircraft = false;
             if (!_built || m == null) return;
+            _aircraft.SetActive(false);
+            _weaponRoot.gameObject.SetActive(true);
 
             SetText(_title, m.Title);
             SetText(_subtitle, m.Subtitle);
@@ -143,6 +162,10 @@ namespace NuclearOptionWiki.UI
             _panel.localScale = new Vector3(_scale, _scale, 1f);
             _panelFrame = Frame(_panel, "Panneau", 0f, 0f, PanelW, PanelH, WithAlpha(th.PanelBg, _opacity), th.PanelBorder, th.PanelRadius, th.PanelBorderWidth);
             var c = Place(Node("Contenu", _panel), Pad, Pad, InnerW, PanelH - 2f * Pad);
+            _weaponRoot = c;
+            _aircraft = new AircraftContent(_panel, th, font, Pad, Pad);
+            _aircraft.SetActive(false);
+            var foot = Place(Node("Pied", _panel), Pad, Pad, InnerW, PanelH - 2f * Pad);
 
             // --- Zone 1 : stats globales ---
             float y = 0f;
@@ -191,8 +214,8 @@ namespace NuclearOptionWiki.UI
 
             // --- Pied : touche active et avertissement ---
             float footY = PanelH - 2f * Pad - 14f;
-            _footerWarn = Text(c, "Avertissement", 0f, footY, InnerW * 0.72f, 14f, font, 11f, th.Warning, TextAlignmentOptions.MidlineLeft, 10f, true);
-            _footerKey = Text(c, "Touche", InnerW * 0.72f, footY, InnerW * 0.28f, 14f, font, 11f, WithAlpha(th.Body, 0.75f), TextAlignmentOptions.MidlineRight, 10f, true);
+            _footerWarn = Text(foot, "Avertissement", 0f, footY, InnerW * 0.72f, 14f, font, 11f, th.Warning, TextAlignmentOptions.MidlineLeft, 10f, true);
+            _footerKey = Text(foot, "Touche", InnerW * 0.72f, footY, InnerW * 0.28f, 14f, font, 11f, WithAlpha(th.Body, 0.75f), TextAlignmentOptions.MidlineRight, 10f, true);
 
             _built = true;
         }

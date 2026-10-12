@@ -30,7 +30,7 @@ namespace NuclearOptionWiki
                 file.Save();
                 int entries = file.Count;
                 Console.WriteLine($"{entries} entrées créées ; Échap refusée : {escapeRejected}");
-                bool ok = entries == 10 && escapeRejected;
+                bool ok = entries == 11 && escapeRejected;
                 Console.WriteLine(ok ? "OK" : "ÉCHEC");
                 return ok ? 0 : 1;
             }

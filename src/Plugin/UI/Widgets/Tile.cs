@@ -61,7 +61,8 @@ namespace NuclearOptionWiki.UI.Widgets
         public void Apply(TileField f)
         {
             bool na = f.ColorIndex == null;
-            Color c = Hex(NoteScale.Hex(f.ColorIndex));
+            // Compteur de la fiche appareil : couleur d'accent du thème, pas d'échelle de note.
+            Color c = f.Neutral && !na ? _th.Accent : Hex(NoteScale.Hex(f.ColorIndex));
 
             SetText(_label, f.Label);
             _inv.gameObject.SetActive(f.Inverted);

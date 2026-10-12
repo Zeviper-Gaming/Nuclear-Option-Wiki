@@ -55,6 +55,7 @@ namespace NuclearOptionWiki.UI
         public bool Lamp;                // A, C : lampe en haut de la tuile
         public bool Glow;                // halo des lampes et segments
 
+        public Color Accent;             // fiche appareil : compteurs, classes, pastilles (couleur neutre)
         public Color Unknown;            // mention « arme non référencée »
         public Color Warning;            // avertissement de touche
 
@@ -81,7 +82,7 @@ namespace NuclearOptionWiki.UI
             StatBg = Hex("#070B09"), StatBorder = Hex("#1A241E"), StatLabel = Hex("#5FA86A"), StatValue = Hex("#C9F5CF"), StatRadius = 6,
             TileBg = Hex("#060908"), TileBorder = Hex("#29322D"), TileLabel = Hex("#46FF5A"), TileLabelStrip = Color.clear,
             TileRadius = 8, TileBorderWidth = 1, Lamp = true, Glow = true,
-            Unknown = Hex("#FFA31F"), Warning = Hex("#FFA31F"),
+            Accent = Hex("#46FF5A"), Unknown = Hex("#FFA31F"), Warning = Hex("#FFA31F"),
         };
 
         private static ThemeDef Annonciateur() => new ThemeDef
@@ -98,7 +99,7 @@ namespace NuclearOptionWiki.UI
             TileBg = Hex("#0B0D0F"), TileBorder = Hex("#30363B"), TileLabel = Hex("#E6EBE8"), TileLabelStrip = Hex("#0B0D0F"),
             TileRadius = 3, TileBorderWidth = 2, TileFilledByNote = true, TileNaBg = Hex("#0F1214"), TileNaBorder = Hex("#30363B"),
             Lamp = false, Glow = false,
-            Unknown = Hex("#FFA31F"), Warning = Hex("#FFA31F"),
+            Accent = Hex("#F0C45A"), Unknown = Hex("#FFA31F"), Warning = Hex("#FFA31F"),
         };
 
         private static ThemeDef HangarNO() => new ThemeDef
@@ -114,7 +115,7 @@ namespace NuclearOptionWiki.UI
             StatBg = new Color(0f, 0f, 0f, 0.25f), StatBorder = Rgba(150, 185, 215, 0.18f), StatLabel = Hex("#9FB6CC"), StatValue = Color.white, StatRadius = 0,
             TileBg = new Color(0f, 0f, 0f, 0.32f), TileBorder = Rgba(150, 185, 215, 0.25f), TileLabel = Hex("#CFE0EF"), TileLabelStrip = Color.clear,
             TileRadius = 4, TileBorderWidth = 1, Lamp = true, Glow = true,
-            Unknown = Hex("#FFD523"), Warning = Hex("#FFA31F"),
+            Accent = Hex("#8FD3FF"), Unknown = Hex("#FFD523"), Warning = Hex("#FFA31F"),
         };
     }
 }

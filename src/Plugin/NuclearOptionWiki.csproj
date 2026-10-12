@@ -19,9 +19,10 @@
     <Compile Include="..\Core\**\*.cs" Link="Core\%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
-  <!-- weapons.json intégré à la DLL : le mod fonctionne avec ce seul fichier (import NOMM). Un weapons.json posé à côté reste prioritaire. -->
+  <!-- weapons.json et aircraft.json intégrés à la DLL : le mod fonctionne avec ce seul fichier (import NOMM). Un weapons.json posé à côté reste prioritaire. -->
   <ItemGroup>
     <EmbeddedResource Include="..\..\data\weapons.json" LogicalName="NuclearOptionWiki.weapons.json" />
+    <EmbeddedResource Include="..\..\data\aircraft.json" LogicalName="NuclearOptionWiki.aircraft.json" />
   </ItemGroup>
 
   <!-- Références fournies par le jeu et BepInEx : déposées dans lib/ (ignoré par git), jamais copiées dans la sortie. -->

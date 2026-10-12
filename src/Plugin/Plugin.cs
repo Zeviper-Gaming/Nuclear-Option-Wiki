@@ -15,20 +15,30 @@ namespace NuclearOptionWiki
         public const string DisplayName = "Nuclear Option Wiki";
         public const string Version = "0.5.0";
         public const string DataFileName = "weapons.json";
+        public const string AircraftFileName = "aircraft.json";
 
         internal static ManualLogSource Log;
         internal static WikiConfig Settings;
         internal static WeaponDatabase Database;
+        internal static AircraftDatabase Aircraft;
+        internal static TagsFile Tags = new TagsFile();
+
+        private static string _pluginDir;
 
         private void Awake()
         {
             Log = Logger;
             try
             {
-                Settings = new WikiConfig(Config, Diagnostics.ExportButtons.Tag);
-                Database = LoadDatabase();
+                _pluginDir = Path.GetDirectoryName(Info.Location) ?? Paths.PluginPath;
+                Settings = new WikiConfig(Config, Diagnostics.ExportButtons.Tag, TagsEditor.Tag);
+                // Armes et appareils sont chargés indépendamment (A18) : l'échec de l'un ne désactive pas l'autre.
+                Database = Load(DataFileName, WeaponDatabase.FromJson, "des armes");
+                Aircraft = Load(AircraftFileName, AircraftDatabase.FromJson, "des appareils");
+                LoadTags();
                 int applied = LoadoutHooks.ApplyAll(new Harmony(Guid));
-                Log.LogInfo($"[Wiki] chargé v{Version} : {Database?.Count ?? 0} armes, {applied} patch(s) appliqué(s). DLL : {Info.Location}");
+                Log.LogInfo($"[Wiki] chargé v{Version} : {Database?.Count ?? 0} armes, {Aircraft?.Count ?? 0} appareils, " +
+                            $"{applied} patch(s) appliqué(s). DLL : {Info.Location}");
             }
             catch (Exception e)
             {
@@ -38,18 +48,18 @@ namespace NuclearOptionWiki
         }
 
         /// <summary>
-        /// Charge les données : weapons.json posé à côté de la DLL s'il existe (mise à jour sans recompiler),
-        /// sinon la copie intégrée à la DLL. En cas d'échec : journal d'erreur, fiche désactivée, jeu intact.
+        /// Charge un fichier de données : celui posé à côté de la DLL s'il existe (mise à jour sans recompiler),
+        /// sinon la copie intégrée à la DLL. En cas d'échec : journal d'erreur, fiche correspondante désactivée, jeu intact.
         /// </summary>
-        private WeaponDatabase LoadDatabase()
+        private static T Load<T>(string fileName, Func<string, T> parse, string what) where T : class
         {
-            string path = Path.Combine(Path.GetDirectoryName(Info.Location) ?? Paths.PluginPath, DataFileName);
+            string path = Path.Combine(_pluginDir, fileName);
             if (File.Exists(path))
             {
                 try
                 {
-                    var db = WeaponDatabase.FromJson(File.ReadAllText(path));
-                    Log.LogInfo($"[Wiki] Données lues depuis {path}.");
+                    var db = parse(File.ReadAllText(path));
+                    Log.LogInfo($"[Wiki] Données {what} lues depuis {path}.");
                     return db;
                 }
                 catch (Exception e)
@@ -59,21 +69,52 @@ namespace NuclearOptionWiki
             }
             try
             {
-                using (var stream = typeof(Plugin).Assembly.GetManifestResourceStream("NuclearOptionWiki." + DataFileName))
+                using (var stream = typeof(Plugin).Assembly.GetManifestResourceStream("NuclearOptionWiki." + fileName))
                 {
                     if (stream == null) throw new FileNotFoundException("ressource intégrée absente");
                     using (var reader = new StreamReader(stream))
                     {
-                        var db = WeaponDatabase.FromJson(reader.ReadToEnd());
-                        Log.LogInfo("[Wiki] Données intégrées à la DLL utilisées.");
+                        var db = parse(reader.ReadToEnd());
+                        Log.LogInfo($"[Wiki] Données {what} intégrées à la DLL utilisées.");
                         return db;
                     }
                 }
             }
             catch (Exception e)
             {
-                Log.LogError($"[Wiki] Données des armes introuvables ({e.Message}). La fiche est désactivée.");
+                Log.LogError($"[Wiki] Données {what} introuvables ({e.Message}). La fiche correspondante est désactivée.");
                 return null;
+            }
+        }
+
+        /// <summary>A24 : tags saisis en jeu (BepInEx/config/NuclearOptionWiki_tags.json).</summary>
+        private static void LoadTags()
+        {
+            string path = Path.Combine(Paths.ConfigPath, TagsFile.FileName);
+            try
+            {
+                Tags = File.Exists(path) ? TagsFile.FromJson(File.ReadAllText(path)) : new TagsFile();
+                if (Tags.Count > 0) Log.LogInfo($"[Wiki] Tags saisis en jeu : {Tags.Count} appareil(s) ({path}).");
+            }
+            catch (Exception e)
+            {
+                Log.LogError($"[Wiki] {path} illisible ({e.Message}) : tags saisis en jeu ignorés.");
+                Tags = new TagsFile();
+            }
+        }
+
+        internal static bool SaveTags()
+        {
+            string path = Path.Combine(Paths.ConfigPath, TagsFile.FileName);
+            try
+            {
+                File.WriteAllText(path, Tags.ToJson(), new System.Text.UTF8Encoding(false));
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.LogError($"[Wiki] Écriture de {path} impossible : {e.Message}");
+                return false;
             }
         }
     }

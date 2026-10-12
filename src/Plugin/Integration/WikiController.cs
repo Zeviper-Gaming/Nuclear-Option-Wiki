@@ -27,13 +27,19 @@ namespace NuclearOptionWiki.Integration
         private bool _dirty = true;
         private bool _demo;
         private WeaponMount _mount;
+        // Plan avions A2 : la fiche montre le dernier élément survolé ou sélectionné (appareil ou arme).
+        private AircraftDefinition _aircraft;
+        private bool _showAircraft;
+        private bool _hidden;          // A22 : navire ou véhicule sélectionné, fiche masquée
+        private int _aircraftFrame = -1;
+        private static readonly HashSet<string> LoggedUnknownAircraft = new HashSet<string>();
         private float _warningUntil;
         private string _warning = "";
 
         /// <summary>Appelé à l'ouverture de l'écran hangar (patch de AircraftSelectionMenu.Initialize).</summary>
         public static void Attach(AircraftSelectionMenu menu)
         {
-            if (Plugin.Database == null) return;
+            if (Plugin.Database == null && Plugin.Aircraft == null) return;
             if (_instance == null)
             {
                 var go = new GameObject("NuclearOptionWiki.Controller") { hideFlags = HideFlags.HideAndDontSave };
@@ -47,18 +53,65 @@ namespace NuclearOptionWiki.Integration
         /// <summary>Survol ou sélection d'un emport. Null (« Empty », emplacement vide) : rien ne change.</summary>
         public static void ShowWeapon(WeaponMount mount)
         {
-            if (_instance == null || mount == null || mount.info == null) return;
-            if (_instance._mount == mount && !_instance._demo) return;
+            if (_instance == null || mount == null || mount.info == null || Plugin.Database == null) return;
+            // Piège 8 : AssignAircraft lève des DropdownChanged pendant le changement d'appareil ; l'appareil gagne.
+            if (Time.frameCount == _instance._aircraftFrame) return;
+            if (_instance._mount == mount && !_instance._showAircraft && !_instance._hidden && !_instance._demo) return;
             _instance._mount = mount;
+            _instance._showAircraft = false;
+            _instance._hidden = false;
             _instance._demo = false;
             _instance._dirty = true;
+        }
+
+        /// <summary>Changement d'appareil (OnSelectedAircraftChange) ou survol d'un bouton de la grille.</summary>
+        public static void ShowAircraft(AircraftDefinition def)
+        {
+            if (_instance == null || def == null || Plugin.Aircraft == null) return;
+            _instance._aircraftFrame = Time.frameCount;
+            bool isAircraft = LiveAircraftStats.IsAircraft(def);
+            if (_instance._aircraft == def && _instance._showAircraft && !_instance._demo && _instance._hidden == !isAircraft) return;
+            _instance._aircraft = def;
+            _instance._showAircraft = true;
+            _instance._hidden = !isAircraft;
+            _instance._demo = false;
+            _instance._dirty = true;
+        }
+
+        /// <summary>A24 : clé et nom de l'appareil affiché (éditeur de tags du menu F1).</summary>
+        public static string CurrentAircraftKey => _instance?._aircraft == null || _instance._hidden ? null : ResolveKey(_instance._aircraft);
+        public static string CurrentAircraftName => _instance?._aircraft?.unitName;
+
+        public static List<string> CurrentAircraftSheetTags()
+        {
+            var def = _instance?._aircraft;
+            if (def == null || Plugin.Aircraft == null) return new List<string>();
+            return Plugin.Aircraft.Find(def.jsonKey, def.unitName).Value?.Tags ?? new List<string>();
+        }
+
+        public static void RefreshAircraft()
+        {
+            if (_instance != null) _instance._dirty = true;
+        }
+
+        private static string ResolveKey(AircraftDefinition def)
+        {
+            var found = Plugin.Aircraft?.Find(def.jsonKey, def.unitName).Key;
+            return found ?? def.jsonKey;
         }
 
         private void OnMenuOpened(AircraftSelectionMenu menu)
         {
             var s = Plugin.Settings;
+            // Un seul abonnement par menu (piège : Initialize peut être rappelé ; Refresh relance l'événement de lui-même).
+            if (_menu != null) _menu.OnSelectedAircraftChange -= OnAircraftChanged;
             _menu = menu;
+            _menu.OnSelectedAircraftChange -= OnAircraftChanged;
+            _menu.OnSelectedAircraftChange += OnAircraftChanged;
             _mount = null;
+            _aircraft = null;
+            _showAircraft = false;
+            _hidden = false;
             _demo = s.DemoSheet.Value;
             _active = s.ActiveOnOpen.Value || _demo;
             _dirty = true;
@@ -69,6 +122,23 @@ namespace NuclearOptionWiki.Integration
             panel.SetOpacity(s.BackgroundOpacity.Value);
             UpdateFooter();
             panel.SetVisible(false);
+
+            // Le premier OnSelectedAircraftChange est levé avant ce Postfix : on lit l'appareil courant (A2).
+            var current = menu.GetSelectedType();
+            if (current != null) ShowAircraft(current);
+            _demo = s.DemoSheet.Value;
+            _dirty = true;
+        }
+
+        private static void OnAircraftChanged(AircraftDefinition def)
+        {
+            try { ShowAircraft(def); }
+            catch (Exception e) { Plugin.Log.LogError($"[Wiki] Erreur (changement d'appareil) : {e}"); }
+        }
+
+        private void OnDestroy()
+        {
+            if (_menu != null) _menu.OnSelectedAircraftChange -= OnAircraftChanged;
         }
 
         private void Update()
@@ -77,7 +147,7 @@ namespace NuclearOptionWiki.Integration
             if (_menu == null || !_menu.isActiveAndEnabled)
             {
                 if (panel.Visible) panel.SetVisible(false);
-                if (_menu == null) _mount = null; // menu détruit : on repart de zéro à la prochaine ouverture
+                if (_menu == null) { _mount = null; _aircraft = null; } // menu détruit : on repart de zéro à la prochaine ouverture
                 return;
             }
 
@@ -91,7 +161,7 @@ namespace NuclearOptionWiki.Integration
                 UpdateFooter();
             }
 
-            panel.SetVisible(_active);
+            panel.SetVisible(_active && !_hidden);
             if (_active && _dirty) Refresh();
         }
 
@@ -100,6 +170,18 @@ namespace NuclearOptionWiki.Integration
             _dirty = false;
             try
             {
+                if (_demo && Plugin.Aircraft != null)
+                {
+                    // Réglage « Fiche de démonstration » : CI-22 (fiche appareil) à l'ouverture du hangar.
+                    var demoDef = FindDefinition("COIN");
+                    if (demoDef != null) { WikiPanel.Instance.ShowAircraft(BuildAircraft(demoDef)); return; }
+                }
+                if (_showAircraft && _aircraft != null)
+                {
+                    if (!_hidden) WikiPanel.Instance.ShowAircraft(BuildAircraft(_aircraft));
+                    return;
+                }
+                if (Plugin.Database == null) return;
                 var mode = Plugin.Settings.RangeNote.Value == RangeScale.Rang ? RangeNoteMode.Rank : RangeNoteMode.Logarithmic;
                 FicheModel model;
                 if (_mount != null)
@@ -126,6 +208,29 @@ namespace NuclearOptionWiki.Integration
             {
                 Plugin.Log.LogError($"[Wiki] Erreur d'affichage de la fiche : {e}");
             }
+        }
+
+        private static AircraftFicheModel BuildAircraft(AircraftDefinition def)
+        {
+            var db = Plugin.Aircraft;
+            bool excluded = AircraftDatabase.IsExcluded(def.jsonKey, GameData.AircraftReader.IsEventContent(def));
+            var found = excluded ? new KeyValuePair<string, AircraftRecord>(null, null) : db.Find(def.jsonKey, def.unitName);
+            if (found.Value == null && LoggedUnknownAircraft.Add(def.jsonKey ?? def.name))
+                Plugin.Log.LogInfo($"[Wiki] Appareil non référencé dans aircraft.json : jsonKey={def.jsonKey}, nom={def.unitName}");
+            var live = LiveAircraftStats.Get(def);
+            live.TagsOverride = Plugin.Tags.Get(found.Key ?? def.jsonKey);
+            return AircraftFicheModel.Build(db, found.Value, found.Key, live);
+        }
+
+        private static AircraftDefinition FindDefinition(string jsonKey)
+        {
+            try
+            {
+                var list = Encyclopedia.i?.aircraft;
+                if (list != null) foreach (var d in list) if (d != null && d.jsonKey == jsonKey) return d;
+            }
+            catch (Exception e) { Plugin.Log.LogDebug($"[Wiki] Encyclopédie illisible : {e.Message}"); }
+            return null;
         }
 
         private void SubscribeSettings()

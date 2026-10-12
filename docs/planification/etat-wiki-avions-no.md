@@ -3,9 +3,9 @@
 Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 
 ## Reprise
-- Phase en cours : 3 Exécution — V0 à V5 faites (plan v3.4) ; V6 en cours
+- Phase en cours : 3 Exécution — V0 à V8 faites, V9 livrée (v0.5.0) en attente de recette
 - Modèle conseillé : Opus 5.5, effort medium
-- Prochaine action exacte : **V6** (Core C# : AircraftRecord, AircraftDatabase, AircraftFicheModel, LoadClass, acronymes, IR, tags en jeu) puis V7/V8/V9 (A24 inclus). Travailler et pousser **uniquement** sur `zv/plane_update`.
+- Prochaine action exacte : recueillir la recette en jeu de Florian (RA1–RA11 du plan avions, R1–R12 du plan armes ; captures + `LogOutput.log`), corriger, puis copier la DLL dans `release/`, et V10 (README, Lisez-moi). Travailler et pousser **uniquement** sur `zv/plane_update`.
 - Pour reprendre : nouvelle conversation sur le bon modèle → `/planification` → joindre ce fichier (+ le plan).
 - Prérequis session cloud neuve (comme le projet armes) : `apt-get install -y dotnet-sdk-8.0`, redéposer les DLL du jeu dans `lib/` (jamais commitées), BepInEx 5.4.23.2 pour `BepInEx.dll` et `0Harmony.dll`.
 
@@ -77,6 +77,9 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
   - [x] V4 — `tools/avions_vers_json.py` → `data/aircraft.json` ; contrôles chiffrés OK (CI-22 S / RCS 4 / agilité 6,5 ; MC-260 H ; F-117A RCS 0 ; FS-41 vitesse 10,0 ; correction CI-22 3000 km/h → 10,0 et FS-41 ≤ 9,6 ; champ inconnu « ignorée ») ; `mettre_a_jour.py`/`.bat` étendus
   - [x] V5 — maquette `docs/maquettes/fiche-appareil-mfd.html` (générée par `tools/maquette_appareil.py` depuis le gabarit `fiche-appareil-mfd.gabarit.html` et les vraies données) publiée : https://claude.ai/artifact/SMgExcdxf7kR2N4mj5VhLK ; captures dans `docs/maquettes/captures-appareil/` ; aucun élément sous y = 798 (CI-22, SAH-46, MC-260, F-22E) — **validée par Florian le 2026-10-12** (avec v3.3)
   - [x] V6 — Core : `AircraftRecord`, `AircraftDatabase` (A5, A6), `LoadClass` (A7, A9, A11 v3.3, A12), `AircraftFicheModel` (A3, A4, A23, v3.3), `TagsFile` (A24), acronymes dans `WeaponCategory`, `Format.Kmh/Kg`, `TileField.Neutral` ; `tests/Core.Tests/AircraftTests.cs` (données « en jeu » reconstituées depuis l'export) → OK (185 vérifications, anciennes comprises)
+  - [x] V7 — `Plugin` charge `aircraft.json` (ressource intégrée + surcharge, indépendant des armes) et `NuclearOptionWiki_tags.json` ; `GameData/AircraftReader` (lecture commune export / fiche : IR, désignateur, emports, drapeaux, A22) ; `GameData/LiveAircraftStats` (cache par définition, IR max global une fois par session, corrections d'IR comprises) ; build sans avertissement
+  - [x] V8 — `UI/AircraftContent` (cotes 7.3 v3.3), widgets `ChipRow`, `HardpointRow`, `Tile` (compteurs neutres), `StatCell` 40 px, accent par thème ; bascule arme / appareil sans reconstruire le Canvas ; pied de fiche commun ; réglage « Fiche de démonstration » = CI-22
+  - [ ] V9 — `Integration/AircraftHooks` (survol des boutons de la grille), `WikiController` (OnSelectedAircraftChange, appareil courant à l'ouverture, A2, piège 8, A22 fiche masquée), `TagsEditor` F1 (A24) ; `avions_classeur.py --tags-jeu` + `mettre_a_jour.py --jeu` ; paquet `dist/NuclearOptionWiki-0.5.0.zip` livré (release/ laissé en v0.4.1 jusqu'à la recette) — **en attente de la recette RA1–RA11 et R1–R12 de Florian**
 - [ ] Phase 4 — peaufinage
 
 ## Fichiers produits

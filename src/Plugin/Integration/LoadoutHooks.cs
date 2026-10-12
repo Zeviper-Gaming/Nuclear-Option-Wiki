@@ -18,6 +18,7 @@ namespace NuclearOptionWiki.Integration
             typeof(MountHoverPatch),
             typeof(SlotSelectionPatch),
             typeof(SlotCreatedPatch),
+            typeof(AircraftButtonPatch),
         };
 
         public static int ApplyAll(Harmony harmony)

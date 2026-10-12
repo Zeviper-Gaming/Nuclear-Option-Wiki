@@ -119,6 +119,13 @@ def main():
             ok(data["emplacements_fr"]["COIN"]["Inner Wing Pylons"] == "Test pylônes", "V4 : nom FR d'emplacement")
             ok(data["alias"].get("CI-22 Cricket") == "COIN", "V4 : alias unitName → clé")
 
+        # A24 : tags saisis en jeu recopiés dans le classeur (prioritaires).
+        tj = os.path.join(tmp, "NuclearOptionWiki_tags.json")
+        with open(tj, "w", encoding="utf-8") as f:
+            json.dump({"COIN": ["Jeu 1", "Jeu 2"]}, f)
+        lancer("avions_classeur.py", "--sortie", x, "--tags-jeu", tj)
+        ok(ligne_avion(x, "COIN")["Tags"] == "Jeu 1 · Jeu 2", "A24 : tags du jeu recopiés dans le classeur")
+
         # Contrôles chiffrés du plan (V4), sur le classeur sans les corrections de test.
         m = ac.construire(ac.lire_classeur(ac.CLASSEUR) if os.path.exists(ac.CLASSEUR) else None, journal=lambda *_: None)
         p = {a["cle"]: a for a in m["appareils"]}

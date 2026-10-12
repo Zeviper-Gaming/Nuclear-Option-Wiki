@@ -78,7 +78,11 @@ def main():
         cible = os.path.join(RACINE, "data", "dump", f"{date.today().isoformat()}_{nom}")
         shutil.copy2(export_avion, cible)
         print(f"Export d'appareils utilisé : {export_avion}")
-    lancer("avions_classeur.py")
+    tags_jeu = os.path.join(args.jeu, "BepInEx", "config", "NuclearOptionWiki_tags.json") if args.jeu else None
+    if tags_jeu and os.path.exists(tags_jeu):
+        lancer("avions_classeur.py", "--tags-jeu", tags_jeu)   # A24 : les tags saisis en jeu passent dans le classeur
+    else:
+        lancer("avions_classeur.py")
     lancer("avions_vers_json.py")
     fichiers = [os.path.join(RACINE, "data", n) for n in ("weapons.json", "aircraft.json")]
 

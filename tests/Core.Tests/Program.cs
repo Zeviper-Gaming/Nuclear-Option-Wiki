@@ -216,7 +216,7 @@ namespace NuclearOptionWiki.Tests
             string source = File.ReadAllText(Path.Combine(root, "src", "Plugin", "WikiConfig.cs"));
             var binds = System.Text.RegularExpressions.Regex.Matches(source, "\\.Bind\\(\\s*\"([^\"]*)\"\\s*,\\s*\"([^\"]*)\"");
             char[] forbidden = { '=', '\n', '\t', '\\', '"', '\'', '[', ']' };
-            Eq(10, binds.Count, "10 entrées de configuration trouvées");
+            Eq(11, binds.Count, "11 entrées de configuration trouvées");
             foreach (System.Text.RegularExpressions.Match b in binds)
             {
                 foreach (var name in new[] { b.Groups[1].Value, b.Groups[2].Value })

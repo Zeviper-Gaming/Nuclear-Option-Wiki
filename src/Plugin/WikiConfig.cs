@@ -30,12 +30,14 @@ namespace NuclearOptionWiki
         public ConfigEntry<float> BackgroundOpacity { get; }
         public ConfigEntry<bool> ExportWeapons { get; }
         public ConfigEntry<bool> ExportAircraft { get; }
+        public ConfigEntry<string> AircraftTags { get; }
         public ConfigEntry<bool> DemoSheet { get; }
         public ConfigEntry<bool> VerboseLog { get; }
 
         /// <param name="exportButton">Fabrique de l'attribut du Configuration Manager qui dessine un bouton d'export
         /// (« armes » ou « appareils ») ; null = cases à cocher simples (tests hors jeu).</param>
-        public WikiConfig(ConfigFile config, Func<string, object> exportButton = null)
+        /// <param name="tagsEditor">Attribut du Configuration Manager qui dessine l'éditeur de tags (A24) ; null hors jeu.</param>
+        public WikiConfig(ConfigFile config, Func<string, object> exportButton = null, Func<object> tagsEditor = null)
         {
             ToggleKey = config.Bind("Général", "Touche bascule", DefaultToggleKey,
                 "Touche qui affiche ou masque la fiche wiki dans l'écran de loadout (hangar). " +
@@ -65,8 +67,14 @@ namespace NuclearOptionWiki
                                       "BepInEx/config/NuclearOptionWiki_avions_v<version>.csv et NuclearOptionWiki_emports_v<version>.csv. " +
                                       "À utiliser dans le hangar, tous les mods d'avions chargés.",
                     null, Tags(exportButton, "appareils")));
+            // A24 : la valeur n'est pas utilisée ; le Configuration Manager dessine le champ des tags de l'appareil affiché.
+            object tagsTag = tagsEditor?.Invoke();
+            AircraftTags = config.Bind("Tags", "Tags (appareil affiché)", "",
+                new ConfigDescription("Mots-clés de l'appareil affiché sur la fiche, séparés par « ; ». « Enregistrer » met la fiche à jour ; " +
+                                      "champ vide = retour aux tags du classeur. Enregistrés dans BepInEx/config/NuclearOptionWiki_tags.json.",
+                    null, tagsTag == null ? new object[0] : new[] { tagsTag }));
             DemoSheet = config.Bind("Diagnostic", "Fiche de démonstration", false,
-                "Affiche la fiche de l'AGM-48 dès l'ouverture du hangar (contrôle visuel).");
+                "Affiche la fiche du CI-22 (ou de l'AGM-48 sans données d'appareils) dès l'ouverture du hangar (contrôle visuel).");
             VerboseLog = config.Bind("Diagnostic", "Journal détaillé", false,
                 "Écrit plus de détails dans le journal BepInEx.");
 

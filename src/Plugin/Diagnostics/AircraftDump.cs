@@ -8,6 +8,7 @@ using System.Text;
 using BepInEx;
 using HarmonyLib;
 using NuclearOptionWiki.Core;
+using NuclearOptionWiki.GameData;
 using UnityEngine;
 
 namespace NuclearOptionWiki.Diagnostics
@@ -35,16 +36,12 @@ namespace NuclearOptionWiki.Diagnostics
         private const string HardpointsHeader =
             "json_key;set_index;set_name;points;soute;symetrie;exclut;integres;mount_jsonkey;mount_name;info_name;masse;munitions;categorie";
 
-        // Aircraft dérive de Mirage.NetworkBehaviour (assembly non référencé) : ses champs sont lus par réflexion.
-        private static FieldInfo _isEventContent, _jetIrMax, _fanIrMin, _fanIrMax, _eots, _weaponManager, _laserRange;
-        private static bool _resolved;
 
         /// <summary>Écrit (ou met à jour) les deux fichiers ; renvoie un message court pour le bouton du menu F1.</summary>
         public static string Export()
         {
             try
             {
-                Resolve();
                 var encyclopedia = new HashSet<AircraftDefinition>();
                 var all = new List<AircraftDefinition>();
                 try
@@ -104,22 +101,6 @@ namespace NuclearOptionWiki.Diagnostics
             }
         }
 
-        private static void Resolve()
-        {
-            if (_resolved) return;
-            _resolved = true;
-            _isEventContent = AccessTools.Field(typeof(UnitDefinition), "isEventContent");
-            _jetIrMax = AccessTools.Field(typeof(JetNozzle), "IRMax");
-            _fanIrMin = AccessTools.Field(typeof(DuctedFan), "IRMin");
-            _fanIrMax = AccessTools.Field(typeof(DuctedFan), "IRMax");
-            _eots = AccessTools.Field(typeof(Aircraft), "EOTS");
-            _weaponManager = AccessTools.Field(typeof(Aircraft), "weaponManager");
-            _laserRange = AccessTools.Field(typeof(LaserDesignator), "range");
-            if (_isEventContent == null) Plugin.Log.LogWarning("[Wiki] UnitDefinition.isEventContent introuvable : colonne « evenementiel » vide.");
-            if (_jetIrMax == null) Plugin.Log.LogWarning("[Wiki] JetNozzle.IRMax introuvable : IR sans postcombustion incomplet.");
-            if (_fanIrMin == null || _fanIrMax == null) Plugin.Log.LogWarning("[Wiki] DuctedFan.IRMin/IRMax introuvables : IR des soufflantes carénées absent.");
-        }
-
         private static string AircraftRow(AircraftDefinition def, bool inEncyclopedia, List<string> hardpointRows)
         {
             var v = new Dictionary<string, string>();
@@ -130,7 +111,7 @@ namespace NuclearOptionWiki.Diagnostics
                 v["unit_name"] = Clean(def.unitName);
                 v["code"] = Clean(def.code);
                 v["encyclopedie"] = Flag(inEncyclopedia);
-                if (_isEventContent != null) v["evenementiel"] = Flag((bool)_isEventContent.GetValue(def));
+                v["evenementiel"] = Flag(AircraftReader.IsEventContent(def));
                 v["cout"] = Num(def.value);
                 v["longueur"] = Num(def.length);
                 v["largeur"] = Num(def.width);
@@ -167,12 +148,19 @@ namespace NuclearOptionWiki.Diagnostics
 
             GameObject prefab = def.unitPrefab;
             Component aircraft = null;
-            Section(def, "prefab", () => aircraft = prefab != null ? prefab.GetComponentInChildren(typeof(Aircraft), true) : null);
+            Section(def, "prefab", () => aircraft = AircraftReader.FindAircraft(prefab));
             if (prefab != null)
             {
                 Section(def, "masse des pièces", () =>
                     v["masse_parts"] = Num(prefab.GetComponentsInChildren<UnitPart>(true).Where(p => p != null).Sum(p => p.mass)));
-                Section(def, "moteurs", () => Engines(prefab, v));
+                Section(def, "moteurs", () =>
+                {
+                    var ir = AircraftReader.ReadInfrared(prefab);
+                    v["moteurs"] = ir.EngineTypes;
+                    v["ir_min"] = Num(ir.Min);
+                    v["ir_max_sec"] = Num(ir.MaxDry);
+                    v["ir_max"] = Num(ir.Max);
+                });
                 Section(def, "viseurs", () =>
                 {
                     var detectors = prefab.GetComponentsInChildren<TargetDetector>(true)
@@ -183,14 +171,13 @@ namespace NuclearOptionWiki.Diagnostics
                         v["viseur_portee"] = Num(detectors.Max(d => d.GetVisualRange()));
                         v["viseur_grossissement"] = Num(detectors.Max(d => d.GetVisualMagnification()));
                     }
-                    if (aircraft != null && _eots != null) v["eots"] = Flag(_eots.GetValue(aircraft) as TargetDetector != null);
+                    if (aircraft != null) v["eots"] = Flag(AircraftReader.HasEots(aircraft));
                 });
                 Section(def, "désignateurs laser", () =>
                 {
-                    // Désignateurs intégrés à l'appareil (nacelles exclues : ce sont des emports, absents du prefab).
-                    var lasers = prefab.GetComponentsInChildren<LaserDesignator>(true).Where(l => l != null).ToList();
-                    v["laser_cibles"] = lasers.Sum(l => l.GetMaxTargets()).ToString(CultureInfo.InvariantCulture);
-                    if (lasers.Count > 0 && _laserRange != null) v["laser_portee"] = Num(lasers.Max(l => (float)_laserRange.GetValue(l)));
+                    AircraftReader.ReadLaser(prefab, out int targets, out double? range);
+                    v["laser_cibles"] = targets.ToString(CultureInfo.InvariantCulture);
+                    v["laser_portee"] = Num(range);
                 });
                 Section(def, "emports", () => Hardpoints(key, prefab, aircraft, v, hardpointRows));
             }
@@ -198,46 +185,9 @@ namespace NuclearOptionWiki.Diagnostics
             return string.Join(";", AircraftColumns.Select(c => v.TryGetValue(c, out var s) ? s : ""));
         }
 
-        /// <summary>IR par moteur (plan A11) : max des moteurs pour le ralenti, le plein gaz sec et le plein gaz avec postcombustion.</summary>
-        private static void Engines(GameObject prefab, Dictionary<string, string> v)
-        {
-            var types = new SortedSet<string>(StringComparer.Ordinal);
-            foreach (var c in prefab.GetComponentsInChildren<Component>(true))
-                if (c is IEngine) types.Add(c.GetType().Name);
-            float irMin = float.NaN, irSec = float.NaN, irMax = float.NaN;
-            void Take(float min, float sec, float max)
-            {
-                irMin = Max(irMin, min);
-                irSec = Max(irSec, sec);
-                irMax = Max(irMax, max);
-            }
-            foreach (var n in prefab.GetComponentsInChildren<JetNozzle>(true))
-            {
-                types.Add(nameof(JetNozzle));
-                float sec = _jetIrMax != null ? (float)_jetIrMax.GetValue(n) : float.NaN;
-                Take(n.GetIRMin(), sec, n.GetIRMax());
-            }
-            foreach (var t in prefab.GetComponentsInChildren<TurbineEngine>(true))
-                Take(t.GetIRMin(), t.GetIRMax(), t.GetIRMax());
-            if (_fanIrMin != null && _fanIrMax != null)
-                foreach (var f in prefab.GetComponentsInChildren<DuctedFan>(true))
-                {
-                    float max = (float)_fanIrMax.GetValue(f);
-                    Take((float)_fanIrMin.GetValue(f), max, max);
-                }
-            v["moteurs"] = string.Join("|", types);
-            v["ir_min"] = Num(irMin);
-            v["ir_max_sec"] = Num(irSec);
-            v["ir_max"] = Num(irMax);
-        }
-
-        private static float Max(float a, float b) => float.IsNaN(a) ? b : float.IsNaN(b) ? a : Math.Max(a, b);
-
         private static void Hardpoints(string key, GameObject prefab, Component aircraft, Dictionary<string, string> v, List<string> rows)
         {
-            WeaponManager manager = aircraft != null && _weaponManager != null ? _weaponManager.GetValue(aircraft) as WeaponManager : null;
-            if (manager == null) manager = prefab.GetComponentInChildren<WeaponManager>(true);
-            var sets = manager != null ? manager.hardpointSets : null;
+            var sets = AircraftReader.ReadHardpointSets(prefab, aircraft);
             if (sets == null)
             {
                 v["nb_emplacements"] = "0";
@@ -268,9 +218,7 @@ namespace NuclearOptionWiki.Diagnostics
                 if (options.Count == 0) rows.Add(prefix + ";;;;;;");
                 foreach (var m in options)
                 {
-                    string cat = "";
-                    try { cat = WeaponCategories.Join(WeaponCategories.Of(Flags(m)), "|"); }
-                    catch (Exception e) { Plugin.Log.LogDebug($"[Wiki] Catégorie illisible pour {m.jsonKey} : {e.GetBaseException().Message}"); }
+                    string cat = WeaponCategories.Join(AircraftReader.SafeCategories(m), "|");
                     rows.Add(prefix + ";" + string.Join(";", new[]
                     {
                         Clean(m.jsonKey), Clean(m.mountName), Clean(m.info != null ? m.info.name : null), Num(m.mass),
@@ -284,31 +232,6 @@ namespace NuclearOptionWiki.Diagnostics
             v["canons_fixes"] = builtIn.ToString(CultureInfo.InvariantCulture);
         }
 
-        internal static WeaponFlags Flags(WeaponMount m)
-        {
-            var f = new WeaponFlags { MountCargo = m.Cargo, MountTroops = m.Troops };
-            var i = m.info;
-            if (i == null) return f;
-            f.HasInfo = true;
-            f.Cargo = i.cargo;
-            f.Troops = i.troops;
-            f.Sling = i.sling;
-            f.Jammer = i.jammer;
-            f.Energy = i.energy;
-            f.Gun = i.gun;
-            f.Bomb = i.bomb;
-            f.GlideBomb = i.glideBomb;
-            f.Missile = i.missile;
-            f.Nuclear = i.nuclear;
-            f.LaserGuided = i.laserGuided;
-            f.AntiAir = i.effectiveness.antiAir;
-            f.AntiSurface = i.effectiveness.antiSurface;
-            f.HasSeeker = i.weaponPrefab != null && i.weaponPrefab.GetComponentInChildren<MissileSeeker>(true) != null;
-            // Missile dérive de Mirage.NetworkBehaviour : recherche non générique.
-            f.HasMissileBody = i.weaponPrefab != null && i.weaponPrefab.GetComponentInChildren(typeof(Missile), true) != null;
-            return f;
-        }
-
         private static void Section(AircraftDefinition def, string what, Action action)
         {
             try { action(); }
@@ -317,6 +240,8 @@ namespace NuclearOptionWiki.Diagnostics
                 Plugin.Log.LogWarning($"[Wiki] Export {def?.jsonKey} ({what}) incomplet : {e.GetBaseException().Message}");
             }
         }
+
+        private static string Num(double? v) => v == null ? "" : Num((float)v.Value);
 
         private static string Num(float v) =>
             float.IsNaN(v) || float.IsInfinity(v) ? "" : v.ToString("0.######", CultureInfo.InvariantCulture);

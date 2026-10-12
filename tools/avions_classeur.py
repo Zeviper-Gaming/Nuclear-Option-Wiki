@@ -254,8 +254,17 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--sortie", default=ac.CLASSEUR, help="Classeur à écrire (défaut : data/Avions_wiki.xlsx).")
     ap.add_argument("--classeur", help="Classeur existant dont on garde les colonnes jaunes et Corrections (défaut : la sortie).")
+    ap.add_argument("--tags-jeu", help="NuclearOptionWiki_tags.json (tags saisis en jeu, A24) : recopiés dans la colonne Tags, prioritaires.")
     args = ap.parse_args()
     existant = ac.lire_classeur(args.classeur or args.sortie)
+    if args.tags_jeu and os.path.exists(args.tags_jeu):
+        import json
+        with open(args.tags_jeu, encoding="utf-8-sig") as f:
+            saisis = json.load(f) or {}
+        for cle, tags in saisis.items():
+            if tags:
+                existant["avions"].setdefault(cle, {})["tags"] = " · ".join(t.strip() for t in tags if t and t.strip())
+        print(f"Tags saisis en jeu recopiés : {len(saisis)} appareil(s) ({args.tags_jeu}).")
     modele = ac.construire(existant)
     ecrire(modele, existant, args.sortie)
     a = modele["appareils"]
