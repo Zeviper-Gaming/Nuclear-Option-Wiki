@@ -3,9 +3,9 @@
 Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 
 ## Reprise
-- Phase en cours : 3 Exécution — V0 faite, V1 livrée (v0.5.0-export), en attente des CSV de Florian
+- Phase en cours : 3 Exécution — V0 et V1 faites ; plan amendé v3.2 ; second export demandé ; prochaine étape V2
 - Modèle conseillé : Opus 5.5, effort medium
-- Prochaine action exacte : recevoir de Florian `NuclearOptionWiki_avions_v0.5.0.csv` et `NuclearOptionWiki_emports_v0.5.0.csv` (hangar ouvert avec tous ses mods d'avions, bouton F1 « Diagnostic → Exporter la liste des appareils → Exporter maintenant »), les déposer dans `data/dump/` et vérifier le critère V1. En attendant : V3 sur NO-stats, puis V4, V5, V6 sur données provisoires. Travailler et pousser **uniquement** sur `zv/plane_update`.
+- Prochaine action exacte : recevoir de Florian le **second export** (v0.5.0-export n° 3 : colonnes `laser_cibles`/`laser_portee`, roquettes) → remplacer `data/dump/2026-10-12_*_v0.5.0.csv`, vérifier CI-22 `laser_cibles` = 2, MiG-15 = 0, pastilles ROQUETTE présentes. En parallèle : **V2** (classeur) sur l'export actuel, puis V3, V4. Travailler et pousser **uniquement** sur `zv/plane_update`.
 - Pour reprendre : nouvelle conversation sur le bon modèle → `/planification` → joindre ce fichier (+ le plan).
 - Prérequis session cloud neuve (comme le projet armes) : `apt-get install -y dotnet-sdk-8.0`, redéposer les DLL du jeu dans `lib/` (jamais commitées), BepInEx 5.4.23.2 pour `BepInEx.dll` et `0Harmony.dll`.
 
@@ -64,7 +64,7 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 - Mini-clé de correspondance Excel ↔ identifiants internes des appareils (25 lignes seulement), déduite de l'export.
 
 ## Plan
-`docs/planification/plan-wiki-avions-no.md` — **v3.1 validé** le 2026-10-12 (v3.1 = voyant VISEURS IR ; v2 = corrections manuelles A20 ; v3 = branche, IR, description).
+`docs/planification/plan-wiki-avions-no.md` — **v3.2** (v3.1 validé le 2026-10-12, amendé le même jour après l'export V1) (v3.1 = voyant VISEURS IR ; v2 = corrections manuelles A20 ; v3 = branche, IR, description).
 
 ## Avancement de l'exécution
 - [x] Phase 1 — cadrage validé (2026-10-12)
@@ -82,6 +82,8 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 | `data/sources/NO-stats.xlsx` | Excel source (déjà au dépôt, identique au fichier joint) | existant |
 
 ## Écarts au plan et remontées
+- **Amendement v3.2 du plan (2026-10-12, décisions de Florian sur les constats de l'export V1)** : Q1 → A22, navires et véhicules de la liste du hangar = fiche masquée ; Q2 → A21 refait, le voyant compte les **cibles des désignateurs laser** intégrés (`LaserDesignator.GetMaxTargets()`, portée `range`), et non les caméras `TargetDetector` (1 par appareil) ; Q3 → 7.5, une option sans drapeau d'arme dont le projectile porte un `Missile` = ROQUETTE (AGR-18/24/37) ; Q4 → A23, emplacements sans arme non affichés, et charge max (A9) calculée sur les options à catégorie hors CARGO. Export complété (`laser_cibles`, `laser_portee`, règle des roquettes) : **second export à refaire par Florian**.
+- Info A15 : `masse_parts` concorde à ±15 % pour 12 appareils sur 21 (57 % < 80 %) → masse à vide et charge utile N/A pour OA-27, RAH-72, F-22E.
 - V0 (précisions, sans effet sur le plan) : `Aircraft` dérive de `Mirage.NetworkBehaviour` (assembly non référencé) → ses champs `EOTS` et `weaponManager` sont lus par réflexion ; les moteurs `Turbojet`/`Turbofan` portent leur IR par leurs `JetNozzle` (couverts par A11) ; les boutons de la grille ne sont créés que pour les appareils autorisés (`NotAllowed(AllowEventContent)`) ; un clic sur un appareil non pilotable (`CanFlyAircraft` faux) ne lève pas `OnSelectedAircraftChange` (le survol, RA3, couvre ce cas).
 - V1 : colonne `categorie` de l'export : catégorie principale, suivie de `|NUC` pour une arme nucléaire (ex. `BOMBE|NUC`). `canons_fixes` = total des `BuiltInWeapons` + `BuiltInTurrets` du prefab. Entrées de configuration : 10 (tests mis à jour).
 - V1, demande de Florian (2026-10-12) : les deux exports sont des **boutons** « Exporter maintenant » du menu F1 (Configuration Manager, `CustomDrawer`) au lieu de cases à cocher lues à l'ouverture du hangar (écart à A17) ; chaque appui écrit le fichier ou le **met à jour** (réécriture complète) s'il existe, et affiche le résultat à côté du bouton.
@@ -90,9 +92,4 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 - (aucun) — phase 1 menée sur Sonnet 5.5, modèle conforme.
 
 ## Questions ouvertes
-- **Q1 (constat V1)** : `Encyclopedia.aircraft` contient aussi 16 navires et véhicules jouables (navires `SHP`/`PB`, aéroglisseur `LCAC`, véhicules KAR). Hors classeur (absents de NO-stats). Que montre la fiche quand l'un d'eux est sélectionné au hangar ?
-- **Q2 (A21 contredite)** : tous les appareils ont exactement **1** viseur `TargetDetector` (y compris le F-22E « à deux EOTS ») ; seul le grossissement varie (×1 à ×5) et la portée (4,5 à 15 km). Le nombre n'apporte rien.
-- **Q3 (règle 7.5 contredite)** : les roquettes AGR-18/24/37 n'ont **aucun** drapeau `missile`/`bomb`/`gun` → aucune catégorie, la pastille ROQUETTE n'apparaît jamais. L'AGR-32 (drapeau missile) tombe en MISSILE AS.
-- **Q4 (A9 / 7.3)** : l'export n'a pas les drapeaux `tailHook`/`slingloadHook` ; des emplacements n'ont aucune option d'arme (crochets d'appontage, « - » du MC-260 qui occupe la 9ᵉ rangée).
-- Info A15 : `masse_parts` concorde à ±15 % pour 12 appareils sur 21 seulement (57 % < 80 %) → masse à vide et charge utile **N/A** pour OA-27, RAH-72, F-22E (règle appliquée telle quelle).
-- (aucune) — prochaine interaction avec Florian : fournir les DLL à l'étape V0, puis lancer l'export à l'étape V1.
+- (aucune) — Q1 à Q4 tranchées le 2026-10-12 (voir « Écarts au plan », amendement v3.2).

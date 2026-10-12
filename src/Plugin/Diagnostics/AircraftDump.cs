@@ -28,7 +28,7 @@ namespace NuclearOptionWiki.Diagnostics
             "json_key", "unit_name", "code", "evenementiel", "encyclopedie", "rang", "cout", "vmax_info", "vmax_param", "decrochage",
             "maniabilite", "g_max", "masse_vide", "masse_max", "masse_parts", "longueur", "largeur", "hauteur", "rcs", "blindage",
             "vertical", "decollage_ms", "decollage_m", "moteurs", "ir_min", "ir_max_sec", "ir_max", "viseurs", "viseur_portee",
-            "viseur_grossissement", "eots", "nb_emplacements", "nb_points", "nb_soutes", "canons_fixes", "role_surface", "role_air",
+            "viseur_grossissement", "eots", "laser_cibles", "laser_portee", "nb_emplacements", "nb_points", "nb_soutes", "canons_fixes", "role_surface", "role_air",
             "role_missile", "role_radar", "description",
         };
 
@@ -36,7 +36,7 @@ namespace NuclearOptionWiki.Diagnostics
             "json_key;set_index;set_name;points;soute;symetrie;exclut;integres;mount_jsonkey;mount_name;info_name;masse;munitions;categorie";
 
         // Aircraft dérive de Mirage.NetworkBehaviour (assembly non référencé) : ses champs sont lus par réflexion.
-        private static FieldInfo _isEventContent, _jetIrMax, _fanIrMin, _fanIrMax, _eots, _weaponManager;
+        private static FieldInfo _isEventContent, _jetIrMax, _fanIrMin, _fanIrMax, _eots, _weaponManager, _laserRange;
         private static bool _resolved;
 
         /// <summary>Écrit (ou met à jour) les deux fichiers ; renvoie un message court pour le bouton du menu F1.</summary>
@@ -114,6 +114,7 @@ namespace NuclearOptionWiki.Diagnostics
             _fanIrMax = AccessTools.Field(typeof(DuctedFan), "IRMax");
             _eots = AccessTools.Field(typeof(Aircraft), "EOTS");
             _weaponManager = AccessTools.Field(typeof(Aircraft), "weaponManager");
+            _laserRange = AccessTools.Field(typeof(LaserDesignator), "range");
             if (_isEventContent == null) Plugin.Log.LogWarning("[Wiki] UnitDefinition.isEventContent introuvable : colonne « evenementiel » vide.");
             if (_jetIrMax == null) Plugin.Log.LogWarning("[Wiki] JetNozzle.IRMax introuvable : IR sans postcombustion incomplet.");
             if (_fanIrMin == null || _fanIrMax == null) Plugin.Log.LogWarning("[Wiki] DuctedFan.IRMin/IRMax introuvables : IR des soufflantes carénées absent.");
@@ -183,6 +184,13 @@ namespace NuclearOptionWiki.Diagnostics
                         v["viseur_grossissement"] = Num(detectors.Max(d => d.GetVisualMagnification()));
                     }
                     if (aircraft != null && _eots != null) v["eots"] = Flag(_eots.GetValue(aircraft) as TargetDetector != null);
+                });
+                Section(def, "désignateurs laser", () =>
+                {
+                    // Désignateurs intégrés à l'appareil (nacelles exclues : ce sont des emports, absents du prefab).
+                    var lasers = prefab.GetComponentsInChildren<LaserDesignator>(true).Where(l => l != null).ToList();
+                    v["laser_cibles"] = lasers.Sum(l => l.GetMaxTargets()).ToString(CultureInfo.InvariantCulture);
+                    if (lasers.Count > 0 && _laserRange != null) v["laser_portee"] = Num(lasers.Max(l => (float)_laserRange.GetValue(l)));
                 });
                 Section(def, "emports", () => Hardpoints(key, prefab, aircraft, v, hardpointRows));
             }
@@ -296,6 +304,8 @@ namespace NuclearOptionWiki.Diagnostics
             f.AntiAir = i.effectiveness.antiAir;
             f.AntiSurface = i.effectiveness.antiSurface;
             f.HasSeeker = i.weaponPrefab != null && i.weaponPrefab.GetComponentInChildren<MissileSeeker>(true) != null;
+            // Missile dérive de Mirage.NetworkBehaviour : recherche non générique.
+            f.HasMissileBody = i.weaponPrefab != null && i.weaponPrefab.GetComponentInChildren(typeof(Missile), true) != null;
             return f;
         }
 

@@ -27,6 +27,7 @@ namespace NuclearOptionWiki.Tests
             UnknownWeaponTests();
             AllSheetsTests(db);
             ConfigKeyTests(root);
+            WeaponCategoryTests();
 
             Console.WriteLine(_failures == 0 ? $"OK ({_checks} vérifications)" : $"ÉCHEC : {_failures} / {_checks} vérifications");
             return _failures == 0 ? 0 : 1;
@@ -182,6 +183,27 @@ namespace NuclearOptionWiki.Tests
                 if (!AllTextsPresent(sheet)) { bad++; Console.WriteLine($"  texte manquant : {key}"); }
             }
             Eq(0, bad, $"{sheets.Count} fiches construites, structure identique et textes complets");
+        }
+
+        /// <summary>Règle 7.5 du plan avions (amendée v3.2 : roquettes sans drapeau d'arme).</summary>
+        private static void WeaponCategoryTests()
+        {
+            string Cat(WeaponFlags f) => WeaponCategories.Join(WeaponCategories.Of(f), "|");
+            Eq("CARGO", Cat(new WeaponFlags { MountCargo = true }), "cargo sans WeaponInfo");
+            Eq("", Cat(new WeaponFlags()), "option sans arme (crochet, réservoir)");
+            Eq("ROQUETTE", Cat(new WeaponFlags { HasInfo = true, HasMissileBody = true, LaserGuided = true }), "roquette AGR sans drapeau");
+            Eq("ROQUETTE", Cat(new WeaponFlags { HasInfo = true, Missile = true }), "missile sans autodirecteur");
+            Eq("MISSILE AS", Cat(new WeaponFlags { HasInfo = true, Missile = true, LaserGuided = true, HasMissileBody = true }), "AGR-32 (drapeau missile, laser)");
+            Eq("MISSILE AA", Cat(new WeaponFlags { HasInfo = true, Missile = true, HasSeeker = true, AntiAir = 1 }), "missile air-air");
+            Eq("BOMBE|NUC", Cat(new WeaponFlags { HasInfo = true, Bomb = true, Nuclear = true }), "bombe nucléaire");
+            Eq("CANON", Cat(new WeaponFlags { HasInfo = true, Gun = true, HasMissileBody = true }), "canon prioritaire");
+            Eq("BROUILLEUR", Cat(new WeaponFlags { HasInfo = true, Jammer = true }), "brouilleur");
+            Eq("CANON, MISSILE AA, BOMBE", WeaponCategories.Join(WeaponCategories.Union(new[]
+            {
+                new List<WeaponCategory> { WeaponCategory.Bombe },
+                new List<WeaponCategory> { WeaponCategory.MissileAA, WeaponCategory.Canon },
+            }), ", "), "union dans l'ordre d'affichage");
+            Eq(true, WeaponCategories.TryParse(" missile as ", out var c) && c == WeaponCategory.MissileAS, "lecture d'un libellé");
         }
 
         /// <summary>

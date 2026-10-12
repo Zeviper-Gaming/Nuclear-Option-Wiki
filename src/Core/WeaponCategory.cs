@@ -23,6 +23,8 @@ namespace NuclearOptionWiki.Core
         public bool HasInfo;
         public bool Cargo, Troops, Sling, Jammer, Energy, Gun, Bomb, GlideBomb, Missile, Nuclear;
         public bool HasSeeker, LaserGuided;
+        /// <summary>Le projectile est un corps de missile (fusée) : sert à reconnaître les roquettes AGR sans drapeau d'arme.</summary>
+        public bool HasMissileBody;
         public float AntiAir, AntiSurface;
     }
 
@@ -48,7 +50,7 @@ namespace NuclearOptionWiki.Core
             return false;
         }
 
-        /// <summary>Catégorie principale (règle 7.5, première condition vraie), ou null (réservoir, nacelle, leurres…).</summary>
+        /// <summary>Catégorie principale (règle 7.5 amendée v3.2, première condition vraie), ou null (réservoir, nacelle, leurres…).</summary>
         public static WeaponCategory? Primary(WeaponFlags f)
         {
             if (f.MountCargo || f.MountTroops || f.Cargo || f.Troops || f.Sling) return WeaponCategory.Cargo;
@@ -58,6 +60,8 @@ namespace NuclearOptionWiki.Core
             if (f.Gun) return WeaponCategory.Canon;
             if (f.Bomb || f.GlideBomb) return WeaponCategory.Bombe;
             if (f.Missile && !f.HasSeeker && !f.LaserGuided) return WeaponCategory.Roquette;
+            // Roquettes AGR-18/24/37 : aucun drapeau missile/bombe/canon dans le jeu, mais un projectile autopropulsé (amendement v3.2).
+            if (!f.Missile && f.HasMissileBody) return WeaponCategory.Roquette;
             if (f.Missile && f.AntiAir > f.AntiSurface) return WeaponCategory.MissileAA;
             if (f.Missile) return WeaponCategory.MissileAS;
             return null;
