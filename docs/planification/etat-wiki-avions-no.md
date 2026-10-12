@@ -76,6 +76,7 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
   - [x] V3 — `tools/avions_textes_v3.py` (une fois, n'écrase rien) : 24 descriptions FR, rôles (vides : **MiG-15, F-16M**), 87 noms d'emplacement traduits
   - [x] V4 — `tools/avions_vers_json.py` → `data/aircraft.json` ; contrôles chiffrés OK (CI-22 S / RCS 4 / agilité 6,5 ; MC-260 H ; F-117A RCS 0 ; FS-41 vitesse 10,0 ; correction CI-22 3000 km/h → 10,0 et FS-41 ≤ 9,6 ; champ inconnu « ignorée ») ; `mettre_a_jour.py`/`.bat` étendus
   - [x] V5 — maquette `docs/maquettes/fiche-appareil-mfd.html` (générée par `tools/maquette_appareil.py` depuis le gabarit `fiche-appareil-mfd.gabarit.html` et les vraies données) publiée : https://claude.ai/artifact/SMgExcdxf7kR2N4mj5VhLK ; captures dans `docs/maquettes/captures-appareil/` ; aucun élément sous y = 798 (CI-22, SAH-46, MC-260, F-22E) — **validée par Florian le 2026-10-12** (avec v3.3)
+  - [x] V6 — Core : `AircraftRecord`, `AircraftDatabase` (A5, A6), `LoadClass` (A7, A9, A11 v3.3, A12), `AircraftFicheModel` (A3, A4, A23, v3.3), `TagsFile` (A24), acronymes dans `WeaponCategory`, `Format.Kmh/Kg`, `TileField.Neutral` ; `tests/Core.Tests/AircraftTests.cs` (données « en jeu » reconstituées depuis l'export) → OK (185 vérifications, anciennes comprises)
 - [ ] Phase 4 — peaufinage
 
 ## Fichiers produits

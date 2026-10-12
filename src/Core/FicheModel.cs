@@ -56,6 +56,7 @@ namespace NuclearOptionWiki.Core
         public string Real;      // null = pas de ligne de valeur réelle
         public int? ColorIndex;  // null = N/A (gris)
         public bool Inverted;    // signature : note haute = mauvaise
+        public bool Neutral;     // compteur (fiche appareil) : couleur d'accent du thème, pas de note
         public bool IsNotAvailable => ColorIndex == null;
     }
 

@@ -28,6 +28,7 @@ namespace NuclearOptionWiki.Tests
             AllSheetsTests(db);
             ConfigKeyTests(root);
             WeaponCategoryTests();
+            AircraftTests.Run(root, True, (e, o, w) => Eq(e, o, w));
 
             Console.WriteLine(_failures == 0 ? $"OK ({_checks} vérifications)" : $"ÉCHEC : {_failures} / {_checks} vérifications");
             return _failures == 0 ? 0 : 1;

@@ -40,6 +40,8 @@ namespace NuclearOptionWiki.Core
             return km < 10 ? Number(km, 1) + " km" : Number(km) + " km";
         }
 
+        public static string Kmh(double kmh) => Number(kmh) + " km/h";
+        public static string Kg(double kg) => Number(kg) + " kg";
         public static string Speed(double? ms) => ms == null ? NotAvailable : Number(ms.Value) + " m/s";
         public static string Cost(double? millions) => millions == null ? NotAvailable : Number(millions.Value, 2) + " M$";
         public static string Kilograms(double? kg) => kg == null ? NotAvailable : Number(kg.Value, 1) + " kg";

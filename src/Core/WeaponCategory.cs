@@ -33,14 +33,19 @@ namespace NuclearOptionWiki.Core
         private static readonly string[] Labels =
             { "CANON", "MISSILE AA", "MISSILE AS", "ROQUETTE", "BOMBE", "NUC", "LASER", "BROUILLEUR", "CARGO" };
 
+        // Pastilles de la fiche appareil (amendement v3.3, choix de Florian).
+        private static readonly string[] Acronyms = { "CN", "AAM", "ASM", "RK", "BMB", "NK", "LZ", "EW", "TR" };
+
         public static string Label(WeaponCategory c) => Labels[(int)c];
+
+        public static string Acronym(WeaponCategory c) => Acronyms[(int)c];
 
         public static bool TryParse(string label, out WeaponCategory category)
         {
             string s = (label ?? "").Trim().ToUpperInvariant();
             for (int i = 0; i < Labels.Length; i++)
             {
-                if (Labels[i] == s)
+                if (Labels[i] == s || Acronyms[i] == s)
                 {
                     category = (WeaponCategory)i;
                     return true;
