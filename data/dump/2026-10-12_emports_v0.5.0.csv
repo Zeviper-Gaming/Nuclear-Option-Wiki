@@ -22,10 +22,10 @@ json_key;set_index;set_name;points;soute;symetrie;exclut;integres;mount_jsonkey;
 1509_palafighter1;1;CenterLine Pylon;1;0;;;0;bomb_glide1_single;PAB-80LR;info_bomb_glide1;125;1;BOMBE
 1509_palafighter1;1;CenterLine Pylon;1;0;;;0;AShM1_single;AShM-300;info_AShM1;630;1;MISSILE AS
 1509_palafighter1;1;CenterLine Pylon;1;0;;;0;AShM3_single;Tusko-B (HE);AShM3_info;685;1;MISSILE AS
-1509_palafighter1;1;CenterLine Pylon;1;0;;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;
+1509_palafighter1;1;CenterLine Pylon;1;0;;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;ROQUETTE
 1509_palafighter1;1;CenterLine Pylon;1;0;;;0;Aryx_ClusterBomb1_Single;CBO-400;Aryx_ClusterBomb1_Info;400;1;BOMBE
-1509_palafighter1;1;CenterLine Pylon;1;0;;;0;Aryx_DropTank1200;1200kg Drop Tank;Aryx_DropTank1200_Info;115;1;
-1509_palafighter1;1;CenterLine Pylon;1;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
+1509_palafighter1;1;CenterLine Pylon;1;0;;;0;Aryx_DropTank1200;1200kg Drop Tank;Aryx_DropTank1200_Info;115;1;ROQUETTE
+1509_palafighter1;1;CenterLine Pylon;1;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
 1509_palafighter1;1;CenterLine Pylon;1;0;;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
 1509_palafighter1;1;CenterLine Pylon;1;0;;;0;aryx_glidebomb400_single;PGM-400LR;Aryx_GlideBomb400_Info;500;1;BOMBE
 1509_palafighter1;1;CenterLine Pylon;1;0;;;0;Aryx_Gunpod_Swivel30mm;30mm Swivel Gunpod;Aryx_SwivelGunpod30_Info;0;300;CANON
@@ -55,17 +55,17 @@ json_key;set_index;set_name;points;soute;symetrie;exclut;integres;mount_jsonkey;
 1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;bomb_glide1_double;PAB-80LR x2;info_bomb_glide1;250;2;BOMBE
 1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;bomb_glide1_single;PAB-80LR;info_bomb_glide1;125;1;BOMBE
 1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;gunpod_20mm;20mm Autocannon (250 rounds);Gun20mm_Pod;200;250;CANON
-1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;SARAAM1_double;AAM-21 Glaive x2;SARAAM1_info;340;2;MISSILE AA
 1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;SARAAM1_single;AAM-21 Glaive;SARAAM1_info;170;1;MISSILE AA
 1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
 1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_ClusterBomb1_Single;CBO-400;Aryx_ClusterBomb1_Info;400;1;BOMBE
-1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
+1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
 1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;Aryx_FastAGM1_Info;60;1;MISSILE AS
 1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
 1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_FastAGM1_x3;AGM-27 Pyre x3;Aryx_FastAGM1_Info;180;3;MISSILE AS
 1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;aryx_glidebomb400_single;PGM-400LR;Aryx_GlideBomb400_Info;500;1;BOMBE
-1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
 1509_palafighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Triple;AGM-76 Atlatl x3;Aryx_SmallCruiseMissile1_info;400;3;MISSILE AS
 1509_palafighter1;3;Middle Wing Pylons;2;0;;;0;AAM1_single;MMR-S3;AAM1_info;120;1;MISSILE AA
@@ -77,13 +77,13 @@ json_key;set_index;set_name;points;soute;symetrie;exclut;integres;mount_jsonkey;
 1509_palafighter1;3;Middle Wing Pylons;2;0;;;0;bomb_250_glide_single;PAB-250LR;info_bomb_250_glide;270;1;BOMBE
 1509_palafighter1;3;Middle Wing Pylons;2;0;;;0;bomb_glide1_double;PAB-80LR x2;info_bomb_glide1;250;2;BOMBE
 1509_palafighter1;3;Middle Wing Pylons;2;0;;;0;bomb_glide1_single;PAB-80LR;info_bomb_glide1;125;1;BOMBE
-1509_palafighter1;3;Middle Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+1509_palafighter1;3;Middle Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 1509_palafighter1;3;Middle Wing Pylons;2;0;;;0;1509_AAM1_Backwards;3S-RMM;1509_AAM1Gelb_info;120;1;MISSILE AA
 1509_palafighter1;3;Middle Wing Pylons;2;0;;;0;SARAAM1_single;AAM-21 Glaive;SARAAM1_info;170;1;MISSILE AA
 1509_palafighter1;3;Middle Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
 1509_palafighter1;3;Middle Wing Pylons;2;0;;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;Aryx_FastAGM1_Info;60;1;MISSILE AS
 1509_palafighter1;3;Middle Wing Pylons;2;0;;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
-1509_palafighter1;3;Middle Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+1509_palafighter1;3;Middle Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 1509_palafighter1;3;Middle Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
 1509_palafighter1;4;Outer Wing Pylons;2;0;;;0;AAM1_single;MMR-S3;AAM1_info;120;1;MISSILE AA
 1509_palafighter1;4;Outer Wing Pylons;2;0;;;0;bomb_250_single;PAB-250;info_bomb_250_1;250;1;BOMBE
@@ -91,7 +91,7 @@ json_key;set_index;set_name;points;soute;symetrie;exclut;integres;mount_jsonkey;
 1509_palafighter1;4;Outer Wing Pylons;2;0;;;0;1509_AAM1_Backwards;3S-RMM;1509_AAM1Gelb_info;120;1;MISSILE AA
 1509_palafighter1;4;Outer Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
 1509_palafighter1;4;Outer Wing Pylons;2;0;;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;Aryx_FastAGM1_Info;60;1;MISSILE AS
-1509_palafighter1;4;Outer Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+1509_palafighter1;4;Outer Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 1509_palafighter1;4;Outer Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
 1509_palafighter1;5;Wingtip;2;0;;;0;AAM2_single;AAM-29 Scythe;AAM2_info;185;1;MISSILE AA
 1509_palafighter1;5;Wingtip;2;0;;;0;AAM1_single;MMR-S3;AAM1_info;120;1;MISSILE AA
@@ -105,7 +105,7 @@ Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;ARM1_double;ARAD-116 x2;ARM1_info;850;2;M
 Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;AGM_heavy_triple;AGM-68 x3;info_AGM_heavy;750;3;MISSILE AS
 Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;AShM2_double;AGM-99 x2;AShM2_info;960;2;MISSILE AS
 Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;AShM1x2;AShM-300 x2;info_AShM1;1230;2;MISSILE AS
-Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;Rocket2_4Podx3;AGR-24 Kingpin x12;info_rocket2;876;12;
+Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;Rocket2_4Podx3;AGR-24 Kingpin x12;info_rocket2;876;12;ROQUETTE
 Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;bomb_glide1_quad;PAB-80LR x4;info_bomb_glide1;500;4;BOMBE
 Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;AGM1_quad;AGM-48 x4;info_AGM1;200;4;MISSILE AS
 Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;bomb_500_double;GPO-500 x2;info_blastFrag500;1000;2;BOMBE
@@ -113,9 +113,9 @@ Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;bomb_500_glide_single;GBM-500LR;info_bomb
 Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;bomb_250_triple;PAB-250 x3;info_bomb_250_1;750;3;BOMBE
 Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;bomb_250_glide_double;PAB-250LR x2;info_bomb_250_glide;540;2;BOMBE
 Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;JammingPod1;Radar Jamming Pod;JammingPod1;420;1;BROUILLEUR
-Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;
+Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;ROQUETTE
 Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;Aryx_ClusterBomb1_Double;CBO-400 x2;Aryx_ClusterBomb1_Info;800;2;BOMBE
-Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;Aryx_DropTank2000;2000kg Drop Tank;Aryx_DropTank2000_Info;115;1;
+Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;Aryx_DropTank2000;2000kg Drop Tank;Aryx_DropTank2000_Info;115;1;ROQUETTE
 Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;Aryx_FastAShM1_Single;AGM-111 Nemesis;Aryx_FastAShM1_Info;2450;1;MISSILE AS
 Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;aryx_glidebomb400_double;PGM-400LR x2;Aryx_GlideBomb400_Info;1000;2;BOMBE
 Aryx_CargoPlane1;0;Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Quad;AGM-76 Atlatl x4;Aryx_SmallCruiseMissile1_info;525;4;MISSILE AS
@@ -200,14 +200,14 @@ Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;nuclearBomb1_strategic_external;G
 Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;bomb_125_double;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
 Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;bomb_glide1_double_line;PAB-80LR x2;info_bomb_glide1;250;2;BOMBE
 Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;AShM3_single;Tusko-B (HE);AShM3_info;685;1;MISSILE AS
-Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;
+Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;ROQUETTE
 Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;Aryx_ClusterBomb1_Single;CBO-400;Aryx_ClusterBomb1_Info;400;1;BOMBE
-Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
+Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
 Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;Aryx_ExternalFlareLauncher32;ECS-32 Flare Dispenser;Aryx_ExternalFlareLauncher32_Info;200;0;
 Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;aryx_glidebomb400_single;PGM-400LR;Aryx_GlideBomb400_Info;500;1;BOMBE
 Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;Aryx_Gunpod_Swivel30mm;30mm Swivel Gunpod;Aryx_SwivelGunpod30_Info;0;300;CANON
-Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
 Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;Aryx_SmallCruiseMissile1_Triple;AGM-76 Atlatl x3;Aryx_SmallCruiseMissile1_info;400;3;MISSILE AS
 Aryx_F16M_KingViper;1;Centreline Pylon;1;0;;;0;Aryx_SmallJammingPod;AEC-124 Offensive Jammer;Aryx_SmallJammingPod_Info;420;1;BROUILLEUR
@@ -226,13 +226,13 @@ Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;bomb_glide1_double_line;PAB-80LR
 Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;bomb_glide1_quad;PAB-80LR x4;info_bomb_glide1;500;4;BOMBE
 Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
 Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;Aryx_ClusterBomb1_Single;CBO-400;Aryx_ClusterBomb1_Info;400;1;BOMBE
-Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;Aryx_DropTank1200;1200kg Drop Tank;Aryx_DropTank1200_Info;115;1;
+Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;Aryx_DropTank1200;1200kg Drop Tank;Aryx_DropTank1200_Info;115;1;ROQUETTE
 Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;Aryx_FastAGM1_Info;60;1;MISSILE AS
 Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
 Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;Aryx_FastAGM1_x3;AGM-27 Pyre x3;Aryx_FastAGM1_Info;180;3;MISSILE AS
-Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
-Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x3;AGR-37 Jester x3;Aryx_HeavyRocket1_info;355;3;
+Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
+Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x3;AGR-37 Jester x3;Aryx_HeavyRocket1_info;355;3;ROQUETTE
 Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
 Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Quad;AGM-76 Atlatl x4;Aryx_SmallCruiseMissile1_info;525;4;MISSILE AS
 Aryx_F16M_KingViper;2;Inner Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
@@ -245,8 +245,8 @@ Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;AGM1_triple;AGM-48 x3;info_AGM1;15
 Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;AGM_heavy_triple;AGM-68 x3;info_AGM_heavy;750;3;MISSILE AS
 Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;AGM_heavy_single;AGM-68;info_AGM_heavy;250;1;MISSILE AS
 Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;AGM_heavyx2;AGM-68 x2;info_AGM_heavy;500;2;MISSILE AS
-Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;RocketPod1_triple;AGR-18 Lynchpin x21;info_rocket1;381;21;
-Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;Rocket2_4Podx3;AGR-24 Kingpin x12;info_rocket2;876;12;
+Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;RocketPod1_triple;AGR-18 Lynchpin x21;info_rocket1;381;21;ROQUETTE
+Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;Rocket2_4Podx3;AGR-24 Kingpin x12;info_rocket2;876;12;ROQUETTE
 Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;ARM1_single;ARAD-116;ARM1_info;425;1;MISSILE AS
 Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;AShM1_single;AShM-300;info_AShM1;630;1;MISSILE AS
 Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;AShM2_double;AGM-99 x2;AShM2_info;960;2;MISSILE AS
@@ -269,13 +269,13 @@ Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;AShM3_single;Tusko-B (HE);AShM3_in
 Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;SARAAM1_double;AAM-21 Glaive x2;SARAAM1_info;340;2;MISSILE AA
 Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;SARAAM1_single;AAM-21 Glaive;SARAAM1_info;170;1;MISSILE AA
 Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
-Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
+Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
 Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;Aryx_FastAGM1_Info;60;1;MISSILE AS
 Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
 Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;Aryx_FastAGM1_x3;AGM-27 Pyre x3;Aryx_FastAGM1_Info;180;3;MISSILE AS
 Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;aryx_glidebomb400_single;PGM-400LR;Aryx_GlideBomb400_Info;500;1;BOMBE
-Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;Aryx_LRIRM1_Single;MRM-S4 Broadsword;Aryx_LRIRM1_info;115;1;MISSILE AA
 Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;Aryx_SRIRM1_Single;IRM-S5 Gladius;Aryx_SRIRM1_info;75;1;MISSILE AA
 Aryx_F16M_KingViper;3;Mid Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
@@ -284,8 +284,8 @@ Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;AAM2_single;AAM-29 Scythe;AAM2_i
 Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;AAM4_single;AAM-36 Scimitar;AAM4_info;240;1;MISSILE AA
 Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;AGM1_single;AGM-48;info_AGM1;50;1;MISSILE AS
 Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
-Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
-Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
+Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;AAM3_single;IRM-S2;AAM3_info;75;1;MISSILE AA
 Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;AAM1_single;MMR-S3;AAM1_info;120;1;MISSILE AA
 Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;bomb_125_double;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
@@ -298,7 +298,7 @@ Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Ary
 Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;Aryx_ExternalFlareLauncher16;ECS-16 Flare Dispenser;Aryx_ExternalFlareLauncher16_Info;200;0;
 Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;Aryx_FastAGM1_Info;60;1;MISSILE AS
 Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
-Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
+Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
 Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;Aryx_LRIRM1_Single;MRM-S4 Broadsword;Aryx_LRIRM1_info;115;1;MISSILE AA
 Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;Aryx_SRIRM1_Single;IRM-S5 Gladius;Aryx_SRIRM1_info;75;1;MISSILE AA
 Aryx_F16M_KingViper;4;Outer Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
@@ -395,16 +395,16 @@ Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;SARAAM1_triple;AAM-21 Glaive 
 Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;SARAAM1_single;AAM-21 Glaive;SARAAM1_info;170;1;MISSILE AA
 Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_double;ARAD-45 x2;Aryx_Wep_ARM2_Info;395;2;MISSILE AS
 Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
-Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;
+Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;ROQUETTE
 Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;Aryx_ClusterBomb1_Double;CBO-400 x2;Aryx_ClusterBomb1_Info;800;2;BOMBE
-Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;Aryx_DropTank1200;1200kg Drop Tank;Aryx_DropTank1200_Info;115;1;
-Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;Aryx_DropTank2000;2000kg Drop Tank;Aryx_DropTank2000_Info;115;1;
+Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;Aryx_DropTank1200;1200kg Drop Tank;Aryx_DropTank1200_Info;115;1;ROQUETTE
+Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;Aryx_DropTank2000;2000kg Drop Tank;Aryx_DropTank2000_Info;115;1;ROQUETTE
 Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;Aryx_FastAGM1_Info;60;1;MISSILE AS
 Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
 Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;Aryx_FastAGM1_x3;AGM-27 Pyre x3;Aryx_FastAGM1_Info;180;3;MISSILE AS
 Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;Aryx_FastAShM1_Single;AGM-111 Nemesis;Aryx_FastAShM1_Info;2450;1;MISSILE AS
 Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;aryx_glidebomb400_double;PGM-400LR x2;Aryx_GlideBomb400_Info;1000;2;BOMBE
-Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;Aryx_LRIRM1_Double;MRM-S4 Broadsword x2;Aryx_LRIRM1_info;210;2;MISSILE AA
 Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;Aryx_LRIRM1_Triple;MRM-S4 Broadsword x3;Aryx_LRIRM1_info;300;3;MISSILE AA
 Aryx_F22E_StrikeRaptor;8;Inner Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
@@ -439,7 +439,7 @@ Aryx_F22E_StrikeRaptor;9;Outer Wing Pylons;2;0;;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;
 Aryx_F22E_StrikeRaptor;9;Outer Wing Pylons;2;0;;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
 Aryx_F22E_StrikeRaptor;9;Outer Wing Pylons;2;0;;;0;Aryx_FastAGM1_x3;AGM-27 Pyre x3;Aryx_FastAGM1_Info;180;3;MISSILE AS
 Aryx_F22E_StrikeRaptor;9;Outer Wing Pylons;2;0;;;0;aryx_glidebomb400_double;PGM-400LR x2;Aryx_GlideBomb400_Info;1000;2;BOMBE
-Aryx_F22E_StrikeRaptor;9;Outer Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+Aryx_F22E_StrikeRaptor;9;Outer Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 Aryx_F22E_StrikeRaptor;9;Outer Wing Pylons;2;0;;;0;Aryx_LRIRM1_Double;MRM-S4 Broadsword x2;Aryx_LRIRM1_info;210;2;MISSILE AA
 Aryx_F22E_StrikeRaptor;9;Outer Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
 Aryx_F22E_StrikeRaptor;9;Outer Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Quad;AGM-76 Atlatl x4;Aryx_SmallCruiseMissile1_info;525;4;MISSILE AS
@@ -502,8 +502,8 @@ Aryx_Interceptor1;5;Wing Glove Pylons;2;0;;;0;bomb_glide1_quad;PAB-80LR x4;info_
 Aryx_Interceptor1;5;Wing Glove Pylons;2;0;;;0;SARAAM1_double;AAM-21 Glaive x2;SARAAM1_info;340;2;MISSILE AA
 Aryx_Interceptor1;5;Wing Glove Pylons;2;0;;;0;SARAAM1_single;AAM-21 Glaive;SARAAM1_info;170;1;MISSILE AA
 Aryx_Interceptor1;5;Wing Glove Pylons;2;0;;;0;Aryx_ClusterBomb1_Double;CBO-400 x2;Aryx_ClusterBomb1_Info;800;2;BOMBE
-Aryx_Interceptor1;5;Wing Glove Pylons;2;0;;;0;Aryx_DropTank1200;1200kg Drop Tank;Aryx_DropTank1200_Info;115;1;
-Aryx_Interceptor1;5;Wing Glove Pylons;2;0;;;0;Aryx_DropTank2000;2000kg Drop Tank;Aryx_DropTank2000_Info;115;1;
+Aryx_Interceptor1;5;Wing Glove Pylons;2;0;;;0;Aryx_DropTank1200;1200kg Drop Tank;Aryx_DropTank1200_Info;115;1;ROQUETTE
+Aryx_Interceptor1;5;Wing Glove Pylons;2;0;;;0;Aryx_DropTank2000;2000kg Drop Tank;Aryx_DropTank2000_Info;115;1;ROQUETTE
 Aryx_Interceptor1;5;Wing Glove Pylons;2;0;;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;Aryx_FastAGM1_Info;60;1;MISSILE AS
 Aryx_Interceptor1;5;Wing Glove Pylons;2;0;;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
 Aryx_Interceptor1;5;Wing Glove Pylons;2;0;;;0;Aryx_FastAGM1_x3;AGM-27 Pyre x3;Aryx_FastAGM1_Info;180;3;MISSILE AS
@@ -513,7 +513,6 @@ Aryx_Interceptor1;5;Wing Glove Pylons;2;0;;;0;Aryx_LRIRM1_Single;MRM-S4 Broadswo
 Aryx_Interceptor1;5;Wing Glove Pylons;2;0;;;0;Aryx_LRIRM1_Triple;MRM-S4 Broadsword x3;Aryx_LRIRM1_info;300;3;MISSILE AA
 Aryx_Interceptor1;5;Wing Glove Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Quad;AGM-76 Atlatl x4;Aryx_SmallCruiseMissile1_info;525;4;MISSILE AS
 Aryx_Interceptor1;5;Wing Glove Pylons;2;0;;;0;Aryx_SmallJammingPod;AEC-124 Offensive Jammer;Aryx_SmallJammingPod_Info;420;1;BROUILLEUR
-Aryx_Interceptor1;5;Wing Glove Pylons;2;0;;;0;TorpedoLight_double;Type-88 'Lemon' x2;TorpedoLight_info;960;2;MISSILE AS
 Aryx_Interceptor1;6;Wing Pylons;2;0;;;0;Aryx_Interceptor1_AAM2_Triple_Compact_Event;AAM-29 Scythe x3;AAM2_info;555;3;MISSILE AA
 Aryx_Interceptor1;6;Wing Pylons;2;0;;;0;AAM2_double;AAM-29 Scythe x2;AAM2_info;370;2;MISSILE AA
 Aryx_Interceptor1;6;Wing Pylons;2;0;;;0;AAM2_single;AAM-29 Scythe;AAM2_info;185;1;MISSILE AA
@@ -536,7 +535,6 @@ Aryx_Interceptor1;6;Wing Pylons;2;0;;;0;Aryx_LRIRM1_Single;MRM-S4 Broadsword;Ary
 Aryx_Interceptor1;6;Wing Pylons;2;0;;;0;Aryx_SRIRM1_Double;IRM-S5 Gladius x2;Aryx_SRIRM1_info;125;2;MISSILE AA
 Aryx_Interceptor1;6;Wing Pylons;2;0;;;0;Aryx_SRIRM1_Single;IRM-S5 Gladius;Aryx_SRIRM1_info;75;1;MISSILE AA
 Aryx_Interceptor1;6;Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Triple;AGM-76 Atlatl x3;Aryx_SmallCruiseMissile1_info;400;3;MISSILE AS
-Aryx_Interceptor1;6;Wing Pylons;2;0;;;0;TorpedoLight_single;Type-88 'Lemon';TorpedoLight_info;480;1;MISSILE AS
 Aryx_Interceptor1;7;Tail Hook;1;0;;;0;Aryx_Interceptor1_Tailhook;Tail Hook;;75;0;
 Aryx_LightFighter1;0;Internal Guns;2;0;;;0;aryx_lf1_20mm_autocannon;20mm Autocannon (500 rounds);Aryx_LightFighter1_20mm_AC_Info;100;500;CANON
 Aryx_LightFighter1;1;Weapon Bay;1;1;;4;0;AAM1_double_internal;MMR-S3 x2;AAM1_info;200;2;MISSILE AA
@@ -562,17 +560,17 @@ Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;bomb_125_quad;PAB-125 x4;info_bom
 Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;bomb_glide1_quad;PAB-80LR x4;info_bomb_glide1;500;4;BOMBE
 Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;AGM_heavy_single;AGM-68;info_AGM_heavy;250;1;MISSILE AS
 Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;AShM2_single;AGM-99;AShM2_info;480;1;MISSILE AS
-Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
 Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;gunpod_20mm;20mm Autocannon (250 rounds);Gun20mm_Pod;200;250;CANON
 Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;SARAAM1_single;AAM-21 Glaive;SARAAM1_info;170;1;MISSILE AA
 Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
 Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_ClusterBomb1_Single;CBO-400;Aryx_ClusterBomb1_Info;400;1;BOMBE
-Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
+Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
 Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;Aryx_FastAGM1_Info;60;1;MISSILE AS
 Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
-Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
-Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x3;AGR-37 Jester x3;Aryx_HeavyRocket1_info;355;3;
+Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
+Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x3;AGR-37 Jester x3;Aryx_HeavyRocket1_info;355;3;ROQUETTE
 Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_LRIRM1_Single;MRM-S4 Broadsword;Aryx_LRIRM1_info;115;1;MISSILE AA
 Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_SRIRM1_Single;IRM-S5 Gladius;Aryx_SRIRM1_info;75;1;MISSILE AA
 Aryx_LightFighter1;2;Inner Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
@@ -586,17 +584,17 @@ Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;bomb_250_single;PAB-250;info_bomb
 Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;bomb_125_single;PAB-125;info_bomb_125_1;125;1;BOMBE
 Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;bomb_125_double;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
 Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;bomb_glide1_double;PAB-80LR x2;info_bomb_glide1;250;2;BOMBE
-Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;AGM_heavy_single;AGM-68;info_AGM_heavy;250;1;MISSILE AS
 Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
 Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;SARAAM1_single;AAM-21 Glaive;SARAAM1_info;170;1;MISSILE AA
 Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
-Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
+Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
 Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;Aryx_ExternalFlareLauncher16;ECS-16 Flare Dispenser;Aryx_ExternalFlareLauncher16_Info;200;0;
 Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;Aryx_ExternalFlareLauncher32;ECS-32 Flare Dispenser;Aryx_ExternalFlareLauncher32_Info;200;0;
 Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;Aryx_FastAGM1_Info;60;1;MISSILE AS
 Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
-Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;Aryx_LRIRM1_Single;MRM-S4 Broadsword;Aryx_LRIRM1_info;115;1;MISSILE AA
 Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;Aryx_SRIRM1_Single;IRM-S5 Gladius;Aryx_SRIRM1_info;75;1;MISSILE AA
 Aryx_LightFighter1;3;Outer Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
@@ -607,9 +605,9 @@ Aryx_LightFighter1;4;Centreline Pylon;1;0;;1;0;ARM1_single;ARAD-116;ARM1_info;42
 Aryx_LightFighter1;4;Centreline Pylon;1;0;;1;0;bomb_500_single;GPO-500;info_blastFrag500;500;1;BOMBE
 Aryx_LightFighter1;4;Centreline Pylon;1;0;;1;0;aryx_lf1_bomb_cluster1_single;CBO-400;Aryx_LightFighter1_ClusterBomb1_Info;400;1;BOMBE
 Aryx_LightFighter1;4;Centreline Pylon;1;0;;1;0;SARAAM1_double;AAM-21 Glaive x2;SARAAM1_info;340;2;MISSILE AA
-Aryx_LightFighter1;4;Centreline Pylon;1;0;;1;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;
+Aryx_LightFighter1;4;Centreline Pylon;1;0;;1;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;ROQUETTE
 Aryx_LightFighter1;4;Centreline Pylon;1;0;;1;0;Aryx_ClusterBomb1_Single;CBO-400;Aryx_ClusterBomb1_Info;400;1;BOMBE
-Aryx_LightFighter1;4;Centreline Pylon;1;0;;1;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
+Aryx_LightFighter1;4;Centreline Pylon;1;0;;1;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
 Aryx_LightFighter1;4;Centreline Pylon;1;0;;1;0;aryx_glidebomb400_single;PGM-400LR;Aryx_GlideBomb400_Info;500;1;BOMBE
 Aryx_LightFighter1;4;Centreline Pylon;1;0;;1;0;Aryx_Gunpod_Swivel30mm;30mm Swivel Gunpod;Aryx_SwivelGunpod30_Info;0;300;CANON
 Aryx_LightFighter1;4;Centreline Pylon;1;0;;1;0;Aryx_SmallCruiseMissile1_Quad;AGM-76 Atlatl x4;Aryx_SmallCruiseMissile1_info;525;4;MISSILE AS
@@ -626,13 +624,13 @@ Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;AAM3_single;IR
 Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;IRMS1_single;IRM-S1;info_SAM_IR1;20;1;MISSILE AA
 Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;IRMS1_double;IRM-S1 x2;info_SAM_IR1;40;2;MISSILE AA
 Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;AGM_heavy_single;AGM-68;info_AGM_heavy;250;1;MISSILE AS
-Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
-Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
-Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;RocketPod1_triple;AGR-18 Lynchpin x21;info_rocket1;381;21;
+Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
+Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
+Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;RocketPod1_triple;AGR-18 Lynchpin x21;info_rocket1;381;21;ROQUETTE
 Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
 Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
-Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 Aryx_LightHelicopter1;0;Inner Left Pylon;1;0;Inner Wing Pylons;;0;Aryx_SmallJammingPod;AEC-124 Offensive Jammer;Aryx_SmallJammingPod_Info;420;1;BROUILLEUR
 Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
 Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;AGM1_triple;AGM-48 x3;info_AGM1;150;3;MISSILE AS
@@ -644,13 +642,13 @@ Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;AAM3_single;I
 Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;IRMS1_single;IRM-S1;info_SAM_IR1;20;1;MISSILE AA
 Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;IRMS1_double;IRM-S1 x2;info_SAM_IR1;40;2;MISSILE AA
 Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;AGM_heavy_single;AGM-68;info_AGM_heavy;250;1;MISSILE AS
-Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
-Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
-Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;RocketPod1_triple;AGR-18 Lynchpin x21;info_rocket1;381;21;
+Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
+Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
+Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;RocketPod1_triple;AGR-18 Lynchpin x21;info_rocket1;381;21;ROQUETTE
 Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
 Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
-Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 Aryx_LightHelicopter1;1;Inner Right Pylon;1;0;Inner Wing Pylons;;0;Aryx_SmallJammingPod;AEC-124 Offensive Jammer;Aryx_SmallJammingPod_Info;420;1;BROUILLEUR
 Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;AGM1_single;AGM-48;info_AGM1;50;1;MISSILE AS
 Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
@@ -659,12 +657,12 @@ Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;AAM3_single;IR
 Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;IRMS1_single;IRM-S1;info_SAM_IR1;20;1;MISSILE AA
 Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;IRMS1_double;IRM-S1 x2;info_SAM_IR1;40;2;MISSILE AA
 Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;AGM_heavy_single;AGM-68;info_AGM_heavy;250;1;MISSILE AS
-Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
-Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
-Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;Aryx_LightHeli1_RocketPod_Double;AGR-18 Lynchpin x14;info_rocket1;254;14;
+Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
+Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
+Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;Aryx_LightHeli1_RocketPod_Double;AGR-18 Lynchpin x14;info_rocket1;254;14;ROQUETTE
 Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
-Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+Aryx_LightHelicopter1;2;Outer Left Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;AGM1_single;AGM-48;info_AGM1;50;1;MISSILE AS
 Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
 Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;ATGM1_quad;AT-145 x4;GTG1_info;80;4;MISSILE AS
@@ -672,12 +670,12 @@ Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;AAM3_single;I
 Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;IRMS1_single;IRM-S1;info_SAM_IR1;20;1;MISSILE AA
 Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;IRMS1_double;IRM-S1 x2;info_SAM_IR1;40;2;MISSILE AA
 Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;AGM_heavy_single;AGM-68;info_AGM_heavy;250;1;MISSILE AS
-Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
-Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
-Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;Aryx_LightHeli1_RocketPod_Double;AGR-18 Lynchpin x14;info_rocket1;254;14;
+Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
+Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
+Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;Aryx_LightHeli1_RocketPod_Double;AGR-18 Lynchpin x14;info_rocket1;254;14;ROQUETTE
 Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
-Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+Aryx_LightHelicopter1;3;Outer Right Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 Aryx_LightHelicopter1;4;Left Internal Bay;1;1;Internal Bays;;0;IRMS1_internalx2;IRM-S1 x2;info_SAM_IR1;20;2;MISSILE AA
 Aryx_LightHelicopter1;4;Left Internal Bay;1;1;Internal Bays;;0;Aryx_LightHeli1_AGMScanner1_Double_Internal;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
 Aryx_LightHelicopter1;4;Left Internal Bay;1;1;Internal Bays;;0;Aryx_LightHeli1_ATGM1_Quad_Internal;AT-145 x4;GTG1_info;80;4;MISSILE AS
@@ -692,8 +690,8 @@ Aryx_MiG-15;1;Right Internal Cannon;1;0;;;0;Aryx_MiG15_Gun27mm;37mm Autocannon (
 Aryx_MiG-15;2;Wing Pylons;2;0;;;0;bomb_125_single;PAB-125;info_bomb_125_1;125;1;BOMBE
 Aryx_MiG-15;2;Wing Pylons;2;0;;;0;bomb_250_single;PAB-250;info_bomb_250_1;250;1;BOMBE
 Aryx_MiG-15;2;Wing Pylons;2;0;;;0;AAM3_single;IRM-S2;AAM3_info;75;1;MISSILE AA
-Aryx_MiG-15;2;Wing Pylons;2;0;;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
-Aryx_MiG-15;2;Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+Aryx_MiG-15;2;Wing Pylons;2;0;;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
+Aryx_MiG-15;2;Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 Aryx_MiG-15;2;Wing Pylons;2;0;;;0;ECMPod1;ECM Pod;;200;1000;
 Aryx_MiG-15;3;Tail Hook;1;0;;;0;TailHook_AryxMiG15;Tail Hook;;50;0;
 Aryx_PropAttacker1;0;Internal Guns;2;0;;;0;Aryx_PropAttacker1_14.5mm_internal;14.5mm Machine Gun (500 rounds);Aryx_PropAttacker1_14.5mm_info;100;500;CANON
@@ -704,13 +702,13 @@ Aryx_PropAttacker1;1;Centreline Pylon;1;0;;;0;bomb_250_single;PAB-250;info_bomb_
 Aryx_PropAttacker1;1;Centreline Pylon;1;0;;;0;bomb_125_double_line;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
 Aryx_PropAttacker1;1;Centreline Pylon;1;0;;;0;AGM_heavy_single;AGM-68;info_AGM_heavy;250;1;MISSILE AS
 Aryx_PropAttacker1;1;Centreline Pylon;1;0;;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
-Aryx_PropAttacker1;1;Centreline Pylon;1;0;;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;
+Aryx_PropAttacker1;1;Centreline Pylon;1;0;;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;ROQUETTE
 Aryx_PropAttacker1;1;Centreline Pylon;1;0;;;0;Aryx_ClusterBomb1_Single;CBO-400;Aryx_ClusterBomb1_Info;400;1;BOMBE
 Aryx_PropAttacker1;1;Centreline Pylon;1;0;;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
 Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;AGM1_single;AGM-48;info_AGM1;50;1;MISSILE AS
 Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
-Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
-Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
+Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;bomb_125_double;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
 Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
 Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;bomb_250_single;PAB-250;info_bomb_250_1;250;1;BOMBE
@@ -720,14 +718,14 @@ Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;Gunpod12.7mm;12.7mm Ma
 Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;IRMS1_single;IRM-S1;info_SAM_IR1;20;1;MISSILE AA
 Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;IRMS1_double;IRM-S1 x2;info_SAM_IR1;40;2;MISSILE AA
 Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;ECMPod1;ECM Pod;;200;1000;
-Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
 Aryx_PropAttacker1;2;Inner Left Pylon;1;0;Inner Pylons;;0;Aryx_ExternalTargetingPod;ETS-15 Targeting Pod;Aryx_ExternalTargetingPod_Info;200;0;
 Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;AGM1_single;AGM-48;info_AGM1;50;1;MISSILE AS
 Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
-Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
-Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
+Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;bomb_125_double;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
 Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
 Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;bomb_250_single;PAB-250;info_bomb_250_1;250;1;BOMBE
@@ -737,39 +735,39 @@ Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;Gunpod12.7mm;12.7mm M
 Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;IRMS1_single;IRM-S1;info_SAM_IR1;20;1;MISSILE AA
 Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;IRMS1_double;IRM-S1 x2;info_SAM_IR1;40;2;MISSILE AA
 Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;ECMPod1;ECM Pod;;200;1000;
-Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
 Aryx_PropAttacker1;3;Inner Right Pylon;1;0;Inner Pylons;;0;Aryx_ExternalTargetingPod;ETS-15 Targeting Pod;Aryx_ExternalTargetingPod_Info;200;0;
 Aryx_PropAttacker1;4;Outer Left Pylon;1;0;Outer Pylons;;0;AGM1_single;AGM-48;info_AGM1;50;1;MISSILE AS
 Aryx_PropAttacker1;4;Outer Left Pylon;1;0;Outer Pylons;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
-Aryx_PropAttacker1;4;Outer Left Pylon;1;0;Outer Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
-Aryx_PropAttacker1;4;Outer Left Pylon;1;0;Outer Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+Aryx_PropAttacker1;4;Outer Left Pylon;1;0;Outer Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
+Aryx_PropAttacker1;4;Outer Left Pylon;1;0;Outer Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 Aryx_PropAttacker1;4;Outer Left Pylon;1;0;Outer Pylons;;0;bomb_125_double;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
 Aryx_PropAttacker1;4;Outer Left Pylon;1;0;Outer Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
 Aryx_PropAttacker1;4;Outer Left Pylon;1;0;Outer Pylons;;0;bomb_250_single;PAB-250;info_bomb_250_1;250;1;BOMBE
 Aryx_PropAttacker1;4;Outer Left Pylon;1;0;Outer Pylons;;0;ATGM1_quad;AT-145 x4;GTG1_info;80;4;MISSILE AS
 Aryx_PropAttacker1;4;Outer Left Pylon;1;0;Outer Pylons;;0;IRMS1_single;IRM-S1;info_SAM_IR1;20;1;MISSILE AA
 Aryx_PropAttacker1;4;Outer Left Pylon;1;0;Outer Pylons;;0;Gunpod12.7mm;12.7mm Machine Gun (500 rounds);Gun12.7mm;100;500;CANON
-Aryx_PropAttacker1;4;Outer Left Pylon;1;0;Outer Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
+Aryx_PropAttacker1;4;Outer Left Pylon;1;0;Outer Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
 Aryx_PropAttacker1;4;Outer Left Pylon;1;0;Outer Pylons;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
 Aryx_PropAttacker1;5;Outer Right Pylon;1;0;Outer Pylons;;0;AGM1_single;AGM-48;info_AGM1;50;1;MISSILE AS
 Aryx_PropAttacker1;5;Outer Right Pylon;1;0;Outer Pylons;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
-Aryx_PropAttacker1;5;Outer Right Pylon;1;0;Outer Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
-Aryx_PropAttacker1;5;Outer Right Pylon;1;0;Outer Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+Aryx_PropAttacker1;5;Outer Right Pylon;1;0;Outer Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
+Aryx_PropAttacker1;5;Outer Right Pylon;1;0;Outer Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 Aryx_PropAttacker1;5;Outer Right Pylon;1;0;Outer Pylons;;0;bomb_125_double;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
 Aryx_PropAttacker1;5;Outer Right Pylon;1;0;Outer Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
 Aryx_PropAttacker1;5;Outer Right Pylon;1;0;Outer Pylons;;0;bomb_250_single;PAB-250;info_bomb_250_1;250;1;BOMBE
 Aryx_PropAttacker1;5;Outer Right Pylon;1;0;Outer Pylons;;0;ATGM1_quad;AT-145 x4;GTG1_info;80;4;MISSILE AS
 Aryx_PropAttacker1;5;Outer Right Pylon;1;0;Outer Pylons;;0;IRMS1_single;IRM-S1;info_SAM_IR1;20;1;MISSILE AA
 Aryx_PropAttacker1;5;Outer Right Pylon;1;0;Outer Pylons;;0;Gunpod12.7mm;12.7mm Machine Gun (500 rounds);Gun12.7mm;100;500;CANON
-Aryx_PropAttacker1;5;Outer Right Pylon;1;0;Outer Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
+Aryx_PropAttacker1;5;Outer Right Pylon;1;0;Outer Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
 Aryx_PropAttacker1;5;Outer Right Pylon;1;0;Outer Pylons;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
 Aryx_PropAttacker1;6;Wingtip Pylons;2;0;;;0;AGM1_single;AGM-48;info_AGM1;50;1;MISSILE AS
 Aryx_PropAttacker1;6;Wingtip Pylons;2;0;;;0;AAM3_single;IRM-S2;AAM3_info;75;1;MISSILE AA
 Aryx_PropAttacker1;6;Wingtip Pylons;2;0;;;0;ECMPod1;ECM Pod;;200;1000;
 Aryx_PropAttacker1;6;Wingtip Pylons;2;0;;;0;Aryx_ExternalFlareLauncher32;ECS-32 Flare Dispenser;Aryx_ExternalFlareLauncher32_Info;200;0;
-Aryx_PropAttacker1;6;Wingtip Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
+Aryx_PropAttacker1;6;Wingtip Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
 AssaultKarrier;0;Main Cannon;1;0;;;0;76mm;76mm Cannon (3 rounds);Gun76mm_Guided_Naval;0;3;CANON
 AssaultKarrier;0;Main Cannon;1;0;;;0;frigate_40;40mm Cannon (1000 rounds);Gun40mm_Naval_Player;0;1000;CANON
 AssaultKarrier;0;Main Cannon;1;0;;;0;frigate_57;57mm Cannon (1000 rounds);Gun57mm_SPAAGx4_Player;0;1000;CANON
@@ -820,39 +818,39 @@ AttackHelo1;0;Chin Turret;1;0;;;2;turret_30mmHE_750;30mm HE x750;Gun30mm_Rotary_
 AttackHelo1;1;Internal Bays;2;1;;;0;AGM1_quad_internal;AGM-48 x4;info_AGM1;200;4;MISSILE AS
 AttackHelo1;1;Internal Bays;2;1;;;0;AGM2_internalx4;ATP-1 x4;info_AGM2;180;4;MISSILE AS
 AttackHelo1;1;Internal Bays;2;1;;;0;IRMS1_internalx2;IRM-S1 x2;info_SAM_IR1;20;2;MISSILE AA
-AttackHelo1;2;Stub Pylons;2;0;;;0;RocketPod1_triple;AGR-18 Lynchpin x21;info_rocket1;381;21;
+AttackHelo1;2;Stub Pylons;2;0;;;0;RocketPod1_triple;AGR-18 Lynchpin x21;info_rocket1;381;21;ROQUETTE
 AttackHelo1;2;Stub Pylons;2;0;;;0;AGM1_quad;AGM-48 x4;info_AGM1;200;4;MISSILE AS
 AttackHelo1;2;Stub Pylons;2;0;;;0;AGM_heavyx2;AGM-68 x2;info_AGM_heavy;500;2;MISSILE AS
 AttackHelo1;2;Stub Pylons;2;0;;;0;Gunpod_25mm_flex;25mm Autocannon (250 rounds);Gun25mm_Autocannon;400;250;CANON
 AttackHelo1;2;Stub Pylons;2;0;;;0;IRMS1_triple;IRM-S1 x3;info_SAM_IR1;60;3;MISSILE AA
 AttackHelo1;2;Stub Pylons;2;0;;;0;AIR-2_Genie_single;AIR-2 Genie;info_AIR-2_Genie;413;1;MISSILE AA|NUC
 AttackHelo1;2;Stub Pylons;2;0;;;0;AGM2_6Pod;ATP-1 x6;info_AGM2;420;6;MISSILE AS
-AttackHelo1;2;Stub Pylons;2;0;;;0;Rocket2_4Podx3;AGR-24 Kingpin x12;info_rocket2;876;12;
+AttackHelo1;2;Stub Pylons;2;0;;;0;Rocket2_4Podx3;AGR-24 Kingpin x12;info_rocket2;876;12;ROQUETTE
 AttackHelo1;2;Stub Pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
-AttackHelo1;2;Stub Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-AttackHelo1;2;Stub Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
-AttackHelo1;2;Stub Pylons;2;0;;;0;Aryx_HeavyRocket1_x4;AGR-37 Jester x4;Aryx_HeavyRocket1_info;420;4;
+AttackHelo1;2;Stub Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+AttackHelo1;2;Stub Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
+AttackHelo1;2;Stub Pylons;2;0;;;0;Aryx_HeavyRocket1_x4;AGR-37 Jester x4;Aryx_HeavyRocket1_info;420;4;ROQUETTE
 AttackHelo1;3;Left Stub Tip Pylon;1;0;Stub Tip Pylons;;0;IRMS1_double;IRM-S1 x2;info_SAM_IR1;40;2;MISSILE AA
 AttackHelo1;3;Left Stub Tip Pylon;1;0;Stub Tip Pylons;;0;AAM1_single;MMR-S3;AAM1_info;120;1;MISSILE AA
-AttackHelo1;3;Left Stub Tip Pylon;1;0;Stub Tip Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
-AttackHelo1;3;Left Stub Tip Pylon;1;0;Stub Tip Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+AttackHelo1;3;Left Stub Tip Pylon;1;0;Stub Tip Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
+AttackHelo1;3;Left Stub Tip Pylon;1;0;Stub Tip Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 AttackHelo1;3;Left Stub Tip Pylon;1;0;Stub Tip Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
 AttackHelo1;3;Left Stub Tip Pylon;1;0;Stub Tip Pylons;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
 AttackHelo1;3;Left Stub Tip Pylon;1;0;Stub Tip Pylons;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
-AttackHelo1;3;Left Stub Tip Pylon;1;0;Stub Tip Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
+AttackHelo1;3;Left Stub Tip Pylon;1;0;Stub Tip Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
 AttackHelo1;4;Right Stub Tip Pylon;1;0;Stub Tip Pylons;;0;IRMS1_double;IRM-S1 x2;info_SAM_IR1;40;2;MISSILE AA
 AttackHelo1;4;Right Stub Tip Pylon;1;0;Stub Tip Pylons;;0;AAM1_single;MMR-S3;AAM1_info;120;1;MISSILE AA
-AttackHelo1;4;Right Stub Tip Pylon;1;0;Stub Tip Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
-AttackHelo1;4;Right Stub Tip Pylon;1;0;Stub Tip Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+AttackHelo1;4;Right Stub Tip Pylon;1;0;Stub Tip Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
+AttackHelo1;4;Right Stub Tip Pylon;1;0;Stub Tip Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 AttackHelo1;4;Right Stub Tip Pylon;1;0;Stub Tip Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
 AttackHelo1;4;Right Stub Tip Pylon;1;0;Stub Tip Pylons;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
 AttackHelo1;4;Right Stub Tip Pylon;1;0;Stub Tip Pylons;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
-AttackHelo1;4;Right Stub Tip Pylon;1;0;Stub Tip Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
+AttackHelo1;4;Right Stub Tip Pylon;1;0;Stub Tip Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
 CAS1;0;Internal 35mm Autocannons;1;0;;;2;gun_ammo_35mm_720;35mm AP x720;Gun35mm_Autocannon;300;720;CANON
 CAS1;1;Center Pylon;1;0;;2;0;gun_30mm_rotary_pod;30mm Rotary Cannon (1200 rounds);Gun30mm_Rotary;400;1200;CANON
 CAS1;1;Center Pylon;1;0;;2;0;gun_57mm_pod;57mm Cannon (150 rounds);Gun57mm_Pod;400;150;CANON
 CAS1;2;Inner Fuselage Pylons;2;0;;1;0;bomb_500_single;GPO-500;info_blastFrag500;500;1;BOMBE
-CAS1;2;Inner Fuselage Pylons;2;0;;1;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+CAS1;2;Inner Fuselage Pylons;2;0;;1;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 CAS1;2;Inner Fuselage Pylons;2;0;;1;0;AGM_heavy_single;AGM-68;info_AGM_heavy;250;1;MISSILE AS
 CAS1;2;Inner Fuselage Pylons;2;0;;1;0;gunpod_20mm;20mm Autocannon (250 rounds);Gun20mm_Pod;200;250;CANON
 CAS1;2;Inner Fuselage Pylons;2;0;;1;0;bomb_glide1_double;PAB-80LR x2;info_bomb_glide1;250;2;BOMBE
@@ -861,15 +859,15 @@ CAS1;2;Inner Fuselage Pylons;2;0;;1;0;bomb_250_glide_single;PAB-250LR;info_bomb_
 CAS1;2;Inner Fuselage Pylons;2;0;;1;0;bomb_125_double;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
 CAS1;2;Inner Fuselage Pylons;2;0;;1;0;bomb_cluster1_single;CBO-400;info_Bomb_cluster1;400;1;BOMBE
 CAS1;2;Inner Fuselage Pylons;2;0;;1;0;bomb_penetrator1_mount;GPO-2P Auger;info_bomb_penetrator1;1000;1;BOMBE
-CAS1;2;Inner Fuselage Pylons;2;0;;1;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;
+CAS1;2;Inner Fuselage Pylons;2;0;;1;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;ROQUETTE
 CAS1;2;Inner Fuselage Pylons;2;0;;1;0;Aryx_ClusterBomb1_Single;CBO-400;Aryx_ClusterBomb1_Info;400;1;BOMBE
-CAS1;2;Inner Fuselage Pylons;2;0;;1;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
+CAS1;2;Inner Fuselage Pylons;2;0;;1;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
 CAS1;2;Inner Fuselage Pylons;2;0;;1;0;Aryx_Gunpod_Swivel30mm;30mm Swivel Gunpod;Aryx_SwivelGunpod30_Info;0;300;CANON
-CAS1;2;Inner Fuselage Pylons;2;0;;1;0;Aryx_HeavyRocket1_x3;AGR-37 Jester x3;Aryx_HeavyRocket1_info;355;3;
+CAS1;2;Inner Fuselage Pylons;2;0;;1;0;Aryx_HeavyRocket1_x3;AGR-37 Jester x3;Aryx_HeavyRocket1_info;355;3;ROQUETTE
 CAS1;2;Inner Fuselage Pylons;2;0;;1;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
 CAS1;2;Inner Fuselage Pylons;2;0;;1;0;Aryx_SmallJammingPod;AEC-124 Offensive Jammer;Aryx_SmallJammingPod_Info;420;1;BROUILLEUR
 CAS1;3;Outer Fuselage Pylons;2;0;;;0;bomb_500_single;GPO-500;info_blastFrag500;500;1;BOMBE
-CAS1;3;Outer Fuselage Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+CAS1;3;Outer Fuselage Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 CAS1;3;Outer Fuselage Pylons;2;0;;;0;bomb_penetrator1_mount;GPO-2P Auger;info_bomb_penetrator1;1000;1;BOMBE
 CAS1;3;Outer Fuselage Pylons;2;0;;;0;AGM1_triple;AGM-48 x3;info_AGM1;150;3;MISSILE AS
 CAS1;3;Outer Fuselage Pylons;2;0;;;0;AGM_heavyx2;AGM-68 x2;info_AGM_heavy;500;2;MISSILE AS
@@ -880,32 +878,32 @@ CAS1;3;Outer Fuselage Pylons;2;0;;;0;bomb_250_glide_single;PAB-250LR;info_bomb_2
 CAS1;3;Outer Fuselage Pylons;2;0;;;0;bomb_125_triple;PAB-125 x3;info_bomb_125_1;375;3;BOMBE
 CAS1;3;Outer Fuselage Pylons;2;0;;;0;bomb_cluster1_single;CBO-400;info_Bomb_cluster1;400;1;BOMBE
 CAS1;3;Outer Fuselage Pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
-CAS1;3;Outer Fuselage Pylons;2;0;;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;
+CAS1;3;Outer Fuselage Pylons;2;0;;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;ROQUETTE
 CAS1;3;Outer Fuselage Pylons;2;0;;;0;Aryx_ClusterBomb1_Single;CBO-400;Aryx_ClusterBomb1_Info;400;1;BOMBE
-CAS1;3;Outer Fuselage Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
-CAS1;3;Outer Fuselage Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
-CAS1;3;Outer Fuselage Pylons;2;0;;;0;Aryx_HeavyRocket1_x3;AGR-37 Jester x3;Aryx_HeavyRocket1_info;355;3;
+CAS1;3;Outer Fuselage Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
+CAS1;3;Outer Fuselage Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
+CAS1;3;Outer Fuselage Pylons;2;0;;;0;Aryx_HeavyRocket1_x3;AGR-37 Jester x3;Aryx_HeavyRocket1_info;355;3;ROQUETTE
 CAS1;3;Outer Fuselage Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
 CAS1;4;Inner Wing Pylons;2;0;;;0;bomb_500_single;GPO-500;info_blastFrag500;500;1;BOMBE
 CAS1;4;Inner Wing Pylons;2;0;;;0;bomb_500_double;GPO-500 x2;info_blastFrag500;1000;2;BOMBE
-CAS1;4;Inner Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+CAS1;4;Inner Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 CAS1;4;Inner Wing Pylons;2;0;;;0;bomb_penetrator1_mount;GPO-2P Auger;info_bomb_penetrator1;1000;1;BOMBE
 CAS1;4;Inner Wing Pylons;2;0;;;0;AGM1_triple;AGM-48 x3;info_AGM1;150;3;MISSILE AS
 CAS1;4;Inner Wing Pylons;2;0;;;0;AGM_heavyx2;AGM-68 x2;info_AGM_heavy;500;2;MISSILE AS
 CAS1;4;Inner Wing Pylons;2;0;;;0;AGM_heavy_triple;AGM-68 x3;info_AGM_heavy;750;3;MISSILE AS
 CAS1;4;Inner Wing Pylons;2;0;;;0;bomb_250_triple;PAB-250 x3;info_bomb_250_1;750;3;BOMBE
-CAS1;4;Inner Wing Pylons;2;0;;;0;Rocket2_4Podx3;AGR-24 Kingpin x12;info_rocket2;876;12;
+CAS1;4;Inner Wing Pylons;2;0;;;0;Rocket2_4Podx3;AGR-24 Kingpin x12;info_rocket2;876;12;ROQUETTE
 CAS1;4;Inner Wing Pylons;2;0;;;0;bomb_glide1_triple;PAB-80LR x3;info_bomb_glide1;375;3;BOMBE
 CAS1;4;Inner Wing Pylons;2;0;;;0;bomb_250_glide_double;PAB-250LR x2;info_bomb_250_glide;540;2;BOMBE
 CAS1;4;Inner Wing Pylons;2;0;;;0;bomb_125_triple;PAB-125 x3;info_bomb_125_1;375;3;BOMBE
 CAS1;4;Inner Wing Pylons;2;0;;;0;bomb_cluster1_single;CBO-400;info_Bomb_cluster1;400;1;BOMBE
 CAS1;4;Inner Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
-CAS1;4;Inner Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
-CAS1;4;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+CAS1;4;Inner Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
+CAS1;4;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 CAS1;4;Inner Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
 CAS1;4;Inner Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Triple;AGM-76 Atlatl x3;Aryx_SmallCruiseMissile1_info;400;3;MISSILE AS
 CAS1;5;Middle Wing Pylons;2;0;;;0;bomb_500_single;GPO-500;info_blastFrag500;500;1;BOMBE
-CAS1;5;Middle Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+CAS1;5;Middle Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 CAS1;5;Middle Wing Pylons;2;0;;;0;AGM1_triple;AGM-48 x3;info_AGM1;150;3;MISSILE AS
 CAS1;5;Middle Wing Pylons;2;0;;;0;AGM_heavyx2;AGM-68 x2;info_AGM_heavy;500;2;MISSILE AS
 CAS1;5;Middle Wing Pylons;2;0;;;0;bomb_250_triple;PAB-250 x3;info_bomb_250_1;750;3;BOMBE
@@ -915,11 +913,11 @@ CAS1;5;Middle Wing Pylons;2;0;;;0;bomb_250_glide_double;PAB-250LR x2;info_bomb_2
 CAS1;5;Middle Wing Pylons;2;0;;;0;bomb_125_triple;PAB-125 x3;info_bomb_125_1;375;3;BOMBE
 CAS1;5;Middle Wing Pylons;2;0;;;0;bomb_penetrator1_mount;GPO-2P Auger;info_bomb_penetrator1;1000;1;BOMBE
 CAS1;5;Middle Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
-CAS1;5;Middle Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+CAS1;5;Middle Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 CAS1;5;Middle Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
 CAS1;5;Middle Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Triple;AGM-76 Atlatl x3;Aryx_SmallCruiseMissile1_info;400;3;MISSILE AS
 CAS1;6;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;AAM3_double;IRM-S2 x2;AAM3_info;150;2;MISSILE AA
-CAS1;6;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+CAS1;6;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 CAS1;6;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;bomb_500_single;GPO-500;info_blastFrag500;500;1;BOMBE
 CAS1;6;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;AGM1_double;AGM-48 x2;info_AGM1;150;2;MISSILE AS
 CAS1;6;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;bomb_250_single;PAB-250;info_bomb_250_1;250;1;BOMBE
@@ -927,13 +925,13 @@ CAS1;6;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;bomb_250_glide_single;PAB-
 CAS1;6;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;bomb_125_double;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
 CAS1;6;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
 CAS1;6;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_ExternalFlareLauncher16;ECS-16 Flare Dispenser;Aryx_ExternalFlareLauncher16_Info;200;0;
-CAS1;6;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+CAS1;6;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 CAS1;6;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
 CAS1;6;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
 CAS1;6;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_SmallCruiseMissile1_Triple;AGM-76 Atlatl x3;Aryx_SmallCruiseMissile1_info;400;3;MISSILE AS
 CAS1;6;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_ExternalTargetingPod;ETS-15 Targeting Pod;Aryx_ExternalTargetingPod_Info;200;0;
 CAS1;7;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;AAM3_double;IRM-S2 x2;AAM3_info;150;2;MISSILE AA
-CAS1;7;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+CAS1;7;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 CAS1;7;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;bomb_500_single;GPO-500;info_blastFrag500;500;1;BOMBE
 CAS1;7;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;AGM1_double;AGM-48 x2;info_AGM1;150;2;MISSILE AS
 CAS1;7;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;bomb_250_single;PAB-250;info_bomb_250_1;250;1;BOMBE
@@ -941,17 +939,17 @@ CAS1;7;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;bomb_250_glide_single;PAB
 CAS1;7;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;bomb_125_double;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
 CAS1;7;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
 CAS1;7;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_ExternalFlareLauncher16;ECS-16 Flare Dispenser;Aryx_ExternalFlareLauncher16_Info;200;0;
-CAS1;7;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+CAS1;7;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 CAS1;7;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
 CAS1;7;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
 CAS1;7;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_SmallCruiseMissile1_Triple;AGM-76 Atlatl x3;Aryx_SmallCruiseMissile1_info;400;3;MISSILE AS
 CAS1;7;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_ExternalTargetingPod;ETS-15 Targeting Pod;Aryx_ExternalTargetingPod_Info;200;0;
 COIN;0;Internal guns;2;0;;;0;12.7mm_internal;12.7mm Machine Gun (500 rounds);Gun12.7mm;100;500;CANON
 COIN;1;Ventral Hardpoint;1;0;;;0;turret_20mm_rotary;20mm Rotary Cannon (500 rounds);Gun20mm_Rotary_Turret;250;500;CANON
-COIN;1;Ventral Hardpoint;1;0;;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;
+COIN;1;Ventral Hardpoint;1;0;;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;ROQUETTE
 COIN;1;Ventral Hardpoint;1;0;;;0;Aryx_Gunpod_Swivel30mm;30mm Swivel Gunpod;Aryx_SwivelGunpod30_Info;0;300;CANON
 COIN;1;Ventral Hardpoint;1;0;;;0;Aryx_ExternalTargetingPod;ETS-15 Targeting Pod;Aryx_ExternalTargetingPod_Info;200;0;
-COIN;2;Fuselage Pylons;2;0;;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
+COIN;2;Fuselage Pylons;2;0;;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
 COIN;2;Fuselage Pylons;2;0;;;0;Gunpod12.7mm;12.7mm Machine Gun (500 rounds);Gun12.7mm;100;500;CANON
 COIN;2;Fuselage Pylons;2;0;;;0;AGM1_single;AGM-48;info_AGM1;50;1;MISSILE AS
 COIN;2;Fuselage Pylons;2;0;;;0;gunpod_20mm;20mm Autocannon (250 rounds);Gun20mm_Pod;200;250;CANON
@@ -961,27 +959,27 @@ COIN;2;Fuselage Pylons;2;0;;;0;bomb_125_double;PAB-125 x2;info_bomb_125_1;250;2;
 COIN;2;Fuselage Pylons;2;0;;;0;AGM1_triple;AGM-48 x3;info_AGM1;150;3;MISSILE AS
 COIN;2;Fuselage Pylons;2;0;;;0;AIR-2_Genie_single;AIR-2 Genie;info_AIR-2_Genie;413;1;MISSILE AA|NUC
 COIN;2;Fuselage Pylons;2;0;;;0;AAM3_single;IRM-S2;AAM3_info;75;1;MISSILE AA
-COIN;2;Fuselage Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
-COIN;2;Fuselage Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-COIN;2;Fuselage Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+COIN;2;Fuselage Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
+COIN;2;Fuselage Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+COIN;2;Fuselage Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 COIN;2;Fuselage Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
 COIN;2;Fuselage Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
 COIN;3;Inner Wing Pylons;2;0;;;0;AGM1_single;AGM-48;info_AGM1;50;1;MISSILE AS
 COIN;3;Inner Wing Pylons;2;0;;;0;AGM_heavy_single;AGM-68;info_AGM_heavy;250;1;MISSILE AS
 COIN;3;Inner Wing Pylons;2;0;;;0;Gunpod12.7mm;12.7mm Machine Gun (500 rounds);Gun12.7mm;100;500;CANON
-COIN;3;Inner Wing Pylons;2;0;;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
+COIN;3;Inner Wing Pylons;2;0;;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
 COIN;3;Inner Wing Pylons;2;0;;;0;bomb_250_single;PAB-250;info_bomb_250_1;250;1;BOMBE
 COIN;3;Inner Wing Pylons;2;0;;;0;bomb_125_double;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
 COIN;3;Inner Wing Pylons;2;0;;;0;AGM1_triple;AGM-48 x3;info_AGM1;150;3;MISSILE AS
 COIN;3;Inner Wing Pylons;2;0;;;0;AAM3_single;IRM-S2;AAM3_info;75;1;MISSILE AA
-COIN;3;Inner Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
-COIN;3;Inner Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
-COIN;3;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
+COIN;3;Inner Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
+COIN;3;Inner Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
+COIN;3;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
 COIN;3;Inner Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
 COIN;3;Inner Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
 COIN;4;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;AGM1_single;AGM-48;info_AGM1;50;1;MISSILE AS
 COIN;4;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;Gunpod12.7mm;12.7mm Machine Gun (500 rounds);Gun12.7mm;100;500;CANON
-COIN;4;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
+COIN;4;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
 COIN;4;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;AGM1_double;AGM-48 x2;info_AGM1;150;2;MISSILE AS
 COIN;4;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;bomb_125_single;PAB-125;info_bomb_125_1;125;1;BOMBE
 COIN;4;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;AAM3_single;IRM-S2;AAM3_info;75;1;MISSILE AA
@@ -990,11 +988,11 @@ COIN;4;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;AAM3_double;IRM-S2 x2;AAM3
 COIN;4;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
 COIN;4;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_ExternalFlareLauncher16;ECS-16 Flare Dispenser;Aryx_ExternalFlareLauncher16_Info;200;0;
 COIN;4;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_ExternalFlareLauncher32;ECS-32 Flare Dispenser;Aryx_ExternalFlareLauncher32_Info;200;0;
-COIN;4;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-COIN;4;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+COIN;4;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+COIN;4;Outer Left Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 COIN;5;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;AGM1_single;AGM-48;info_AGM1;50;1;MISSILE AS
 COIN;5;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;Gunpod12.7mm;12.7mm Machine Gun (500 rounds);Gun12.7mm;100;500;CANON
-COIN;5;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
+COIN;5;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
 COIN;5;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;AGM1_double;AGM-48 x2;info_AGM1;150;2;MISSILE AS
 COIN;5;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;bomb_125_single;PAB-125;info_bomb_125_1;125;1;BOMBE
 COIN;5;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;AAM3_single;IRM-S2;AAM3_info;75;1;MISSILE AA
@@ -1003,8 +1001,8 @@ COIN;5;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;AAM3_double;IRM-S2 x2;AAM
 COIN;5;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
 COIN;5;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_ExternalFlareLauncher16;ECS-16 Flare Dispenser;Aryx_ExternalFlareLauncher16_Info;200;0;
 COIN;5;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_ExternalFlareLauncher32;ECS-32 Flare Dispenser;Aryx_ExternalFlareLauncher32_Info;200;0;
-COIN;5;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-COIN;5;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+COIN;5;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+COIN;5;Outer Right Wing Pylon;1;0;Outer Wing Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 Darkreach;0;Inner Weapon Bays (Combined);2;1;;1|2;0;bomb_penetrator1_internalx3;GPO-2P Auger x3;info_bomb_penetrator1;3000;3;BOMBE
 Darkreach;0;Inner Weapon Bays (Combined);2;1;;1|2;0;bomb_demolition_internal;Demolition Bomb;info_bomb_demolition;10000;1;BOMBE
 Darkreach;0;Inner Weapon Bays (Combined);2;1;;1|2;0;CruiseMissile20kt_internalx2;ALND-4 (20kt) x2;info_CruiseMissile20kt;2560;2;MISSILE AS|NUC
@@ -1147,7 +1145,7 @@ EW1;3;Inner Wing Pylons;2;0;;;0;AShM2_double;AGM-99 x2;AShM2_info;960;2;MISSILE 
 EW1;3;Inner Wing Pylons;2;0;;;0;TorpedoLight_double;Type-88 'Lemon' x2;TorpedoLight_info;960;2;MISSILE AS
 EW1;3;Inner Wing Pylons;2;0;;;0;TorpedoLight_single;Type-88 'Lemon';TorpedoLight_info;480;1;MISSILE AS
 EW1;3;Inner Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_double;ARAD-45 x2;Aryx_Wep_ARM2_Info;395;2;MISSILE AS
-EW1;3;Inner Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
+EW1;3;Inner Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
 EW1;3;Inner Wing Pylons;2;0;;;0;aryx_glidebomb400_single;PGM-400LR;Aryx_GlideBomb400_Info;500;1;BOMBE
 EW1;3;Inner Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Quad;AGM-76 Atlatl x4;Aryx_SmallCruiseMissile1_info;525;4;MISSILE AS
 EW1;3;Inner Wing Pylons;2;0;;;0;Aryx_ExternalTargetingPod;ETS-15 Targeting Pod;Aryx_ExternalTargetingPod_Info;200;0;
@@ -1161,7 +1159,7 @@ EW1;4;Outer Wing Pylons;2;0;;;0;AShM2_double;AGM-99 x2;AShM2_info;960;2;MISSILE 
 EW1;4;Outer Wing Pylons;2;0;;;0;TorpedoLight_double;Type-88 'Lemon' x2;TorpedoLight_info;960;2;MISSILE AS
 EW1;4;Outer Wing Pylons;2;0;;;0;TorpedoLight_single;Type-88 'Lemon';TorpedoLight_info;480;1;MISSILE AS
 EW1;4;Outer Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_double;ARAD-45 x2;Aryx_Wep_ARM2_Info;395;2;MISSILE AS
-EW1;4;Outer Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
+EW1;4;Outer Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
 EW1;4;Outer Wing Pylons;2;0;;;0;aryx_glidebomb400_single;PGM-400LR;Aryx_GlideBomb400_Info;500;1;BOMBE
 EW1;4;Outer Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Quad;AGM-76 Atlatl x4;Aryx_SmallCruiseMissile1_info;525;4;MISSILE AS
 EW1;4;Outer Wing Pylons;2;0;;;0;Aryx_ExternalTargetingPod;ETS-15 Targeting Pod;Aryx_ExternalTargetingPod_Info;200;0;
@@ -1213,7 +1211,7 @@ FastBomber1;3;Wing Pylons;2;0;;;0;ARM1_double;ARAD-116 x2;ARM1_info;850;2;MISSIL
 FastBomber1;3;Wing Pylons;2;0;;;0;BallisticMissile1_single;Piledriver TBM;ballisticMissile1_info;2500;1;MISSILE AS
 FastBomber1;3;Wing Pylons;2;0;;;0;BallisticMissile1_tacNuke_single;Piledriver TBM (20kt);ballisticMissile1_tacNuke_info;2500;1;MISSILE AS|NUC
 FastBomber1;3;Wing Pylons;2;0;;;0;AShM1x2;AShM-300 x2;info_AShM1;1230;2;MISSILE AS
-FastBomber1;3;Wing Pylons;2;0;;;0;Aryx_DropTank2000;2000kg Drop Tank;Aryx_DropTank2000_Info;115;1;
+FastBomber1;3;Wing Pylons;2;0;;;0;Aryx_DropTank2000;2000kg Drop Tank;Aryx_DropTank2000_Info;115;1;ROQUETTE
 FastBomber1;3;Wing Pylons;2;0;;;0;aryx_glidebomb400_double;PGM-400LR x2;Aryx_GlideBomb400_Info;1000;2;BOMBE
 FastBomber1;3;Wing Pylons;2;0;;;0;Aryx_Wep_TuskoN_Tactical;Tusko-N (1.5kt);Aryx_Wep_TuskoN_info;685;1;MISSILE AS|NUC
 FastBomber1;4;Heater Bays;2;1;;;0;AAM3_single_internal;IRM-S2;AAM3_info;60;1;MISSILE AA
@@ -1259,7 +1257,7 @@ Fighter1;2;Wing Pylons;2;0;;;0;AIR-2_Genie_single;AIR-2 Genie;info_AIR-2_Genie;4
 Fighter1;2;Wing Pylons;2;0;;;0;AAM4_single;AAM-36 Scimitar;AAM4_info;240;1;MISSILE AA
 Fighter1;2;Wing Pylons;2;0;;;0;AShM3_single;Tusko-B (HE);AShM3_info;685;1;MISSILE AS
 Fighter1;2;Wing Pylons;2;0;;;0;AAM4_double;AAM-36 Scimitar x2;AAM4_info;480;2;MISSILE AA
-Fighter1;2;Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+Fighter1;2;Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 Fighter1;2;Wing Pylons;2;0;;;0;SpecialSmokePod;Special Smoke Pod;SpecialSmokePod_info;200;1000;LASER
 Fighter1;2;Wing Pylons;2;0;;;0;bomb_250_glide_double;PAB-250LR x2;info_bomb_250_glide;540;2;BOMBE
 Fighter1;2;Wing Pylons;2;0;;;0;bomb_500_glide_single;GBM-500LR;info_bomb_500_glide;500;1;BOMBE
@@ -1271,10 +1269,10 @@ Fighter1;2;Wing Pylons;2;0;;;0;SARAAM1_single;AAM-21 Glaive;SARAAM1_info;170;1;M
 Fighter1;2;Wing Pylons;2;0;;;0;TorpedoLight_double;Type-88 'Lemon' x2;TorpedoLight_info;960;2;MISSILE AS
 Fighter1;2;Wing Pylons;2;0;;;0;TorpedoLight_single;Type-88 'Lemon';TorpedoLight_info;480;1;MISSILE AS
 Fighter1;2;Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_double;ARAD-45 x2;Aryx_Wep_ARM2_Info;395;2;MISSILE AS
-Fighter1;2;Wing Pylons;2;0;;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;
+Fighter1;2;Wing Pylons;2;0;;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;ROQUETTE
 Fighter1;2;Wing Pylons;2;0;;;0;Aryx_ClusterBomb1_Double;CBO-400 x2;Aryx_ClusterBomb1_Info;800;2;BOMBE
 Fighter1;2;Wing Pylons;2;0;;;0;Aryx_ClusterBomb1_Single;CBO-400;Aryx_ClusterBomb1_Info;400;1;BOMBE
-Fighter1;2;Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
+Fighter1;2;Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
 Fighter1;2;Wing Pylons;2;0;;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
 Fighter1;2;Wing Pylons;2;0;;;0;Aryx_FastAGM1_x3;AGM-27 Pyre x3;Aryx_FastAGM1_Info;180;3;MISSILE AS
 Fighter1;2;Wing Pylons;2;0;;;0;aryx_glidebomb400_single;PGM-400LR;Aryx_GlideBomb400_Info;500;1;BOMBE
@@ -1501,7 +1499,7 @@ Multirole1;4;Inner Wing Pylons;2;0;;;0;AIR-2_Genie_single;AIR-2 Genie;info_AIR-2
 Multirole1;4;Inner Wing Pylons;2;0;;;0;AAM4_single;AAM-36 Scimitar;AAM4_info;240;1;MISSILE AA
 Multirole1;4;Inner Wing Pylons;2;0;;;0;AShM3_single;Tusko-B (HE);AShM3_info;685;1;MISSILE AS
 Multirole1;4;Inner Wing Pylons;2;0;;;0;AAM4_double;AAM-36 Scimitar x2;AAM4_info;480;2;MISSILE AA
-Multirole1;4;Inner Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+Multirole1;4;Inner Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 Multirole1;4;Inner Wing Pylons;2;0;;;0;bomb_250_glide_double;PAB-250LR x2;info_bomb_250_glide;540;2;BOMBE
 Multirole1;4;Inner Wing Pylons;2;0;;;0;bomb_500_glide_single;GBM-500LR;info_bomb_500_glide;500;1;BOMBE
 Multirole1;4;Inner Wing Pylons;2;0;;;0;bomb_cluster1_single;CBO-400;info_Bomb_cluster1;400;1;BOMBE
@@ -1533,7 +1531,7 @@ Multirole1;5;Outer Wing Pylons;2;0;;;0;AShM1_single;AShM-300;info_AShM1;630;1;MI
 Multirole1;5;Outer Wing Pylons;2;0;;;0;AAM4_single;AAM-36 Scimitar;AAM4_info;240;1;MISSILE AA
 Multirole1;5;Outer Wing Pylons;2;0;;;0;AShM3_single;Tusko-B (HE);AShM3_info;685;1;MISSILE AS
 Multirole1;5;Outer Wing Pylons;2;0;;;0;AAM4_double;AAM-36 Scimitar x2;AAM4_info;480;2;MISSILE AA
-Multirole1;5;Outer Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+Multirole1;5;Outer Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 Multirole1;5;Outer Wing Pylons;2;0;;;0;ARM1_single;ARAD-116;ARM1_info;425;1;MISSILE AS
 Multirole1;5;Outer Wing Pylons;2;0;;;0;bomb_250_glide_double;PAB-250LR x2;info_bomb_250_glide;540;2;BOMBE
 Multirole1;5;Outer Wing Pylons;2;0;;;0;bomb_500_glide_single;GBM-500LR;info_bomb_500_glide;500;1;BOMBE
@@ -1543,7 +1541,7 @@ Multirole1;5;Outer Wing Pylons;2;0;;;0;SARAAM1_single;AAM-21 Glaive;SARAAM1_info
 Multirole1;5;Outer Wing Pylons;2;0;;;0;TorpedoFast_single;SCT-350 'Mako';TorpedoFast_info;630;1;MISSILE AS
 Multirole1;5;Outer Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_double;ARAD-45 x2;Aryx_Wep_ARM2_Info;395;2;MISSILE AS
 Multirole1;5;Outer Wing Pylons;2;0;;;0;Aryx_ClusterBomb1_Single;CBO-400;Aryx_ClusterBomb1_Info;400;1;BOMBE
-Multirole1;5;Outer Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
+Multirole1;5;Outer Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
 Multirole1;5;Outer Wing Pylons;2;0;;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;Aryx_FastAGM1_Info;60;1;MISSILE AS
 Multirole1;5;Outer Wing Pylons;2;0;;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
 Multirole1;5;Outer Wing Pylons;2;0;;;0;Aryx_FastAGM1_x3;AGM-27 Pyre x3;Aryx_FastAGM1_Info;180;3;MISSILE AS
@@ -1611,7 +1609,7 @@ P_Trisurface1;4;Front Fuselage Pylons;2;0;Fuselage Pylons;;0;P_bomb_250_triple;P
 P_Trisurface1;4;Front Fuselage Pylons;2;0;Fuselage Pylons;;0;bomb_125_quad;PAB-125 x4;info_bomb_125_1;500;4;BOMBE
 P_Trisurface1;4;Front Fuselage Pylons;2;0;Fuselage Pylons;;0;bomb_250_glide_double;PAB-250LR x2;info_bomb_250_glide;540;2;BOMBE
 P_Trisurface1;4;Front Fuselage Pylons;2;0;Fuselage Pylons;;0;SARAAM1_single;AAM-21 Glaive;SARAAM1_info;170;1;MISSILE AA
-P_Trisurface1;4;Front Fuselage Pylons;2;0;Fuselage Pylons;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;
+P_Trisurface1;4;Front Fuselage Pylons;2;0;Fuselage Pylons;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;ROQUETTE
 P_Trisurface1;4;Front Fuselage Pylons;2;0;Fuselage Pylons;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;Aryx_FastAGM1_Info;60;1;MISSILE AS
 P_Trisurface1;4;Front Fuselage Pylons;2;0;Fuselage Pylons;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
 P_Trisurface1;4;Front Fuselage Pylons;2;0;Fuselage Pylons;;0;Aryx_FastAGM1_x3;AGM-27 Pyre x3;Aryx_FastAGM1_Info;180;3;MISSILE AS
@@ -1630,7 +1628,7 @@ P_Trisurface1;5;Rear Fuselage Pylons;2;0;Fuselage Pylons;;0;P_bomb_250_triple;PA
 P_Trisurface1;5;Rear Fuselage Pylons;2;0;Fuselage Pylons;;0;bomb_125_quad;PAB-125 x4;info_bomb_125_1;500;4;BOMBE
 P_Trisurface1;5;Rear Fuselage Pylons;2;0;Fuselage Pylons;;0;bomb_250_glide_double;PAB-250LR x2;info_bomb_250_glide;540;2;BOMBE
 P_Trisurface1;5;Rear Fuselage Pylons;2;0;Fuselage Pylons;;0;SARAAM1_single;AAM-21 Glaive;SARAAM1_info;170;1;MISSILE AA
-P_Trisurface1;5;Rear Fuselage Pylons;2;0;Fuselage Pylons;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;
+P_Trisurface1;5;Rear Fuselage Pylons;2;0;Fuselage Pylons;;0;aryx_wep_bombletdispenser_single;ASD-16 Submunition Dispenser x16;Aryx_Wep_BombletDispenser_Info;400;16;ROQUETTE
 P_Trisurface1;5;Rear Fuselage Pylons;2;0;Fuselage Pylons;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;Aryx_FastAGM1_Info;60;1;MISSILE AS
 P_Trisurface1;5;Rear Fuselage Pylons;2;0;Fuselage Pylons;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
 P_Trisurface1;5;Rear Fuselage Pylons;2;0;Fuselage Pylons;;0;Aryx_FastAGM1_x3;AGM-27 Pyre x3;Aryx_FastAGM1_Info;180;3;MISSILE AS
@@ -1649,7 +1647,7 @@ P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;AGM_heavyx2;AGM-68 x2;info_AGM_heavy;5
 P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;AShM2_single;AGM-99;AShM2_info;480;1;MISSILE AS
 P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;AShM2_double;AGM-99 x2;AShM2_info;960;2;MISSILE AS
 P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;AShM3_single;Tusko-B (HE);AShM3_info;685;1;MISSILE AS
-P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;P_bomb_glide1_triple;PAB-80LR x3;info_bomb_glide1;375;3;BOMBE
 P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;bomb_250_glide_double;PAB-250LR x2;info_bomb_250_glide;540;2;BOMBE
 P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;bomb_500_glide_single;GBM-500LR;info_bomb_500_glide;500;1;BOMBE
@@ -1661,10 +1659,10 @@ P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;bomb_penetrator1_mount;GPO-2P Auger;in
 P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;P_BallisticMissile1_single2;Piledriver TBM;ballisticMissile1_info;2500;1;MISSILE AS
 P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;P_BallisticMissile1_tacNuke_single2;Piledriver TBM (20kt);ballisticMissile1_tacNuke_info;2500;1;MISSILE AS|NUC
 P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;AIR-2_Genie_single;AIR-2 Genie;info_AIR-2_Genie;413;1;MISSILE AA|NUC
-P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;Rocket2_4Podx3;AGR-24 Kingpin x12;info_rocket2;876;12;
+P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;Rocket2_4Podx3;AGR-24 Kingpin x12;info_rocket2;876;12;ROQUETTE
 P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;SARAAM1_double;AAM-21 Glaive x2;SARAAM1_info;340;2;MISSILE AA
 P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;SARAAM1_single;AAM-21 Glaive;SARAAM1_info;170;1;MISSILE AA
-P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;Aryx_DropTank2000;2000kg Drop Tank;Aryx_DropTank2000_Info;115;1;
+P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;Aryx_DropTank2000;2000kg Drop Tank;Aryx_DropTank2000_Info;115;1;ROQUETTE
 P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;Aryx_FastAGM1_Info;60;1;MISSILE AS
 P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
 P_Trisurface1;6;Inner Wing Pylons;2;0;;;0;Aryx_FastAGM1_x3;AGM-27 Pyre x3;Aryx_FastAGM1_Info;180;3;MISSILE AS
@@ -1683,7 +1681,7 @@ P_Trisurface1;7;Middle Wing Pylons;2;0;Wing Pylons;;0;ARM1_single;ARAD-116;ARM1_
 P_Trisurface1;7;Middle Wing Pylons;2;0;Wing Pylons;;0;AGM_heavyx2;AGM-68 x2;info_AGM_heavy;500;2;MISSILE AS
 P_Trisurface1;7;Middle Wing Pylons;2;0;Wing Pylons;;0;AShM2_single;AGM-99;AShM2_info;480;1;MISSILE AS
 P_Trisurface1;7;Middle Wing Pylons;2;0;Wing Pylons;;0;AShM3_single;Tusko-B (HE);AShM3_info;685;1;MISSILE AS
-P_Trisurface1;7;Middle Wing Pylons;2;0;Wing Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+P_Trisurface1;7;Middle Wing Pylons;2;0;Wing Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 P_Trisurface1;7;Middle Wing Pylons;2;0;Wing Pylons;;0;P_bomb_glide1_triple;PAB-80LR x3;info_bomb_glide1;375;3;BOMBE
 P_Trisurface1;7;Middle Wing Pylons;2;0;Wing Pylons;;0;bomb_250_glide_double;PAB-250LR x2;info_bomb_250_glide;540;2;BOMBE
 P_Trisurface1;7;Middle Wing Pylons;2;0;Wing Pylons;;0;bomb_500_glide_single;GBM-500LR;info_bomb_500_glide;500;1;BOMBE
@@ -1705,7 +1703,7 @@ P_Trisurface1;8;Outer Wing Pylons;2;0;Wing Pylons;;0;AAM1_single;MMR-S3;AAM1_inf
 P_Trisurface1;8;Outer Wing Pylons;2;0;Wing Pylons;;0;AAM2_single;AAM-29 Scythe;AAM2_info;185;1;MISSILE AA
 P_Trisurface1;8;Outer Wing Pylons;2;0;Wing Pylons;;0;AAM4_single;AAM-36 Scimitar;AAM4_info;240;1;MISSILE AA
 P_Trisurface1;8;Outer Wing Pylons;2;0;Wing Pylons;;0;AGM_heavy_single;AGM-68;info_AGM_heavy;250;1;MISSILE AS
-P_Trisurface1;8;Outer Wing Pylons;2;0;Wing Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+P_Trisurface1;8;Outer Wing Pylons;2;0;Wing Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 P_Trisurface1;8;Outer Wing Pylons;2;0;Wing Pylons;;0;bomb_glide1_double;PAB-80LR x2;info_bomb_glide1;250;2;BOMBE
 P_Trisurface1;8;Outer Wing Pylons;2;0;Wing Pylons;;0;bomb_250_glide_single;PAB-250LR;info_bomb_250_glide;270;1;BOMBE
 P_Trisurface1;8;Outer Wing Pylons;2;0;Wing Pylons;;0;bomb_125_double;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
@@ -1731,7 +1729,7 @@ PatrolBote;2;Rear Turret;1;0;;;0;PB_Turret_R_40mm;40mm Cannon (10 rounds);Gun40m
 PatrolBote;3;VLS;1;0;;;0;PB_VLS_AGM1;AGM-48;info_AGM1;600;1;MISSILE AS
 PatrolBote;3;VLS;1;0;;;0;PB_VLS_IRM1;IRM-S1;info_SAM_IR1;120;1;MISSILE AA
 PatrolBote;4;Side Mount;2;0;;;0;PB_Side_Rocket_Laser;AGR-32 x6;PB_Rocket_Laser_info;270;6;MISSILE AS
-PatrolBote;4;Side Mount;2;0;;;0;PB_Side_Rocket_INS;AGR-28 x6;PB_Rocket_INS_info;270;6;
+PatrolBote;4;Side Mount;2;0;;;0;PB_Side_Rocket_INS;AGR-28 x6;PB_Rocket_INS_info;270;6;ROQUETTE
 PatrolBote;4;Side Mount;2;0;;;0;PB_Side_Shipbreaker;SSM-114P Shipbreaker;SSM114P_info;2500;1;MISSILE AS
 PatrolBote;5;Top Mount;1;0;;;0;PB_Top_Designator;EO-12 Spyglass;PB_Top_Designator_info;0;0;
 PatrolBote;5;Top Mount;1;0;;;0;PB_Top_Radar;AN/SPS-34 Picket;PB_Top_Radar_info;0;0;
@@ -1791,7 +1789,7 @@ QuadVTOL1;4;Left Sponson Pylon;1;0;Sponson Pylons;;0;AIR-2_Genie_single;AIR-2 Ge
 QuadVTOL1;4;Left Sponson Pylon;1;0;Sponson Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
 QuadVTOL1;4;Left Sponson Pylon;1;0;Sponson Pylons;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
 QuadVTOL1;4;Left Sponson Pylon;1;0;Sponson Pylons;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
-QuadVTOL1;4;Left Sponson Pylon;1;0;Sponson Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+QuadVTOL1;4;Left Sponson Pylon;1;0;Sponson Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 QuadVTOL1;4;Left Sponson Pylon;1;0;Sponson Pylons;;0;Aryx_ExternalTargetingPod;ETS-15 Targeting Pod;Aryx_ExternalTargetingPod_Info;200;0;
 QuadVTOL1;5;Right Sponson Pylon;1;0;Sponson Pylons;;0;IRMS1_double;IRM-S1 x2;info_SAM_IR1;40;2;MISSILE AA
 QuadVTOL1;5;Right Sponson Pylon;1;0;Sponson Pylons;;0;Gunpod_25mm_flex;25mm Autocannon (250 rounds);Gun25mm_Autocannon;400;250;CANON
@@ -1800,7 +1798,7 @@ QuadVTOL1;5;Right Sponson Pylon;1;0;Sponson Pylons;;0;AIR-2_Genie_single;AIR-2 G
 QuadVTOL1;5;Right Sponson Pylon;1;0;Sponson Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
 QuadVTOL1;5;Right Sponson Pylon;1;0;Sponson Pylons;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
 QuadVTOL1;5;Right Sponson Pylon;1;0;Sponson Pylons;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
-QuadVTOL1;5;Right Sponson Pylon;1;0;Sponson Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+QuadVTOL1;5;Right Sponson Pylon;1;0;Sponson Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 QuadVTOL1;5;Right Sponson Pylon;1;0;Sponson Pylons;;0;Aryx_ExternalTargetingPod;ETS-15 Targeting Pod;Aryx_ExternalTargetingPod_Info;200;0;
 QuadVTOL1;6;Slingload Hook;1;0;;;0;CargoHook;Cargo Hook;CargoHook_info;20000;2;CARGO
 SmallFighter1;0;Internal Cannon;1;1;;;0;gun_20mm_internal_500;20mm Rotary Cannon (500 rounds);Gun20mm_Rotary;100;500;CANON
@@ -1851,7 +1849,7 @@ SmallFighter1;3;Inner wing pylons;2;0;;;0;AIR-2_Genie_single;AIR-2 Genie;info_AI
 SmallFighter1;3;Inner wing pylons;2;0;;;0;AAM4_single;AAM-36 Scimitar;AAM4_info;240;1;MISSILE AA
 SmallFighter1;3;Inner wing pylons;2;0;;;0;AShM3_single;Tusko-B (HE);AShM3_info;685;1;MISSILE AS
 SmallFighter1;3;Inner wing pylons;2;0;;;0;AAM4_double;AAM-36 Scimitar x2;AAM4_info;480;2;MISSILE AA
-SmallFighter1;3;Inner wing pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+SmallFighter1;3;Inner wing pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 SmallFighter1;3;Inner wing pylons;2;0;;;0;bomb_250_glide_double;PAB-250LR x2;info_bomb_250_glide;540;2;BOMBE
 SmallFighter1;3;Inner wing pylons;2;0;;;0;bomb_500_glide_single;GBM-500LR;info_bomb_500_glide;500;1;BOMBE
 SmallFighter1;3;Inner wing pylons;2;0;;;0;bomb_cluster1_single;CBO-400;info_Bomb_cluster1;400;1;BOMBE
@@ -1862,7 +1860,7 @@ SmallFighter1;3;Inner wing pylons;2;0;;;0;TorpedoLight_single;Type-88 'Lemon';To
 SmallFighter1;3;Inner wing pylons;2;0;;;0;Aryx_Wep_ARM2_double;ARAD-45 x2;Aryx_Wep_ARM2_Info;395;2;MISSILE AS
 SmallFighter1;3;Inner wing pylons;2;0;;;0;Aryx_ClusterBomb1_Double;CBO-400 x2;Aryx_ClusterBomb1_Info;800;2;BOMBE
 SmallFighter1;3;Inner wing pylons;2;0;;;0;Aryx_ClusterBomb1_Single;CBO-400;Aryx_ClusterBomb1_Info;400;1;BOMBE
-SmallFighter1;3;Inner wing pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
+SmallFighter1;3;Inner wing pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
 SmallFighter1;3;Inner wing pylons;2;0;;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;Aryx_FastAGM1_Info;60;1;MISSILE AS
 SmallFighter1;3;Inner wing pylons;2;0;;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
 SmallFighter1;3;Inner wing pylons;2;0;;;0;Aryx_FastAGM1_x3;AGM-27 Pyre x3;Aryx_FastAGM1_Info;180;3;MISSILE AS
@@ -1882,7 +1880,7 @@ SmallFighter1;4;Outer wing pylons;2;0;;;0;AGM_heavy_single;AGM-68;info_AGM_heavy
 SmallFighter1;4;Outer wing pylons;2;0;;;0;AShM2_single;AGM-99;AShM2_info;480;1;MISSILE AS
 SmallFighter1;4;Outer wing pylons;2;0;;;0;AAM4_single;AAM-36 Scimitar;AAM4_info;240;1;MISSILE AA
 SmallFighter1;4;Outer wing pylons;2;0;;;0;AShM3_single;Tusko-B (HE);AShM3_info;685;1;MISSILE AS
-SmallFighter1;4;Outer wing pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+SmallFighter1;4;Outer wing pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 SmallFighter1;4;Outer wing pylons;2;0;;;0;ARM1_single;ARAD-116;ARM1_info;425;1;MISSILE AS
 SmallFighter1;4;Outer wing pylons;2;0;;;0;bomb_250_glide_single;PAB-250LR;info_bomb_250_glide;270;1;BOMBE
 SmallFighter1;4;Outer wing pylons;2;0;;;0;bomb_500_glide_single;GBM-500LR;info_bomb_500_glide;500;1;BOMBE
@@ -1891,7 +1889,7 @@ SmallFighter1;4;Outer wing pylons;2;0;;;0;SARAAM1_single;AAM-21 Glaive;SARAAM1_i
 SmallFighter1;4;Outer wing pylons;2;0;;;0;TorpedoLight_single;Type-88 'Lemon';TorpedoLight_info;480;1;MISSILE AS
 SmallFighter1;4;Outer wing pylons;2;0;;;0;Aryx_Wep_ARM2_double;ARAD-45 x2;Aryx_Wep_ARM2_Info;395;2;MISSILE AS
 SmallFighter1;4;Outer wing pylons;2;0;;;0;Aryx_ClusterBomb1_Single;CBO-400;Aryx_ClusterBomb1_Info;400;1;BOMBE
-SmallFighter1;4;Outer wing pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
+SmallFighter1;4;Outer wing pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
 SmallFighter1;4;Outer wing pylons;2;0;;;0;Aryx_FastAGM1_x1;AGM-27 Pyre;Aryx_FastAGM1_Info;60;1;MISSILE AS
 SmallFighter1;4;Outer wing pylons;2;0;;;0;Aryx_FastAGM1_x2;AGM-27 Pyre x2;Aryx_FastAGM1_Info;120;2;MISSILE AS
 SmallFighter1;4;Outer wing pylons;2;0;;;0;Aryx_FastAGM1_x3;AGM-27 Pyre x3;Aryx_FastAGM1_Info;180;3;MISSILE AS
@@ -1940,30 +1938,30 @@ SmallKarrier;7;SSM B;2;0;SSM;;0;skarrier_ssm_b_gtg1;AT-145;GTG1_info;320;1;MISSI
 UFO;0;???;2;0;;;0;turret_ufo;??? (210 rounds);info_gun_ufo;300;210;CANON
 UFO;1;???;1;0;;;0;bomb_ufo_internal;??? x3;info_bomb_ufo;30;3;BOMBE
 UFO;2;???;1;0;;;0;ufo_shield;??? (42 rounds);info_ufo_shield;300;42;CANON
-UFO;3;???;2;0;;;0;missile_ufo_internal;??? x19;info_missile_ufo;190;19;
+UFO;3;???;2;0;;;0;missile_ufo_internal;??? x19;info_missile_ufo;190;19;ROQUETTE
 UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;Gunpod_25mm_flex;25mm Autocannon (250 rounds);Gun25mm_Autocannon;400;250;CANON
 UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;ECMPod1;ECM Pod;;200;1000;
 UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;IRMS1_double;IRM-S1 x2;info_SAM_IR1;40;2;MISSILE AA
 UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
-UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
-UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
+UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;ATGM1_quad;AT-145 x4;GTG1_info;80;4;MISSILE AS
 UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
-UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
-UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;Aryx_HeavyRocket1_x3;AGR-37 Jester x3;Aryx_HeavyRocket1_info;355;3;
+UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
+UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;Aryx_HeavyRocket1_x3;AGR-37 Jester x3;Aryx_HeavyRocket1_info;355;3;ROQUETTE
 UtilityHelo1;0;Left Fuselage Pylon;1;0;Fuselage Pylons;;0;Aryx_ExternalTargetingPod;ETS-15 Targeting Pod;Aryx_ExternalTargetingPod_Info;200;0;
 UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;Gunpod_25mm_flex;25mm Autocannon (250 rounds);Gun25mm_Autocannon;400;250;CANON
 UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;ECMPod1;ECM Pod;;200;1000;
 UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;IRMS1_double;IRM-S1 x2;info_SAM_IR1;40;2;MISSILE AA
 UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;AGM1_double_compact;AGM-48 x2;info_AGM1;100;2;MISSILE AS
-UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
-UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
+UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;ATGM1_quad;AT-145 x4;GTG1_info;80;4;MISSILE AS
 UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;AGM_scanner1_double_compact;Eyeball Mk.II x2;info_AGM_scanner1;100;2;MISSILE AS
-UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
-UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;Aryx_HeavyRocket1_x3;AGR-37 Jester x3;Aryx_HeavyRocket1_info;355;3;
+UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
+UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;Aryx_HeavyRocket1_x3;AGR-37 Jester x3;Aryx_HeavyRocket1_info;355;3;ROQUETTE
 UtilityHelo1;1;Right Fuselage Pylon;1;0;Fuselage Pylons;;0;Aryx_ExternalTargetingPod;ETS-15 Targeting Pod;Aryx_ExternalTargetingPod_Info;200;0;
 UtilityHelo1;2;Door guns;2;0;;;0;Turret_12.7mm_door;12.7mm Machine Gun (100 rounds);Gun12.7mm;400;100;CANON
 UtilityHelo1;2;Door guns;2;0;;;0;Turret_40mm_grenade;40mm GMG (32 rounds);Grenade_40mm;400;32;CANON
@@ -1995,7 +1993,7 @@ VTOLTrainer1;0;Center Pylon;1;0;;1|2;0;bomb_500_single;GPO-500;info_blastFrag500
 VTOLTrainer1;0;Center Pylon;1;0;;1|2;0;nuclearBomb1_external;GPO-N (1.5kt);info_nuclearBomb1;400;1;BOMBE|NUC
 VTOLTrainer1;0;Center Pylon;1;0;;1|2;0;nuclearBomb1_strategic_external;GPO-N (250kt);info_nuclearBomb1_strategic;400;1;BOMBE|NUC
 VTOLTrainer1;0;Center Pylon;1;0;;1|2;0;Aryx_ClusterBomb1_Single;CBO-400;Aryx_ClusterBomb1_Info;400;1;BOMBE
-VTOLTrainer1;0;Center Pylon;1;0;;1|2;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
+VTOLTrainer1;0;Center Pylon;1;0;;1|2;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
 VTOLTrainer1;0;Center Pylon;1;0;;1|2;0;Aryx_Gunpod_Swivel30mm;30mm Swivel Gunpod;Aryx_SwivelGunpod30_Info;0;300;CANON
 VTOLTrainer1;0;Center Pylon;1;0;;1|2;0;Aryx_SmallJammingPod;AEC-124 Offensive Jammer;Aryx_SmallJammingPod_Info;420;1;BROUILLEUR
 VTOLTrainer1;1;Left Fuselage Pylon;1;0;;0;0;gunpod_20mm;20mm Autocannon (250 rounds);Gun20mm_Pod;200;250;CANON
@@ -2006,7 +2004,7 @@ VTOLTrainer1;1;Left Fuselage Pylon;1;0;;0;0;bomb_glide1_double_line;PAB-80LR x2;
 VTOLTrainer1;1;Left Fuselage Pylon;1;0;;0;0;bomb_125_double_line;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
 VTOLTrainer1;1;Left Fuselage Pylon;1;0;;0;0;bomb_250_single;PAB-250;info_bomb_250_1;250;1;BOMBE
 VTOLTrainer1;1;Left Fuselage Pylon;1;0;;0;0;bomb_250_glide_single;PAB-250LR;info_bomb_250_glide;270;1;BOMBE
-VTOLTrainer1;1;Left Fuselage Pylon;1;0;;0;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
+VTOLTrainer1;1;Left Fuselage Pylon;1;0;;0;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
 VTOLTrainer1;1;Left Fuselage Pylon;1;0;;0;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
 VTOLTrainer1;1;Left Fuselage Pylon;1;0;;0;0;Aryx_ExternalTargetingPod;ETS-15 Targeting Pod;Aryx_ExternalTargetingPod_Info;200;0;
 VTOLTrainer1;2;Right Fuselage Pylon;1;0;Fuselage Pylons;0;0;gunpod_20mm;20mm Autocannon (250 rounds);Gun20mm_Pod;200;250;CANON
@@ -2017,7 +2015,7 @@ VTOLTrainer1;2;Right Fuselage Pylon;1;0;Fuselage Pylons;0;0;bomb_glide1_double_l
 VTOLTrainer1;2;Right Fuselage Pylon;1;0;Fuselage Pylons;0;0;bomb_125_double_line;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
 VTOLTrainer1;2;Right Fuselage Pylon;1;0;Fuselage Pylons;0;0;bomb_250_single;PAB-250;info_bomb_250_1;250;1;BOMBE
 VTOLTrainer1;2;Right Fuselage Pylon;1;0;Fuselage Pylons;0;0;bomb_250_glide_single;PAB-250LR;info_bomb_250_glide;270;1;BOMBE
-VTOLTrainer1;2;Right Fuselage Pylon;1;0;Fuselage Pylons;0;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
+VTOLTrainer1;2;Right Fuselage Pylon;1;0;Fuselage Pylons;0;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
 VTOLTrainer1;2;Right Fuselage Pylon;1;0;Fuselage Pylons;0;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
 VTOLTrainer1;2;Right Fuselage Pylon;1;0;Fuselage Pylons;0;0;Aryx_ExternalTargetingPod;ETS-15 Targeting Pod;Aryx_ExternalTargetingPod_Info;200;0;
 VTOLTrainer1;3;Inner wing pylons;2;0;;;0;gunpod_20mm;20mm Autocannon (250 rounds);Gun20mm_Pod;200;250;CANON
@@ -2032,13 +2030,13 @@ VTOLTrainer1;3;Inner wing pylons;2;0;;;0;bomb_250_single;PAB-250;info_bomb_250_1
 VTOLTrainer1;3;Inner wing pylons;2;0;;;0;bomb_250_glide_single;PAB-250LR;info_bomb_250_glide;270;1;BOMBE
 VTOLTrainer1;3;Inner wing pylons;2;0;;;0;bomb_500_single;GPO-500;info_blastFrag500;500;1;BOMBE
 VTOLTrainer1;3;Inner wing pylons;2;0;;;0;bomb_cluster1_single;CBO-400;info_Bomb_cluster1;400;1;BOMBE
-VTOLTrainer1;3;Inner wing pylons;2;0;;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
-VTOLTrainer1;3;Inner wing pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+VTOLTrainer1;3;Inner wing pylons;2;0;;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
+VTOLTrainer1;3;Inner wing pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 VTOLTrainer1;3;Inner wing pylons;2;0;;;0;SARAAM1_single;AAM-21 Glaive;SARAAM1_info;170;1;MISSILE AA
 VTOLTrainer1;3;Inner wing pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
-VTOLTrainer1;3;Inner wing pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
-VTOLTrainer1;3;Inner wing pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-VTOLTrainer1;3;Inner wing pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+VTOLTrainer1;3;Inner wing pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
+VTOLTrainer1;3;Inner wing pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+VTOLTrainer1;3;Inner wing pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 VTOLTrainer1;3;Inner wing pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
 VTOLTrainer1;3;Inner wing pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
 VTOLTrainer1;3;Inner wing pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Triple;AGM-76 Atlatl x3;Aryx_SmallCruiseMissile1_info;400;3;MISSILE AS
@@ -2051,13 +2049,13 @@ VTOLTrainer1;4;Outer wing pylons;2;0;;;0;bomb_glide1_double;PAB-80LR x2;info_bom
 VTOLTrainer1;4;Outer wing pylons;2;0;;;0;bomb_125_double;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
 VTOLTrainer1;4;Outer wing pylons;2;0;;;0;bomb_250_single;PAB-250;info_bomb_250_1;250;1;BOMBE
 VTOLTrainer1;4;Outer wing pylons;2;0;;;0;bomb_250_glide_single;PAB-250LR;info_bomb_250_glide;270;1;BOMBE
-VTOLTrainer1;4;Outer wing pylons;2;0;;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
-VTOLTrainer1;4;Outer wing pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+VTOLTrainer1;4;Outer wing pylons;2;0;;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
+VTOLTrainer1;4;Outer wing pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 VTOLTrainer1;4;Outer wing pylons;2;0;;;0;SARAAM1_single;AAM-21 Glaive;SARAAM1_info;170;1;MISSILE AA
 VTOLTrainer1;4;Outer wing pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
 VTOLTrainer1;4;Outer wing pylons;2;0;;;0;Aryx_ExternalFlareLauncher32;ECS-32 Flare Dispenser;Aryx_ExternalFlareLauncher32_Info;200;0;
-VTOLTrainer1;4;Outer wing pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-VTOLTrainer1;4;Outer wing pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+VTOLTrainer1;4;Outer wing pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+VTOLTrainer1;4;Outer wing pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 VTOLTrainer1;4;Outer wing pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
 VTOLTrainer1;5;Wingtip Pylons;2;0;;;0;AAM1_single;MMR-S3;AAM1_info;120;1;MISSILE AA
 VTOLTrainer1;5;Wingtip Pylons;2;0;;;0;AAM2_single;AAM-29 Scythe;AAM2_info;185;1;MISSILE AA
@@ -2129,8 +2127,8 @@ kar_afv8;4;Cargo 2x;2;0;;;0;kar_ammoboxx1;Ammo box;kar_ammoboxx1_info;20000;1;CA
 kar_lcv25;0;Truck bed;1;0;;;0;kar_lcv_AATurret;20mm Rotary Cannon (200 rounds);kar_lcv_AA_Turret_info;300;200;CANON
 kar_lcv25;0;Truck bed;1;0;;;0;kar_lcv_ATTurret;30mm Chaingun (50 rounds);kar_lcv_AT_Turret_info;300;50;CANON
 kar_lcv25;0;Truck bed;1;0;;;0;kar_lcv_IFV_Turret;25mm Autocannon (30 rounds);Gun25mm_Autocannon;300;30;CANON
-kar_lcv25;0;Truck bed;1;0;;;0;kar_lcv_rocket1;AGR-18 Lynchpin x49;info_rocket1;789;49;
-kar_lcv25;0;Truck bed;1;0;;;0;kar_lcv_rocket2;AGR-24 Kingpin x56;info_rocket2;3498;56;
+kar_lcv25;0;Truck bed;1;0;;;0;kar_lcv_rocket1;AGR-18 Lynchpin x49;info_rocket1;789;49;ROQUETTE
+kar_lcv25;0;Truck bed;1;0;;;0;kar_lcv_rocket2;AGR-24 Kingpin x56;info_rocket2;3498;56;ROQUETTE
 kar_lcv25;0;Truck bed;1;0;;;0;kar_lcv_aam1x4;MMR-S3;kar_AAM1_info;430;1;CARGO
 kar_lcv25;0;Truck bed;1;0;;;0;kar_lcv_ram45ax4;RAM-45-A;kar_SAM_ARH_info;710;1;CARGO
 kar_lcv25;0;Truck bed;1;0;;;0;kar_lcv_nuke;GPO-N (1.5kt);info_nuclearBomb1;400;1;BOMBE|NUC
@@ -2230,7 +2228,7 @@ trainer;1;Inner Wing Pylons;2;0;;;0;AAM1_double;MMR-S3 x2;AAM1_info;240;2;MISSIL
 trainer;1;Inner Wing Pylons;2;0;;;0;AAM2_single;AAM-29 Scythe;AAM2_info;185;1;MISSILE AA
 trainer;1;Inner Wing Pylons;2;0;;;0;bomb_500_single;GPO-500;info_blastFrag500;500;1;BOMBE
 trainer;1;Inner Wing Pylons;2;0;;;0;gunpod_20mm;20mm Autocannon (250 rounds);Gun20mm_Pod;200;250;CANON
-trainer;1;Inner Wing Pylons;2;0;;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
+trainer;1;Inner Wing Pylons;2;0;;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
 trainer;1;Inner Wing Pylons;2;0;;;0;bomb_250_single;PAB-250;info_bomb_250_1;250;1;BOMBE
 trainer;1;Inner Wing Pylons;2;0;;;0;bomb_250_triple;PAB-250 x3;info_bomb_250_1;750;3;BOMBE
 trainer;1;Inner Wing Pylons;2;0;;;0;bomb_glide1_single;PAB-80LR;info_bomb_glide1;125;1;BOMBE
@@ -2238,14 +2236,14 @@ trainer;1;Inner Wing Pylons;2;0;;;0;bomb_glide1_triple;PAB-80LR x3;info_bomb_gli
 trainer;1;Inner Wing Pylons;2;0;;;0;AGM1_triple;AGM-48 x3;info_AGM1;150;3;MISSILE AS
 trainer;1;Inner Wing Pylons;2;0;;;0;bomb_125_triple;PAB-125 x3;info_bomb_125_1;375;3;BOMBE
 trainer;1;Inner Wing Pylons;2;0;;;0;AIR-2_Genie_single;AIR-2 Genie;info_AIR-2_Genie;413;1;MISSILE AA|NUC
-trainer;1;Inner Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+trainer;1;Inner Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 trainer;1;Inner Wing Pylons;2;0;;;0;bomb_250_glide_double;PAB-250LR x2;info_bomb_250_glide;540;2;BOMBE
 trainer;1;Inner Wing Pylons;2;0;;;0;bomb_cluster1_single;CBO-400;info_Bomb_cluster1;400;1;BOMBE
 trainer;1;Inner Wing Pylons;2;0;;;0;bomb_125HD_triple;PAB-125HD x3;info_bomb_125_HD;375;3;BOMBE
 trainer;1;Inner Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
-trainer;1;Inner Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;
-trainer;1;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-trainer;1;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+trainer;1;Inner Wing Pylons;2;0;;;0;Aryx_DropTank450;450kg Drop Tank;Aryx_DropTank450_Info;115;1;ROQUETTE
+trainer;1;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+trainer;1;Inner Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 trainer;1;Inner Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Double;AGM-76 Atlatl x2;Aryx_SmallCruiseMissile1_info;275;2;MISSILE AS
 trainer;1;Inner Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
 trainer;2;Middle Wing Pylons;2;0;;;0;AGM1_double;AGM-48 x2;info_AGM1;150;2;MISSILE AS
@@ -2253,21 +2251,21 @@ trainer;2;Middle Wing Pylons;2;0;;;0;AGM_heavy_single;AGM-68;info_AGM_heavy;250;
 trainer;2;Middle Wing Pylons;2;0;;;0;AGM1_single;AGM-48;info_AGM1;50;1;MISSILE AS
 trainer;2;Middle Wing Pylons;2;0;;;0;AAM1_single;MMR-S3;AAM1_info;120;1;MISSILE AA
 trainer;2;Middle Wing Pylons;2;0;;;0;bomb_500_single;GPO-500;info_blastFrag500;500;1;BOMBE
-trainer;2;Middle Wing Pylons;2;0;;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;
+trainer;2;Middle Wing Pylons;2;0;;;0;RocketPod1_single;AGR-18 Lynchpin x7;info_rocket1;127;7;ROQUETTE
 trainer;2;Middle Wing Pylons;2;0;;;0;bomb_250_single;PAB-250;info_bomb_250_1;250;1;BOMBE
 trainer;2;Middle Wing Pylons;2;0;;;0;bomb_glide1_single;PAB-80LR;info_bomb_glide1;125;1;BOMBE
 trainer;2;Middle Wing Pylons;2;0;;;0;AGM1_triple;AGM-48 x3;info_AGM1;150;3;MISSILE AS
 trainer;2;Middle Wing Pylons;2;0;;;0;bomb_glide1_double;PAB-80LR x2;info_bomb_glide1;250;2;BOMBE
 trainer;2;Middle Wing Pylons;2;0;;;0;bomb_125_double;PAB-125 x2;info_bomb_125_1;250;2;BOMBE
-trainer;2;Middle Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;
+trainer;2;Middle Wing Pylons;2;0;;;0;Rocket2_4Pod;AGR-24 Kingpin x4;info_rocket2;292;4;ROQUETTE
 trainer;2;Middle Wing Pylons;2;0;;;0;bomb_250_glide_single;PAB-250LR;info_bomb_250_glide;270;1;BOMBE
 trainer;2;Middle Wing Pylons;2;0;;;0;bomb_cluster1_single;CBO-400;info_Bomb_cluster1;400;1;BOMBE
 trainer;2;Middle Wing Pylons;2;0;;;0;bomb_125HD_triple;PAB-125HD x3;info_bomb_125_HD;375;3;BOMBE
 trainer;2;Middle Wing Pylons;2;0;;;0;AAM2_single;AAM-29 Scythe;AAM2_info;185;1;MISSILE AA
 trainer;2;Middle Wing Pylons;2;0;;;0;gunpod_20mm;20mm Autocannon (250 rounds);Gun20mm_Pod;200;250;CANON
 trainer;2;Middle Wing Pylons;2;0;;;0;Aryx_Wep_ARM2_single;ARAD-45;Aryx_Wep_ARM2_Info;205;1;MISSILE AS
-trainer;2;Middle Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
-trainer;2;Middle Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;
+trainer;2;Middle Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
+trainer;2;Middle Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x2;AGR-37 Jester x2;Aryx_HeavyRocket1_info;250;2;ROQUETTE
 trainer;2;Middle Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
 trainer;3;Outer Wing Pylons;2;0;;;0;AAM1_single;MMR-S3;AAM1_info;120;1;MISSILE AA
 trainer;3;Outer Wing Pylons;2;0;;;0;AGM1_single;AGM-48;info_AGM1;50;1;MISSILE AS
@@ -2279,6 +2277,6 @@ trainer;3;Outer Wing Pylons;2;0;;;0;SpecialFlarePod;Special Flare Pod;SpecialFla
 trainer;3;Outer Wing Pylons;2;0;;;0;bomb_250_glide_single;PAB-250LR;info_bomb_250_glide;270;1;BOMBE
 trainer;3;Outer Wing Pylons;2;0;;;0;Aryx_ExternalFlareLauncher16;ECS-16 Flare Dispenser;Aryx_ExternalFlareLauncher16_Info;200;0;
 trainer;3;Outer Wing Pylons;2;0;;;0;Aryx_ExternalFlareLauncher32;ECS-32 Flare Dispenser;Aryx_ExternalFlareLauncher32_Info;200;0;
-trainer;3;Outer Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;
+trainer;3;Outer Wing Pylons;2;0;;;0;Aryx_HeavyRocket1_x1;AGR-37 Jester;Aryx_HeavyRocket1_info;160;1;ROQUETTE
 trainer;3;Outer Wing Pylons;2;0;;;0;Aryx_SmallCruiseMissile1_Single;AGM-76 Atlatl;Aryx_SmallCruiseMissile1_info;150;1;MISSILE AS
 trainer;4;Tail Hook;1;0;;;0;TailHook_Trainer;Tail Hook;;50;0;
