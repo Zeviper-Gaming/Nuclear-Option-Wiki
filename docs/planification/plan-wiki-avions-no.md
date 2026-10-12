@@ -1,6 +1,6 @@
 # Plan — Wiki avions et hélicos (Nuclear Option)
 
-Version : 2 · Date : 2026-10-12 · Statut : brouillon (v2 : ajout des corrections manuelles, décision A20)
+Version : 3 · Date : 2026-10-12 · Statut : brouillon (v2 : corrections manuelles A20 ; v3 : branche `zv/plane_update`, IR à 30 % de gaz et plein gaz, description en bas de fiche)
 
 ## 1. Objectif et livrable
 
@@ -12,7 +12,7 @@ Livrables :
 3. **`data/aircraft.json`** généré depuis ce classeur, et la chaîne de mise à jour sans recompiler (`mettre_a_jour.bat`).
 4. **README** mis à jour (FR).
 
-Dépôt : `zeviper-gaming/nuclear-option-wiki`, branche `claude/dazzling-dijkstra-b1t4u4` (partie de la v0.4.1).
+Dépôt : `zeviper-gaming/nuclear-option-wiki`, branche **`zv/plane_update`** (partie de `main` = v0.4.1). Ne pousser que sur cette branche.
 
 ## 2. Contexte nécessaire à l'exécutant
 
@@ -65,7 +65,7 @@ Dépôt : `zeviper-gaming/nuclear-option-wiki`, branche `claude/dazzling-dijkstr
 | A8 | **Rôles** : colonne **Rôle(s)** du classeur, rédigée par Claude **d'après la description** de l'appareil, avec le vocabulaire fermé de la section 7.4. Laissée **vide** si la description ne permet pas de trancher. Affichage en pastilles ; vide → une pastille « N/A ». Les indices d'IA ne sont **pas** affichés (ils restent dans le classeur). | Décision D-D. |
 | A9 | **Classe de charge S/M/H d'un emplacement** : charge max d'un point = masse (`WeaponMount.mass`) de l'option compatible la plus lourde, hors options `Cargo`/`Troops`/crochets. Classe par tiers log entre la plus petite et la plus grande charge max de **tous** les emplacements des appareils référencés (même formule que A7). Affichage : lettre + « 900 kg ». Emplacement sans option pesée → classe N/A. | Le jeu n'a pas de taille d'emplacement (décision du 2026-10-12). |
 | A10 | **Compatibilité à l'écran = pastilles de catégories** + nombre d'armes compatibles. Catégories (règle en 7.5) : CANON, MISSILE AA, MISSILE AS, BOMBE, ROQUETTE, NUC, BROUILLEUR, LASER, CARGO. La **liste complète** des armes compatibles va dans la feuille « Emports » du classeur. | Décision du 2026-10-12. |
-| A11 | **IR** : deux valeurs lues en jeu sur les moteurs, **IR ralenti** = max des `IRMin` et **IR plein gaz** = max des `IRMax` (postcombustion comprise). C'est le max par moteur, pas la somme, parce que l'autodirecteur vise une seule source. Note /5 **inversée** = rang centile de l'IR plein gaz parmi les appareils de l'encyclopédie (hors contenu événementiel), calculé une fois par session, comme D30 du wiki d'armes. | Données du jeu ; cohérence avec la fiche arme. |
+| A11 | **IR** : deux valeurs, calculées par moteur puis en prenant le **max des moteurs** (pas la somme), parce que l'autodirecteur vise une seule source. **IR à ≈ 30 % de gaz** = `IRMin + 0,3 × (IRMax_sec − IRMin)`, où `IRMax_sec` est l'IR plein gaz **sans** postcombustion (la postcombustion ne s'allume qu'au-delà de 85 % du régime, `JetNozzle.Thrust`) : champ privé `IRMax` de `JetNozzle`, `GetIRMax()` de `TurbineEngine`, champ privé `IRMax` de `DuctedFan`. C'est une **estimation** linéaire (le jeu passe par la montée en régime du moteur), signalée dans le Lisez-moi. **IR plein gaz** = max des `IRMax` **avec** postcombustion (`JetNozzle.GetIRMax()`, `TurbineEngine.GetIRMax()`, `DuctedFan.IRMax`). Chaque valeur a sa note /5 **inversée** = rang centile de cette valeur parmi les appareils de l'encyclopédie (hors contenu événementiel), calculée une fois par session, comme D30 du wiki d'armes. | Données du jeu ; demande de Florian (2026-10-12) : un voyant à ≈ 30 % de gaz et un voyant plein gaz. |
 | A12 | **RCS** : valeur en m² (classeur, sinon `radarSize`) + note /5 **inversée**, échelle propre aux appareils : `clamp(round_half_up(5 × (log10(rcs) + 4) / 5), 0, 5)` (10⁻⁴ m² → 0 ; 10 m² → 5). Contrôle : F-117A 5·10⁻⁷ → 0 ; Vortex 0,001 → 1 ; Chicane 0,02 → 2 ; Revoker 0,08 → 3 ; Cricket 0,5 → 4 ; MiG-15 5 → 5. **Pas d'indice de furtivité combiné.** | Décision du cadrage (« notes séparées seulement ») ; l'échelle des armes sature à 1 m². |
 | A13 | **Textes** : nom officiel du jeu conservé. Colonne **Description (FR)** = traduction fidèle et complète de la description du jeu, faite par Claude, relue par Florian. Colonne **Texte perso** vide, remplie par Florian. Les noms d'emplacements sont traduits dans la feuille « Emports » (colonne **Nom (FR)**, préremplie par Claude via le glossaire 7.6). Une traduction vide fait afficher le texte anglais du jeu. | Cadrage ; pas de localisation dans le jeu. |
 | A14 | **Notes /10** (barres), calculées par le script Python sur les appareils référencés, au rang `1 + 9 × (nb ≤ v − 1)/(n − 1)` (ex æquo en haut), une décimale : VITESSE (vitesse max. km/h), CHARGE UTILE (masse max. − masse à vide), COÛT (M$, **couleur inversée** : cher = rouge). AGILITÉ = colonne **Maniabilité (0 à 10)** telle quelle. Valeur absente → N/A. | Même logique que les barres du wiki d'armes. |
@@ -169,7 +169,7 @@ Ordre : V0 → V1 → V2 → (V3 ∥ V4) → V5 → V6 → (V7 ∥ V8) → V9 �
       "leurres": 48, "paillettes": null, "blindage": 1, "rcs_m2": 0.5,
       "note_vitesse": 1.4, "note_charge": 1.0, "note_cout": 2.1, "note_rcs": 4,
       "corriges": ["decrochage_kmh"],
-      "ir_force": { "ir_min": null, "ir_max": 1.2 },
+      "ir_force": { "ir_30": null, "ir_max": 1.2 },
       "emports_forces": {
         "Inner Wing Pylons": { "points": null, "soute": null, "charge_kg": 250, "categories": null, "nb_armes": null, "masquer": false }
       }
@@ -193,8 +193,8 @@ Ordre : V0 → V1 → V2 → (V3 ∥ V4) → V5 → V6 → (V7 ∥ V8) → V9 �
 Fichiers `BepInEx/config/NuclearOptionWiki_avions_v<version>.csv` et `NuclearOptionWiki_emports_v<version>.csv`. Appareils = union de `Encyclopedia.i.aircraft` et de `Resources.FindObjectsOfTypeAll<AircraftDefinition>()`, dédoublonnée par `jsonKey`. Lecture sur le prefab : `def.unitPrefab.GetComponentInChildren<Aircraft>(true)`, puis `GetComponentsInChildren<…>(true)`. Une erreur sur un appareil donne une ligne partielle, jamais un échec de l'export.
 
 ```
-json_key;unit_name;code;evenementiel;encyclopedie;rang;cout;vmax_info;vmax_param;decrochage;maniabilite;g_max;masse_vide;masse_max;masse_parts;longueur;largeur;hauteur;rcs;blindage;vertical;decollage_ms;decollage_m;moteurs;ir_min;ir_max;nb_emplacements;nb_points;nb_soutes;canons_fixes;role_surface;role_air;role_missile;role_radar;description
-CI-22;CI-22 Cricket;CI-22;0;1;0;11.5;510;…;140;6.5;6.5;3850;4800;3790;10.4;11.6;3.4;0.5;1;0;50;100;TurbineEngine;0.2;1.4;5;9;0;1;0.56;0.44;0;0;Designed for counter insurgency…
+json_key;unit_name;code;evenementiel;encyclopedie;rang;cout;vmax_info;vmax_param;decrochage;maniabilite;g_max;masse_vide;masse_max;masse_parts;longueur;largeur;hauteur;rcs;blindage;vertical;decollage_ms;decollage_m;moteurs;ir_min;ir_max_sec;ir_max;nb_emplacements;nb_points;nb_soutes;canons_fixes;role_surface;role_air;role_missile;role_radar;description
+CI-22;CI-22 Cricket;CI-22;0;1;0;11.5;510;…;140;6.5;6.5;3850;4800;3790;10.4;11.6;3.4;0.5;1;0;50;100;TurbineEngine;0.2;1.4;1.4;5;9;0;1;0.56;0.44;0;0;Designed for counter insurgency…
 ```
 
 ```
@@ -202,7 +202,7 @@ json_key;set_index;set_name;points;soute;symetrie;exclut;integres;mount_jsonkey;
 CI-22;3;Inner Wing Pylons;2;0;;4;0;AGR18_x7;AGR-18 Lynchpin x7;AGR18_Info;180;7;ROQUETTE
 ```
 
-- `moteurs` : types de composants moteurs trouvés, séparés par `|`. `ir_min` / `ir_max` : règle A11. `soute` = 1 si au moins un `Hardpoint.bayDoors` est non vide. `exclut` : indices de `precludingHardpointSets`, séparés par `|`. `integres` : nombre de `BuiltInWeapons` + `BuiltInTurrets` de l'emplacement. Un emplacement sans option a une ligne avec les colonnes `mount_*` vides. `categorie` : règle 7.5.
+- `moteurs` : types de composants moteurs trouvés, séparés par `|`. `ir_min`, `ir_max_sec` (plein gaz sans postcombustion), `ir_max` (avec) : max des moteurs, règle A11 ; l'IR à 30 % est calculé par le script et en jeu, pas exporté. `soute` = 1 si au moins un `Hardpoint.bayDoors` est non vide. `exclut` : indices de `precludingHardpointSets`, séparés par `|`. `integres` : nombre de `BuiltInWeapons` + `BuiltInTurrets` de l'emplacement. Un emplacement sans option a une ligne avec les colonnes `mount_*` vides. `categorie` : règle 7.5.
 - Les valeurs des lignes d'exemple sont **illustratives**.
 
 ### 7.3 Fiche appareil — champs fixes et cotes (px, 1920×1080, panneau 600 × 840, marge 14)
@@ -220,9 +220,9 @@ Pas de séparateur horizontal (gain de place) : les zones sont séparées par le
 | 409 | Ligne de synthèse (17 px) | « 5 emplacements · 9 points · 1 soute · charge max 2 400 kg » |
 | 589 | **9 rangées d'emplacement** (20 px chacune) | voir ci-dessous ; au-delà de 9 emplacements, la 9ᵉ affiche « +n emplacements » ; rangées non utilisées vides |
 | 625 | Titre « SIGNATURES · DÉFENSES » | |
-| 689 | 5 tuiles (64 px) | SIGN. RADAR (note /5 **inversée** + « 0,5 m² ») · SIGN. IR (note /5 **inversée** + « 0,2 → 1,4 ») · LEURRES IR (nombre, couleur neutre) · PAILLETTES (nombre, couleur neutre) · BLINDAGE (palier, couleur neutre) |
-| 753 | Description FR | rectangle 572 × 56, TMP auto-size 10–12 px, « … » si trop long ; vide → description anglaise du jeu |
-| 785 | Texte perso | rectangle 572 × 28, auto-size 10–12 px, couleur ambre `#FFC24A` ; vide → « — » gris |
+| 689 | 6 tuiles (64 px, largeur (572 − 5 × 8) / 6 ≈ 88 px) | SIGN. RADAR (note /5 **inversée** + « 0,5 m² ») · IR 30 % GAZ (note /5 **inversée** + valeur « 0,56 ») · IR PLEIN GAZ (note /5 **inversée** + valeur « 1,4 ») · LEURRES IR (nombre, couleur neutre) · PAILLETTES (nombre, couleur neutre) · BLINDAGE (palier, couleur neutre) |
+| 725 | Texte perso | rectangle 572 × 28, auto-size 10–12 px, couleur ambre `#FFC24A` ; vide → « — » gris |
+| 785 | **Description FR, tout en bas de la fiche** | rectangle 572 × 56 (y 729 → 785), TMP auto-size 10–12 px, « … » si trop long ; vide → description anglaise du jeu |
 
 **Rangée d'emplacement** (largeur 572) : nom FR (190, tronqué « … ») · « ×2 » points (34) · puce SOUTE ou EXT (52) · puce classe S/M/H (24) · charge « 900 kg » (62) · pastilles de catégories (reste, 3 max + « +n ») · « (12) » armes compatibles, aligné à droite. Un emplacement qui en exclut d'autres porte un « ⊘ » devant son nom.
 
@@ -236,7 +236,7 @@ La maquette (V5) fait foi pour tout détail non coté ici, une fois validée.
 - Identification : Clé (`jsonKey`) · Appareil · Code · Source · Type.
 - **Éditables (jaune)** : Rôle(s) · Description (FR) · Texte perso.
 - Calculées : Taille · Encombrement (m²) · Note vitesse · Note charge · Note coût · Note RCS.
-- Stats : toutes les colonnes utiles de NO-stats, plus Charge utile, IR ralenti, IR plein gaz, Nb emplacements, Nb points, Nb soutes, Description (jeu, EN), Notes.
+- Stats : toutes les colonnes utiles de NO-stats, plus Charge utile, IR 30 % gaz, IR plein gaz (et IR ralenti, IR plein gaz sans postcombustion pour contrôle), Nb emplacements, Nb points, Nb soutes, Description (jeu, EN), Notes.
 
 **Feuille « Emports »** (une ligne par appareil × emplacement) : Clé · Appareil · Index · Nom (jeu) · **Nom (FR) (jaune)** · Points · Soute · Exclut (noms) · Charge max / point (kg) · Classe · Nb armes compatibles · Catégories · Armes compatibles (`mountName`, séparés par « , »).
 
@@ -281,7 +281,7 @@ En plus : `i.nuclear` ajoute la pastille **NUC**. Ordre d'affichage : CANON, MIS
 
 Libellé affiché dans la liste déroulante → champ JSON. Type N = nombre, T = texte, B = OUI/NON, L = liste de catégories 7.5 séparées par « , ».
 
-**Appareil** (colonne Emplacement vide) : Coût (M$) → `cout_m` N · Rang requis → `rang` N · Vitesse max. (km/h) → `vitesse_kmh` N · Décrochage (km/h) → `decrochage_kmh` N · Maniabilité (0 à 10) → `maniabilite` N · Facteur G max → `g_max` N · Masse à vide (kg) → `masse_vide_kg` N · Masse max. (kg) → `masse_max_kg` N · Charge utile (kg) → `charge_utile_kg` N · Carburant (kg) → `carburant_kg` N · Poussée (kN) → `poussee_kn` N · Puissance (kW) → `puissance_kw` N · Décollage vertical → `decollage_vertical` B · Distance de décollage (m) → `decollage_m` N · Vitesse de décollage (m/s) → `decollage_ms` N · Portée radar (m) → `radar_m` N · Brouilleur → `brouilleur` B · Canons fixes → `canons_fixes` N · Leurres IR → `leurres` N · Paillettes → `paillettes` N · Palier de blindage → `blindage` N · Signature radar (m²) → `rcs_m2` N · IR ralenti → `ir_force.ir_min` N · IR plein gaz → `ir_force.ir_max` N · Taille (S/M/H) → `taille` T · Type → `type` T · Longueur (m) → `longueur_m` N · Envergure (m) → `envergure_m` N.
+**Appareil** (colonne Emplacement vide) : Coût (M$) → `cout_m` N · Rang requis → `rang` N · Vitesse max. (km/h) → `vitesse_kmh` N · Décrochage (km/h) → `decrochage_kmh` N · Maniabilité (0 à 10) → `maniabilite` N · Facteur G max → `g_max` N · Masse à vide (kg) → `masse_vide_kg` N · Masse max. (kg) → `masse_max_kg` N · Charge utile (kg) → `charge_utile_kg` N · Carburant (kg) → `carburant_kg` N · Poussée (kN) → `poussee_kn` N · Puissance (kW) → `puissance_kw` N · Décollage vertical → `decollage_vertical` B · Distance de décollage (m) → `decollage_m` N · Vitesse de décollage (m/s) → `decollage_ms` N · Portée radar (m) → `radar_m` N · Brouilleur → `brouilleur` B · Canons fixes → `canons_fixes` N · Leurres IR → `leurres` N · Paillettes → `paillettes` N · Palier de blindage → `blindage` N · Signature radar (m²) → `rcs_m2` N · IR à 30 % de gaz → `ir_force.ir_30` N · IR plein gaz → `ir_force.ir_max` N · Taille (S/M/H) → `taille` T · Type → `type` T · Longueur (m) → `longueur_m` N · Envergure (m) → `envergure_m` N.
 
 **Emplacement** (colonne Emplacement renseignée) : Points → `points` N · Soute → `soute` B · Charge max / point (kg) → `charge_kg` N (la classe S/M/H suit) · Catégories → `categories` L · Nb armes compatibles → `nb_armes` N · Masquer l'emplacement → `masquer` B.
 
