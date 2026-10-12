@@ -3,9 +3,9 @@
 Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 
 ## Reprise
-- Phase en cours : 3 Exécution — plan v3 **validé** le 2026-10-12 ; aucune étape commencée
+- Phase en cours : 3 Exécution — V0 faite, V1 livrée (v0.5.0-export), en attente des CSV de Florian
 - Modèle conseillé : Opus 5.5, effort medium
-- Prochaine action exacte : étape **V0** du plan (environnement : `apt-get update && apt-get install -y dotnet-sdk-8.0`, ilspycmd, BepInEx 5.4.23.2 dans `lib/`, demander à Florian les DLL `Managed/` dont `Assembly-CSharp.dll`, revérifier le tableau 2.3). Travailler et pousser **uniquement** sur `zv/plane_update`.
+- Prochaine action exacte : recevoir de Florian `NuclearOptionWiki_avions_v0.5.0.csv` et `NuclearOptionWiki_emports_v0.5.0.csv` (hangar ouvert avec tous ses mods d'avions, option F1 « Diagnostic → Exporter la liste des appareils »), les déposer dans `data/dump/` et vérifier le critère V1. En attendant : V3 sur NO-stats, puis V4, V5, V6 sur données provisoires. Travailler et pousser **uniquement** sur `zv/plane_update`.
 - Pour reprendre : nouvelle conversation sur le bon modèle → `/planification` → joindre ce fichier (+ le plan).
 - Prérequis session cloud neuve (comme le projet armes) : `apt-get install -y dotnet-sdk-8.0`, redéposer les DLL du jeu dans `lib/` (jamais commitées), BepInEx 5.4.23.2 pour `BepInEx.dll` et `0Harmony.dll`.
 
@@ -70,7 +70,8 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 - [x] Phase 1 — cadrage validé (2026-10-12)
 - [x] Phase 2 — plan v3 validé (2026-10-12)
 - [ ] Phase 3 — exécution
-  - [ ] V0 — environnement : SDK .NET 8, ilspycmd, `BepInEx.dll` et `0Harmony.dll` installés ; tests Core v0.4.1 OK (106 vérifications) — **en attente des DLL du jeu** (session du 2026-10-12)
+  - [x] V0 — environnement prêt, DLL du jeu 0.34.1 dans `lib/`, build v0.4.1 sans avertissement, tableau 2.3 **confirmé** (2026-10-12) ; voir « Écarts » pour les précisions
+  - [ ] V1 — `AircraftDump` + entrée F1 « Exporter la liste des appareils » + `WeaponCategory` (Core) ; v0.5.0-export livrée (dist/, release/ laissé en v0.4.1) — **en attente des deux CSV de Florian**
 - [ ] Phase 4 — peaufinage
 
 ## Fichiers produits
@@ -81,7 +82,8 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 | `data/sources/NO-stats.xlsx` | Excel source (déjà au dépôt, identique au fichier joint) | existant |
 
 ## Écarts au plan et remontées
-- (aucun)
+- V0 (précisions, sans effet sur le plan) : `Aircraft` dérive de `Mirage.NetworkBehaviour` (assembly non référencé) → ses champs `EOTS` et `weaponManager` sont lus par réflexion ; les moteurs `Turbojet`/`Turbofan` portent leur IR par leurs `JetNozzle` (couverts par A11) ; les boutons de la grille ne sont créés que pour les appareils autorisés (`NotAllowed(AllowEventContent)`) ; un clic sur un appareil non pilotable (`CanFlyAircraft` faux) ne lève pas `OnSelectedAircraftChange` (le survol, RA3, couvre ce cas).
+- V1 : colonne `categorie` de l'export : catégorie principale, suivie de `|NUC` pour une arme nucléaire (ex. `BOMBE|NUC`). `canons_fixes` = total des `BuiltInWeapons` + `BuiltInTurrets` du prefab. Entrées de configuration : 10 (tests mis à jour).
 
 ## Écarts de modèle assumés
 - (aucun) — phase 1 menée sur Sonnet 5.5, modèle conforme.

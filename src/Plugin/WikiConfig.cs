@@ -28,6 +28,7 @@ namespace NuclearOptionWiki
         public ConfigEntry<float> Scale { get; }
         public ConfigEntry<float> BackgroundOpacity { get; }
         public ConfigEntry<bool> ExportWeapons { get; }
+        public ConfigEntry<bool> ExportAircraft { get; }
         public ConfigEntry<bool> DemoSheet { get; }
         public ConfigEntry<bool> VerboseLog { get; }
 
@@ -53,6 +54,9 @@ namespace NuclearOptionWiki
 
             ExportWeapons = config.Bind("Diagnostic", "Exporter la liste des armes", false,
                 "À l'ouverture du hangar, écrit la liste des armes chargées dans BepInEx/config/NuclearOptionWiki_armes_v<version>.csv.");
+            ExportAircraft = config.Bind("Diagnostic", "Exporter la liste des appareils", false,
+                "À l'ouverture du hangar, écrit les appareils chargés et leurs emports dans " +
+                "BepInEx/config/NuclearOptionWiki_avions_v<version>.csv et NuclearOptionWiki_emports_v<version>.csv.");
             DemoSheet = config.Bind("Diagnostic", "Fiche de démonstration", false,
                 "Affiche la fiche de l'AGM-48 dès l'ouverture du hangar (contrôle visuel).");
             VerboseLog = config.Bind("Diagnostic", "Journal détaillé", false,
