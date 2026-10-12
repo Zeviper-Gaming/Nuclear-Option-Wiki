@@ -1,15 +1,15 @@
 # État du projet — Wiki avions et hélicos (Nuclear Option)
 
-Slug : wiki-avions-no · Mis à jour : 2026-10-11 · Statut : en cours
+Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 
 ## Reprise
-- Phase en cours : 1 Cadrage — récapitulatif en attente de validation par Florian
-- Modèle conseillé : Sonnet 5.5, effort medium (phase 1) ; puis Opus 5.5, effort high pour la phase 2
-- Prochaine action exacte : Florian valide (ou corrige) le récapitulatif ci-dessous ; ensuite, ouvrir une session Opus 5.5 (high), taper `/planification`, joindre ce fichier, et rédiger `docs/planification/plan-wiki-avions-no.md`.
+- Phase en cours : 2 Plan — décisions de conception D-A à D-E prises ; en attente des DLL du jeu pour la partie technique
+- Modèle conseillé : Opus 5.5, effort high
+- Prochaine action exacte : dès réception de `Assembly-CSharp.dll` (et d'une capture du hangar), décompiler (ilspycmd) pour trouver : l'événement de changement / survol d'appareil dans `AircraftSelectionMenu`, la structure `AircraftDefinition` / `AircraftParameters`, `HardpointSet` / `Hardpoint` (taille, soute interne, armes compatibles), l'IR des moteurs d'avion, la localisation éventuelle des textes. Puis rédiger `docs/planification/plan-wiki-avions-no.md` (format Markdown, dans le dépôt).
 - Pour reprendre : nouvelle conversation sur le bon modèle → `/planification` → joindre ce fichier (+ le plan).
 - Prérequis session cloud neuve (comme le projet armes) : `apt-get install -y dotnet-sdk-8.0`, redéposer les DLL du jeu dans `lib/` (jamais commitées), BepInEx 5.4.23.2 pour `BepInEx.dll` et `0Harmony.dll`.
 
-## Récapitulatif de cadrage (à valider)
+## Récapitulatif de cadrage (validé le 2026-10-12)
 
 | Point | Réponse |
 |---|---|
@@ -38,6 +38,13 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-11 · Statut : en cours
 - Cas particuliers : l'OVNI événementiel « ??? » (à garder ou exclure), les doublons de variantes moddées.
 - Où tombe la fiche à l'écran quand les deux fiches (appareil, arme) existent dans le même hangar.
 
+### Tranché en phase 2 (2026-10-12)
+- **D-A Format du plan** : Markdown dans le dépôt (`docs/planification/plan-wiki-avions-no.md`), comme pour le wiki d'armes.
+- **D-B Cohabitation** : **panneau unique** à gauche, qui montre le **dernier élément** survolé ou sélectionné : l'appareil (changement ou survol d'appareil) ou l'arme (survol ou sélection d'arme). Même touche F6.
+- **D-C Taille S/M/H** : **encombrement = longueur × envergure**, échelle log coupée en trois parts égales entre le plus petit et le plus gros appareil (hors OVNI). Avec les données actuelles : bornes 74 m² (RAH-72) → 1 391 m² (MC-260) ; S ≤ 199 m² (Cricket, OA-27, MiG-15, RAH-72, F-99, VT-7, Chicane, T/A-30, Ibis, Revoker, Vortex, F-16M) ; M ≤ 528 m² (KR-33, Brawler, F-117A, Medusa, Ifrit, FS-41, F-22E, FS-3) ; H au-delà (Tarantula, AB-4, Darkreach, MC-260).
+- **D-D Rôles** : **libellés de rôle définis par Claude d'après la description de l'appareil**, dans une colonne de l'Excel ; laissés **vides** quand la description ne permet pas de trancher (Florian complète). Pas de note dérivée des indices d'IA.
+- **D-E OVNI « ??? »** : **exclu totalement** (pas de fiche ; s'il apparaît, fiche « appareil non référencé »), et exclu des classements.
+
 ## Pistes évoquées (non retenues comme décisions)
 - Réutiliser le Core du wiki d'armes (barres 10 niveaux, notes au rang, N/A, thèmes) et l'outillage `tools/` (conversion Excel → JSON, mise à jour autonome par Florian).
 - Étendre le mode « export » du mod pour qu'il écrive aussi un CSV des appareils (AircraftDefinition, AircraftParameters, hardpoints, moteurs, textes).
@@ -47,7 +54,7 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-11 · Statut : en cours
 `docs/planification/plan-wiki-avions-no.md` — pas encore écrit (phase 2).
 
 ## Avancement de l'exécution
-- [ ] Phase 1 — cadrage validé
+- [x] Phase 1 — cadrage validé (2026-10-12)
 - [ ] Phase 2 — plan validé
 - [ ] Phase 3 — exécution
 - [ ] Phase 4 — peaufinage
@@ -65,4 +72,4 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-11 · Statut : en cours
 - (aucun) — phase 1 menée sur Sonnet 5.5, modèle conforme.
 
 ## Questions ouvertes
-- Le récapitulatif ci-dessus convient-il ? En particulier les critères de réussite et le hors-périmètre, qui sont des propositions.
+- DLL du jeu (`Assembly-CSharp.dll`) et capture d'écran du hangar avec la fiche arme affichée : nécessaires pour la partie technique du plan.
