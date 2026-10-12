@@ -1,3 +1,4 @@
+using System;
 using BepInEx.Configuration;
 using UnityEngine;
 
@@ -32,7 +33,9 @@ namespace NuclearOptionWiki
         public ConfigEntry<bool> DemoSheet { get; }
         public ConfigEntry<bool> VerboseLog { get; }
 
-        public WikiConfig(ConfigFile config)
+        /// <param name="exportButton">Fabrique de l'attribut du Configuration Manager qui dessine un bouton d'export
+        /// (« armes » ou « appareils ») ; null = cases à cocher simples (tests hors jeu).</param>
+        public WikiConfig(ConfigFile config, Func<string, object> exportButton = null)
         {
             ToggleKey = config.Bind("Général", "Touche bascule", DefaultToggleKey,
                 "Touche qui affiche ou masque la fiche wiki dans l'écran de loadout (hangar). " +
@@ -52,11 +55,16 @@ namespace NuclearOptionWiki
             BackgroundOpacity = config.Bind("Affichage", "Opacité du fond", 0.9f,
                 new ConfigDescription("Opacité du fond de la fiche.", new AcceptableValueRange<float>(0.5f, 1f)));
 
+            // Boutons d'export (menu F1) : la valeur booléenne n'est pas utilisée, le Configuration Manager dessine un bouton à sa place.
             ExportWeapons = config.Bind("Diagnostic", "Exporter la liste des armes", false,
-                "À l'ouverture du hangar, écrit la liste des armes chargées dans BepInEx/config/NuclearOptionWiki_armes_v<version>.csv.");
+                new ConfigDescription("Bouton : écrit tout de suite la liste des armes chargées dans " +
+                                      "BepInEx/config/NuclearOptionWiki_armes_v<version>.csv. À utiliser dans le hangar.",
+                    null, Tags(exportButton, "armes")));
             ExportAircraft = config.Bind("Diagnostic", "Exporter la liste des appareils", false,
-                "À l'ouverture du hangar, écrit les appareils chargés et leurs emports dans " +
-                "BepInEx/config/NuclearOptionWiki_avions_v<version>.csv et NuclearOptionWiki_emports_v<version>.csv.");
+                new ConfigDescription("Bouton : écrit tout de suite les appareils chargés et leurs emports dans " +
+                                      "BepInEx/config/NuclearOptionWiki_avions_v<version>.csv et NuclearOptionWiki_emports_v<version>.csv. " +
+                                      "À utiliser dans le hangar, tous les mods d'avions chargés.",
+                    null, Tags(exportButton, "appareils")));
             DemoSheet = config.Bind("Diagnostic", "Fiche de démonstration", false,
                 "Affiche la fiche de l'AGM-48 dès l'ouverture du hangar (contrôle visuel).");
             VerboseLog = config.Bind("Diagnostic", "Journal détaillé", false,
@@ -65,6 +73,12 @@ namespace NuclearOptionWiki
             // Échap ferme le hangar : refusée et remplacée par la touche par défaut.
             ToggleKey.SettingChanged += (_, __) => RejectForbiddenKey();
             RejectForbiddenKey();
+        }
+
+        private static object[] Tags(Func<string, object> factory, string kind)
+        {
+            object tag = factory?.Invoke(kind);
+            return tag == null ? new object[0] : new[] { tag };
         }
 
         private void RejectForbiddenKey()

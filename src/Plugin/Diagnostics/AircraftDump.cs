@@ -39,7 +39,8 @@ namespace NuclearOptionWiki.Diagnostics
         private static FieldInfo _isEventContent, _jetIrMax, _fanIrMin, _fanIrMax, _eots, _weaponManager;
         private static bool _resolved;
 
-        public static void Export()
+        /// <summary>Écrit (ou met à jour) les deux fichiers ; renvoie un message court pour le bouton du menu F1.</summary>
+        public static string Export()
         {
             try
             {
@@ -76,6 +77,7 @@ namespace NuclearOptionWiki.Diagnostics
                 sb.Append(string.Join(";", AircraftColumns)).Append('\n');
                 foreach (var row in aircraftRows.Values) sb.Append(row).Append('\n');
                 string aircraftPath = Path.Combine(Paths.ConfigPath, AircraftFileName);
+                bool existed = File.Exists(aircraftPath);
                 File.WriteAllText(aircraftPath, sb.ToString(), new UTF8Encoding(false));
 
                 sb.Length = 0;
@@ -90,12 +92,15 @@ namespace NuclearOptionWiki.Diagnostics
                 string hardpointsPath = Path.Combine(Paths.ConfigPath, HardpointsFileName);
                 File.WriteAllText(hardpointsPath, sb.ToString(), new UTF8Encoding(false));
 
-                Plugin.Log.LogInfo($"[Wiki] v{Plugin.Version} : {aircraftRows.Count} appareils exportés dans {aircraftPath}, " +
+                string verb = existed ? "mise à jour" : "créée";
+                Plugin.Log.LogInfo($"[Wiki] v{Plugin.Version} : liste des appareils {verb} : {aircraftRows.Count} appareils dans {aircraftPath}, " +
                                    $"{hpCount} lignes d'emport dans {hardpointsPath}");
+                return $"Liste {verb} à {DateTime.Now:HH:mm:ss} : {aircraftRows.Count} appareils, {hpCount} lignes d'emport";
             }
             catch (Exception e)
             {
                 Plugin.Log.LogError($"[Wiki] Échec de l'export des appareils : {e}");
+                return "Échec : voir LogOutput.log";
             }
         }
 

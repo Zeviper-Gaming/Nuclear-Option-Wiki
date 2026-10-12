@@ -25,7 +25,7 @@ namespace NuclearOptionWiki
             Log = Logger;
             try
             {
-                Settings = new WikiConfig(Config);
+                Settings = new WikiConfig(Config, Diagnostics.ExportButtons.Tag);
                 Database = LoadDatabase();
                 int applied = LoadoutHooks.ApplyAll(new Harmony(Guid));
                 Log.LogInfo($"[Wiki] chargé v{Version} : {Database?.Count ?? 0} armes, {applied} patch(s) appliqué(s). DLL : {Info.Location}");

@@ -52,8 +52,6 @@ namespace NuclearOptionWiki.Integration
 
             private static void Postfix(AircraftSelectionMenu __instance) => Guard("ouverture du hangar", () =>
             {
-                if (Plugin.Settings.ExportWeapons.Value) WeaponDump.Export();
-                if (Plugin.Settings.ExportAircraft.Value) AircraftDump.Export();
                 WikiController.Attach(__instance);
             });
         }

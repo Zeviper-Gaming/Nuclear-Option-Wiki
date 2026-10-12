@@ -25,7 +25,8 @@ namespace NuclearOptionWiki.Diagnostics
 
         private static readonly SortedDictionary<string, string> Rows = new SortedDictionary<string, string>(StringComparer.Ordinal);
 
-        public static void Export()
+        /// <summary>Écrit (ou met à jour) le fichier ; renvoie un message court pour le bouton du menu F1.</summary>
+        public static string Export()
         {
             try
             {
@@ -56,15 +57,19 @@ namespace NuclearOptionWiki.Diagnostics
                 }
 
                 var path = Path.Combine(Paths.ConfigPath, FileName);
+                bool existed = File.Exists(path);
                 var sb = new StringBuilder();
                 sb.Append(Header).Append('\n');
                 foreach (var row in Rows.Values) sb.Append(row).Append('\n');
                 File.WriteAllText(path, sb.ToString(), new UTF8Encoding(false));
-                Plugin.Log.LogInfo($"[Wiki] v{Plugin.Version} : liste des armes exportée ({Rows.Count} lignes) : {path}");
+                string verb = existed ? "mise à jour" : "créée";
+                Plugin.Log.LogInfo($"[Wiki] v{Plugin.Version} : liste des armes {verb} ({Rows.Count} lignes) : {path}");
+                return $"Liste {verb} à {DateTime.Now:HH:mm:ss} : {Rows.Count} lignes";
             }
             catch (Exception e)
             {
                 Plugin.Log.LogError($"[Wiki] Échec de l'export des armes : {e}");
+                return "Échec : voir LogOutput.log";
             }
         }
 

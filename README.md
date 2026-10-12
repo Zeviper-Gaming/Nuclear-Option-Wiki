@@ -56,7 +56,8 @@ Tu peux aussi éditer `BepInEx/config/zeviper.nuclearoption.wiki.cfg`, par exemp
 | Affichage | Note de portée | Logarithmique | Logarithmique (100 m = 1, 1 000 km = 10) ou Rang (comme la vitesse) |
 | Affichage | Échelle | 1,0 | Taille de la fiche (0,75 à 1,5) |
 | Affichage | Opacité du fond | 0,9 | 0,5 à 1 |
-| Diagnostic | Exporter la liste des armes | non | Écrit `BepInEx/config/NuclearOptionWiki_armes_v<version>.csv` à l'ouverture du hangar |
+| Diagnostic | Exporter la liste des armes | bouton | Écrit (ou met à jour) `BepInEx/config/NuclearOptionWiki_armes_v<version>.csv` à chaque appui, de préférence dans le hangar |
+| Diagnostic | Exporter la liste des appareils | bouton | Écrit (ou met à jour) `NuclearOptionWiki_avions_v<version>.csv` et `NuclearOptionWiki_emports_v<version>.csv` dans `BepInEx/config/` à chaque appui, de préférence dans le hangar |
 | Diagnostic | Fiche de démonstration | non | Affiche l'AGM-48 dès l'ouverture du hangar |
 | Diagnostic | Journal détaillé | non | Plus de détails dans le journal |
 
@@ -85,7 +86,7 @@ Les données viennent de trois classeurs :
 
 1. Installe une fois Python 3, puis lance `pip install openpyxl`.
 2. Récupère le dépôt (bouton « Code → Download ZIP » sur GitHub, ou `git pull`) et remplace les fichiers dans `data/` et `data/sources/`.
-3. *Facultatif, pour les armes nouvelles en jeu* : lance le jeu, active F1 → Diagnostic → **Exporter la liste des armes**, ouvre le hangar avec les avions concernés, puis quitte. L'export sert à rattacher les nouvelles armes à leur nom interne.
+3. *Facultatif, pour les armes nouvelles en jeu* : lance le jeu, ouvre le hangar avec les avions concernés, puis appuie sur F1 → Diagnostic → **Exporter la liste des armes** → « Exporter maintenant », puis quitte. L'export sert à rattacher les nouvelles armes à leur nom interne.
 4. Double-clique sur **`mettre_a_jour.bat`**. Si le jeu est installé ailleurs que dans `G:\SteamLibrary\steamapps\common\Nuclear Option`, corrige la ligne `JEU=` au début du fichier.
 5. Relance le jeu. Le journal BepInEx doit afficher `[Wiki] Données lues depuis … weapons.json`.
 
