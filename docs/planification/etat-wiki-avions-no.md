@@ -70,6 +70,7 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 - [x] Phase 1 — cadrage validé (2026-10-12)
 - [x] Phase 2 — plan v3 validé (2026-10-12)
 - [ ] Phase 3 — exécution
+  - [ ] V0 — environnement : SDK .NET 8, ilspycmd, `BepInEx.dll` et `0Harmony.dll` installés ; tests Core v0.4.1 OK (106 vérifications) — **en attente des DLL du jeu** (session du 2026-10-12)
 - [ ] Phase 4 — peaufinage
 
 ## Fichiers produits
