@@ -3,9 +3,9 @@
 Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 
 ## Reprise
-- Phase en cours : 2 Plan — **plan v1 (brouillon) rédigé, en attente de validation par Florian**
+- Phase en cours : 2 Plan — **plan v2 (brouillon) rédigé, en attente de validation par Florian**
 - Modèle conseillé : Opus 5.5, effort high (phase 2) ; exécution prévue sur Opus 5.5, effort medium
-- Prochaine action exacte : Florian relit `docs/planification/plan-wiki-avions-no.md` (v1) et le valide ou le corrige. Après validation : passer le plan en « validé », puis phase 3, étape V0.
+- Prochaine action exacte : Florian relit `docs/planification/plan-wiki-avions-no.md` (v2) et le valide ou le corrige. Après validation : passer le plan en « validé », puis phase 3, étape V0.
 - Pour reprendre : nouvelle conversation sur le bon modèle → `/planification` → joindre ce fichier (+ le plan).
 - Prérequis session cloud neuve (comme le projet armes) : `apt-get install -y dotnet-sdk-8.0`, redéposer les DLL du jeu dans `lib/` (jamais commitées), BepInEx 5.4.23.2 pour `BepInEx.dll` et `0Harmony.dll`.
 
@@ -48,6 +48,7 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 
 ### Tranché en phase 2 (2026-10-12)
 - **D-F Taille des emplacements** : le jeu n'en a pas ; remplacée par une **classe de charge S/M/H** (masse de l'arme compatible la plus lourde, tiers log), affichée avec la charge en kg.
+- **D-H Origine des valeurs** (option 2) : emports et IR lus en jeu, toutes les autres stats issues de l'Excel ; feuille **« Corrections »** du classeur pour forcer n'importe quelle valeur affichée, prioritaire sur tout, notes recalculées, valeur forcée marquée « * » (décision A20 du plan).
 - **D-G Compatibilité à l'écran** : **pastilles de catégories** + nombre d'armes compatibles ; liste complète dans le classeur (feuille « Emports »).
 - **D-A Format du plan** : Markdown dans le dépôt (`docs/planification/plan-wiki-avions-no.md`), comme pour le wiki d'armes.
 - **D-B Cohabitation** : **panneau unique** à gauche, qui montre le **dernier élément** survolé ou sélectionné : l'appareil (changement ou survol d'appareil) ou l'arme (survol ou sélection d'arme). Même touche F6.
@@ -61,7 +62,7 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 - Mini-clé de correspondance Excel ↔ identifiants internes des appareils (25 lignes seulement), déduite de l'export.
 
 ## Plan
-`docs/planification/plan-wiki-avions-no.md` — **v1 brouillon** (2026-10-12), en attente de validation.
+`docs/planification/plan-wiki-avions-no.md` — **v2 brouillon** (2026-10-12 ; v2 = corrections manuelles A20), en attente de validation.
 
 ## Avancement de l'exécution
 - [x] Phase 1 — cadrage validé (2026-10-12)
@@ -73,7 +74,7 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 | Fichier | Rôle | Statut |
 |---|---|---|
 | `docs/planification/etat-wiki-avions-no.md` | État du projet | à jour |
-| `docs/planification/plan-wiki-avions-no.md` | Plan / cahier des charges | v1 brouillon |
+| `docs/planification/plan-wiki-avions-no.md` | Plan / cahier des charges | v2 brouillon |
 | `data/sources/NO-stats.xlsx` | Excel source (déjà au dépôt, identique au fichier joint) | existant |
 
 ## Écarts au plan et remontées
@@ -83,4 +84,4 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 - (aucun) — phase 1 menée sur Sonnet 5.5, modèle conforme.
 
 ## Questions ouvertes
-- Validation du plan v1 (décisions A1–A19, étapes V0–V10, mise en page 7.3, vocabulaire des rôles 7.4).
+- Validation du plan v2 (décisions A1–A20, étapes V0–V10, mise en page 7.3, vocabulaire des rôles 7.4).
