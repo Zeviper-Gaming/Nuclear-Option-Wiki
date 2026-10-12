@@ -71,7 +71,7 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 - [x] Phase 2 — plan v3 validé (2026-10-12)
 - [ ] Phase 3 — exécution
   - [x] V0 — environnement prêt, DLL du jeu 0.34.1 dans `lib/`, build v0.4.1 sans avertissement, tableau 2.3 **confirmé** (2026-10-12) ; voir « Écarts » pour les précisions
-  - [ ] V1 — `AircraftDump` + entrée F1 « Exporter la liste des appareils » + `WeaponCategory` (Core) ; v0.5.0-export livrée (dist/, release/ laissé en v0.4.1) — **en attente des deux CSV de Florian**
+  - [x] V1 — export reçu le 2026-10-12 (`data/dump/2026-10-12_avions_v0.5.0.csv`, `…_emports_v0.5.0.csv`) : 41 entrées dont les 24 appareils de NO-stats (tous appariés par `unit_name`) + OVNI + 16 navires/véhicules ; chaque appareil armé a ≥ 1 emplacement. Journal sans erreur `[Wiki]`.
 - [ ] Phase 4 — peaufinage
 
 ## Fichiers produits
@@ -90,4 +90,9 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 - (aucun) — phase 1 menée sur Sonnet 5.5, modèle conforme.
 
 ## Questions ouvertes
+- **Q1 (constat V1)** : `Encyclopedia.aircraft` contient aussi 16 navires et véhicules jouables (navires `SHP`/`PB`, aéroglisseur `LCAC`, véhicules KAR). Hors classeur (absents de NO-stats). Que montre la fiche quand l'un d'eux est sélectionné au hangar ?
+- **Q2 (A21 contredite)** : tous les appareils ont exactement **1** viseur `TargetDetector` (y compris le F-22E « à deux EOTS ») ; seul le grossissement varie (×1 à ×5) et la portée (4,5 à 15 km). Le nombre n'apporte rien.
+- **Q3 (règle 7.5 contredite)** : les roquettes AGR-18/24/37 n'ont **aucun** drapeau `missile`/`bomb`/`gun` → aucune catégorie, la pastille ROQUETTE n'apparaît jamais. L'AGR-32 (drapeau missile) tombe en MISSILE AS.
+- **Q4 (A9 / 7.3)** : l'export n'a pas les drapeaux `tailHook`/`slingloadHook` ; des emplacements n'ont aucune option d'arme (crochets d'appontage, « - » du MC-260 qui occupe la 9ᵉ rangée).
+- Info A15 : `masse_parts` concorde à ±15 % pour 12 appareils sur 21 seulement (57 % < 80 %) → masse à vide et charge utile **N/A** pour OA-27, RAH-72, F-22E (règle appliquée telle quelle).
 - (aucune) — prochaine interaction avec Florian : fournir les DLL à l'étape V0, puis lancer l'export à l'étape V1.
