@@ -69,7 +69,7 @@ namespace NuclearOptionWiki.Tests
             check(mc.Rows.All(r => r == null || r.Name != "-"), "A23 : emplacement « - » absent");
             var f22 = Sheet(db, live, "Aryx_F22E_StrikeRaptor");
             eq("+2 emplacements", f22.Rows[8].MoreText, "F-22E : 9ᵉ rangée « +2 emplacements »");
-            eq("N/A", f22.Bars[2].Note, "F-22E : charge utile N/A (A15)");
+            eq("9 200 kg", f22.Bars[2].Real, "F-22E : charge utile = emports (v3.6)");
 
             // F-117A : RCS 0 ; FS-41 : vitesse 10,0.
             eq("0", Sheet(db, live, "blacknight2u_F117A_Nighthawk").Tiles[0].Note, "F-117A : note RCS 0");
@@ -138,6 +138,10 @@ namespace NuclearOptionWiki.Tests
             eq("S", unknown.ChipSize, "non référencé : taille calculée en jeu (165 m²)");
             eq("3", unknown.Tiles[0].Note, "non référencé : note RCS calculée (0,3 m²)");
             eq("1 emplacement · 2 points · 0 soute · charge max 500 kg", unknown.Summary, "non référencé : emports lus en jeu");
+            eq("1 000 kg", unknown.Bars[2].Real, "non référencé : charge utile calculée en jeu (2 × 500 kg)");
+            // C# = Python pour tous les appareils du classeur (même règle v3.6).
+            int diff = db.All.Count(kv => live.ContainsKey(kv.Key) && kv.Value.PayloadKg != LiveHardpoint.MaxPayload(live[kv.Key].Hardpoints));
+            eq("0", diff.ToString(), "v3.6 : charge utile C# identique au script");
             eq("M", unknown.Rows[0].Class, "non référencé : classe de charge (500 kg)");
             check(db.Find(null, "CI-22 Cricket").Key == "COIN", "A5 : recherche par unitName");
             check(db.Find("inconnu", "inconnu").Value == null, "A5 : non trouvé");
@@ -209,7 +213,10 @@ namespace NuclearOptionWiki.Tests
                 var first = g.First();
                 var opts = g.Where(e => e["mount_jsonkey"] != "").Select(e => new KeyValuePair<double, List<WeaponCategory>>(
                     D(e["masse"]) ?? 0, e["categorie"].Split('|').Where(c => c != "").Select(c => { WeaponCategories.TryParse(c, out var wc); return wc; }).ToList()));
-                l.Hardpoints.Add(LiveHardpoint.Summarize(first["set_name"], int.Parse(first["points"]), first["soute"] == "1", first["exclut"] != "", opts));
+                var hp = LiveHardpoint.Summarize(first["set_name"], int.Parse(first["points"]), first["soute"] == "1", first["exclut"] != "", opts);
+                hp.Index = g.Key.Item2;
+                hp.Excludes = first["exclut"].Split('|').Where(x => x != "").Select(int.Parse).ToList();
+                l.Hardpoints.Add(hp);
             }
             return res;
         }

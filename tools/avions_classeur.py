@@ -242,6 +242,8 @@ def lisez_moi(modele):
         "  • Note RCS /5 (A12) : arrondi(log10(RCS) + 4), bornée à 0–5 (10⁻⁴ m² → 0 ; 10 m² → 5).",
         "  • Notes /10 vitesse, charge utile, coût (A14) : rang parmi les appareils du classeur, 1 + 9 × (nb ≤ valeur − 1) / (n − 1). "
         "Agilité = Maniabilité (0 à 10) telle quelle.",
+        "  • Charge utile (v3.6) : masse d'armement maximale sur l'ensemble des emplacements (points × arme la plus lourde, cargo exclu), "
+        "meilleure combinaison d'emplacements compatibles. Pour un appareil cargo, force la valeur dans Corrections (« Charge utile (kg) »).",
         "  • Masse à vide manquante (A15) : somme des pièces du prefab seulement si elle concorde à ±15 % pour au moins 80 % des appareils ; "
         "sinon N/A (voir la colonne Notes).",
         "",

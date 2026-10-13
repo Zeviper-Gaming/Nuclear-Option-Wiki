@@ -130,15 +130,19 @@ namespace NuclearOptionWiki.GameData
             var res = new List<LiveHardpoint>();
             var sets = ReadHardpointSets(prefab, aircraft);
             if (sets == null) return res;
-            foreach (var set in sets)
+            for (int index = 0; index < sets.Length; index++)
             {
+                var set = sets[index];
                 if (set == null) continue;
                 var hps = set.hardpoints?.Where(h => h != null).ToList() ?? new List<Hardpoint>();
                 bool bay = hps.Any(h => h.bayDoors != null && h.bayDoors.Length > 0);
                 var options = (set.weaponOptions ?? new List<WeaponMount>()).Where(m => m != null)
                     .Select(m => new KeyValuePair<double, List<WeaponCategory>>(m.mass, SafeCategories(m)));
-                res.Add(LiveHardpoint.Summarize(set.name, hps.Count, bay,
-                    set.precludingHardpointSets != null && set.precludingHardpointSets.Count > 0, options));
+                var h = LiveHardpoint.Summarize(set.name, hps.Count, bay,
+                    set.precludingHardpointSets != null && set.precludingHardpointSets.Count > 0, options);
+                h.Index = index;
+                if (set.precludingHardpointSets != null) foreach (var b in set.precludingHardpointSets) h.Excludes.Add(b);
+                res.Add(h);
             }
             return res;
         }

@@ -372,7 +372,7 @@ def construire(classeur=None, no_stats=NO_STATS, export_avions=None, export_empo
     # --- Calculs (sur les valeurs corrigées).
     for a in appareils:
         if "charge_utile_kg" not in a["corriges"]:
-            a["charge_utile_kg"] = (a["masse_max_kg"] - a["masse_vide_kg"]) if a["masse_max_kg"] and a["masse_vide_kg"] else None
+            a["charge_utile_kg"] = charge_utile_emports(a["emplacements"])          # A14 amendé v3.6
         a["encombrement_m2"] = arrondi(a["longueur_m"] * a["envergure_m"]) if a["longueur_m"] and a["envergure_m"] else None
         a["ir_30"] = (arrondi(a["ir_min"] + 0.3 * (a["ir_max_sec"] - a["ir_min"]), 2)
                       if a["ir_min"] is not None and a["ir_max_sec"] is not None else None)
@@ -437,6 +437,27 @@ def _appareil(e, n):
         "description_jeu": texte(n.get("description_jeu")) or texte(e.get("description")),
         "notes": notes, "notes_auto": [], "corriges": [], "sources_corrigees": {},
     }
+
+
+def charge_utile_emports(emplacements):
+    """
+    Amendement v3.6 (demande de Florian) : charge utile = masse d'armement maximale emportable sur l'ensemble des
+    emplacements. Par emplacement : points × charge max par point (option d'arme la plus lourde, cargo exclu, A9) ;
+    puis meilleure combinaison d'emplacements compatibles (exclusions mutuelles respectées). None si aucune arme pesée.
+    """
+    sets = [s for s in emplacements if not s.get("masquer")]
+    poids = {s["index"]: (s["charge_kg"] or 0) * s["points"] for s in sets}
+    excl = {s["index"]: set(s["exclut_idx"]) for s in sets}
+    libres = [i for i in poids if not excl[i] and not any(i in excl[j] for j in poids)]
+    lies = [i for i in poids if i not in libres]
+    meilleur = 0.0
+    for masque in range(1 << len(lies)):                        # peu d'emplacements liés : force brute
+        choix = [lies[k] for k in range(len(lies)) if masque >> k & 1]
+        if any(j in excl[i] or i in excl[j] for i in choix for j in choix if i != j):
+            continue
+        meilleur = max(meilleur, sum(poids[i] for i in choix))
+    total = meilleur + sum(poids[i] for i in libres)
+    return total or None
 
 
 # ---------------------------------------------------------------------------------------------------------------

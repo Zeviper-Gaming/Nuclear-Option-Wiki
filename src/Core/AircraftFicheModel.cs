@@ -8,6 +8,8 @@ namespace NuclearOptionWiki.Core
     public sealed class LiveHardpoint
     {
         public string GameName;
+        public int Index;                                            // indice dans WeaponManager.hardpointSets
+        public List<int> Excludes = new List<int>();                 // precludingHardpointSets (indices)
         public int Points;
         public bool Bay;
         public bool ExcludesOthers;
@@ -31,6 +33,50 @@ namespace NuclearOptionWiki.Core
             }
             h.Categories = WeaponCategories.Union(lists);
             return h;
+        }
+
+        /// <summary>
+        /// Amendement v3.6 : charge utile = masse d'armement maximale sur l'ensemble des emplacements
+        /// (points × charge max par point, cargo exclu), meilleure combinaison d'emplacements compatibles. Null si rien de pesé.
+        /// Même calcul que tools/avions_commun.py (charge_utile_emports).
+        /// </summary>
+        public static double? MaxPayload(IList<LiveHardpoint> hardpoints)
+        {
+            if (hardpoints == null || hardpoints.Count == 0) return null;
+            var weight = new Dictionary<int, double>();
+            var excl = new Dictionary<int, HashSet<int>>();
+            foreach (var h in hardpoints)
+            {
+                weight[h.Index] = (h.ChargeKg ?? 0) * h.Points;
+                excl[h.Index] = new HashSet<int>(h.Excludes ?? new List<int>());
+            }
+            var free = new List<int>();
+            var linked = new List<int>();
+            foreach (var i in weight.Keys)
+            {
+                bool isLinked = excl[i].Count > 0;
+                foreach (var j in weight.Keys) if (excl[j].Contains(i)) isLinked = true;
+                (isLinked ? linked : free).Add(i);
+            }
+            double best = 0;
+            if (linked.Count <= 16)
+            {
+                for (int mask = 0; mask < 1 << linked.Count; mask++)
+                {
+                    double sum = 0;
+                    bool ok = true;
+                    for (int a = 0; a < linked.Count && ok; a++)
+                    {
+                        if ((mask >> a & 1) == 0) continue;
+                        for (int b = 0; b < linked.Count && ok; b++)
+                            if (a != b && (mask >> b & 1) == 1 && (excl[linked[a]].Contains(linked[b]) || excl[linked[b]].Contains(linked[a]))) ok = false;
+                        sum += weight[linked[a]];
+                    }
+                    if (ok && sum > best) best = sum;
+                }
+            }
+            foreach (var i in free) best += weight[i];
+            return best > 0 ? best : (double?)null;
         }
     }
 
@@ -130,7 +176,8 @@ namespace NuclearOptionWiki.Core
             m.Bars[0] = Bar(BarLabels[0], r.SpeedNote, false, Value(r.SpeedKmh ?? live.SpeedKmh, Format.Kmh) + Mark(r, "vitesse_kmh"));
             m.Bars[1] = Bar(BarLabels[1], r.Maneuverability ?? live.Maneuverability, false,
                             Value(r.GLimit ?? live.GLimit, g => Format.Number(g, 1) + " G") + Mark(r, "maniabilite", "g_max"));
-            m.Bars[2] = Bar(BarLabels[2], r.PayloadNote, false, Value(r.PayloadKg, Format.Kg) + Mark(r, "charge_utile_kg", "masse_vide_kg", "masse_max_kg"));
+            double? payload = r.PayloadKg ?? LiveHardpoint.MaxPayload(live.Hardpoints);   // A14 amendé v3.6
+            m.Bars[2] = Bar(BarLabels[2], r.PayloadNote, false, Value(payload, Format.Kg) + Mark(r, "charge_utile_kg"));
             m.Bars[3] = Bar(BarLabels[3], r.CostNote, true, Value(r.CostMillions ?? live.CostMillions, c => Format.Number(c, 1) + " M$") + Mark(r, "cout_m"));
 
             double? empty = known ? r.EmptyMassKg : live.EmptyMassKg;
