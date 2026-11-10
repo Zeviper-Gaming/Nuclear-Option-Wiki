@@ -19,6 +19,11 @@ namespace NuclearOptionWiki.Core
         public AircraftThresholds Thresholds => _file.Thresholds ?? new AircraftThresholds();
         public IEnumerable<KeyValuePair<string, AircraftRecord>> All => _file.Aircraft;
 
+        private AircraftScales _scales;
+
+        /// <summary>Classements des valeurs du JSON, pour noter les valeurs lues en jeu (calculés une fois).</summary>
+        public AircraftScales Scales => _scales ?? (_scales = AircraftScales.From(_file.Aircraft.Values));
+
         private AircraftDatabase(AircraftFile file)
         {
             _file = file;

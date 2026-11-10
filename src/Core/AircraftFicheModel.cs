@@ -95,6 +95,29 @@ namespace NuclearOptionWiki.Core
         public List<LiveHardpoint> Hardpoints = new List<LiveHardpoint>();
         /// <summary>A24 : tags saisis en jeu (F1), prioritaires sur le classeur ; null = pas de saisie.</summary>
         public List<string> TagsOverride;
+
+        // Repli des valeurs absentes d'aircraft.json (appareils des mods ajoutés), lues sur le prefab.
+        public bool PrefabRead;                        // vrai : radar, brouilleur, leurres et canons ont été cherchés
+        public string EngineTypes;                     // « JetNozzle|Turbojet »…
+        public double? FuelKg, ThrustKn, PowerKw, RadarM, Flares, FixedGuns;
+        public bool? Jammer;
+    }
+
+    /// <summary>Classements d'aircraft.json, pour noter au rang une valeur lue en jeu (A14).</summary>
+    public sealed class AircraftScales
+    {
+        public RankScale Speed, Payload, Cost;
+
+        public static AircraftScales From(IEnumerable<AircraftRecord> records)
+        {
+            var list = new List<AircraftRecord>(records);
+            return new AircraftScales
+            {
+                Speed = new RankScale(list.ConvertAll(r => r.SpeedKmh), false),
+                Payload = new RankScale(list.ConvertAll(r => r.PayloadKg), false),
+                Cost = new RankScale(list.ConvertAll(r => r.CostMillions), false),
+            };
+        }
     }
 
     /// <summary>Rangée d'emplacement de la fiche.</summary>
@@ -161,9 +184,10 @@ namespace NuclearOptionWiki.Core
             }
             else
             {
-                m.ChipType = "Hors classeur";
-                m.ChipSource = "Non référencé";
+                m.ChipType = ShortType(TypeFromEngines(live.EngineTypes)) ?? "Hors classeur";
+                m.ChipSource = live.PrefabRead ? "Lu en jeu" : "Non référencé";
             }
+            var scales = db?.Scales;
             string size = known ? r.Size : null;
             if (size == null)
             {
@@ -173,19 +197,28 @@ namespace NuclearOptionWiki.Core
             m.ChipSize = (size ?? "–") + Mark(r, "taille");
 
             // Barres /10 (A14) : notes du JSON seulement ; COÛT inversé (cher = rouge).
-            m.Bars[0] = Bar(BarLabels[0], r.SpeedNote, false, Value(r.SpeedKmh ?? live.SpeedKmh, Format.Kmh) + Mark(r, "vitesse_kmh"));
+            double? speed = r.SpeedKmh ?? live.SpeedKmh;
+            m.Bars[0] = Bar(BarLabels[0], r.SpeedNote ?? scales?.Speed.NoteOfNew(speed), false, Value(speed, Format.Kmh) + Mark(r, "vitesse_kmh"));
             m.Bars[1] = Bar(BarLabels[1], r.Maneuverability ?? live.Maneuverability, false,
                             Value(r.GLimit ?? live.GLimit, g => Format.Number(g, 1) + " G") + Mark(r, "maniabilite", "g_max"));
             double? payload = r.PayloadKg ?? LiveHardpoint.MaxPayload(live.Hardpoints);   // A14 amendé v3.6
-            m.Bars[2] = Bar(BarLabels[2], r.PayloadNote, false, Value(payload, Format.Kg) + Mark(r, "charge_utile_kg"));
-            m.Bars[3] = Bar(BarLabels[3], r.CostNote, true, Value(r.CostMillions ?? live.CostMillions, c => Format.Number(c, 1) + " M$") + Mark(r, "cout_m"));
+            m.Bars[2] = Bar(BarLabels[2], r.PayloadNote ?? scales?.Payload.NoteOfNew(payload), false, Value(payload, Format.Kg) + Mark(r, "charge_utile_kg"));
+            double? cost = r.CostMillions ?? live.CostMillions;
+            m.Bars[3] = Bar(BarLabels[3], r.CostNote ?? scales?.Cost.NoteOfNew(cost), true, Value(cost, c => Format.Number(c, 1) + " M$") + Mark(r, "cout_m"));
 
             double? empty = known ? r.EmptyMassKg : live.EmptyMassKg;
             double? max = r.MaxMassKg ?? live.MaxMassKg;
             string masses = empty == null && max == null ? null
                 : (empty == null ? Format.Unknown : Format.Number(empty.Value / 1000, 1)) + " / " + (max == null ? Format.Unknown : Format.Number(max.Value / 1000, 1)) + " t";
             string engine = r.ThrustKn != null ? Format.Number(r.ThrustKn.Value) + " kN" + Mark(r, "poussee_kn")
-                : r.PowerKw != null ? Format.Number(r.PowerKw.Value) + " kW" + Mark(r, "puissance_kw") : null;
+                : r.PowerKw != null ? Format.Number(r.PowerKw.Value) + " kW" + Mark(r, "puissance_kw")
+                : live.ThrustKn != null ? Format.Number(live.ThrustKn.Value) + " kN"
+                : live.PowerKw != null ? Format.Number(live.PowerKw.Value) + " kW" : null;
+            double? fuel = r.FuelKg ?? live.FuelKg;
+            double? radar = r.RadarM ?? live.RadarM;
+            bool radarKnown = r.RadarM != null || known || live.PrefabRead;
+            bool? jammer = r.Jammer ?? live.Jammer;
+            double? guns = r.FixedGuns ?? live.FixedGuns;
             bool? vertical = r.VerticalTakeoff ?? live.VerticalTakeoff;
             double? toM = r.TakeoffM ?? live.TakeoffM, toMs = r.TakeoffMs ?? live.TakeoffMs;
             string takeoff = vertical == true ? "VERTICAL"
@@ -193,13 +226,13 @@ namespace NuclearOptionWiki.Core
             double? stall = r.StallKmh ?? live.StallKmh;
             m.Stats[0] = Stat(0, Value(r.Rank ?? live.Rank, v => Format.Number(v)) + Mark(r, "rang"));
             m.Stats[1] = Stat(1, masses == null ? null : masses + Mark(r, "masse_vide_kg", "masse_max_kg"));
-            m.Stats[2] = Stat(2, r.FuelKg == null ? null : Format.Kg(r.FuelKg.Value) + Mark(r, "carburant_kg"));
+            m.Stats[2] = Stat(2, fuel == null ? null : Format.Kg(fuel.Value) + Mark(r, "carburant_kg"));
             m.Stats[3] = Stat(3, engine);
             m.Stats[4] = Stat(4, stall == null || stall.Value <= 0 ? null : Format.Kmh(stall.Value) + Mark(r, "decrochage_kmh"));
             m.Stats[5] = Stat(5, takeoff == null ? null : takeoff + Mark(r, "decollage_vertical", "decollage_m", "decollage_ms"));
-            m.Stats[6] = Stat(6, !known ? null : (r.RadarM == null || r.RadarM.Value <= 0 ? "NON" : Format.Distance(r.RadarM)) + Mark(r, "radar_m"));
-            m.Stats[7] = Stat(7, r.Jammer == null ? null : Format.YesNo(r.Jammer) + Mark(r, "brouilleur"));
-            m.Stats[8] = Stat(8, r.FixedGuns == null ? null : (r.FixedGuns.Value <= 0 ? "NON" : Format.Number(r.FixedGuns.Value)) + Mark(r, "canons_fixes"));
+            m.Stats[6] = Stat(6, !radarKnown ? null : (radar == null || radar.Value <= 0 ? "NON" : Format.Distance(radar)) + Mark(r, "radar_m"));
+            m.Stats[7] = Stat(7, jammer == null ? null : Format.YesNo(jammer) + Mark(r, "brouilleur"));
+            m.Stats[8] = Stat(8, guns == null ? null : (guns.Value <= 0 ? "NON" : Format.Number(guns.Value)) + Mark(r, "canons_fixes"));
 
             BuildHardpoints(m, db, r, key, live, t);
 
@@ -213,7 +246,7 @@ namespace NuclearOptionWiki.Core
                               ir30 == null ? Format.Unknown : Format.Number(ir30.Value, 2) + (r.IrForced?.Ir30 != null ? Star : ""));
             m.Tiles[2] = Tile(TileLabels[2], LoadClass.IrNote(irMax, live.IrGlobalMax), true,
                               irMax == null ? Format.Unknown : Format.Number(irMax.Value, 2) + (r.IrForced?.IrMax != null ? Star : ""));
-            m.Tiles[3] = Counter(TileLabels[3], r.Flares, null, Mark(r, "leurres"));
+            m.Tiles[3] = Counter(TileLabels[3], r.Flares ?? live.Flares, null, Mark(r, "leurres"));
             m.Tiles[4] = Counter(TileLabels[4], r.Armor ?? live.Armor, null, Mark(r, "blindage"));
             double? laser = r.LaserTargets ?? live.LaserTargets;
             m.Tiles[5] = Counter(TileLabels[5], laser,
@@ -272,6 +305,28 @@ namespace NuclearOptionWiki.Core
                 m.Rows[RowCount - 1] = new HardpointRowField { MoreText = "+" + (visible.Count - shown).ToString(CultureInfo.InvariantCulture) + " emplacements" };
             m.Summary = Plural(visible.Count, "emplacement") + " · " + Plural(points, "point") + " · " + Plural(bays, "soute")
                         + " · charge max " + (chargeMax == null ? Format.NotAvailable : Format.Kg(chargeMax.Value));
+        }
+
+        /// <summary>Type d'un appareil hors classeur d'après ses moteurs (même règle que tools/avions_commun.py).</summary>
+        public static string TypeFromEngines(string engineTypes)
+        {
+            if (string.IsNullOrEmpty(engineTypes)) return null;
+            var parts = new HashSet<string>(engineTypes.Split('|'));
+            if (parts.Contains("RotorShaft")) return "Hélicoptère";
+            if (parts.Contains("JetNozzle")) return "Avion à réaction";
+            return "Avion à hélice";
+        }
+
+        /// <summary>Repli A4 des canons fixes : points des emplacements internes dont toutes les armes sont des canons.</summary>
+        public static double? FixedGunsFromHardpoints(IEnumerable<LiveHardpoint> hardpoints)
+        {
+            if (hardpoints == null) return null;
+            int n = 0;
+            foreach (var h in hardpoints)
+                if (h.GameName != null && h.GameName.IndexOf("internal", StringComparison.OrdinalIgnoreCase) >= 0
+                    && h.WeaponCount > 0 && h.Categories.Count == 1 && h.Categories[0] == WeaponCategory.Canon)
+                    n += h.Points;
+            return n;
         }
 
         /// <summary>Plan 7.8 : puce de type.</summary>

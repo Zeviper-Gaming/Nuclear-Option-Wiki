@@ -143,6 +143,26 @@ namespace NuclearOptionWiki.Tests
             int diff = db.All.Count(kv => live.ContainsKey(kv.Key) && kv.Value.PayloadKg != LiveHardpoint.MaxPayload(live[kv.Key].Hardpoints));
             eq("0", diff.ToString(), "v3.6 : charge utile C# identique au script");
             eq("M", unknown.Rows[0].Class, "non référencé : classe de charge (500 kg)");
+
+            // Appareil d'un mod ajouté (v0.5.1) : notes au rang parmi aircraft.json et valeurs du prefab.
+            var modLive = new LiveAircraft
+            {
+                UnitName = "F-204 Icarus II", SpeedKmh = 2100, CostMillions = 90, Maneuverability = 8, GLimit = 9, LengthM = 18, WidthM = 13,
+                PrefabRead = true, EngineTypes = "JetNozzle|Turbofan", FuelKg = 5200, ThrustKn = 260, RadarM = 60000, Jammer = false,
+                Flares = 60, FixedGuns = 1, RcsM2 = 0.05, IrGlobalMax = irMax,
+            };
+            modLive.Hardpoints.Add(LiveHardpoint.Summarize("Internal Bay", 4, true, false, new[] { Opt(300, WeaponCategory.MissileAA) }));
+            var mod = AircraftFicheModel.Build(db, null, null, modLive);
+            eq("RÉACTION|Lu en jeu", mod.ChipType + "|" + mod.ChipSource, "mod : puces type et origine");
+            check(mod.Bars.All(b => b.Note != Format.NotAvailable), "mod : les 4 barres sont notées (rang parmi aircraft.json)");
+            eq(Format.OneDecimal(db.Scales.Speed.NoteOfNew(2100).Value), mod.Bars[0].Note, "mod : note de vitesse au rang");
+            eq("5 200 kg|260 kN|60 km|NON|1", string.Join("|", new[] { 2, 3, 6, 7, 8 }.Select(i => mod.Stats[i].Value)), "mod : carburant, moteur, radar, brouilleur, canons");
+            eq("60", mod.Tiles[3].Note, "mod : leurres lus en jeu");
+            sheets.Add(mod);
+            check(Signature(mod) == reference, "mod : structure identique");
+            var guns = new List<LiveHardpoint> { LiveHardpoint.Summarize("Internal Cannon", 2, false, false, new[] { Opt(100, WeaponCategory.Canon) }) };
+            guns[0].Index = 0;
+            eq("2", AircraftFicheModel.FixedGunsFromHardpoints(guns)?.ToString(CultureInfo.InvariantCulture), "canons fixes déduits des emplacements internes");
             check(db.Find(null, "CI-22 Cricket").Key == "COIN", "A5 : recherche par unitName");
             check(db.Find("inconnu", "inconnu").Value == null, "A5 : non trouvé");
             check(AircraftDatabase.IsExcluded("UFO", false) && AircraftDatabase.IsExcluded("x", true), "A6 : OVNI exclu");
