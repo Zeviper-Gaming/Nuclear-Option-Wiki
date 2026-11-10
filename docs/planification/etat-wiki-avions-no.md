@@ -1,6 +1,6 @@
 # État du projet — Wiki avions et hélicos (Nuclear Option)
 
-Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
+Slug : wiki-avions-no · Mis à jour : 2026-11-10 · Statut : en cours (v0.5.1 livrée, recette en attente)
 
 ## Reprise
 - Phase en cours : 3 Exécution — V0 à V8 faites, V9 livrée (v0.5.0) en attente de recette
@@ -8,6 +8,17 @@ Slug : wiki-avions-no · Mis à jour : 2026-10-12 · Statut : en cours
 - Prochaine action exacte : recette de la v0.5.0 corrigée (A25 + tags de l'appareil sélectionné) par Florian, puis suite de la recette RA1–RA11 / R1–R12, `release/`, V10. Travailler et pousser **uniquement** sur `zv/plane_update`.
 - Pour reprendre : nouvelle conversation sur le bon modèle → `/planification` → joindre ce fichier (+ le plan).
 - Prérequis session cloud neuve (comme le projet armes) : `apt-get install -y dotnet-sdk-8.0`, redéposer les DLL du jeu dans `lib/` (jamais commitées), BepInEx 5.4.23.2 pour `BepInEx.dll` et `0Harmony.dll`.
+
+## Mods ajoutés le 2026-11-10 (v0.5.1, demande de Florian : « toutes les armes et véhicules des mods », « que les fiches affichent toutes les valeurs »)
+- Session locale sur le PC de Florian (jeu sur `F:\SteamLibrary\…`, SDK .NET 8 dans le profil utilisateur). Branche `zv/plane_update`, un commit par étape.
+- Nouveaux mods : MRB-100 Centurion, F-204 Icarus II, AH-31 Kukri, MiG-21K, F-4E, Su-25, CI-23 Camel, FQ-106 Kestrel, Torpedo ; désactivés : Aryx Weapons Pack, Aryx NAVEX, KR-33, KAR.
+- **Repli en jeu généralisé** (Core) : toute valeur absente du JSON est lue en jeu, toute note absente est estimée — barres /10 au rang parmi le classeur (`RankScale`), notes air-sol/air-air par le modèle de `NO_efficacite_armes.xlsx` (94 % identiques au classeur, 98 % à ±1 ; applicabilité 100 %), résistance laser et difficulté à toucher par la régression et le modèle d'interception du même classeur (N retrouvés), signature IR au rang de l'IR moteur, profil d'attaque depuis l'autodirecteur. Tuiles estimées marquées « estimé » / « est. N … ». Appareils : notes au rang, carburant, poussée (N → kN) ou puissance (W → kW), radar, brouilleur, leurres, canons lus sur le prefab — concordance exacte avec NO-stats sur les appareils du jeu de base.
+- Exports enrichis (portée min, drapeaux, profil, type ; équipement des appareils), reçus le 2026-11-10 → `data/dump/2026-11-10_*`.
+- Données : `weapons.json` 165 armes (+26 des mods, `origine: export`, notes d'efficacité laissées à l'estimation en jeu), `aircraft.json` 32 appareils (+8, textes FR par `tools/avions_textes_mods.py`). Correspondance et appareils des mods désactivés **conservés** (avant, `mettre_a_jour` les aurait perdus).
+- Effets assumés du nouvel export : notes au rang des appareils recalculées sur 32 appareils, seuils S/M/H élargis (Centurion), charges utiles plus faibles là où l'Aryx Weapons Pack fournissait les armes lourdes (F-22E 9,2 → 6,3 t), IR de l'OA-27 (mod mis à jour).
+- Défaut corrigé au passage : « rase-flots/rase-sol 8.0 m » (décimale) ne donnait pas la pastille RASE-SOL.
+- Rôles encore vides (choix de Florian) : MiG-15, F-16M.
+- **Prochaine action** : recette en jeu de la v0.5.1 par Florian (fiches des 8 appareils, armes Kukri/Centurion/torpilles, une arme du jeu de base pour non-régression).
 
 ## Récapitulatif de cadrage (validé le 2026-10-12)
 

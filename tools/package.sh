@@ -20,7 +20,7 @@ cp src/Plugin/bin/Release/net472/NuclearOptionWiki.dll release/NuclearOptionWiki
 
 ZIP="$RACINE/dist/NuclearOptionWiki-$VERSION.zip"
 rm -f "$ZIP"
-(cd "$STAGE" && python3 -c "
+(cd "$STAGE" && python -c "
 import os, sys, zipfile
 with zipfile.ZipFile(sys.argv[1], 'w', zipfile.ZIP_DEFLATED) as z:
     for base, _, files in os.walk('BepInEx'):

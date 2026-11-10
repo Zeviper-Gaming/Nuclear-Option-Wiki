@@ -9,7 +9,16 @@ Pour chaque arme, la fiche présente :
 - capacités air-sol (CAS) et air-air (AA) en voyants notés sur 5 ;
 - interception et défenses : agilité (notée en jeu d'après la limite en G des missiles), signatures radar et IR, résistance laser, difficulté à toucher.
 
-La mise en page est identique pour toutes les armes. Une valeur absente s'affiche en gris avec « N/A ».
+La mise en page est identique pour toutes les armes. Une valeur sans objet (portée d'un réservoir, interception d'un canon…) s'affiche en gris avec « N/A ».
+
+**Armes et appareils des mods** (v0.5.1) : toute valeur absente des données est lue dans le jeu, et toute note absente est estimée :
+- barres /10 : valeur lue en jeu, classée parmi les armes (ou appareils) des classeurs ;
+- notes air-sol et air-air : modèle du classeur `NO_efficacite_armes.xlsx` (pénétration, charge, drapeaux du jeu), marquées « estimé » ;
+- résistance laser et difficulté à toucher : régression et modèle d'interception du même classeur, marquées « est. N … » ;
+- signature IR : rang de l'IR du moteur parmi les missiles chargés ; profil d'attaque : réglages de l'autodirecteur ;
+- appareils : carburant, poussée ou puissance, radar, brouilleur, leurres et canons lus sur l'appareil.
+
+Une arme ou un appareil d'un nouveau mod a donc une fiche complète dès son installation, même avant la mise à jour des classeurs.
 
 ## Installation
 
@@ -22,8 +31,9 @@ Ne garde qu'**un seul exemplaire** de la DLL dans `BepInEx/plugins/`. Supprime u
 
 Lance ensuite le jeu. Ces lignes doivent apparaître dans `BepInEx/LogOutput.log` :
 ```
-[Wiki] Données intégrées à la DLL utilisées.
-[Wiki] chargé v… : 133 armes, 4 patch(s) appliqué(s).
+[Wiki] Données des armes intégrées à la DLL utilisées.
+[Wiki] Données des appareils intégrées à la DLL utilisées.
+[Wiki] chargé v… : 165 armes, 32 appareils, 5 patch(s) appliqué(s).
 ```
 
 ## Utilisation
@@ -70,7 +80,7 @@ Tu peux aussi éditer `BepInEx/config/zeviper.nuclearoption.wiki.cfg`, par exemp
   - signature radar : lue en jeu, sinon tirée de l'Excel ;
   - IR (premier moteur) et agilité (°/s et G) : lues en jeu sur les missiles ;
   - « — » si la valeur est inconnue.
-- **Arme non référencée** : arme du jeu absente de `weapons.json`. La fiche est identique, tout est en N/A, et le nom de l'arme est noté dans le journal.
+- **Arme ou appareil hors classeur** : absent de `weapons.json` / `aircraft.json`. La fiche est identique, avec la puce « Lu en jeu » : valeurs lues en jeu, notes estimées. Le nom est noté dans le journal.
 
 ## Mettre à jour les données soi-même (sans recompiler)
 
@@ -86,8 +96,8 @@ Les données viennent de trois classeurs :
 
 1. Installe une fois Python 3, puis lance `pip install openpyxl`.
 2. Récupère le dépôt (bouton « Code → Download ZIP » sur GitHub, ou `git pull`) et remplace les fichiers dans `data/` et `data/sources/`.
-3. *Facultatif, pour les armes nouvelles en jeu* : lance le jeu, ouvre le hangar avec les avions concernés, puis appuie sur F1 → Diagnostic → **Exporter la liste des armes** → « Exporter maintenant », puis quitte. L'export sert à rattacher les nouvelles armes à leur nom interne.
-4. Double-clique sur **`mettre_a_jour.bat`**. Si le jeu est installé ailleurs que dans `G:\SteamLibrary\steamapps\common\Nuclear Option`, corrige la ligne `JEU=` au début du fichier.
+3. *Pour les armes et appareils d'un nouveau mod* : lance le jeu avec le mod, va au hangar, puis F1 → Diagnostic → **Exporter la liste des armes** et **Exporter la liste des appareils**, puis quitte. Les armes et appareils absents des classeurs y sont ajoutés avec les valeurs lues en jeu. Désactiver un mod ne fait rien perdre : ses armes et appareils gardent leur fiche.
+4. Double-clique sur **`mettre_a_jour.bat`**. Si le jeu est installé ailleurs que dans `F:\SteamLibrary\steamapps\common\Nuclear Option`, corrige la ligne `JEU=` au début du fichier.
 5. Relance le jeu. Le journal BepInEx doit afficher `[Wiki] Données lues depuis … weapons.json`.
 
 `mettre_a_jour.bat` lance `python tools/mettre_a_jour.py --jeu "<dossier du jeu>"`, qui :
