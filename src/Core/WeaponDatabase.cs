@@ -22,7 +22,14 @@ namespace NuclearOptionWiki.Core
         private WeaponScales _scales;
 
         /// <summary>Classements des valeurs du JSON, pour noter les valeurs lues en jeu (calculés une fois).</summary>
-        public WeaponScales Scales => _scales ?? (_scales = WeaponScales.From(_byKey.Values));
+        public WeaponScales Scales => _scales ?? (_scales = WeaponScales.From(ClasseurRecords()));
+
+        /// <summary>Lignes du classeur seulement : les armes ajoutées depuis l'export sont notées par rapport à elles (comme le script).</summary>
+        private IEnumerable<WeaponRecord> ClasseurRecords()
+        {
+            foreach (var r in _byKey.Values)
+                if (r.Origin != "export") yield return r;
+        }
 
         private WeaponDatabase(WeaponFile file)
         {

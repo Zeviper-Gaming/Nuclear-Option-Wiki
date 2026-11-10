@@ -61,7 +61,7 @@ def main():
         ok(contenu(x) == c1, "V2 : deux exécutions donnent le même contenu")
 
         avions = c1["Avions"]
-        ok(len(avions) - 1 == 24, f"V2 : 24 appareils (obtenu {len(avions) - 1})")
+        ok(len(avions) - 1 == 32, f"V2 : 32 appareils, mods du 2026-11-10 compris (obtenu {len(avions) - 1})")
         ok(all(l[0] for l in avions[1:]), "V2 : chaque appareil a une clé")
         ok("UFO" not in [l[0] for l in avions[1:]], "A6 : OVNI exclu")
 
@@ -132,10 +132,10 @@ def main():
         ok(p["COIN"]["taille"] == "S" and p["COIN"]["note_rcs"] == 4 and p["COIN"]["maniabilite"] == 6.5, "V4 : CI-22 S, RCS 4, agilité 6,5")
         ok(p["Aryx_CargoPlane1"]["taille"] == "H", "V4 : MC-260 taille H")
         ok(p["blacknight2u_F117A_Nighthawk"]["note_rcs"] == 0, "V4 : F-117A RCS 0")
-        ok(p["Aryx_Interceptor1"]["note_vitesse"] == 10.0, "V4 : FS-41 vitesse 10,0")
+        ok(p["baanish_icarus"]["note_vitesse"] == 10.0 and p["Aryx_Interceptor1"]["note_vitesse"] == 9.7, "V4 : F-204 (2 750 km/h) vitesse 10,0, FS-41 9,7")
         ok(p["COIN"]["laser_cibles"] == 2 and p["Aryx_MiG-15"]["laser_cibles"] == 0, "A21 : désignateur CI-22 = 2, MiG-15 = 0")
         tailles = [a["taille"] for a in m["appareils"]]
-        ok((tailles.count("S"), tailles.count("M"), tailles.count("H")) == (12, 8, 4), f"A7 : 12 S, 8 M, 4 H ({tailles.count('S')}, {tailles.count('M')}, {tailles.count('H')})")
+        ok((tailles.count("S"), tailles.count("M"), tailles.count("H")) == (18, 10, 4), f"A7 : 18 S, 10 M, 4 H ({tailles.count('S')}, {tailles.count('M')}, {tailles.count('H')})")
         ok(all(not s["affiche"] for s in p["Aryx_CargoPlane1"]["emplacements"] if s["nom_jeu"] == "-"), "A23 : « - » du MC-260 masqué")
         ok(ac.note_rcs(5e-7) == 0 and ac.note_rcs(0.001) == 1 and ac.note_rcs(0.02) == 2 and ac.note_rcs(0.08) == 3
            and ac.note_rcs(0.5) == 4 and ac.note_rcs(5) == 5, "A12 : échelle RCS")

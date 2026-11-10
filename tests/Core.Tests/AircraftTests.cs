@@ -21,7 +21,7 @@ namespace NuclearOptionWiki.Tests
                              .Where(v => v != null).Max(v => v.Value);
             foreach (var l in live.Values) l.IrGlobalMax = irMax;
 
-            eq("24", db.Count.ToString(), "aircraft.json : 24 appareils");
+            eq("32", db.Count.ToString(), "aircraft.json : 32 appareils (24 + 8 des mods du 2026-11-10)");
 
             // Toutes les fiches (24 + une inconnue) : même structure (A3).
             var sheets = new List<AircraftFicheModel>();
@@ -69,25 +69,29 @@ namespace NuclearOptionWiki.Tests
             check(mc.Rows.All(r => r == null || r.Name != "-"), "A23 : emplacement « - » absent");
             var f22 = Sheet(db, live, "Aryx_F22E_StrikeRaptor");
             eq("+2 emplacements", f22.Rows[8].MoreText, "F-22E : 9ᵉ rangée « +2 emplacements »");
-            eq("9 200 kg", f22.Bars[2].Real, "F-22E : charge utile = emports (v3.6)");
+            eq("6 300 kg", f22.Bars[2].Real, "F-22E : charge utile = emports (v3.6 ; Aryx Weapons Pack désactivé)");
 
-            // F-117A : RCS 0 ; FS-41 : vitesse 10,0.
+            // F-117A : RCS 0 ; F-204 Icarus II (2 750 km/h) : vitesse 10,0 ; FS-41 : 9,7.
             eq("0", Sheet(db, live, "blacknight2u_F117A_Nighthawk").Tiles[0].Note, "F-117A : note RCS 0");
-            eq("10,0", Sheet(db, live, "Aryx_Interceptor1").Bars[0].Note, "FS-41 : note vitesse 10,0");
+            eq("10,0", Sheet(db, live, "baanish_icarus").Bars[0].Note, "F-204 : note vitesse 10,0");
+            eq("9,7", Sheet(db, live, "Aryx_Interceptor1").Bars[0].Note, "FS-41 : note vitesse 9,7");
+            var kukri = Sheet(db, live, "AH31_Kukri");
+            eq("HÉLICO|AH-31 Kukri", kukri.ChipType + "|" + kukri.Title, "AH-31 Kukri référencé");
+            check(kukri.Roles.Count > 0 && !kukri.Description.StartsWith("The "), "AH-31 : rôles et description FR");
 
             // IR (A11 amendé v3.3) : même échelle ; jamais plus fort à 30 % qu'à plein gaz.
             var kr = Sheet(db, live, "1509_palafighter1");
             eq("2", kr.Tiles[1].Note, "KR-33 : IR 30 % = 2/5");
             eq("4", kr.Tiles[2].Note, "KR-33 : IR plein gaz = 4/5");
-            check(sheets.Take(24).All(s => s.Tiles[1].Note == "N/A" || int.Parse(s.Tiles[1].Note) <= int.Parse(s.Tiles[2].Note)),
+            check(sheets.Take(db.Count).All(s => s.Tiles[1].Note == "N/A" || int.Parse(s.Tiles[1].Note) <= int.Parse(s.Tiles[2].Note)),
                   "IR : note 30 % ≤ note plein gaz pour tous");
             eq("5", LoadClass.IrNote(11, 11).ToString(), "IR max → 5");
             eq("0", LoadClass.IrNote(0.5, 11).ToString(), "IR faible → 0");
 
-            // Coût inversé : cher = rouge.
-            var ab4 = Sheet(db, live, "FastBomber1");
-            eq("10,0", ab4.Bars[3].Note, "AB-4 : note coût 10,0");
-            eq("0", ab4.Bars[3].ColorIndex.ToString(), "coût inversé : le plus cher est rouge");
+            // Coût inversé : cher = rouge (MRB-100 Centurion, 500 M$, le plus cher).
+            var cen = Sheet(db, live, "baanish_centurion");
+            eq("10,0", cen.Bars[3].Note, "MRB-100 : note coût 10,0");
+            eq("0", cen.Bars[3].ColorIndex.ToString(), "coût inversé : le plus cher est rouge");
 
             // Priorité A4 : correction (dans le JSON, « * ») > JSON > jeu.
             var rec = db.Find("COIN", null).Value;
@@ -210,9 +214,22 @@ namespace NuclearOptionWiki.Tests
         /// <summary>Reconstitue LiveAircraft depuis le dernier export (ce que LiveAircraftStats lit en jeu).</summary>
         private static Dictionary<string, LiveAircraft> LoadLive(string root)
         {
+            // Exports cumulés comme tools/avions_commun.py : le plus récent fait foi, un appareil absent (mod désactivé, KR-33)
+            // est repris de l'export précédent qui le contient, avec ses emports.
             string dump = Path.Combine(root, "data", "dump");
-            var avions = Csv(Directory.GetFiles(dump, "*_avions_v*.csv").OrderBy(p => p, StringComparer.Ordinal).Last());
-            var emports = Csv(Directory.GetFiles(dump, "*_emports_v*.csv").OrderBy(p => p, StringComparer.Ordinal).Last());
+            var avions = new List<Dictionary<string, string>>();
+            var emports = new List<Dictionary<string, string>>();
+            var seen = new HashSet<string>();
+            foreach (var file in Directory.GetFiles(dump, "*_avions_v*.csv").OrderByDescending(p => p, StringComparer.Ordinal))
+            {
+                string emp = file.Replace("_avions_v", "_emports_v");
+                if (!File.Exists(emp)) continue;
+                var fresh = Csv(file).Where(a => !seen.Contains(a["json_key"])).ToList();
+                var keys = new HashSet<string>(fresh.Select(a => a["json_key"]));
+                avions.AddRange(fresh);
+                emports.AddRange(Csv(emp).Where(e => keys.Contains(e["json_key"])));
+                seen.UnionWith(keys);
+            }
             var res = new Dictionary<string, LiveAircraft>();
             foreach (var a in avions)
             {

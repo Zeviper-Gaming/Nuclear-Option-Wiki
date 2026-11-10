@@ -285,12 +285,28 @@ def lire_classeur(chemin=CLASSEUR):
 def construire(classeur=None, no_stats=NO_STATS, export_avions=None, export_emports=None, journal=print):
     """Modèle complet : {'appareils': [...], 'seuils': {...}, 'corrections': [...], 'exports': (...)}."""
     classeur = classeur if classeur is not None else lire_classeur()
-    export_avions = export_avions or dernier_export("*_avions_v*.csv")
-    export_emports = export_emports or dernier_export("*_emports_v*.csv")
     no = lire_no_stats(no_stats)
-    exp = {r["json_key"]: r for r in lire_csv(export_avions)}
+    if export_avions or export_emports:
+        export_avions = export_avions or dernier_export("*_avions_v*.csv")
+        export_emports = export_emports or dernier_export("*_emports_v*.csv")
+        exp = {r["json_key"]: r for r in lire_csv(export_avions)}
+        lignes_emports = lire_csv(export_emports)
+    else:
+        # Exports cumulés : le plus récent fait foi ; un appareil absent du dernier export (mod désactivé) est repris
+        # de l'export précédent qui le contient, avec ses emports, pour ne perdre ni sa fiche ni ses colonnes éditées.
+        export_avions = dernier_export("*_avions_v*.csv")
+        export_emports = dernier_export("*_emports_v*.csv")
+        exp, lignes_emports = {}, []
+        for chemin in sorted(glob.glob(os.path.join(DUMP, "*_avions_v*.csv")), reverse=True):
+            emp = chemin.replace("_avions_v", "_emports_v")
+            if not os.path.exists(emp):
+                continue
+            nouveaux = {r["json_key"]: r for r in lire_csv(chemin) if r["json_key"] not in exp}
+            if chemin != export_avions and nouveaux:
+                journal(f"Info : {', '.join(sorted(nouveaux))} absent(s) du dernier export : repris de {os.path.basename(chemin)}.")
+            exp.update(nouveaux)
+            lignes_emports += [r for r in lire_csv(emp) if r["json_key"] in nouveaux]
     par_nom = {r["unit_name"]: r for r in exp.values()}
-    lignes_emports = lire_csv(export_emports)
 
     # --- Appareils référencés : NO-stats appariés par nom (= unit_name), puis aéronefs de l'export absents de NO-stats.
     appareils, vus = [], set()
@@ -415,10 +431,10 @@ def _appareil(e, n):
     poussee, puissance = nb("poussee_kn"), nb("puissance_kw")
     if poussee is None and puissance is None:
         p_n, p_brute = nombre(e.get("poussee_n")), nombre(e.get("puissance"))
-        if p_n:
+        if p_n and not (p_brute and p_n < 20000):       # poussée d'appoint d'un turbopropulseur : puissance retenue
             poussee = arrondi(p_n / 1000, 1)
         elif p_brute:
-            puissance = arrondi(p_brute / 1000 if p_brute > 100000 else p_brute, 0)
+            puissance = arrondi(p_brute / 1000, 0)          # W → kW (CI-22 : 1 500 000 → 1 500)
     radar = nb("radar_m")
     if radar is None and "radar_portee" in e:
         radar = nombre(e.get("radar_portee")) or 0.0

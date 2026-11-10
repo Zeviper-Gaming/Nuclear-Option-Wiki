@@ -125,7 +125,7 @@ namespace NuclearOptionWiki.GameData
         /// <summary>
         /// v0.5.1 : équipement lu sur le prefab, en repli de NO-stats pour les appareils des mods ajoutés.
         /// Carburant = somme des FuelTank.FuelCapacity (kg) ; poussée = somme des Turbojet.maxThrust et Turbofan.staticThrust
-        /// (N, appliqués tels quels par JetNozzle.AddForceAtPosition) ; puissance = somme des TurbineEngine.maxPower ;
+        /// (N, appliqués tels quels par JetNozzle.AddForceAtPosition) ; puissance = somme des TurbineEngine.maxPower (W) ;
         /// radar = plus grande RadarParameters.maxRange ; leurres = munitions des FlareEjector ; brouilleur = RadarJammer intégré.
         /// </summary>
         public static Equipment ReadEquipment(GameObject prefab)
@@ -141,8 +141,10 @@ namespace NuclearOptionWiki.GameData
             foreach (var f in prefab.GetComponentsInChildren<FlareEjector>(true)) if (f != null) flares += Math.Max(0, f.ammo);
             e.Jammer = prefab.GetComponentsInChildren<RadarJammer>(true).Any(j => j != null);
             if (fuel > 0) e.FuelKg = fuel;
-            if (thrust > 0) { e.ThrustN = thrust; e.ThrustKn = thrust / 1000; }
-            if (power > 0) { e.PowerRaw = power; e.PowerKw = power > 100000 ? power / 1000 : power; }   // W ou kW selon le mod
+            if (power > 0) { e.PowerRaw = power; e.PowerKw = power / 1000; }                          // W (CI-22 : 1 500 000)
+            // Poussée d'appoint d'un turbopropulseur (OA-27 : 5 kN) : la puissance décrit mieux le moteur.
+            if (thrust > 0 && !(power > 0 && thrust < 20000)) { e.ThrustN = thrust; e.ThrustKn = thrust / 1000; }
+            else if (thrust > 0) e.ThrustN = thrust;
             if (radar > 0) e.RadarM = radar;
             e.Flares = flares;
             return e;

@@ -143,6 +143,18 @@ def lire_excel(chemin):
     return lignes
 
 
+def lire_precedente(chemin):
+    """Correspondance précédente : lignes mappées (auto, manuel, a_valider) par clé Excel."""
+    res = collections.defaultdict(list)
+    if not os.path.exists(chemin):
+        return res
+    with open(chemin, encoding="utf-8", newline="") as f:
+        for r in csv.DictReader(f, delimiter=";"):
+            if (r.get("statut") or "").strip() in ("auto", "manuel", "a_valider") and r.get("info_name") and r.get("excel_cle"):
+                res[r["excel_cle"]].append(r)
+    return res
+
+
 def lire_manuel(chemin):
     if not os.path.exists(chemin):
         return []
@@ -165,6 +177,7 @@ def main():
     infos = lire_export(args.export)
     excel = lire_excel(args.xlsx)
     manuel = lire_manuel(SORTIE)
+    precedente = lire_precedente(SORTIE)
     deja = {r["excel_cle"] for r in manuel}
     pris = {r["info_name"] for r in manuel if r.get("info_name")}
 
@@ -181,6 +194,15 @@ def main():
         cands = [c for c in par_nom.get(base, []) if c["info_name"] not in pris]
         statut, choix, note = "ambigu", [], ""
 
+        if not cands and precedente.get(l["cle"]):
+            # Arme d'un mod désactivé ou non chargé pendant l'export : la correspondance établie est conservée.
+            for r in precedente[l["cle"]]:
+                pris.add(r["info_name"])
+                commentaire = (r.get("commentaire") or "").split(" ; conservée")[0]
+                sortie.append({"excel_cle": l["cle"], "info_name": r["info_name"], "mount_jsonkeys": r.get("mount_jsonkeys", ""),
+                               "statut": r["statut"], "commentaire": (commentaire + " ; " if commentaire else "")
+                               + "conservée : absente du dernier export (mod désactivé ?)"})
+            continue
         if not cands:
             statut, note = "introuvable", "aucune arme de ce nom dans l'export"
         elif base != l["nom"] or l["nom"].startswith("???"):
@@ -222,6 +244,17 @@ def main():
                                "statut": statut, "commentaire": note})
         else:
             sortie.append({"excel_cle": l["cle"], "info_name": "", "mount_jsonkeys": "", "statut": statut, "commentaire": note})
+
+    # Alias établis pour des assets absents de l'export (mods désactivés : KAR, BOTE, Aryx…) : conservés.
+    cles_excel = {l["cle"] for l in excel}
+    for cle, lignes in precedente.items():
+        for r in lignes:
+            if cle in cles_excel and r["info_name"] not in infos and r["info_name"] not in pris:
+                pris.add(r["info_name"])
+                commentaire = (r.get("commentaire") or "").split(" ; conservée")[0]
+                sortie.append({"excel_cle": cle, "info_name": r["info_name"], "mount_jsonkeys": r.get("mount_jsonkeys", ""),
+                               "statut": r["statut"], "commentaire": (commentaire + " ; " if commentaire else "")
+                               + "conservée : absente du dernier export (mod désactivé ?)"})
 
     # Asset absent de la correspondance mais portant le nom d'une ligne Excel : si ses stats sont identiques
     # à une seule ligne de ce nom, c'est la même arme (ex. version KAR d'un canon du jeu de base).

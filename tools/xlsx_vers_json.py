@@ -233,10 +233,10 @@ def armes_hors_classeur(armes, alias, notes_rang, journal=print):
         ajout[info] = {
             "excel": f"{nom}|export {date_export(export_armes)}",
             "nom": nom,
-            "source": next(iter(avions)) if len(avions) == 1 else "Mod (" + ", ".join(sorted(avions)) + ")",
+            "source": source_export(info, avions),
             "type": texte(e.get("type")),
             "guidage": None,
-            "approche": texte(e.get("approche")),
+            "approche": approche_export(e.get("approche")),
             "penetration": nombre_txt(e.get("penetration")),
             "explosif_kg": explosif,
             "cout_m": cout,
@@ -265,6 +265,33 @@ def armes_hors_classeur(armes, alias, notes_rang, journal=print):
         journal(f"{len(ajout)} arme(s) de mods ajoutée(s) depuis {os.path.basename(export_armes)} : "
                 + ", ".join(f"{a['nom']} ({a['source']})" for a in ajout.values()))
     return ajout
+
+
+# Armes ajoutées par un mod sur des appareils existants : source = nom du mod (préfixe de l'asset → mod).
+SOURCES_PAR_PREFIXE = [("Torpedo", "Torpedo (mod)"), ("Kukri_", "AH-31 Kukri"), ("Centurion_", "MRB-100 Centurion"),
+                       ("baanish_centurion", "MRB-100 Centurion"), ("baanish_icarus", "F-204 Icarus II")]
+
+
+def source_export(info, porteurs):
+    for prefixe, source in SOURCES_PAR_PREFIXE:
+        if info.startswith(prefixe):
+            return source
+    if len(porteurs) == 1:
+        return next(iter(porteurs))
+    return "Plusieurs appareils"
+
+
+def approche_export(v):
+    """L'export remplace « ; » par « , » : on rétablit les séparateurs hors parenthèses."""
+    v = texte(v)
+    if v is None:
+        return None
+    res, profondeur = [], 0
+    for c in v:
+        profondeur += c == "("
+        profondeur -= c == ")"
+        res.append(";" if c == "," and profondeur == 0 else c)
+    return "".join(res)
 
 
 def nombre_txt(v):

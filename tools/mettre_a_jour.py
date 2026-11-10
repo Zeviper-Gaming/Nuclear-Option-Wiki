@@ -70,14 +70,15 @@ def main():
     else:
         print("Aucun export du jeu fourni : la correspondance existante (data/correspondance.csv) est conservée.")
 
-    lancer("xlsx_vers_json.py")
-
+    # Exports d'appareils copiés AVANT weapons.json : les armes des mods sont rattachées à leur appareil porteur.
     for export_avion in (derniers_exports_avions(args.jeu) if args.jeu else []):
         # « NuclearOptionWiki_avions_v0.5.0.csv » → data/dump/<date>_avions_v0.5.0.csv
         nom = os.path.basename(export_avion).replace("NuclearOptionWiki_", "")
         cible = os.path.join(RACINE, "data", "dump", f"{date.today().isoformat()}_{nom}")
         shutil.copy2(export_avion, cible)
         print(f"Export d'appareils utilisé : {export_avion}")
+
+    lancer("xlsx_vers_json.py")
     tags_jeu = os.path.join(args.jeu, "BepInEx", "config", "NuclearOptionWiki_tags.json") if args.jeu else None
     if tags_jeu and os.path.exists(tags_jeu):
         lancer("avions_classeur.py", "--tags-jeu", tags_jeu)   # A24 : les tags saisis en jeu passent dans le classeur

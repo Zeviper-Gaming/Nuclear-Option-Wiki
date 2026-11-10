@@ -18,6 +18,8 @@ namespace NuclearOptionWiki.Core
     {
         [JsonProperty("excel")] public string ExcelKey;
         [JsonProperty("cle_provisoire")] public bool ProvisionalKey;
+        /// <summary>« export » : arme d'un mod ajoutée depuis l'export du jeu (hors classeur) ; null : ligne du classeur.</summary>
+        [JsonProperty("origine")] public string Origin;
         [JsonProperty("nom")] public string Name;
         [JsonProperty("source")] public string Source;
         [JsonProperty("type")] public string Type;

@@ -74,7 +74,9 @@ namespace NuclearOptionWiki.Tests
 
         private static void DatabaseTests(WeaponDatabase db)
         {
-            Eq(139, db.Count, "139 armes dans weapons.json (133 + 6 de NO-stats)");
+            Eq(165, db.Count, "165 armes dans weapons.json (133 + 6 de NO-stats + 26 des mods, lues dans l'export du 2026-11-10)");
+            True(db.Find("Kukri_20mm_HEI", null, null)?.Source == "AH-31 Kukri", "arme de mod ajoutée depuis l'export");
+            True(db.Find("Centurion_Auger_Info", null, null)?.ExcelKey == "GPO-2P Auger|Jeu de base", "Centurion : Auger rattachée à la GPO-2P du jeu de base");
             True(db.Find("SARAAM1_info", null, null)?.Name == "AAM-21 Glaive", "AAM-21 Glaive ajouté depuis NO-stats");
             string agmKey = KeyOf(db, "AGM-48|Jeu de base");
             True(agmKey != null && db.Find(agmKey, null, null) != null, "recherche par clé du jeu");
