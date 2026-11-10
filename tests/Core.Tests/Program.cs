@@ -148,6 +148,7 @@ namespace NuclearOptionWiki.Tests
         private static void ProfileTests()
         {
             Eq("RASE-SOL 15 M|TERMINALE", string.Join("|", AttackProfile.Chips("rase-flots/rase-sol 15 m; phase terminale à 3000 m")), "pastilles avec valeur");
+            Eq("ATTAQUE HAUTE|RASE-SOL 8 M|ZIGZAG|TERMINALE", string.Join("|", AttackProfile.Chips("attaque par le haut (proba 0.1, 600-1000 m); rase-flots/rase-sol 8.0 m; évasion zigzag 0.1; phase terminale à 2000 m")), "rase-sol avec décimale (classeur)");
             Eq("ATTAQUE HAUTE|DATALINK", string.Join("|", AttackProfile.Chips("attaque par le haut (proba 1.0, 1000-50000 m); datalink")), "attaque haute");
             Eq("MOTIF INCONNU…", string.Join("|", AttackProfile.Chips("motif inconnu très long")), "motif inconnu tronqué");
             Eq(0, AttackProfile.Chips(null).Count, "pas d'approche");

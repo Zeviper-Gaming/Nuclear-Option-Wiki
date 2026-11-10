@@ -234,7 +234,7 @@ namespace NuclearOptionWiki.Integration
                     var info = mount.info;
                     var record = Plugin.Database.Find(info.name, mount.jsonKey, info.weaponName);
                     if (record == null) LogUnknownOnce(info, mount);
-                    model = FicheModel.Build(record, info.weaponName, LiveWeaponStats.Get(info), mode);
+                    model = FicheModel.Build(record, info.weaponName, LiveWeaponStats.Get(info), mode, Plugin.Database.Scales);
                 }
                 else if (_demo)
                 {

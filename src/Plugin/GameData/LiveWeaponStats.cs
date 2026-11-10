@@ -48,6 +48,16 @@ namespace NuclearOptionWiki.GameData
             {
                 WarnOnce($"lecture de {info.name} impossible : {e.GetBaseException().Message}");
             }
+            // v0.5.1 : tout ce que le jeu sait de l'arme, en repli des valeurs absentes de weapons.json (mods ajoutés).
+            try
+            {
+                WeaponReader.ReadBasics(info, ref stats);
+                stats.IrNote = IrNote(stats);
+            }
+            catch (Exception e)
+            {
+                WarnOnce($"valeurs de base de {info.name} illisibles : {e.GetBaseException().Message}");
+            }
             // Drapeaux de l'arme (plan v1.1, D29) : disponibles même sans prefab (canons).
             stats.LaserGuided = info.laserGuided;
             stats.IsMissile = info.missile;
@@ -89,6 +99,44 @@ namespace NuclearOptionWiki.GameData
             if (n < 2) return null;
             int le = 0;
             foreach (var g in _gLimits) if (g <= gLimit.Value + 1e-4) le++;
+            double rank = (double)Math.Max(le - 1, 0) / (n - 1);
+            return Math.Min(5, Math.Max(0, (int)NoteScale.RoundHalfUp(5 * rank)));
+        }
+
+        private static List<float> _irs;
+
+        /// <summary>
+        /// Note de signature IR /5 d'une arme hors classeur : rang centile de l'IR du premier moteur parmi les missiles chargés
+        /// (calculé une fois par session) ; bombe sans moteur → 0 (classeur : « les bombes n'ont aucune signature IR ») ;
+        /// canon, énergie, équipement → null.
+        /// </summary>
+        private static int? IrNote(LiveStats s)
+        {
+            if (s.IrIntensity == null)
+                return (s.Flags.Bomb || s.Flags.GlideBomb) && !s.Flags.HasMissileBody ? 0 : (int?)null;
+            if (_irs == null)
+            {
+                _irs = new List<float>();
+                foreach (var w in Resources.FindObjectsOfTypeAll<WeaponInfo>())
+                {
+                    try
+                    {
+                        var m = w != null && w.weaponPrefab != null ? w.weaponPrefab.GetComponent(_missileType) : null;
+                        if (m == null || !(_motors?.GetValue(m) is Array motors) || motors.Length == 0 || motors.GetValue(0) == null) continue;
+                        if (_irIntensity?.GetValue(motors.GetValue(0)) is float ir && ir > 0f) _irs.Add(ir);
+                    }
+                    catch (Exception)
+                    {
+                        // arme illisible : ignorée dans le classement
+                    }
+                }
+                _irs.Sort();
+                Plugin.Log.LogInfo($"[Wiki] Classement IR : {_irs.Count} missiles.");
+            }
+            int n = _irs.Count;
+            if (n < 2) return null;
+            int le = 0;
+            foreach (var v in _irs) if (v <= s.IrIntensity.Value + 1e-4) le++;
             double rank = (double)Math.Max(le - 1, 0) / (n - 1);
             return Math.Min(5, Math.Max(0, (int)NoteScale.RoundHalfUp(5 * rank)));
         }

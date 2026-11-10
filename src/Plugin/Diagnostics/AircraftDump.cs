@@ -31,6 +31,8 @@ namespace NuclearOptionWiki.Diagnostics
             "vertical", "decollage_ms", "decollage_m", "moteurs", "ir_min", "ir_max_sec", "ir_max", "viseurs", "viseur_portee",
             "viseur_grossissement", "eots", "laser_cibles", "laser_portee", "nb_emplacements", "nb_points", "nb_soutes", "canons_fixes", "role_surface", "role_air",
             "role_missile", "role_radar", "description",
+            // v0.5.1 : équipement du prefab (repli de NO-stats pour les appareils des mods ajoutés).
+            "carburant", "poussee_n", "puissance", "radar_portee", "brouilleur", "leurres",
         };
 
         private const string HardpointsHeader =
@@ -180,6 +182,16 @@ namespace NuclearOptionWiki.Diagnostics
                     v["laser_portee"] = Num(range);
                 });
                 Section(def, "emports", () => Hardpoints(key, prefab, aircraft, v, hardpointRows));
+                Section(def, "équipement", () =>
+                {
+                    var e = AircraftReader.ReadEquipment(prefab);
+                    v["carburant"] = Num(e.FuelKg);
+                    v["poussee_n"] = Num(e.ThrustN);
+                    v["puissance"] = Num(e.PowerRaw);
+                    v["radar_portee"] = Num(e.RadarM);
+                    v["brouilleur"] = Flag(e.Jammer);
+                    v["leurres"] = Num(e.Flares);
+                });
             }
 
             return string.Join(";", AircraftColumns.Select(c => v.TryGetValue(c, out var s) ? s : ""));

@@ -17,7 +17,9 @@ namespace NuclearOptionWiki.Diagnostics
         // Le nom contient la version du mod : impossible de confondre un export récent avec un ancien.
         public static string FileName => $"NuclearOptionWiki_armes_v{Plugin.Version}.csv";
         private const string Header = "info_name;weapon_name;short_name;mount_jsonkey;mount_name;missile;bomb;gun;energy;cargo;troops;dans_encyclopedie;" +
-                                      "autodirecteur;guidage_laser;vitesse_initiale;vitesse_max;penetration;explosif;cout_par_coup;masse_par_coup;portee_max;cadence_s";
+                                      "autodirecteur;guidage_laser;vitesse_initiale;vitesse_max;penetration;explosif;cout_par_coup;masse_par_coup;portee_max;cadence_s;" +
+                                      "portee_min;anti_surface;anti_air;vitesse_cible_max;nucleaire;planante;roquette;rcs;ir;type;approche";
+        private const string EmptyExtra = ";;;;;;;;;;";
 
         private static Type _missileType;
         private static System.Reflection.MethodInfo _getPierce, _getYield;
@@ -93,6 +95,7 @@ namespace NuclearOptionWiki.Diagnostics
                 Flag(info != null && info.troops),
                 Flag(inEncyclopedia),
                 SafeStats(info),
+                SafeExtra(info),
             });
         }
 
@@ -107,6 +110,29 @@ namespace NuclearOptionWiki.Diagnostics
             {
                 Plugin.Log.LogWarning($"[Wiki] Stats illisibles pour {info?.name} : {e.GetBaseException().Message}");
                 return ";;;;;;;;;";
+            }
+        }
+
+        /// <summary>v0.5.1 : valeurs de la fiche lues en jeu (repli des armes hors classeur), pour les intégrer au classeur.</summary>
+        private static string SafeExtra(WeaponInfo info)
+        {
+            if (info == null) return EmptyExtra;
+            try
+            {
+                var l = NuclearOptionWiki.GameData.LiveWeaponStats.Get(info);
+                bool rocket = Core.WeaponCategories.Primary(l.Flags) == Core.WeaponCategory.Roquette;
+                return string.Join(";", new[]
+                {
+                    Num(info.targetRequirements.minRange), Num(info.effectiveness.antiSurface), Num(info.effectiveness.antiAir),
+                    Num(info.targetRequirements.maxSpeed), Flag(info.nuclear), Flag(info.glideBomb), Flag(rocket),
+                    l.RcsM2 == null ? "" : Num((float)l.RcsM2.Value), l.IrIntensity == null ? "" : Num((float)l.IrIntensity.Value),
+                    Clean(Core.WeaponEstimates.TypeOf(l.Flags)), Clean(l.Approach),
+                });
+            }
+            catch (Exception e)
+            {
+                Plugin.Log.LogWarning($"[Wiki] Valeurs de fiche illisibles pour {info.name} : {e.GetBaseException().Message}");
+                return EmptyExtra;
             }
         }
 

@@ -71,6 +71,19 @@ namespace NuclearOptionWiki.GameData
                     l.LaserRangeM = range;
                 });
                 Guard(def, "emports", () => l.Hardpoints = AircraftReader.ReadHardpoints(prefab, aircraft));
+                Guard(def, "équipement", () =>
+                {
+                    var e = AircraftReader.ReadEquipment(prefab);
+                    l.FuelKg = e.FuelKg;
+                    l.ThrustKn = e.ThrustKn;
+                    l.PowerKw = l.ThrustKn == null ? e.PowerKw : null;
+                    l.RadarM = e.RadarM;
+                    l.Jammer = e.Jammer;
+                    l.Flares = e.Flares;
+                    l.FixedGuns = AircraftFicheModel.FixedGunsFromHardpoints(l.Hardpoints);
+                    AircraftReader.IsAircraft(prefab, out l.EngineTypes);
+                    l.PrefabRead = true;
+                });
             }
             l.IrGlobalMax = GlobalIrMax();
             Cache[def] = l;

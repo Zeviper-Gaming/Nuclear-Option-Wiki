@@ -14,7 +14,7 @@ namespace NuclearOptionWiki.Core
             (new Regex(@"^évasion zigzag", RegexOptions.IgnoreCase), "ZIGZAG"),
             (new Regex(@"^datalink", RegexOptions.IgnoreCase), "DATALINK"),
             (new Regex(@"^phase terminale", RegexOptions.IgnoreCase), "TERMINALE"),
-            (new Regex(@"^rase-flots/rase-sol\s+(\d+)\s*m", RegexOptions.IgnoreCase), "RASE-SOL {0} M"),
+            (new Regex(@"^rase-flots/rase-sol\s+(\d+)(?:[.,]\d+)?\s*m", RegexOptions.IgnoreCase), "RASE-SOL {0} M"),
             (new Regex(@"^attaque par le haut", RegexOptions.IgnoreCase), "ATTAQUE HAUTE"),
             (new Regex(@"^évite le relief", RegexOptions.IgnoreCase), "SUIVI RELIEF"),
             (new Regex(@"^croisière", RegexOptions.IgnoreCase), "CROISIÈRE"),

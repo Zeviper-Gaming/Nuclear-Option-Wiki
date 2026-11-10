@@ -116,6 +116,38 @@ namespace NuclearOptionWiki.GameData
             rangeM = lasers.Count > 0 && _laserRange != null ? lasers.Max(l => (double)(float)_laserRange.GetValue(l)) : (double?)null;
         }
 
+        public struct Equipment
+        {
+            public double? FuelKg, ThrustKn, PowerKw, RadarM, Flares, ThrustN, PowerRaw;
+            public bool Jammer;
+        }
+
+        /// <summary>
+        /// v0.5.1 : équipement lu sur le prefab, en repli de NO-stats pour les appareils des mods ajoutés.
+        /// Carburant = somme des FuelTank.FuelCapacity (kg) ; poussée = somme des Turbojet.maxThrust et Turbofan.staticThrust
+        /// (N, appliqués tels quels par JetNozzle.AddForceAtPosition) ; puissance = somme des TurbineEngine.maxPower ;
+        /// radar = plus grande RadarParameters.maxRange ; leurres = munitions des FlareEjector ; brouilleur = RadarJammer intégré.
+        /// </summary>
+        public static Equipment ReadEquipment(GameObject prefab)
+        {
+            var e = new Equipment();
+            double fuel = 0, thrust = 0, power = 0, flares = 0, radar = 0;
+            foreach (var t in prefab.GetComponentsInChildren<FuelTank>(true)) if (t != null) fuel += t.FuelCapacity;
+            foreach (var j in prefab.GetComponentsInChildren<Turbojet>(true)) if (j != null) thrust += j.maxThrust;
+            foreach (var f in prefab.GetComponentsInChildren<Turbofan>(true)) if (f != null) thrust += f.staticThrust;
+            foreach (var t in prefab.GetComponentsInChildren<TurbineEngine>(true)) if (t != null) power += t.maxPower;
+            foreach (var r in prefab.GetComponentsInChildren<Radar>(true))
+                if (r != null) radar = Math.Max(radar, r.RadarParameters.maxRange);
+            foreach (var f in prefab.GetComponentsInChildren<FlareEjector>(true)) if (f != null) flares += Math.Max(0, f.ammo);
+            e.Jammer = prefab.GetComponentsInChildren<RadarJammer>(true).Any(j => j != null);
+            if (fuel > 0) e.FuelKg = fuel;
+            if (thrust > 0) { e.ThrustN = thrust; e.ThrustKn = thrust / 1000; }
+            if (power > 0) { e.PowerRaw = power; e.PowerKw = power > 100000 ? power / 1000 : power; }   // W ou kW selon le mod
+            if (radar > 0) e.RadarM = radar;
+            e.Flares = flares;
+            return e;
+        }
+
         public static HardpointSet[] ReadHardpointSets(GameObject prefab, Component aircraft)
         {
             Resolve();
@@ -159,8 +191,16 @@ namespace NuclearOptionWiki.GameData
 
         public static WeaponFlags Flags(WeaponMount m)
         {
-            var f = new WeaponFlags { MountCargo = m.Cargo, MountTroops = m.Troops };
-            var i = m.info;
+            var f = FlagsOf(m.info);
+            f.MountCargo = m.Cargo;
+            f.MountTroops = m.Troops;
+            return f;
+        }
+
+        /// <summary>Drapeaux d'une arme (sans l'emport) : catégorie, type et estimations de la fiche arme.</summary>
+        public static WeaponFlags FlagsOf(WeaponInfo i)
+        {
+            var f = new WeaponFlags();
             if (i == null) return f;
             f.HasInfo = true;
             f.Cargo = i.cargo;
