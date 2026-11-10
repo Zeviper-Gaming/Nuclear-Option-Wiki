@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace NuclearOptionWiki.Core
@@ -26,7 +27,41 @@ namespace NuclearOptionWiki.Core
         public bool IsEnergy;
         public int? AgilityNote;        // note /5 calculée en jeu (rang du gLimit parmi les missiles)
 
+        // Repli des valeurs absentes de weapons.json (mods ajoutés) : tout ce que le jeu sait de l'arme.
+        public bool HasInfo;            // un WeaponInfo a été lu
+        public WeaponFlags Flags;
+        public double? SpeedMs, MinRangeM, MaxRangeM, Penetration, ExplosiveKg, CostMillions, MassKg;
+        public double? TargetMaxSpeed;  // TargetRequirements.maxSpeed (≤ 0 : illimitée)
+        public string Approach;         // même vocabulaire que la colonne « Méthode d'approche » du classeur
+        public int? IrNote;             // note /5 calculée en jeu (rang de l'IR du premier moteur parmi les missiles)
+
         public static readonly LiveStats None = new LiveStats();
+    }
+
+    /// <summary>Classements des valeurs de weapons.json, pour noter au rang une valeur lue en jeu (D24, D10).</summary>
+    public sealed class WeaponScales
+    {
+        public RankScale Speed, Range, Explosive, Penetration, ExplosivePerMillion;
+
+        public static WeaponScales From(IEnumerable<WeaponRecord> records)
+        {
+            var list = new List<WeaponRecord>(records);
+            var s = new WeaponScales();
+            s.Speed = new RankScale(list.ConvertAll(r => r.SpeedMs), true);
+            s.Range = new RankScale(list.ConvertAll(r => r.MaxRangeM), true);
+            s.Explosive = new RankScale(list.ConvertAll(r => r.ExplosiveKg), true);
+            s.Penetration = new RankScale(list.ConvertAll(r => r.Penetration), true);
+            s.ExplosivePerMillion = new RankScale(list.ConvertAll(r => r.ExplosivePerMillion), true);
+            return s;
+        }
+
+        /// <summary>D10 : 1 + 9 × (log10(portée_m) − 2) / 4, bornée à [1 ; 10], 1 décimale.</summary>
+        public static double? RangeLogNote(double? meters)
+        {
+            if (meters == null || meters.Value <= 0) return null;
+            double n = 1 + 9 * (Math.Log10(meters.Value) - 2) / 4;
+            return NoteScale.RoundHalfUp(Math.Min(10, Math.Max(1, n)), 1);
+        }
     }
 
     /// <summary>Barre à 10 niveaux : libellé, note, couleur, segments allumés, valeur réelle.</summary>
@@ -95,60 +130,115 @@ namespace NuclearOptionWiki.Core
         /// Construit la fiche. <paramref name="record"/> null = arme non référencée : même fiche, notes en N/A,
         /// titre = <paramref name="gameName"/>, valeurs lues en jeu conservées.
         /// </summary>
-        public static FicheModel Build(WeaponRecord record, string gameName, LiveStats live, RangeNoteMode rangeMode)
+        public const string Estimated = "estimé";
+
+        /// <param name="scales">Classements de weapons.json pour noter une valeur lue en jeu ; null = pas de note estimée au rang.</param>
+        public static FicheModel Build(WeaponRecord record, string gameName, LiveStats live, RangeNoteMode rangeMode, WeaponScales scales = null)
         {
             bool known = record != null;
             var r = record ?? new WeaponRecord();
             var m = new FicheModel { Unreferenced = !known };
             var seeker = SeekerInfo.Derive(live);
             string seekerText = seeker.Display ?? Format.NotAvailable;
+            string approach = r.Approach ?? live.Approach;
 
             if (known)
             {
                 m.Title = Format.OrNotAvailable(r.Name);
-                m.Chip1 = Format.OrNotAvailable(r.Type);
+                m.Chip1 = Format.OrNotAvailable(r.Type ?? (live.HasInfo ? WeaponEstimates.TypeOf(live.Flags) : null));
                 m.Chip2 = Format.OrNotAvailable(r.Source);
-                m.Subtitle = "Guidage : " + Format.OrNotAvailable(r.Guidance) + " · Autodirecteur : " + seekerText;
-                m.Profile = AttackProfile.Chips(r.Approach);
+                m.Subtitle = "Guidage : " + Format.OrNotAvailable(r.Guidance ?? seeker.Display) + " · Autodirecteur : " + seekerText;
             }
             else
             {
                 m.Title = string.IsNullOrWhiteSpace(gameName) ? "Arme inconnue" : gameName.Trim();
-                m.Chip1 = "Hors Excel";
-                m.Chip2 = "";
-                m.Subtitle = "ARME NON RÉFÉRENCÉE · nom noté dans le journal BepInEx";
+                m.Chip1 = live.HasInfo ? WeaponEstimates.TypeOf(live.Flags) : "Hors Excel";
+                m.Chip2 = live.HasInfo ? "Lu en jeu" : "";
+                m.Subtitle = live.HasInfo
+                    ? "Autodirecteur : " + seekerText + " · hors classeur : valeurs du jeu, notes estimées"
+                    : "ARME NON RÉFÉRENCÉE · nom noté dans le journal BepInEx";
             }
+            m.Profile = AttackProfile.Chips(approach);
 
-            m.Bars[0] = Bar(BarLabels[0], r.SpeedNote, Format.Speed(r.SpeedMs));
-            m.Bars[1] = Bar(BarLabels[1], rangeMode == RangeNoteMode.Logarithmic ? r.RangeNoteLog : r.RangeNoteRank, Format.Distance(r.MaxRangeM));
-            m.Bars[2] = Bar(BarLabels[2], r.ExplosiveNote, Format.Kilograms(r.ExplosiveKg));
-            m.Bars[3] = Bar(BarLabels[3], r.PenetrationNote, Format.Plain(r.Penetration));
-            m.Bars[4] = Bar(BarLabels[4], r.ExplosivePerMillionNote, Format.KilogramsPerMillion(r.ExplosivePerMillion));
+            // Valeurs : classeur d'abord, sinon lues en jeu ; notes : classeur, sinon rang parmi les armes du classeur.
+            double? speed = r.SpeedMs ?? Positive(live.SpeedMs);
+            double? range = r.MaxRangeM ?? Positive(live.MaxRangeM);
+            double? explosive = r.ExplosiveKg ?? live.ExplosiveKg;
+            double? penetration = r.Penetration ?? live.Penetration;
+            double? cost = r.CostMillions ?? live.CostMillions;
+            double? perMillion = r.ExplosivePerMillion;
+            if (perMillion == null && explosive != null && cost != null && cost.Value > 0)
+                perMillion = NoteScale.RoundHalfUp(explosive.Value / cost.Value, 1);
 
-            m.Stats[0] = Stat(0, Format.Cost(r.CostMillions));
-            m.Stats[1] = Stat(1, Format.Distance(r.MinRangeM));
+            double? rangeNote = rangeMode == RangeNoteMode.Logarithmic
+                ? r.RangeNoteLog ?? WeaponScales.RangeLogNote(range)
+                : r.RangeNoteRank ?? scales?.Range.NoteOfNew(range);
+            m.Bars[0] = Bar(BarLabels[0], r.SpeedNote ?? scales?.Speed.NoteOfNew(speed), Format.Speed(speed));
+            m.Bars[1] = Bar(BarLabels[1], rangeNote, Format.Distance(range));
+            m.Bars[2] = Bar(BarLabels[2], r.ExplosiveNote ?? scales?.Explosive.NoteOfNew(explosive), Format.Kilograms(explosive));
+            m.Bars[3] = Bar(BarLabels[3], r.PenetrationNote ?? scales?.Penetration.NoteOfNew(penetration), Format.Plain(penetration));
+            m.Bars[4] = Bar(BarLabels[4], r.ExplosivePerMillionNote ?? scales?.ExplosivePerMillion.NoteOfNew(perMillion),
+                            Format.KilogramsPerMillion(perMillion));
+
+            m.Stats[0] = Stat(0, Format.Cost(cost));
+            m.Stats[1] = Stat(1, Format.Distance(r.MinRangeM ?? live.MinRangeM));
             m.Stats[2] = Stat(2, seekerText);
             m.Stats[3] = Stat(3, Format.YesNo(seeker.Infrared));
             m.Stats[4] = Stat(4, Format.YesNo(r.FireAndForget ?? seeker.FireAndForget));
             m.Stats[5] = Stat(5, Format.YesNo(r.LaserRequired ?? seeker.LaserRequired));
 
+            var d = r.Defense ?? new Defense();
+            double? rcs = live.RcsM2 ?? d.RcsM2;
+            var est = new WeaponEstimates.Inputs
+            {
+                Penetration = penetration,
+                ExplosiveKg = explosive,
+                MassKg = live.MassKg,
+                SpeedMs = speed,
+                RcsM2 = rcs,
+                IrNote = d.IrNote ?? live.IrNote,
+                AntiSurface = live.Flags.AntiSurface > 0,
+                AntiAir = live.Flags.AntiAir > 0,
+                Nuclear = live.Flags.Nuclear,
+                Energy = live.Flags.Energy,
+                Glide = live.Flags.GlideBomb,
+                Bomb = live.Flags.Bomb || live.Flags.GlideBomb,
+                Projectile = live.Flags.Missile || live.Flags.HasMissileBody || live.Flags.Bomb || live.Flags.GlideBomb,
+                TargetMaxSpeed = live.TargetMaxSpeed,
+                Approach = approach,
+            };
+
             var g = r.AirToGround ?? new AirToGround();
             int?[] ground = { g.LightVehicles, g.Tanks, g.LightBuildings, g.LargeBuildings, g.Bunker, g.LightShip, g.MediumShip, g.Carrier };
-            for (int i = 0; i < AirToGroundCount; i++) m.AirToGround[i] = Tile(AirToGroundLabels[i], ground[i], false, null);
+            for (int i = 0; i < AirToGroundCount; i++)
+                m.AirToGround[i] = ground[i] != null || !live.HasInfo
+                    ? Tile(AirToGroundLabels[i], ground[i], false, null)
+                    : EstimatedTile(AirToGroundLabels[i], WeaponEstimates.GroundNote(i, est), null);
 
             var a = r.AirToAir ?? new AirToAir();
             int?[] air = { a.SmallAircraft, a.Helicopter, a.MediumAircraft, a.LargeAircraft };
-            for (int i = 0; i < AirToAirCount; i++) m.AirToAir[i] = Tile(AirToAirLabels[i], air[i], false, null);
+            for (int i = 0; i < AirToAirCount; i++)
+                m.AirToAir[i] = air[i] != null || !live.HasInfo
+                    ? Tile(AirToAirLabels[i], air[i], false, null)
+                    : EstimatedTile(AirToAirLabels[i], WeaponEstimates.AirNote(i, est), null);
 
-            var d = r.Defense ?? new Defense();
-            double? rcs = live.RcsM2 ?? d.RcsM2;
             m.Defense[0] = Tile(DefenseLabels[0], d.Agility ?? live.AgilityNote, false, Format.Agility(live.TurnRateDegS, live.GLimit));
-            m.Defense[1] = Tile(DefenseLabels[1], d.RcsNote, true, Format.SquareMeters(rcs));
-            m.Defense[2] = Tile(DefenseLabels[2], d.IrNote, true, Format.Infrared(live.IrIntensity));
-            m.Defense[3] = Tile(DefenseLabels[3], d.LaserResistance, false, null);
-            m.Defense[4] = Tile(DefenseLabels[4], d.HitDifficulty, false, null);
+            m.Defense[1] = Tile(DefenseLabels[1], d.RcsNote ?? WeaponEstimates.RcsNote(rcs), true, Format.SquareMeters(rcs));
+            m.Defense[2] = Tile(DefenseLabels[2], d.IrNote ?? live.IrNote, true, Format.Infrared(live.IrIntensity));
+            m.Defense[3] = d.LaserResistance != null || !live.HasInfo
+                ? Tile(DefenseLabels[3], d.LaserResistance, false, null)
+                : EstimatedTile(DefenseLabels[3], WeaponEstimates.NoteFromN(WeaponEstimates.LaserN(est)), WeaponEstimates.LaserN(est));
+            m.Defense[4] = d.HitDifficulty != null || !live.HasInfo
+                ? Tile(DefenseLabels[4], d.HitDifficulty, false, null)
+                : EstimatedTile(DefenseLabels[4], WeaponEstimates.NoteFromN(WeaponEstimates.SiteN(est)), WeaponEstimates.SiteN(est));
             return m;
         }
+
+        private static double? Positive(double? v) => v != null && v.Value > 0 ? v : null;
+
+        /// <summary>Tuile dont la note est calculée par le modèle du classeur d'efficacité : « estimé » (ou « est. N 3,4 ») en dessous.</summary>
+        private static TileField EstimatedTile(string label, int? note, double? n) =>
+            Tile(label, note, false, note == null ? null : n == null ? Estimated : "est. N " + Format.Number(n.Value, 1));
 
         private static BarField Bar(string label, double? note, string real) => new BarField
         {

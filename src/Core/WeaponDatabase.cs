@@ -19,6 +19,11 @@ namespace NuclearOptionWiki.Core
         public int Count => _byKey.Count;
         public IEnumerable<KeyValuePair<string, WeaponRecord>> All => _byKey;
 
+        private WeaponScales _scales;
+
+        /// <summary>Classements des valeurs du JSON, pour noter les valeurs lues en jeu (calculés une fois).</summary>
+        public WeaponScales Scales => _scales ?? (_scales = WeaponScales.From(_byKey.Values));
+
         private WeaponDatabase(WeaponFile file)
         {
             _byKey = new Dictionary<string, WeaponRecord>(file.Weapons ?? new Dictionary<string, WeaponRecord>(), StringComparer.Ordinal);

@@ -25,6 +25,7 @@ namespace NuclearOptionWiki.Tests
             SeekerTests();
             ProfileTests();
             UnknownWeaponTests();
+            EstimateTests(db);
             AllSheetsTests(db);
             ConfigKeyTests(root);
             WeaponCategoryTests();
@@ -162,9 +163,89 @@ namespace NuclearOptionWiki.Tests
             Eq("XYZ-99 Prototype", f.Title, "titre = nom en jeu");
             Eq("Hors Excel", f.Chip1, "puce hors Excel");
             True(f.Subtitle.StartsWith("ARME NON RÉFÉRENCÉE"), "mention non référencée");
-            True(f.AirToGround.Concat(f.AirToAir).Concat(f.Defense).All(t => t.IsNotAvailable), "toutes les notes en N/A");
+            True(f.AirToGround.Concat(f.AirToAir).Concat(f.Defense).Where(t => t.Label != "Sign. radar").All(t => t.IsNotAvailable), "notes en N/A sans données de jeu");
+            Eq("3", f.Defense[1].Note, "note RCS calculée depuis la RCS lue en jeu (0,05 m²)");
             Eq("0,05 m²", f.Defense[1].Real, "valeur lue en jeu conservée");
             Eq("Arme inconnue", FicheModel.Build(null, null, LiveStats.None, RangeNoteMode.Rank).Title, "titre par défaut");
+        }
+
+        /// <summary>Valeurs lues en jeu et notes estimées pour une arme hors classeur (mods ajoutés, v0.5.1).</summary>
+        private static void EstimateTests(WeaponDatabase db)
+        {
+            var s = db.Scales;
+            Eq<double?>(5.5, s.Explosive.NoteOfMember(9), "rang : même calcul que le script (explosif 9 kg → 5,5)");
+            Eq<double?>(0, s.Explosive.NoteOfNew(0), "rang : 0 → 0 (Q3)");
+            Eq<double?>(null, s.Speed.NoteOfNew(null), "rang : absent → N/A");
+            True(s.Speed.NoteOfNew(1e9) == 10, "rang : valeur record → 10");
+            Eq<double?>(5.5, WeaponScales.RangeLogNote(10000), "portée log 10 km");
+
+            // Modèle d'efficacité contre les notes du classeur (cases remplies) : concordance exigée ≥ 80 %.
+            int same = 0, close = 0, total = 0;
+            foreach (var kv in db.All)
+            {
+                var r = kv.Value;
+                if (r.Type != null && r.Type.Contains("nucléaire")) continue;
+                var w = new WeaponEstimates.Inputs { Penetration = r.Penetration, ExplosiveKg = r.ExplosiveKg, AntiSurface = true, AntiAir = true };
+                var g = r.AirToGround;
+                int?[] expected = { g.LightVehicles, g.Tanks, g.LightBuildings, g.LargeBuildings, g.Bunker, g.LightShip, g.MediumShip, g.Carrier };
+                for (int i = 0; i < expected.Length; i++)
+                {
+                    if (expected[i] == null || (r.Penetration == null && r.ExplosiveKg == null)) continue;
+                    var e = WeaponEstimates.GroundNote(i, w);
+                    total++;
+                    if (e == expected[i]) same++;
+                    if (e != null && Math.Abs(e.Value - expected[i].Value) <= 1) close++;
+                }
+            }
+            Console.WriteLine($"  modèle d'efficacité : {same}/{total} notes air-sol identiques au classeur, {close}/{total} à ±1");
+            True(total > 300 && same >= 0.8 * total && close >= 0.95 * total, "modèle d'efficacité fidèle au classeur");
+
+            // Régressions d'interception (feuille « Vulnérabilité défenses ») : AGM-27 Pyre, AT-145, AGM-48.
+            var pyre = new WeaponEstimates.Inputs { MassKg = 60, SpeedMs = 2000 / 3.6, AntiSurface = true, Projectile = true, RcsM2 = 0.02, IrNote = 1, Approach = "évasion zigzag 0.1" };
+            Eq("7,8", Format.Number(WeaponEstimates.LaserN(pyre).Value, 1), "N laser AGM-27 Pyre (régression)");
+            var at145 = new WeaponEstimates.Inputs { MassKg = 20, SpeedMs = 908 / 3.6, AntiSurface = true, Projectile = true, RcsM2 = 0.02, IrNote = 1 };
+            Eq("16,7", Format.Number(WeaponEstimates.CannonN(at145).Value, 1), "N canon AT-145 (classeur : 16,7)");
+            var agm = new WeaponEstimates.Inputs { MassKg = 50, SpeedMs = 357.5, AntiSurface = true, Projectile = true, RcsM2 = 0.02, IrNote = 1, Approach = "datalink; loft 0.2; évasion zigzag 0.1; évite le relief" };
+            Eq("2,9", Format.Number(WeaponEstimates.ShortSamN(agm).Value, 1), "N SAM court AGM-48 (classeur : 2,9)");
+            Eq("5,4", Format.Number(WeaponEstimates.CannonN(agm).Value, 1), "N canon AGM-48 (classeur : 5,4)");
+            var bomb = new WeaponEstimates.Inputs { MassKg = 125, AntiSurface = true, Projectile = true, Bomb = true, RcsM2 = 0.05, IrNote = 0 };
+            Eq("7", Format.Number(WeaponEstimates.CannonN(bomb).Value, 1), "N canon PAB-125 (classeur : 7)");
+            Eq("3,4", Format.Number(WeaponEstimates.ShortSamN(bomb).Value, 1), "N SAM court PAB-125 (classeur : 3,4)");
+            Eq<int?>(null, WeaponEstimates.LaserN(new WeaponEstimates.Inputs { MassKg = 1, AntiAir = true, Projectile = true }) == null ? (int?)null : 1, "missile air-air : pas d'interception notée");
+
+            // Arme d'un mod absente du classeur : un AGM-48 « lu en jeu » doit retrouver les notes du classeur.
+            var live = new LiveStats
+            {
+                HasInfo = true, IsMissile = true, SeekerType = "Optical", SeekerComponent = "OpticalSeeker",
+                Flags = new WeaponFlags { HasInfo = true, Missile = true, HasSeeker = true, HasMissileBody = true, AntiSurface = 1 },
+                SpeedMs = 357.5, MaxRangeM = 10000, MinRangeM = 1000, Penetration = 1550, ExplosiveKg = 9, CostMillions = 0.09, MassKg = 50,
+                RcsM2 = 0.02, IrNote = 1, TargetMaxSpeed = 30, Approach = "datalink; loft 0.2; évasion zigzag 0.1; évite le relief",
+            };
+            var f = FicheModel.Build(null, "AGM-48 (mod)", live, RangeNoteMode.Logarithmic, s);
+            True(f.Unreferenced, "hors classeur");
+            Eq("Missile|Lu en jeu", f.Chip1 + "|" + f.Chip2, "puces : type déduit du jeu");
+            Eq("DATALINK|LOFT|ZIGZAG|SUIVI RELIEF", string.Join("|", f.Profile), "profil d'attaque lu en jeu");
+            Eq("358 m/s|10 km|9 kg|1 550|100 kg/M$", string.Join("|", f.Bars.Select(b => b.Real)), "valeurs des barres lues en jeu");
+            True(f.Bars.All(b => b.Note != Format.NotAvailable), "les 5 barres sont notées");
+            Eq("5,5", f.Bars[1].Note, "note de portée log");
+            Eq("0,09 M$|1 km|Optique (opérateur)|NON|NON|NON", string.Join("|", f.Stats.Select(x => x.Value)), "stats lues en jeu");
+            Eq("5|5|3|2|0|3|1|0", string.Join("|", f.AirToGround.Select(t => t.Note)), "notes air-sol estimées (classeur : 5|5|3|1|0|3|1|0, gros bâtiments à ±1)");
+            Eq(FicheModel.Estimated, f.AirToGround[0].Real, "note estimée signalée");
+            True(f.AirToAir.All(t => t.IsNotAvailable), "pas anti-air : AA en N/A");
+            Eq("2", f.Defense[1].Note, "note RCS calculée (D13)");
+            Eq("1", f.Defense[2].Note, "note IR calculée en jeu");
+            Eq("1", f.Defense[3].Note, "résistance laser estimée (classeur : 1)");
+            True(f.Defense[4].Real.StartsWith("est. N "), "difficulté à toucher estimée");
+
+            var gun = new LiveStats
+            {
+                HasInfo = true, IsGun = true, Flags = new WeaponFlags { HasInfo = true, Gun = true, AntiAir = 1, AntiSurface = 1 },
+                SpeedMs = 1000, MaxRangeM = 2000, Penetration = 400, ExplosiveKg = 0.015, CostMillions = 0.00003, MassKg = 0.1,
+            };
+            var fg = FicheModel.Build(null, "20mm (mod)", gun, RangeNoteMode.Logarithmic, s);
+            Eq("Canon / mitrailleuse / lance-grenade", fg.Chip1, "type canon");
+            True(fg.AirToAir.All(t => !t.IsNotAvailable), "canon : notes air-air estimées");
+            True(fg.Defense[3].IsNotAvailable && fg.Defense[4].IsNotAvailable, "canon : interception sans objet (N/A)");
         }
 
         /// <summary>Critère E5 : toutes les fiches ont exactement les mêmes champs, dans le même ordre.</summary>
