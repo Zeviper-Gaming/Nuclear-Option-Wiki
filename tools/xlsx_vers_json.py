@@ -21,6 +21,7 @@ Usage : python3 tools/xlsx_vers_json.py [--xlsx data/Armes_regroupees.xlsx] [--o
 """
 import argparse
 import csv
+import glob
 import hashlib
 import json
 import math
@@ -172,11 +173,135 @@ def lignes_completes(xlsx, stats=None, efficacite=None):
     return donnees, helico, ajoutees
 
 
+DUMP = os.path.join(RACINE, "data", "dump")
+
+
+def _dernier(motif):
+    fichiers = sorted(glob.glob(os.path.join(DUMP, motif)))
+    return fichiers[-1] if fichiers else None
+
+
+def _lire_csv(chemin):
+    with open(chemin, encoding="utf-8-sig", newline="") as f:
+        return list(csv.DictReader(f, delimiter=";"))
+
+
+def armes_hors_classeur(armes, alias, notes_rang, journal=print):
+    """
+    Armes des mods ajoutés : options d'emport des appareils (dernier export des emports, data/dump) dont l'arme n'est
+    ni dans le classeur, ni un alias, ni un nom unique du classeur. Entrée construite depuis le dernier export des armes
+    (valeurs lues en jeu) ; notes /10 classées parmi les armes du classeur (comme le fait le mod en jeu) ; notes air-sol,
+    air-air et d'interception laissées vides : le mod les estime en jeu avec le modèle du classeur d'efficacité.
+    """
+    export_armes, export_emports = _dernier("*armes_v*.csv"), _dernier("*_emports_v*.csv")
+    export_avions = _dernier("*_avions_v*.csv")
+    if not (export_armes and export_emports):
+        return {}
+    lignes = _lire_csv(export_armes)
+    if "approche" not in (lignes[0] if lignes else {}):
+        journal(f"Info : {os.path.basename(export_armes)} est un export antérieur à la v0.5.1 : armes des mods non ajoutées.")
+        return {}
+    par_info = {}
+    for r in lignes:
+        if r.get("info_name"):
+            par_info.setdefault(r["info_name"], r)
+    noms_avions = {r["json_key"]: r["unit_name"] for r in _lire_csv(export_avions)} if export_avions else {}
+    porteurs = {}
+    for r in _lire_csv(export_emports):
+        info = r.get("info_name")
+        if info and "CARGO" not in (r.get("categorie") or "").split("|"):
+            porteurs.setdefault(info, set()).add(noms_avions.get(r["json_key"], r["json_key"]))
+    noms_uniques = {}
+    for a in armes.values():
+        if a.get("nom"):
+            noms_uniques[a["nom"].lower()] = noms_uniques.get(a["nom"].lower(), 0) + 1
+
+    ajout = {}
+    for info, avions in sorted(porteurs.items()):
+        e = par_info.get(info)
+        if e is None or info in armes or info in alias:
+            continue
+        nom = texte(e.get("weapon_name")) or info
+        if noms_uniques.get(nom.lower()) == 1:
+            continue                                                  # trouvée en jeu par son nom (D18)
+        if e.get("cargo") == "1" or e.get("troops") == "1":
+            continue
+        vitesse = nombre_txt(e.get("vitesse_max")) or nombre_txt(e.get("vitesse_initiale"))
+        explosif, cout = nombre_txt(e.get("explosif")), nombre_txt(e.get("cout_par_coup"))
+        par_m = arrondi(explosif / cout, 1) if explosif is not None and cout else None
+        portee = nombre_txt(e.get("portee_max")) or None
+        ajout[info] = {
+            "excel": f"{nom}|export {date_export(export_armes)}",
+            "nom": nom,
+            "source": next(iter(avions)) if len(avions) == 1 else "Mod (" + ", ".join(sorted(avions)) + ")",
+            "type": texte(e.get("type")),
+            "guidage": None,
+            "approche": texte(e.get("approche")),
+            "penetration": nombre_txt(e.get("penetration")),
+            "explosif_kg": explosif,
+            "cout_m": cout,
+            "explosif_par_m": par_m,
+            "portee_min_m": nombre_txt(e.get("portee_min")),
+            "portee_max_m": portee,
+            "vitesse_ms": vitesse or None,
+            "note_vitesse": notes_rang["vitesse"](vitesse or None),
+            "note_portee_log": note_portee_log(portee),
+            "note_portee_rang": notes_rang["portee"](portee),
+            "note_explosif_rang": notes_rang["explosif"](explosif),
+            "note_penetration_rang": notes_rang["penetration"](nombre_txt(e.get("penetration"))),
+            "note_explosif_par_m_rang": notes_rang["par_m"](par_m),
+            "laser_requis": None,
+            "tire_et_oublie": None,
+            "air_sol": {k: None for k in AIR_SOL},
+            "air_air": dict({k: None for k in AIR_AIR}, helico=None),
+            "defense": {"agilite": None, "rcs_m2": nombre_txt(e.get("rcs")), "note_rcs": note_rcs(nombre_txt(e.get("rcs"))),
+                        "note_ir": None, "resistance_laser": None, "difficulte_toucher": None},
+            "origine": "export",
+        }
+        mounts = sorted({r["mount_jsonkey"] for r in lignes if r.get("info_name") == info and r.get("mount_jsonkey")})
+        for m in mounts:
+            alias.setdefault(m, info)
+    if ajout:
+        journal(f"{len(ajout)} arme(s) de mods ajoutée(s) depuis {os.path.basename(export_armes)} : "
+                + ", ".join(f"{a['nom']} ({a['source']})" for a in ajout.values()))
+    return ajout
+
+
+def nombre_txt(v):
+    try:
+        f = float(str(v).replace(",", "."))
+    except (TypeError, ValueError):
+        return None
+    if math.isnan(f) or math.isinf(f):
+        return None
+    return int(f) if f.is_integer() else f
+
+
+def date_export(chemin):
+    return os.path.basename(chemin)[:10]
+
+
+def noteur_nouveau(valeurs, zero_nul=True):
+    """Note d'une valeur hors classeur, classée parmi les valeurs du classeur (même calcul que RankScale.NoteOfNew en C#)."""
+    vals = sorted(v for v in valeurs if v is not None and v > 0)
+    def note(v):
+        if v is None:
+            return None
+        if v <= 0:
+            return 0 if zero_nul else None
+        n = len(vals) + 1
+        if n == 1:
+            return 10
+        return arrondi(1 + 9 * sum(1 for x in vals if x <= v) / (n - 1), 1)
+    return note
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--xlsx", default=os.path.join(RACINE, "data", "Armes_regroupees.xlsx"))
     ap.add_argument("--correspondance", default=os.path.join(RACINE, "data", "correspondance.csv"))
     ap.add_argument("--out", default=os.path.join(RACINE, "data", "weapons.json"))
+    ap.add_argument("--sans-export", action="store_true", help="N'ajoute pas les armes des mods lues dans le dernier export.")
     args = ap.parse_args()
 
     donnees, notes_helico, ajoutees = lignes_completes(args.xlsx)
@@ -268,6 +393,16 @@ def main():
         if cle in armes:
             sys.exit(f"Clé en double : {cle} (lignes « {armes[cle]['excel']} » et « {cle_excel} »). Vérifier correspondance.csv.")
         armes[cle] = arme
+
+    notes_rang = {
+        "vitesse": noteur_nouveau((a["vitesse_ms"] for a in armes.values()), zero_nul=False),
+        "portee": noteur_nouveau(a["portee_max_m"] for a in armes.values()),
+        "explosif": noteur_nouveau(a["explosif_kg"] for a in armes.values()),
+        "penetration": noteur_nouveau(a["penetration"] for a in armes.values()),
+        "par_m": noteur_nouveau(a["explosif_par_m"] for a in armes.values()),
+    }
+    if not args.sans_export:
+        armes.update(armes_hors_classeur(armes, alias, notes_rang))
 
     with open(args.xlsx, "rb") as f:
         empreinte = hashlib.sha256(f.read()).hexdigest()

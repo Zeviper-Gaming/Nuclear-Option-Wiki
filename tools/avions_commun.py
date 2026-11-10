@@ -411,6 +411,20 @@ def _appareil(e, n):
         return v
 
     longueur, envergure, hauteur = dimensions(n.get("dimensions"))
+    # v0.5.1 : équipement lu sur le prefab (export enrichi), en repli de NO-stats pour les appareils des mods ajoutés.
+    poussee, puissance = nb("poussee_kn"), nb("puissance_kw")
+    if poussee is None and puissance is None:
+        p_n, p_brute = nombre(e.get("poussee_n")), nombre(e.get("puissance"))
+        if p_n:
+            poussee = arrondi(p_n / 1000, 1)
+        elif p_brute:
+            puissance = arrondi(p_brute / 1000 if p_brute > 100000 else p_brute, 0)
+    radar = nb("radar_m")
+    if radar is None and "radar_portee" in e:
+        radar = nombre(e.get("radar_portee")) or 0.0
+    brouilleur = booleen(n.get("brouilleur"))
+    if brouilleur is None and e.get("brouilleur") in ("0", "1"):
+        brouilleur = e["brouilleur"] == "1"
     vertical = booleen(n.get("decollage_vertical"))
     if vertical is None:
         vertical = booleen(e.get("vertical"))
@@ -423,10 +437,10 @@ def _appareil(e, n):
         "decrochage_kmh": nb("decrochage_kmh", "decrochage", True), "maniabilite": nb("maniabilite", "maniabilite"),
         "g_max": nb("g_max", "g_max"), "masse_vide_kg": nb("masse_vide_kg", "masse_vide", True),
         "masse_max_kg": nb("masse_max_kg", "masse_max", True), "masse_parts": nombre(e.get("masse_parts")),
-        "carburant_kg": nb("carburant_kg"), "poussee_kn": nb("poussee_kn"), "puissance_kw": nb("puissance_kw"),
+        "carburant_kg": nb("carburant_kg", "carburant", True), "poussee_kn": poussee, "puissance_kw": puissance,
         "decollage_vertical": vertical, "decollage_m": nb("decollage_m", "decollage_m", True),
-        "decollage_ms": nb("decollage_ms", "decollage_ms", True), "radar_m": nb("radar_m"),
-        "brouilleur": booleen(n.get("brouilleur")), "canons_fixes": nb("canons_fixes"), "leurres": nb("leurres"),
+        "decollage_ms": nb("decollage_ms", "decollage_ms", True), "radar_m": radar,
+        "brouilleur": brouilleur, "canons_fixes": nb("canons_fixes"), "leurres": nb("leurres", "leurres"),
         "paillettes": nb("paillettes"), "blindage": nb("blindage", "blindage"), "rcs_m2": nb("rcs_m2", "rcs", True),
         "longueur_m": longueur or nombre(e.get("longueur")), "envergure_m": envergure or nombre(e.get("largeur")),
         "hauteur_m": hauteur or nombre(e.get("hauteur")),
